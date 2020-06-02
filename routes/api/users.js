@@ -78,4 +78,23 @@ router.post(
   }
 );
 
+router.put('/:email', async(req, res) =>
+{
+  const id = req.body.id;
+
+  User.updateOne({email: req.params.email}, {$set: {stripeCustomerId: id }}, (err) =>
+  {
+    if(err)
+    {
+      console.log(err);
+      return res.status(500).write('email non trovata');
+    }
+    else
+    {
+      console.log("ottimo");
+      return res.status(200);
+    }
+  })
+})
+
 module.exports = router;
