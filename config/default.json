@@ -1,4 +1,4 @@
 {
-  "mongoURI": "mongodb+srv://turbodami:tETybcvaoZtE2vsg@deploi-8wzci.azure.mongodb.net/test?retryWrites=true&w=majority",
+  "mongoURI": "mongodb+srv://node:9u4biljMQc4jjqbe@corso-eqjbf.azure.mongodb.net/test?retryWrites=true&w=majority",
   "jwtSecret": "diobestia"
 }
