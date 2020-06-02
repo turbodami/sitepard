@@ -22,6 +22,16 @@ const SiteSchema = new mongoose.Schema({
   whatsappNumber: {
     type: Number,
   },
+  domain:
+  {
+      type: String,
+      required: false
+  },
+  index:
+  {
+      type: String,
+      required: false
+  },
   description: {
     type: String,
   },
