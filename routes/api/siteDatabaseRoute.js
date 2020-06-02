@@ -36,11 +36,6 @@ router.post(
     [
       check("category", "category is required").not().isEmpty(),
       check("name", "name is required").not().isEmpty(),
-      //check("tel", "tel is required").not().isEmpty(),
-      //check("address", "address is required").not().isEmpty(),
-      //check("takeout", "takeout is required").not().isEmpty(),
-      //check("delivery", "delivery is required").not().isEmpty(),
-      //check("whatsapp", "whatsapp is required").not().isEmpty(),
       check("palette", "palette is required").not().isEmpty(),
       check("style", "style is required").not().isEmpty(),
     ],
@@ -65,6 +60,7 @@ router.post(
       palette,
       style,
       type,
+      timeTable,
     } = req.body;
 
     //build site object
@@ -81,6 +77,7 @@ router.post(
     if (palette) siteFields.palette = palette;
     if (style) siteFields.style = style;
     if (type) siteFields.type = type;
+    if (timeTable) siteFields.timeTable = timeTable;
 
     try {
       let site = await Site.findOne({ user: req.user.id });
