@@ -191,4 +191,60 @@ router.delete("/products/:prod_id", auth, async (req, res) => {
   }
 });
 
+//@route    PUT api/site/categories
+//@desc     add site categories
+//@access   private
+router.put(
+  "/categories",
+  [auth, [check("name", "name is required!").not().isEmpty()]],
+  async (req, res) => {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.status(400).json({ errors: errors.array() });
+    }
+
+    const { name } = req.body;
+
+    const newCategory = {
+      name,
+    };
+
+    try {
+      const site = await Site.findOne({ user: req.user.id });
+      console.log(site);
+      site.categories.unshift(newCategory);
+
+      await site.save();
+
+      res.json(site);
+    } catch (err) {
+      console.error(err.message);
+      res.status(500).send("server error!");
+    }
+  }
+);
+
+//@route    DELETE api/site/categories/:cat_id
+//@desc     delete category from site
+//@access   private
+router.delete("/categories/:cat_id", auth, async (req, res) => {
+  try {
+    const site = await Site.findOne({ user: req.user.id });
+
+    //get remove index
+    const removeIndex = site.categories
+      .map((item) => item.id)
+      .indexOf(req.params.prod_id);
+
+    site.categories.splice(removeIndex, 1);
+
+    await site.save();
+
+    res.json(site);
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).send("server error!");
+  }
+});
+
 module.exports = router;

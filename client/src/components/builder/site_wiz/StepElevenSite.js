@@ -1,11 +1,11 @@
 import React, { Fragment } from "react";
 
-import { setAlert } from "../../actions/alert";
+import { setAlert } from "../../../actions/alert";
 
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 
-const StepEleven = ({ formData, setFormData, nextStep, setAlert }) => {
+const StepElevenSite = ({ formData, setFormData, nextStep, setAlert }) => {
   const handleChange = (e) => {
     e.persist();
 
@@ -16,8 +16,6 @@ const StepEleven = ({ formData, setFormData, nextStep, setAlert }) => {
         [e.target.name]: e.target.value,
       },
     });
-
-    console.log(formData);
   };
 
   const handleTimeTable = () => {
@@ -127,8 +125,8 @@ const StepEleven = ({ formData, setFormData, nextStep, setAlert }) => {
   );
 };
 
-StepEleven.propTypes = {
+StepElevenSite.propTypes = {
   setAlert: PropTypes.func.isRequired,
 };
 
-export default connect(null, { setAlert })(StepEleven);
+export default connect(null, { setAlert })(StepElevenSite);

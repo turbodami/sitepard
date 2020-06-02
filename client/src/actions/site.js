@@ -27,7 +27,7 @@ export const getCurrentSite = () => async (dispatch) => {
 };
 
 //create or update site
-export const createSite = (formData, history, edit = false) => async (
+export const createSite = (nextStep, formData, history, edit = false) => async (
   dispatch
 ) => {
   try {
@@ -49,6 +49,8 @@ export const createSite = (formData, history, edit = false) => async (
         edit ? "Sito aggiornato correttamente!" : "Sito creato correttamente!"
       )
     );
+
+    nextStep();
 
     if (edit) {
       history.push("/dashboard");
@@ -85,7 +87,7 @@ export const addProduct = (formData, history) => async (dispatch) => {
 
     dispatch(setAlert("Prodotto aggiunto", "success"));
 
-    history.push("/dashboard");
+    //history.push("/dashboard");
   } catch (err) {
     const errors = err.response.data.errors;
 
@@ -111,6 +113,58 @@ export const deleteProduct = (id) => async (dispatch) => {
     });
 
     dispatch(setAlert("Prodotto rimosso!", "success"));
+  } catch (err) {
+    dispatch({
+      type: SITE_ERROR,
+      payload: { msg: err.response.statusText, status: err.response.status },
+    });
+  }
+};
+
+//add category
+export const addCategory = (formData, history) => async (dispatch) => {
+  try {
+    const config = {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    };
+
+    const res = await axios.put("/api/site/categories", formData, config);
+
+    dispatch({
+      type: UPDATE_SITE,
+      payload: res.data,
+    });
+
+    dispatch(setAlert("Categoria aggiunta", "success"));
+
+    //history.push("/dashboard");
+  } catch (err) {
+    const errors = err.response.data.errors;
+
+    if (errors) {
+      errors.forEach((error) => dispatch(setAlert(error.msg, "danger")));
+    }
+
+    dispatch({
+      type: SITE_ERROR,
+      payload: { msg: err.response.statusText, status: err.response.status },
+    });
+  }
+};
+
+//delete category
+export const deleteCategory = (id) => async (dispatch) => {
+  try {
+    const res = await axios.delete(`/api/site/categories/${id}`);
+
+    dispatch({
+      type: UPDATE_SITE,
+      payload: res.data,
+    });
+
+    dispatch(setAlert("Categoria rimossa!", "success"));
   } catch (err) {
     dispatch({
       type: SITE_ERROR,

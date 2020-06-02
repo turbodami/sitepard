@@ -1,6 +1,6 @@
 import React, { Fragment } from "react";
 
-const StepTwo = ({ formData, clientValidation, onChange }) => {
+const StepTwoSite = ({ formData, clientValidation, onChange }) => {
   return (
     <Fragment>
       <h1 className="large text-primary">Qual'è il nome della tua attività?</h1>
@@ -34,4 +34,4 @@ const StepTwo = ({ formData, clientValidation, onChange }) => {
   );
 };
 
-export default StepTwo;
+export default StepTwoSite;

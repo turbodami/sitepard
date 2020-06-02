@@ -1,6 +1,6 @@
 import React, { useState, Fragment } from "react";
 
-const StepEight = ({ handleSelection, nextStep }) => {
+const StepEightSite = ({ handleSelection, nextStep }) => {
   const coverLoader = (
     <Fragment>
       <form className="form">
@@ -48,4 +48,4 @@ const StepEight = ({ handleSelection, nextStep }) => {
   );
 };
 
-export default StepEight;
+export default StepEightSite;

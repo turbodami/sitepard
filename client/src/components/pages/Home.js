@@ -17,7 +17,7 @@ const Home = ({ isAuthenticated }) => {
             Ricevi gli ordini via Whatsapp senza bisogno di gestionale
           </p>
           <div className="buttons">
-            <Link to="/builder" className="btn btn-primary">
+            <Link to="/sitebuilder" className="btn btn-primary">
               Prova ora
             </Link>
           </div>

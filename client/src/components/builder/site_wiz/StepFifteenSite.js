@@ -1,6 +1,6 @@
 import React, { Fragment } from "react";
 import { Link } from "react-router-dom";
-import image from "../../images/image.gif";
+import image from "../../../images/image.gif";
 
 const StepFifteen = () => {
   return (

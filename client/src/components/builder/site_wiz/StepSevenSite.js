@@ -1,6 +1,6 @@
 import React, { useState, Fragment } from "react";
 
-const StepSeven = ({ handleSelection, nextStep }) => {
+const StepSevenSite = ({ handleSelection, nextStep }) => {
   const logoLoader = (
     <Fragment>
       <form className="form">
@@ -44,4 +44,4 @@ const StepSeven = ({ handleSelection, nextStep }) => {
   );
 };
 
-export default StepSeven;
+export default StepSevenSite;

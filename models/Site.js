@@ -84,6 +84,16 @@ const SiteSchema = new mongoose.Schema({
       photo: {
         type: String,
       },
+      category: {
+        type: String,
+      },
+    },
+  ],
+  categories: [
+    {
+      name: {
+        type: String,
+      },
     },
   ],
 });

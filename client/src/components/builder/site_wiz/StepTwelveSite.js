@@ -1,14 +1,14 @@
 import React, { Fragment } from "react";
 
-const StepNine = ({ formData, clientValidation, onChange }) => {
+const StepTwelveSite = ({ formData, clientValidation, onChange }) => {
   return (
     <Fragment>
       <h1 className="large text-primary">
-        Su che numero Whatsapp vuoi ricevere gli ordini?
+        Qual'è l'indirizzo della tua attività?
       </h1>
       <p className="lead">
-        <i className="fas fa-user" />I tuoi clienti ti manderanno direttamente
-        li gli ordini
+        <i className="fas fa-user" />
+        Inserisci l'indirizzo completo della tua attività
       </p>
 
       <form className="form">
@@ -16,15 +16,15 @@ const StepNine = ({ formData, clientValidation, onChange }) => {
           <input
             type="text"
             placeholder="Nome"
-            name="whatsappNumber"
-            value={formData.whatsappNumber}
+            name="address"
+            value={formData.address}
             onChange={(e) => onChange(e)}
           />
-          <small className="form-text">Scrivi il numero qui</small>
+          <small className="form-text">Sarà visibile dai tuoi clienti</small>
         </div>
         <input
           type="button"
-          onClick={() => clientValidation(formData.whatsappNumber)}
+          onClick={() => clientValidation(formData.address)}
           className="btn btn-primary"
           value="Avanti"
         />
@@ -33,4 +33,4 @@ const StepNine = ({ formData, clientValidation, onChange }) => {
   );
 };
 
-export default StepNine;
+export default StepTwelveSite;

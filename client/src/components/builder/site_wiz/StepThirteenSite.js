@@ -1,6 +1,6 @@
 import React, { Fragment } from "react";
 
-const StepThirteen = ({ formData, clientValidation, onChange }) => {
+const StepThirteenSite = ({ formData, clientValidation, onChange }) => {
   return (
     <Fragment>
       <h1 className="large text-primary">
@@ -36,4 +36,4 @@ const StepThirteen = ({ formData, clientValidation, onChange }) => {
   );
 };
 
-export default StepThirteen;
+export default StepThirteenSite;
