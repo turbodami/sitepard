@@ -1,6 +1,6 @@
 import React, { Fragment } from "react";
 
-const StepOne = ({ handleSelection }) => {
+const StepOneSite = ({ handleSelection }) => {
   return (
     <Fragment>
       <h1 className="large text-primary">Che attività svolgi?</h1>
@@ -33,4 +33,4 @@ const StepOne = ({ handleSelection }) => {
   );
 };
 
-export default StepOne;
+export default StepOneSite;

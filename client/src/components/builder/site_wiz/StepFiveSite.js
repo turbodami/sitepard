@@ -1,6 +1,6 @@
 import React, { Fragment } from "react";
 
-const StepOne = ({ formData, nextStep, onChange }) => {
+const StepOneSite = ({ formData, nextStep, onChange }) => {
   return (
     <Fragment>
       <h1 className="large text-primary">Qui ci sarà l'anteprima figa</h1>
@@ -19,4 +19,4 @@ const StepOne = ({ formData, nextStep, onChange }) => {
   );
 };
 
-export default StepOne;
+export default StepOneSite;

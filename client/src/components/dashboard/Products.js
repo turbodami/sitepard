@@ -9,6 +9,7 @@ const Products = ({ product, deleteProduct }) => {
       <tr key={prod._id}>
         <td>{prod.name}</td>
         <td>{prod.description}</td>
+        <td>{prod.category}</td>
         <td>{prod.price}</td>
         <td>{prod.photo}</td>
         <td>

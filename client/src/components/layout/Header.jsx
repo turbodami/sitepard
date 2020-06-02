@@ -36,7 +36,7 @@ const Header = ({ auth: { isAuthenticated, loading }, logout }) => {
 
           <ul>
             <li>
-              <Link to="/builder">Crea sito</Link>
+              <Link to="/sitebuilder">Crea sito</Link>
             </li>
             <li>
               <Link to="/about">Chi siamo</Link>
@@ -54,7 +54,7 @@ const Header = ({ auth: { isAuthenticated, loading }, logout }) => {
                 <Link to="/login" className="btn btn-primary">
                   Login
                 </Link>
-                <Link to="/builder" className="btn btn-danger">
+                <Link to="/sitebuilder" className="btn btn-danger">
                   Prova ora
                 </Link>
               </div>

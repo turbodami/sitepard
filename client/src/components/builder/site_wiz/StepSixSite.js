@@ -2,11 +2,11 @@ import React, { Fragment } from "react";
 
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
-import { setAlert } from "../../actions/alert";
-import { register } from "../../actions/auth";
+import { setAlert } from "../../../actions/alert";
+import { register } from "../../../actions/auth";
 import PropTypes from "prop-types";
 
-const StepSix = ({ formData, onChange, nextStep, setAlert, register }) => {
+const StepSixSite = ({ formData, onChange, nextStep, setAlert, register }) => {
   const { email, password, password2 } = formData;
 
   const onSubmit = async (e) => {
@@ -77,7 +77,7 @@ const StepSix = ({ formData, onChange, nextStep, setAlert, register }) => {
   );
 };
 
-StepSix.propTypes = {
+StepSixSite.propTypes = {
   setAlert: PropTypes.func.isRequired,
   register: PropTypes.func.isRequired,
   isAuthenticated: PropTypes.bool,
@@ -88,5 +88,5 @@ const mapStateToProps = (state) => ({
 });
 
 export default connect(mapStateToProps, { setAlert, register })(
-  withRouter(StepSix)
+  withRouter(StepSixSite)
 );

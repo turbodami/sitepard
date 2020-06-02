@@ -1,35 +1,35 @@
 import React, { Fragment } from "react";
 
-const StepFour = ({ handleSelection }) => {
+const StepThreeSite = ({ handleSelection }) => {
   return (
     <Fragment>
-      <h1 className="large text-primary">Che stile vuoi utilizzare?</h1>
+      <h1 className="large text-primary">Che colori ti piacciono?</h1>
       <p className="lead">
-        <i className="fas fa-user" /> Clicca sullo stile che ti piace di più
+        <i className="fas fa-user" /> Clicca sui colori da usare per il tuo sito
       </p>
       <input
         type="button"
         onClick={(e) => handleSelection(e)}
         className="btn btn-primary"
-        name="style"
-        value="frocio"
+        name="palette"
+        value="giallo/merda"
       />
       <input
         type="button"
         onClick={(e) => handleSelection(e)}
         className="btn btn-primary"
-        name="style"
-        value="clown"
+        name="palette"
+        value="verde/piscio"
       />
       <input
         type="button"
         onClick={(e) => handleSelection(e)}
         className="btn btn-primary"
-        name="style"
-        value="alcohol"
+        name="palette"
+        value="bianco/sborra"
       />
     </Fragment>
   );
 };
 
-export default StepFour;
+export default StepThreeSite;
