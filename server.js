@@ -24,7 +24,6 @@ const s3 = new aws.S3(
   }
 );
 
-app.get("/", (req, res) => res.send("api running"));
 
 //define subdomains
 app.use(subdomains(
@@ -91,6 +90,7 @@ app.get('/s/:firstSubdomain/*', async (req, res) =>
   }
 });
 
+app.get("/", (req, res) => res.send("api running"));
 
 const PORT = process.env.PORT || 5000;
 
