@@ -23,6 +23,7 @@
     "multer-s3": "^2.9.0",
     "request": "^2.88.2",
     "s-age": "1.1.2",
+    "stripe": "^8.56.0",
     "wildcard-subdomains": "^1.1.0"
   },
   "devDependencies": {

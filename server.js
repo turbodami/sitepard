@@ -38,6 +38,7 @@ app.use("/api/users", require("./routes/api/users"));
 app.use("/api/auth", require("./routes/api/auth"));
 app.use('/api/siteSpaces', require('./routes/api/siteSpacesRoute'));
 app.use("/api/site", require("./routes/api/siteDatabaseRoute"));
+app.use("/api/payment", require("./routes/api/paymentsRoute"));
 
 
 //Subdomain that lets the user display a site with nameSite.cactusdomaindev.xyz
