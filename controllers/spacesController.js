@@ -1,8 +1,7 @@
 const express = require('express');
 const aws = require('aws-sdk');
-const router = express.Router();
-const multer = require('multer');
-const multerS3 = require('multer-s3');
+const fs = require('fs');
+const path = require('path');
 
 const Site = require('../models/Site');
 
@@ -16,7 +15,7 @@ const s3 = new aws.S3(
 );
 
 
-exports.UploadSite = async(req, res) =>
+exports.UploadFile = async(req, res) =>
 {
   const page = String(req.body);
   const destination = 'users-sites/' + req.params.destination + '/index.html';
@@ -92,3 +91,43 @@ exports.downloadSite = async (req, res) =>
   
   //res.send('It works');
 };
+
+exports.uploadSite = async (path, domain) =>
+{
+  fs.readdir(path, (err, files) =>
+  {
+    if(!files || files.length === 0) {
+      console.log(`provided folder '${distFolderPath}' is empty or does not exist.`);
+      console.log('Make sure your project was compiled!');
+      return;
+    }
+
+    for (const fileName of files) {
+
+      // get the full path of the file
+      const filePath = path.join(distFolderPath, fileName);
+      
+      // ignore if directory
+      if (fs.lstatSync(filePath).isDirectory()) {
+        continue;
+      }
+  
+      // read file contents
+      fs.readFile(filePath, (error, fileContent) => {
+        // if unable to read file contents, throw exception
+        if (error) { throw error; }
+        
+        console.log(path.extname(fileContent));
+        // upload file to S3
+        // s3.putObject({
+        //   Bucket: config.s3BucketName,
+        //   Key: fileName,
+        //   Body: fileContent
+        // }, (res) => {
+        //   console.log(`Successfully uploaded '${fileName}'!`);
+        // });
+        
+      });
+    }
+  });
+}

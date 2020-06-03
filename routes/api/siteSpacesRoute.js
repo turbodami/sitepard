@@ -1,11 +1,8 @@
 const express = require('express');
 const router = express.Router();
-const config = require('config');
-const bcrypt = require('bcryptjs');
-const {check, validationResult} = require('express-validator');
 const aws = require('aws-sdk');
-const multer = require('multer');
-const multerS3 = require('multer-s3');
+
+const spacesController = require("../../controllers/spacesController");
 
 const s3 = new aws.S3(
     {
@@ -16,36 +13,39 @@ const s3 = new aws.S3(
     }
 );
 
-router.post('/:destination', async(req, res) =>
+router.post('/:domain', async(req, res) =>
 {
-  const page = String(req.body);
-  const destination = 'users-sites/' + req.params.destination + '/index.html';
-  console.log(destination);
 
-  const params = 
-  {
-    Bucket : "cactus-space",
+  console.log(req.params.domain);
+  console.log(req.body.path);
+  //spacesController.uploadSite(req.params.domain, )
+  // const destination = 'users-sites/' + req.params.domain + ;
+  // console.log(destination);
+
+  // const params = 
+  // {
+  //   Bucket : "cactus-space",
     
-    Key: destination,
-    ContentType: "text/html",
-    Body: page
-  }
+  //   Key: destination,
+  //   ContentType: "text/html",
+  //   Body: page
+  // }
   
-  s3.upload(params, (err, page) =>
-  {
-    if(err)
-    {
-      console.log('Error in callback');
-      console.log(err);
-      res.status(500).send('Server error');
-    }
-    else
-    {
-      console.log('success');
-      console.log(page);
-      res.status(200).send('Nice');
-    }
-  });
+  // s3.upload(params, (err, page) =>
+  // {
+  //   if(err)
+  //   {
+  //     console.log('Error in callback');
+  //     console.log(err);
+  //     res.status(500).send('Server error');
+  //   }
+  //   else
+  //   {
+  //     console.log('success');
+  //     console.log(page);
+  //     res.status(200).send('Nice');
+  //   }
+  // });
 });
 
 router.delete('/:destination', async(req, res) =>
