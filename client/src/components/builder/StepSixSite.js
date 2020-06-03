@@ -2,8 +2,8 @@ import React, { Fragment } from "react";
 
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
-import { setAlert } from "../../../actions/alert";
-import { register } from "../../../actions/auth";
+import { setAlert } from "../../actions/alert";
+import { register } from "../../actions/auth";
 import PropTypes from "prop-types";
 
 const StepSixSite = ({ formData, onChange, nextStep, setAlert, register }) => {

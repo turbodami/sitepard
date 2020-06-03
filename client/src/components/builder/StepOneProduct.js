@@ -1,10 +1,10 @@
 import React, { Fragment, useEffect, useState } from "react";
-import { getCurrentSite, addCategory } from "../../../actions/site";
+import { getCurrentSite, addCategory } from "../../actions/site";
 import PropTypes from "prop-types";
-import Spinner from "../../layout/Spinner";
+import Spinner from "../layout/Spinner";
 
 import { connect } from "react-redux";
-import Categories from "./Categories";
+import Categories from "../show/Categories";
 
 const StepOneProduct = ({
   getCurrentSite,

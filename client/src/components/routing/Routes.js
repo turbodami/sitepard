@@ -5,7 +5,7 @@ import Login from "../layout/Login";
 import Alert from "../layout/Alert";
 import About from "../pages/About";
 import Contact from "../pages/Contact";
-import SiteBuilder from "../builder/site_wiz/SiteBuilder";
+import SiteBuilder from "../builder/SiteBuilder";
 import Dashboard from "../dashboard/Dashboard";
 import PrivateRoute from "./PrivateRoute";
 import EditSite from "../site-forms/EditSite";
