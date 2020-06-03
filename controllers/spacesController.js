@@ -92,12 +92,12 @@ exports.downloadSite = async (req, res) =>
   //res.send('It works');
 };
 
-exports.uploadSite = async (path, domain) =>
+exports.uploadSite = async (folderPath, domain) =>
 {
-  fs.readdir(path, (err, files) =>
+  fs.readdir(folderPath, (err, files) =>
   {
     if(!files || files.length === 0) {
-      console.log(`provided folder '${distFolderPath}' is empty or does not exist.`);
+      console.log(`provided folder '${folderPath}' is empty or does not exist.`);
       console.log('Make sure your project was compiled!');
       return;
     }
@@ -105,7 +105,7 @@ exports.uploadSite = async (path, domain) =>
     for (const fileName of files) {
 
       // get the full path of the file
-      const filePath = path.join(distFolderPath, fileName);
+      const filePath = path.join(folderPath, fileName);
       
       // ignore if directory
       if (fs.lstatSync(filePath).isDirectory()) {
@@ -116,16 +116,36 @@ exports.uploadSite = async (path, domain) =>
       fs.readFile(filePath, (error, fileContent) => {
         // if unable to read file contents, throw exception
         if (error) { throw error; }
+
+        const extension = path.extname(filePath);
+        let contentType = "application/octet-stream";
+
+        switch(extension)
+        {
+          case ".html": 
+            contentType = "text/html";
+            break;
+          
+          case ".css":
+            contentType = "text/css";
+            break;
+
+          case ".js":
+            contentType = "application/javascript"
+            break;
+        }
         
-        console.log(path.extname(fileContent));
-        // upload file to S3
-        // s3.putObject({
-        //   Bucket: config.s3BucketName,
-        //   Key: fileName,
-        //   Body: fileContent
-        // }, (res) => {
-        //   console.log(`Successfully uploaded '${fileName}'!`);
-        // });
+        //upload file to S3
+
+        s3.putObject({
+          Bucket: "cactus-space",
+          Key: "users-sites/" + domain + "/" + fileName,
+          ContentType : contentType,
+          Body: fileContent
+        }, 
+        (res) => {
+          console.log(`Successfully uploaded '${fileName}'!`);
+        });
         
       });
     }
