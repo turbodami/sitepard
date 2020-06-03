@@ -92,7 +92,7 @@ exports.downloadSite = async (req, res) =>
   //res.send('It works');
 };
 
-exports.uploadSite = async (folderPath, domain) =>
+exports.uploadSite = async (folderPath, _id) =>
 {
   fs.readdir(folderPath, (err, files) =>
   {
@@ -139,7 +139,7 @@ exports.uploadSite = async (folderPath, domain) =>
 
         s3.putObject({
           Bucket: "cactus-space",
-          Key: "users-sites/" + domain + "/" + fileName,
+          Key: "users-sites/" + _id + "/" + fileName,
           ContentType : contentType,
           Body: fileContent
         }, 
@@ -151,7 +151,7 @@ exports.uploadSite = async (folderPath, domain) =>
     }
   });
   
-  console.log(domain);
+  console.log(_id);
 
   // try 
   // {
