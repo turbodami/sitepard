@@ -92,7 +92,7 @@ exports.downloadSite = async (req, res) =>
   //res.send('It works');
 };
 
-exports.uploadSite = async (folderPath, domain) =>
+exports.uploadSite = async (folderPath, _id) =>
 {
   fs.readdir(folderPath, (err, files) =>
   {
@@ -139,7 +139,7 @@ exports.uploadSite = async (folderPath, domain) =>
 
         s3.putObject({
           Bucket: "cactus-space",
-          Key: "users-sites/" + domain + "/" + fileName,
+          Key: "users-sites/" + _id + "/" + fileName,
           ContentType : contentType,
           Body: fileContent
         }, 
@@ -150,4 +150,18 @@ exports.uploadSite = async (folderPath, domain) =>
       });
     }
   });
-}
+  
+  console.log(_id);
+
+  // try 
+  // {
+  //   Site.updateOne({domain: this.domain}, {$set: {index : "https://cactus-space.fra1.digitaloceanspaces.com/users-sites/" + domain+ "/index.html" }}, (err) =>
+  //   {
+
+  //   });  
+  // } catch (error) 
+  // {
+  //   console.log(error);
+  // }
+  
+};

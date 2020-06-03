@@ -14,42 +14,14 @@ const s3 = new aws.S3(
     }
 );
 
-router.post('/:domain', async(req, res) =>
+router.post('/:_id', async(req, res) =>
 {
 
-  // console.log(req.params.domain);
-  // console.log(req.body.path);
+  console.log(req.params.domain);
+  console.log(req.body.path);
 
+  await spacesController.uploadSite(req.body.path, req.params._id);
 
-  await spacesController.uploadSite(req.body.path, req.params.domain);
-  //spacesController.uploadSite(req.params.domain, )
-  // const destination = 'users-sites/' + req.params.domain + ;
-  // console.log(destination);
-
-  // const params = 
-  // {
-  //   Bucket : "cactus-space",
-    
-  //   Key: destination,
-  //   ContentType: "text/html",
-  //   Body: page
-  // }
-  
-  // s3.upload(params, (err, page) =>
-  // {
-  //   if(err)
-  //   {
-  //     console.log('Error in callback');
-  //     console.log(err);
-  //     res.status(500).send('Server error');
-  //   }
-  //   else
-  //   {
-  //     console.log('success');
-  //     console.log(page);
-  //     res.status(200).send('Nice');
-  //   }
-  // });
 });
 
 router.delete('/:destination', async(req, res) =>
