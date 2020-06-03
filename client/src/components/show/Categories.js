@@ -1,7 +1,7 @@
 import React, { Fragment } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { deleteCategory } from "../../../actions/site";
+import { deleteCategory } from "../../actions/site";
 
 const Categories = ({ category, deleteCategory }) => {
   const categories = category.map((cat) => (
@@ -23,7 +23,6 @@ const Categories = ({ category, deleteCategory }) => {
 
   return (
     <Fragment>
-      <h2 className="my-2"> Le mie categorie:</h2>
       <table className="table">
         <thead>
           <tr>

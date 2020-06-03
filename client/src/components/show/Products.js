@@ -26,7 +26,6 @@ const Products = ({ product, deleteProduct }) => {
 
   return (
     <Fragment>
-      <h2 className="my-2"> I miei prodotti</h2>
       <table className="table">
         <thead>
           <tr>

@@ -18,10 +18,12 @@ import StepFourteenSite from "./StepFourteenSite";
 import StepOneProduct from "./StepOneProduct";
 import StepTwoProduct from "./StepTwoProduct";
 
-import { createSite } from "../../../actions/site";
+import StepFinal from "./StepFinal";
+
+import { createSite } from "../../actions/site";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { setAlert } from "../../../actions/alert";
+import { setAlert } from "../../actions/alert";
 
 const defaultData = {
   category: "",
@@ -154,6 +156,8 @@ const SiteBuilder = ({ createSite, history, setAlert }) => {
       return <StepOneProduct {...props} />;
     case 16:
       return <StepTwoProduct {...props} />;
+    case 17:
+      return <StepFinal {...props} />;
     default:
       return <Fragment>Mi sa che ci sono problemi!</Fragment>;
   }
