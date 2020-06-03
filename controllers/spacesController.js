@@ -150,4 +150,18 @@ exports.uploadSite = async (folderPath, domain) =>
       });
     }
   });
-}
+  
+  console.log(domain);
+
+  // try 
+  // {
+  //   Site.updateOne({domain: this.domain}, {$set: {index : "https://cactus-space.fra1.digitaloceanspaces.com/users-sites/" + domain+ "/index.html" }}, (err) =>
+  //   {
+
+  //   });  
+  // } catch (error) 
+  // {
+  //   console.log(error);
+  // }
+  
+};

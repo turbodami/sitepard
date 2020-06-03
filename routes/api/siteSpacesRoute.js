@@ -13,7 +13,7 @@ const s3 = new aws.S3(
     }
 );
 
-router.post('/:domain', async(req, res) =>
+router.post('/site/:domain', async(req, res) =>
 {
 
   // console.log(req.params.domain);
