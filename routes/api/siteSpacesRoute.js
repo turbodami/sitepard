@@ -3,6 +3,9 @@ const router = express.Router();
 const aws = require('aws-sdk');
 const multer = require('multer');
 const fs = require('fs');
+const mongoose = require('mongoose');
+const Types = mongoose.Types;
+const ObjectId = Types.ObjectId;
 
 const Site = require('../../models/Site');
 
@@ -55,15 +58,15 @@ router.delete('/:destination', async(req, res) =>{
 
 const fileStorage = multer.diskStorage(
     {
-        destination: (req, file, cb) =>
-        {
-            console.log(req.params._id);
-            if(!fs.existsSync('sitesImages/' + req.params._id))
-            {
-                fs.mkdirSync(('sitesImages/' + req.params._id), {recursive: true});
-            }
-            cb(null, 'sitesImages/' + req.params._id)
-        },
+        // destination: (req, file, cb) =>
+        // {
+        //     console.log(req.params._id);
+        //     if(!fs.existsSync('sitesImages/' + req.params.id))
+        //     {
+        //         fs.mkdirSync(('sitesImages/' + req.params.id), {recursive: true});
+        //     }
+        //     cb(null, 'sitesImages/' + req.params.id)
+        // },
         filename: (req, file,cb) =>
         {
             cb(null, req.params.fileName);
@@ -91,28 +94,47 @@ const imageUpload = multer({storage: fileStorage, fileFilter: filter}, ).single(
 
 router.post('/image/:id&:fileName', imageUpload, async (req, res) =>
 {
+    console.log(req.params.id);
+    const id = req.params.id;
     
     if(!req.file)
     {
         res.status(500).json({message: 'Bad request'});
     }
-    else
-    {
-        res.status(200).json({message: 'File stored'});
-    }
 
-    const site = await Site.findById({id}, (err, site) =>
-    {
-        if(err)
-        {console.log('Errore');}
-        else
-        {
-            return site;
-        }
-    })
+    console.log(req.file);
+
+    s3.putObject({
+        Bucket: "cactus-space",
+        Key: "users-sites/" + id + "/images/" + req.params.fileName,
+        ContentType : file.mimetype,
+        Body: req.file
+      }, 
+      (res) => {
+        console.log(`Successfully uploaded '${req.params.fileName}'!`);
+      });
+
+    // try 
+    // {
+    //     const site = await Site.findByIdAndUpdate(id, (err, site) =>
+    //     {
+    //         if(err)
+    //         {
+    //             console.log(err);
+    //         }
+    //         else
+    //         {
+    //             return site;
+    //         }
+    // });
+    // } catch (error) {
+    //     res.status(500).json({message: 'Database error'});
+    // }
 
 
-    console.log(site);
+    
+
+
     
 });
 
