@@ -1,8 +1,8 @@
 import React, { Fragment } from "react";
 import { Link } from "react-router-dom";
-import image from "../../../images/image.gif";
+import image from "../../images/image.gif";
 
-const StepFifteen = () => {
+const StepFinal = () => {
   return (
     <Fragment>
       <div className="profile-top bg-primary p-2">
@@ -25,4 +25,4 @@ const StepFifteen = () => {
   );
 };
 
-export default StepFifteen;
+export default StepFinal;

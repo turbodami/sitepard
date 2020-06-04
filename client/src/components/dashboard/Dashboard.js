@@ -4,7 +4,8 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import Spinner from "../layout/Spinner";
 import DashboardActions from "./DashboardActions";
-import Products from "./Products";
+import Products from "../show/Products";
+import Categories from "../show/Categories";
 import { getCurrentSite, deleteAccount } from "../../actions/site";
 
 const Dashboard = ({
@@ -21,31 +22,57 @@ const Dashboard = ({
     <Spinner />
   ) : (
     <Fragment>
-      <h1 className="large text-primary">Area personale</h1>
-      <p className="lead">
-        <i className="fas fa-user"></i>
-        Utente:
-        {user && user.email}
-      </p>
-      {site !== null ? (
-        <Fragment>
-          <DashboardActions />
-          <Products product={site.products} />
-          <div className="my-2">
-            <button className="btn btn-danger" onClick={() => deleteAccount()}>
-              <i className="fas fa-iser-minus"></i>
-              Elimina il mio account
-            </button>
-          </div>
-        </Fragment>
-      ) : (
-        <Fragment>
-          <p>Completa il tuo sito qui di seguito, poi pubblicalo!</p>
-          <Link to="/create-site" className="btn btn-primary my-1">
-            Crea sito
-          </Link>
-        </Fragment>
-      )}
+      <div className="center">
+        <h1 className="large text-primary">Area personale</h1>
+        <p className="lead">
+          <i className="fas fa-user"></i>
+          Utente:
+          {user && user.email}
+        </p>
+        <DashboardActions />
+        <button className="btn btn-danger" onClick={() => deleteAccount()}>
+          <i className="fas fa-iser-minus"></i>
+          Elimina il mio account
+        </button>
+      </div>
+      <div className="profile-grid my-1">
+        {site !== null ? (
+          <Fragment>
+            <div className="profile-exp bg-white p-2">
+              <h2 className="text-primary">I miei prodotti</h2>
+              <div>
+                <Products product={site.products} />
+              </div>
+              <div>
+                <button className="btn btn-danger center">
+                  <i className="fas fa-iser-minus"></i>
+                  Modifica i prodotti
+                </button>
+              </div>
+            </div>
+
+            <div className="profile-edu bg-white p-2">
+              <h2 className="text-primary">Le mie categorie</h2>
+              <div>
+                <Categories category={site.categories} />
+              </div>
+              <div>
+                <button className="btn btn-danger center">
+                  <i className="fas fa-iser-minus"></i>
+                  Modifica le categorie
+                </button>
+              </div>
+            </div>
+          </Fragment>
+        ) : (
+          <Fragment>
+            <p>Completa il tuo sito qui di seguito, poi pubblicalo!</p>
+            <Link to="/create-site" className="btn btn-primary my-1">
+              Crea sito
+            </Link>
+          </Fragment>
+        )}
+      </div>
     </Fragment>
   );
 };
