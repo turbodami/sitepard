@@ -26,8 +26,14 @@ router.get("/me", auth, async (req, res) => {
   }
 });
 
+//@route POST api/site/publish
+//@desc pass formData && build site
+//@access private
+
+router.post();
+
 //@route    POST api/site
-//@desc     create/update user site (add here required fields)
+//@desc     create/update user site in db (add here required fields)
 //@access   public
 router.post(
   "/",
