@@ -99,7 +99,7 @@ app.get("/", (req, res) => res.send("api running"));
 
 if(process.env.NODE_ENV === 'production')
 {
-  //Set static folder
+  //Set static folder 
 
   app.use(express.static('client/build'));
 
