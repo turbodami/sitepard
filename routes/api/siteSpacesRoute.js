@@ -108,7 +108,7 @@ router.post('/image/:id&:fileName', imageUpload, async (req, res) =>
         Bucket: "cactus-space",
         Key: "users-sites/" + id + "/images/" + req.params.fileName,
         ContentType : file.mimetype,
-        Body: req.file
+        Body: file
       }, 
       (res) => {
         console.log(`Successfully uploaded '${req.params.fileName}'!`);
