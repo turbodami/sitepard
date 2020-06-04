@@ -1,11 +1,10 @@
 const express = require('express');
-const fileUpload = require('express-fileupload');
 const router = express.Router();
 const aws = require('aws-sdk');
 const multer = require('multer');
 const fs = require('fs');
 
-
+const Site = require('../../models/Site');
 
 
 const spacesController = require("../../controllers/spacesController");
@@ -58,6 +57,7 @@ const fileStorage = multer.diskStorage(
     {
         destination: (req, file, cb) =>
         {
+            console.log(req.params._id);
             if(!fs.existsSync('sitesImages/' + req.params._id))
             {
                 fs.mkdirSync(('sitesImages/' + req.params._id), {recursive: true});
@@ -66,7 +66,7 @@ const fileStorage = multer.diskStorage(
         },
         filename: (req, file,cb) =>
         {
-            cb(null, file.originalname);
+            cb(null, req.params.fileName);
         }
     }
 );
@@ -89,7 +89,7 @@ const imageUpload = multer({storage: fileStorage, fileFilter: filter}, ).single(
 
 
 
-router.post('/image/:_id', imageUpload, async (req, res) =>
+router.post('/image/:id&:fileName', imageUpload, async (req, res) =>
 {
     
     if(!req.file)
@@ -98,28 +98,22 @@ router.post('/image/:_id', imageUpload, async (req, res) =>
     }
     else
     {
-        //console.log(req.file);
         res.status(200).json({message: 'File stored'});
     }
 
-    // console.log(req.files);
-    // if(req.files === null)
-    // {
-    //     return res.status(400).json({msg: 'No file uploaded'});
-    // }
+    const site = await Site.findById({id}, (err, site) =>
+    {
+        if(err)
+        {console.log('Errore');}
+        else
+        {
+            return site;
+        }
+    })
 
-    // const file = req.files.file;
 
-    // file.mv(`${__dirname}/client/public/uploads/${file.name}`, err =>
-    // {
-    //     if(err)
-    //     {
-    //         console.log(err);
-    //         return res.status(500).send(err);
-    //     }
-
-    //     res.json({filename: file.name, filePath: `/uploads/${file.name}`});
-    // });
+    console.log(site);
+    
 });
 
 
