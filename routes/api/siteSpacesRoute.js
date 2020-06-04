@@ -3,19 +3,9 @@ const fileUpload = require('express-fileupload');
 const router = express.Router();
 const aws = require('aws-sdk');
 const multer = require('multer');
+const fs = require('fs');
 
-const fileStorage = multer.diskStorage(
-    {
-        destination: (req, file, cb) =>
-        {
-            cb(null, 'storage')
-        },
-        filename: (req, file,cb) =>
-        {
-            cb(null, file.originalname);
-        }
-    }
-);
+
 
 
 const spacesController = require("../../controllers/spacesController");
@@ -64,6 +54,22 @@ router.delete('/:destination', async(req, res) =>{
 
 });
 
+const fileStorage = multer.diskStorage(
+    {
+        destination: (req, file, cb) =>
+        {
+            if(!fs.existsSync('sitesImages/' + req.params._id))
+            {
+                fs.mkdirSync(('sitesImages/' + req.params._id), {recursive: true});
+            }
+            cb(null, 'sitesImages/' + req.params._id)
+        },
+        filename: (req, file,cb) =>
+        {
+            cb(null, file.originalname);
+        }
+    }
+);
 
 const filter = (req, file, cb) =>
 {
