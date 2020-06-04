@@ -3,6 +3,7 @@ const connectDB = require("./config/db");
 const subdomains = require('wildcard-subdomains');
 const aws = require('aws-sdk');
 const multerS3 = require('multer-s3');
+const path = require('path');
 
 const app = express();
 
@@ -93,6 +94,20 @@ app.get('/s/:firstSubdomain/*', async (req, res) =>
 
 app.get("/", (req, res) => res.send("api running"));
 
+
+//Serve static assets in production
+
+if(process.env.NODE_ENV === 'production')
+{
+  //Set static folder
+
+  app.use(express.static('client/build'));
+
+  app.get('*', (req,res) =>
+  {
+    res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
+  })
+}
 const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, () => console.log(`server ${PORT}`));
