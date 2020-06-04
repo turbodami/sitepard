@@ -106,6 +106,19 @@ const SiteSchema = new mongoose.Schema({
       },
     },
   ],
+
+  images: [
+    {
+      name:
+      {
+        type: String,
+      },
+      link :
+      {
+        type: String
+      }
+    }
+  ]
 });
 
 module.exports = Site = mongoose.model("site", SiteSchema);
