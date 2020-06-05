@@ -3,6 +3,7 @@ import {
   SITE_ERROR,
   CLEAR_SITE,
   UPDATE_SITE,
+  PUBLISH_SITE,
 } from "../actions/types";
 
 const initialState = {
@@ -17,6 +18,7 @@ export default function (state = initialState, action) {
   switch (type) {
     case GET_SITE:
     case UPDATE_SITE:
+    case PUBLISH_SITE:
       return {
         ...state,
         site: payload,

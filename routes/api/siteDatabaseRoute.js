@@ -3,6 +3,8 @@ const router = express.Router();
 const auth = require("../../middleware/auth");
 const { check, validationResult } = require("express-validator");
 
+const builder = require("../../builder/builder");
+
 const Site = require("../../models/Site");
 const User = require("../../models/User");
 
@@ -30,7 +32,24 @@ router.get("/me", auth, async (req, res) => {
 //@desc pass formData && build site
 //@access private
 
-router.post();
+router.post("/publish", auth, async (req, res) => {
+  try {
+    const site = await Site.findOne({ user: req.user.id }).populate("user", [
+      "email",
+    ]);
+
+    builder.build(site);
+
+    //if (!site) {
+    //return res.status(400).json({ msg: "there is no site for this user!" });
+    //}
+
+    res.json(site);
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).send("server error!");
+  }
+});
 
 //@route    POST api/site
 //@desc     create/update user site in db (add here required fields)

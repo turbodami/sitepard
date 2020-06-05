@@ -7,6 +7,7 @@ import {
   UPDATE_SITE,
   CLEAR_SITE,
   ACCOUNT_DELETED,
+  PUBLISH_SITE,
 } from "./types";
 
 //get current users site
@@ -165,6 +166,26 @@ export const deleteCategory = (id) => async (dispatch) => {
     });
 
     dispatch(setAlert("Categoria rimossa!", "success"));
+  } catch (err) {
+    dispatch({
+      type: SITE_ERROR,
+      payload: { msg: err.response.statusText, status: err.response.status },
+    });
+  }
+};
+
+//publish current site
+export const publishSite = () => async (dispatch) => {
+  try {
+    const res = await axios.post("/api/site/publish");
+    dispatch({
+      type: PUBLISH_SITE,
+      payload: res.data,
+    });
+    //dispatch({
+    //type: GET_SITE,
+    //payload: res.data,
+    //});
   } catch (err) {
     dispatch({
       type: SITE_ERROR,
