@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const aws = require('aws-sdk');
 const multer = require('multer');
-const fs = require('fs');
+const multerS3 = require('multer-s3');
 const mongoose = require('mongoose');
 const Types = mongoose.Types;
 const ObjectId = Types.ObjectId;
@@ -56,23 +56,6 @@ router.delete('/:destination', async(req, res) =>{
 
 });
 
-const fileStorage = multer.diskStorage(
-    {
-        // destination: (req, file, cb) =>
-        // {
-        //     console.log(req.params._id);
-        //     if(!fs.existsSync('sitesImages/' + req.params.id))
-        //     {
-        //         fs.mkdirSync(('sitesImages/' + req.params.id), {recursive: true});
-        //     }
-        //     cb(null, 'sitesImages/' + req.params.id)
-        // },
-        filename: (req, file,cb) =>
-        {
-            cb(null, req.params.fileName);
-        }
-    }
-);
 
 const filter = (req, file, cb) =>
 {
@@ -88,54 +71,53 @@ const filter = (req, file, cb) =>
       };
 }
 
-const imageUpload = multer({storage: fileStorage, fileFilter: filter}, ).single('file');
+//const imageUpload = multer({storage: fileStorage, fileFilter: filter}, ).single('file');
+
+const imageUpload = multer({
+    storage: multerS3(
+        {
+            s3: s3,
+            bucket: 'cactus-space',
+            acl: 'public-read',
+            contentType: multerS3.AUTO_CONTENT_TYPE,
+            key: (req, file, cb) =>
+            {
+                cb(null, 'users-sites/' + req.params.id + '/images/' + req.params.fileName)
+            }
+        }
+    )
+})
 
 
 
-router.post('/image/:id&:fileName', imageUpload, async (req, res) =>
+router.post('/image/:id&:fileName', imageUpload.single('file'), async (req, res) =>
 {
-    console.log(req.params.id);
-    const id = req.params.id;
     
     if(!req.file)
     {
         res.status(500).json({message: 'Bad request'});
     }
-
-    console.log(req.file);
-
-    s3.putObject({
-        Bucket: "cactus-space",
-        Key: "users-sites/" + id + "/images/" + req.params.fileName,
-        ContentType : file.mimetype,
-        Body: file
-      }, 
-      (res) => {
-        console.log(`Successfully uploaded '${req.params.fileName}'!`);
-      });
-
-    // try 
-    // {
-    //     const site = await Site.findByIdAndUpdate(id, (err, site) =>
-    //     {
-    //         if(err)
-    //         {
-    //             console.log(err);
-    //         }
-    //         else
-    //         {
-    //             return site;
-    //         }
-    // });
-    // } catch (error) {
-    //     res.status(500).json({message: 'Database error'});
-    // }
-
-
-    
-
-
-    
+    else
+    {
+        try 
+        {
+            const site = await Site.findByIdAndUpdate(req.params.id,{$set: {images: {name: req.params.fileName, link: 'https://cactus-space.fra1.digitaloceanspaces.com/users-sites/'+ req.params.id + '/images/' + req.params.fileName}}}, (err, site) =>
+            {
+                if(err)
+                {
+                    console.log(err);
+                }
+                else
+                {
+                    res.status(200).json('Upload successfull.');
+                }
+        });
+        } 
+        catch (error) 
+        {
+            res.status(500).json({message: 'Database error'});
+        }
+    } 
 });
 
 
