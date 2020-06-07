@@ -2,8 +2,10 @@ const express = require("express");
 const connectDB = require("./config/db");
 const subdomains = require('wildcard-subdomains');
 const aws = require('aws-sdk');
-const multerS3 = require('multer-s3');
 const path = require('path');
+const fs = require('fs');
+const ReactDOMServer = require('react-dom/server');
+
 
 const app = express();
 
@@ -34,6 +36,7 @@ app.use(subdomains(
     }
   ));
 
+
 //define routes
 app.use("/api/users", require("./routes/api/users"));
 app.use("/api/auth", require("./routes/api/auth"));
@@ -42,11 +45,19 @@ app.use("/api/site", require("./routes/api/siteDatabaseRoute"));
 app.use("/api/payment", require("./routes/api/paymentsRoute"));
 
 
+//Importo il template del sito
+
+app.use(express.static('./templates/pizzeria/public/index.html'));
+
 //Subdomain that lets the user display a site with nameSite.cactusdomaindev.xyz
 
 app.get('/s/:firstSubdomain/*', async (req, res) =>
 {
-  const url = String(req.params.firstSubdomain);
+  //const app = ReactDOMServer.renderToString(<App />);
+
+
+
+  /* const url = String(req.params.firstSubdomain);
   try 
   {
     const site = await Site.findOne({domain : url});
@@ -59,6 +70,9 @@ app.get('/s/:firstSubdomain/*', async (req, res) =>
       console.log(arr[1]);
 
       
+
+
+
       const s3Params =
       {
           Bucket: 'cactus-space',
@@ -89,7 +103,7 @@ app.get('/s/:firstSubdomain/*', async (req, res) =>
   {
     console.log(error)
     res.status(500).json({message: "Server error"});
-  }
+  } */
 });
 
 app.get("/", (req, res) => res.send("api running"));
