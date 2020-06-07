@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const DashboardActions = () => {
+const DashboardActions = ({ publishSite }) => {
   return (
     <div className="dash-buttons">
       <Link to="/edit-site" className="btn btn-light">

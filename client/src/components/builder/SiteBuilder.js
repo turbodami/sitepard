@@ -106,7 +106,10 @@ const SiteBuilder = ({ createSite, history, setAlert }) => {
   useEffect(() => {
     if (formData.type === "domain" || formData.type === "subdomain") {
       console.log(formData);
+
+      //save in db
       createSite(nextStep, formData, history);
+
       //nextStep();
       //history.push("/productbuilder");
     }

@@ -6,17 +6,22 @@ import Spinner from "../layout/Spinner";
 import DashboardActions from "./DashboardActions";
 import Products from "../show/Products";
 import Categories from "../show/Categories";
-import { getCurrentSite, deleteAccount } from "../../actions/site";
+import { getCurrentSite, deleteAccount, publishSite } from "../../actions/site";
 
 const Dashboard = ({
   getCurrentSite,
   deleteAccount,
+  publishSite,
   auth: { user },
   site: { site, loading },
 }) => {
   useEffect(() => {
     getCurrentSite();
   }, [getCurrentSite]);
+
+  const destroy = () => {
+    publishSite();
+  };
 
   return loading && site === null ? (
     <Spinner />
@@ -30,6 +35,9 @@ const Dashboard = ({
           {user && user.email}
         </p>
         <DashboardActions />
+        <button className="btn btn-danger" onClick={destroy}>
+          Porcodio
+        </button>
         <button className="btn btn-danger" onClick={() => deleteAccount()}>
           <i className="fas fa-iser-minus"></i>
           Elimina il mio account
@@ -80,6 +88,7 @@ const Dashboard = ({
 Dashboard.propTypes = {
   getCurrentSite: PropTypes.func.isRequired,
   deleteAccount: PropTypes.func.isRequired,
+  publishSite: PropTypes.func.isRequired,
   auth: PropTypes.object.isRequired,
   site: PropTypes.object.isRequired,
 };
@@ -92,4 +101,5 @@ const mapStateToProps = (state) => ({
 export default connect(mapStateToProps, {
   getCurrentSite,
   deleteAccount,
+  publishSite,
 })(Dashboard);
