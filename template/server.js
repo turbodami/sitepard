@@ -9,7 +9,7 @@ const handle = app.getRequestHandler();
 
 const subdomains = require("wildcard-subdomains");
 const aws = require("aws-sdk");
-const Site = require("../models/Site");
+const Site = require("./models/Site");
 const connectDB = require("./config/db");
 
 const PORT = parseInt(process.env.PORT, 10) || 42069;
