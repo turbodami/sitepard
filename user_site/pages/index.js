@@ -7,7 +7,7 @@ const Index = ({ diocan }) => (
         <a>a</a>
       </Link>
     </li>
-    {diocan}
+
     <li>
       <Link href="/a" as="/b">
         <a>b</a>
