@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-const Index = ({ diocan }) => (
+const Index = () => (
   <ul>
     <li>
       <Link href="/b" as="/a">
@@ -16,11 +16,11 @@ const Index = ({ diocan }) => (
   </ul>
 );
 
-Index.getInitialProps = async ({ query: { diocan } }) => {
+/* Index.getInitialProps = async ({ query: { diocan } }) => {
   //console.log(diocan);
   return {
     diocan: diocan,
   };
-};
+}; */
 
 export default Index;
