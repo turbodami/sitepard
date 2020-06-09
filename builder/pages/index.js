@@ -1,4 +1,5 @@
 import Head from 'next/head';
+import {Fragment} from 'react';
 
 const Index = () => (
     <Head>
@@ -6,20 +7,22 @@ const Index = () => (
       <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet"></link>
 
     </Head>
-  <div>
-    <h1>Dio lurido</h1>
-    <style jsx>
-      {`
-        div {
-          background: #333;
-        }
+    <Fragment>
+        <div>
+        <h1>Dio lurido</h1>
+        <style jsx>
+            {`
+            div {
+                background: #333;
+            }
 
-        h1 {
-          background: #222;
-        }
-      `}
-    </style>
-  </div>
+            h1 {
+                background: #222;
+            }
+            `}
+        </style>
+        </div>
+    </Fragment>
 );
 
 export default Index;
