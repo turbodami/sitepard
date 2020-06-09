@@ -1,21 +1,7 @@
 import Link from "next/link";
 
 export default function Index() {
-  return (
-    <ul>
-      <li>
-        <Link href="/b" as="/a">
-          <a>a</a>
-        </Link>
-      </li>
-
-      <li>
-        <Link href="/a" as="/b">
-          <a>b</a>
-        </Link>
-      </li>
-    </ul>
-  );
+  return <h1>Porco dio</h1>;
 }
 /* Index.getInitialProps = async ({ query: { diocan } }) => {
   //console.log(diocan);
