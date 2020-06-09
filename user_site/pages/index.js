@@ -1,13 +1,13 @@
 import Link from "next/link";
 
-const Home = ({ diocan }) => (
+const Index = ({ diocan }) => (
   <ul>
     <li>
       <Link href="/b" as="/a">
         <a>a</a>
       </Link>
     </li>
-    {diocan.category}
+    {diocan}
     <li>
       <Link href="/a" as="/b">
         <a>b</a>
@@ -16,11 +16,11 @@ const Home = ({ diocan }) => (
   </ul>
 );
 
-Home.getInitialProps = async ({ query: { diocan } }) => {
-  console.log(diocan);
+Index.getInitialProps = async ({ query: { diocan } }) => {
+  //console.log(diocan);
   return {
     diocan: diocan,
   };
 };
 
-export default Home;
+export default Index;
