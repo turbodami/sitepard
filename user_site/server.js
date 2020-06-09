@@ -48,7 +48,7 @@ server.get("/s/:firstSubdomain/*", async (req, res) => {
     const site = await Site.findOne({ domain: url });
 
     if (site) {
-      return server.render(req, res, '/index', {diocan: "porcodio"});
+      return app.render(req, res, '/index', {diocan: "porcodio"});
 
 
     } else {
@@ -57,7 +57,7 @@ server.get("/s/:firstSubdomain/*", async (req, res) => {
   } catch (error) {
     console.log(error);
     res.status(500).json({ message: "Server error" });
-  }
+  } 
 });
 
 
