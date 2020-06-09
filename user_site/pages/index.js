@@ -1,12 +1,13 @@
 import Link from "next/link";
 
-const Home = (props) => (
+const Home = ({ diocan }) => (
   <ul>
     <li>
       <Link href="/b" as="/a">
         <a>a</a>
       </Link>
     </li>
+    {diocan.category}
     <li>
       <Link href="/a" as="/b">
         <a>b</a>
@@ -15,11 +16,11 @@ const Home = (props) => (
   </ul>
 );
 
-Home.getInitialProps = async ({query: {diocan}}) => {
+Home.getInitialProps = async ({ query: { diocan } }) => {
   console.log(diocan);
-  return{
-    diocan: diocan
-  }
-}
+  return {
+    diocan: diocan,
+  };
+};
 
 export default Home;
