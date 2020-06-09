@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-const Index = () => (
+export default function Index = () => (
   <ul>
     <li>
       <Link href="/b" as="/a">
@@ -23,4 +23,3 @@ const Index = () => (
   };
 }; */
 
-export default Index;
