@@ -46,10 +46,9 @@ server.get("/s/:firstSubdomain/*", async (req, res) => {
   const url = String(req.params.firstSubdomain);
   try {
     const site = await Site.findOne({ domain: url });
-    console.log(site);
 
     if (site) {
-      return S.render(req, res, '/index', {diocan: "porcodio"});
+      return server.render(req, res, '/index', {diocan: "porcodio"});
 
 
     } else {
