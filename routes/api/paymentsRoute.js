@@ -3,6 +3,7 @@ const router = express.Router();
 const userDbController = require("../../controllers/userDbController");
 
 const stripe = require('stripe')('sk_test_k9rvKdpU76znJghy6Hjnrrgy00LxZnKWYy');
+const bodyParser = require('body-parser');
 
 
 router.post('/create-customer', async (req, res) =>
@@ -28,12 +29,12 @@ router.post('/create-customer', async (req, res) =>
                     if(result == 0)
                     {
                         console.log("Utente non trovato");
-                        return res.status(500).write('Utente non trovato');
+                        return res.status(500).json({message: 'Cliente non trovato nel db'});
                     }
                     else
                     {
                         console.log("ottimo");
-                        return res.status(200);
+                        return res.status(200).json({message: 'Cliente creato'});
                     }
                 }
             }
@@ -43,6 +44,31 @@ router.post('/create-customer', async (req, res) =>
     }
     
 });
+
+router.post('/charge', (req,res) => 
+{
+    
+    stripe.charges.create(
+        {
+            amount: req.body.amount,
+            currency: req.body.currency,
+            customer: req.body.customer,
+        },
+        (err, charge) =>
+        {
+            if(err)
+            {
+                console.log(err);
+                res.status(500).json({message: 'Pagamento fallito'});
+            }
+            else
+            {
+                res.status(200).json({message: 'Pagamento effettuato'});
+            }
+        }
+    );
+});
+
 
 
 module.exports = router;

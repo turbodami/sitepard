@@ -4,7 +4,6 @@ const subdomains = require('wildcard-subdomains');
 const aws = require('aws-sdk');
 const path = require('path');
 const fs = require('fs');
-const ReactDOMServer = require('react-dom/server');
 
 
 const app = express();
