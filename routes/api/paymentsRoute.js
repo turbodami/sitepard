@@ -69,6 +69,29 @@ router.post('/charge', (req,res) =>
     );
 });
 
+router.post('/subscription', (req, res) =>
+{
+    stripe.subscriptions.create(
+        {
+            customer: req.body.customer,
+            items: [{price: req.body.price}]
+        },
+        (err, subscription) =>
+        {
+            if(err)
+            {
+                res.status(500).json({message: 'CreazioneS abbonamento fallita'});
+            }
+            else
+            {
+                res.status(500).json({message: `Abbonamento ${subscription.id} creato con successo`});
+            }
+        }
+    )
+})
+
+
+
 
 
 module.exports = router;
