@@ -4,6 +4,7 @@ const userDbController = require("../../controllers/userDbController");
 
 const stripe = require('stripe')('sk_test_k9rvKdpU76znJghy6Hjnrrgy00LxZnKWYy');
 const bodyParser = require('body-parser');
+const moment = require('moment');
 
 
 router.post('/create-customer', async (req, res) =>
@@ -71,19 +72,33 @@ router.post('/charge', (req,res) =>
 
 router.post('/subscription', (req, res) =>
 {
+    let trial;
+    if(req.body.trial)
+    {
+        trial = moment().add(+30, 'days').unix();
+        console.log(trial);
+    }
+    else
+    {
+        trial = null;
+    }
+    
     stripe.subscriptions.create(
         {
             customer: req.body.customer,
-            items: [{price: req.body.price}]
+            items: [{price: req.body.price}],
+            trial_end : trial
         },
         (err, subscription) =>
         {
             if(err)
             {
+                console.log(err);
                 res.status(500).json({message: 'CreazioneS abbonamento fallita'});
             }
             else
             {
+                console.log(subscription);
                 res.status(500).json({message: `Abbonamento ${subscription.id} creato con successo`});
             }
         }
