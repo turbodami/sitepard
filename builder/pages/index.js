@@ -14,7 +14,7 @@ export default function Home(props) {
   )
 }
 
-Home.getInitialProps({query: {diocan}}){
+Home.getInitialProps({query: {diocan}}) => {
   return {
     diocan: diocan
   }
