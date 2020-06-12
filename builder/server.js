@@ -42,32 +42,29 @@ app
 
     //Subdomain that lets the user display a site with nameSite.cactusdomaindev.xyz
 
-server.get("/s/:firstSubdomain/*", async (req, res) => {
-  const url = String(req.params.firstSubdomain);
-  try {
-    const site = await Site.findOne({ domain: url });
+    server.get("/s/:firstSubdomain/*", async (req, res) => {
+      const url = String(req.params.firstSubdomain);
+      try {
+        const site = await Site.findOne({ domain: url });
 
-    if (site) {
-      return app.render(req, res, '/index', {diocan: site});
-
-
-    } else {
-      return res.status(404).json({ message: "Page not found" });
-    }
-  } catch (error) {
-    console.log(error);
-    res.status(500).json({ message: "Server error" });
-  } 
-});
-
+        if (site) {
+          return app.render(req, res, "/index", { site: site });
+        } else {
+          return res.status(404).json({ message: "Page not found" });
+        }
+      } catch (error) {
+        console.log(error);
+        res.status(500).json({ message: "Server error" });
+      }
+    });
 
     server.all("*", (req, res) => {
       return handle(req, res);
     });
 
     server.listen(PORT, () => console.log(`server ${PORT}`));
-
-  }).catch((err) => {
+  })
+  .catch((err) => {
     console.error(`Server failed to start: ${err.stack}`);
     process.exit(1);
   });

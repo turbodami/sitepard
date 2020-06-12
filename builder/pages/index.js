@@ -1,23 +1,23 @@
-import styled from "styled-components";
 import React, { Fragment } from "react";
 
-const Title = styled.h1`
-  font-size: 50px;
-  color: ${({ theme }) => theme.colors.primary};
-`;
+import Header from "./components/Header";
+import Body from "./components/Body";
+import Footer from "./components/Footer";
 
 const Home = (props) => {
+  const { site } = props;
   return (
     <Fragment>
-      <p>{props.diocan.category}</p>
-      <Title>My page</Title>;
+      <Header {...site} />
+      <Body {...site} />
+      <Footer {...site} />
     </Fragment>
   );
 };
 
-Home.getInitialProps = ({ query: { diocan } }) => {
+Home.getInitialProps = ({ query: { site } }) => {
   return {
-    diocan: diocan,
+    site: site,
   };
 };
 
