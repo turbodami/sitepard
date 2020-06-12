@@ -7,11 +7,11 @@ const Title = styled.h1`
 `;
 
 const Header = (site) => {
-  console.log(site);
-  console.log(site.category);
+  console.log(site._doc);
+  console.log(site._doc.category);
   return (
     <Fragment>
-      <Title>{site.category}</Title>
+      <Title>{site._doc.category}</Title>
     </Fragment>
   );
 };

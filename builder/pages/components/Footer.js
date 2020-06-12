@@ -7,11 +7,11 @@ const Palette = styled.h1`
 `;
 
 const Footer = (site) => {
-  console.log(site);
-  console.log(site.palette);
+  console.log(site._doc);
+  console.log(site._doc.palette);
   return (
     <Fragment>
-      <Palette>{site.palette}</Palette>
+      <Palette>{site._doc.palette}</Palette>
     </Fragment>
   );
 };

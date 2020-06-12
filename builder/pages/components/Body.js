@@ -7,11 +7,11 @@ const Name = styled.h1`
 `;
 
 const Body = (site) => {
-  console.log(site);
-  console.log(site.name);
+  console.log(site._doc;
+  console.log(site._doc.name);
   return (
     <Fragment>
-      <Name>{site.name}</Name>
+      <Name>{site._doc.name}</Name>
     </Fragment>
   );
 };
