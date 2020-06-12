@@ -7,6 +7,8 @@ const Name = styled.h1`
 `;
 
 const Body = (site) => {
+  console.log(site);
+  console.log(site.name);
   return (
     <Fragment>
       <Name>{site.name}</Name>

@@ -7,6 +7,8 @@ const Title = styled.h1`
 `;
 
 const Header = (site) => {
+  console.log(site);
+  console.log(site.category);
   return (
     <Fragment>
       <Title>{site.category}</Title>

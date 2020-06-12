@@ -7,6 +7,8 @@ const Palette = styled.h1`
 `;
 
 const Footer = (site) => {
+  console.log(site);
+  console.log(site.palette);
   return (
     <Fragment>
       <Palette>{site.palette}</Palette>

@@ -6,6 +6,7 @@ import Footer from "./components/Footer";
 
 const Home = (props) => {
   const { site } = props;
+  console.log(site);
   return (
     <Fragment>
       <Header {...site} />
