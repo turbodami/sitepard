@@ -128,39 +128,107 @@ const SiteBuilder = ({ createSite, history, setAlert }) => {
 
   switch (step) {
     case 1:
-      return <StepOneSite {...props} />;
+      return (
+        <section className="container text-center">
+          <StepOneSite {...props} />
+        </section>
+      );
     case 2:
-      return <StepTwoSite {...props} />;
+      return (
+        <section className="container text-center">
+          <StepTwoSite {...props} />
+        </section>
+      );
     case 3:
-      return <StepThreeSite {...props} />;
+      return (
+        <section className="container text-center">
+          <StepThreeSite {...props} />)
+        </section>
+      );
     case 4:
-      return <StepFourSite {...props} />;
+      return (
+        <section className="container text-center">
+          <StepFourSite {...props} />;
+        </section>
+      );
     case 5:
-      return <StepFiveSite {...props} />;
+      return (
+        <section className="container text-center">
+          <StepFiveSite {...props} />
+        </section>
+      );
     case 6:
-      return <StepSixSite {...props} />;
+      return (
+        <section className="container text-center">
+          <StepSixSite {...props} />
+        </section>
+      );
     case 7:
-      return <StepSevenSite {...props} />;
+      return (
+        <section className="container text-center">
+          <StepSevenSite {...props} />
+        </section>
+      );
     case 8:
-      return <StepEightSite {...props} />;
+      return (
+        <section className="container text-center">
+          <StepEightSite {...props} />
+        </section>
+      );
     case 9:
-      return <StepNineSite {...props} />;
+      return (
+        <section className="container text-center">
+          <StepNineSite {...props} />
+        </section>
+      );
     case 10:
-      return <StepTenSite {...props} />;
+      return (
+        <section className="container text-center">
+          <StepTenSite {...props} />
+        </section>
+      );
     case 11:
-      return <StepElevenSite {...props} />;
+      return (
+        <section className="container text-center">
+          <StepElevenSite {...props} />
+        </section>
+      );
     case 12:
-      return <StepTwelveSite {...props} />;
+      return (
+        <section className="container text-center">
+          <StepTwelveSite {...props} />
+        </section>
+      );
     case 13:
-      return <StepThirteenSite {...props} />;
+      return (
+        <section className="container text-center">
+          <StepThirteenSite {...props} />
+        </section>
+      );
     case 14:
-      return <StepFourteenSite {...props} />;
+      return (
+        <section className="container text-center">
+          <StepFourteenSite {...props} />
+        </section>
+      );
     case 15:
-      return <StepOneProduct {...props} />;
+      return (
+        <section className="container text-center">
+          <StepOneProduct {...props} />
+        </section>
+      );
     case 16:
-      return <StepTwoProduct {...props} />;
+      return (
+        <section className="container text-center">
+          <StepTwoProduct {...props} />
+        </section>
+      );
     case 17:
-      return <StepFinal {...props} />;
+      return (
+        <section className="container text-center">
+          <StepFinal {...props} />
+        </section>
+      );
     default:
       return <Fragment>Mi sa che ci sono problemi!</Fragment>;
   }

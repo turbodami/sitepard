@@ -9,6 +9,7 @@ const Home = (props) => {
 
   return (
     <Fragment>
+      <h1>{props.site.category}</h1>
       <Header {...site} />
       <Body {...site} />
       <Footer {...site} />

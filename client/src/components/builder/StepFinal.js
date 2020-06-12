@@ -16,7 +16,7 @@ const StepFinal = () => {
         <p>Nicola verrà ad assaggiare la tua pizza al più presto</p>
 
         <div className="buttons">
-          <Link to="/dashboard" className="btn btn-light">
+          <Link to="/dashboard" className="btn btn-white">
             Vai alla tua area personale
           </Link>
         </div>

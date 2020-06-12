@@ -78,7 +78,7 @@ const AddProduct = ({ addProduct, history }) => {
         </div>
 
         <input type="submit" class="btn btn-primary my-1" />
-        <a class="btn btn-light my-1" href="dashboard.html">
+        <a class="btn btn-white my-1" href="dashboard.html">
           Go Back
         </a>
       </form>

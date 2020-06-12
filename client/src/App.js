@@ -1,9 +1,10 @@
 import React, { useEffect } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
-import Header from "./components/layout/Header";
-import Home from "./components/pages/Home";
+import Login from "./components/layout/Login";
+import SiteBuilder from "./components/builder/SiteBuilder";
 import Routes from "./components/routing/Routes";
+import Alert from "./components/layout/Alert";
 
 //redux
 import { Provider } from "react-redux";
@@ -26,9 +27,10 @@ const App = () => {
   return (
     <Provider store={store}>
       <Router>
-        <Header />
+        <Alert />
         <Switch>
-          <Route exact path="/" component={Home} />
+          <Route exact path="/login" component={Login} />
+          <Route exact path="/sitebuilder" component={SiteBuilder} />
           <Route component={Routes} />
         </Switch>
       </Router>

@@ -8,7 +8,7 @@ const Header = ({ auth: { isAuthenticated, loading }, logout }) => {
   //changing header
   const authLinks = (
     <Fragment>
-      <nav className="navbarLogged bg-light">
+      <nav className="navbarLogged bg-white">
         <div className="nav-end">
           <ul>
             <li>
@@ -26,7 +26,7 @@ const Header = ({ auth: { isAuthenticated, loading }, logout }) => {
 
   const guestLinks = (
     <Fragment>
-      <nav className="navbar bg-dark">
+      <nav className="navbar bg-white">
         <div className="nav-start">
           <h1>
             <Link to="/">
@@ -55,7 +55,7 @@ const Header = ({ auth: { isAuthenticated, loading }, logout }) => {
                   Login
                 </Link>
                 <Link to="/sitebuilder" className="btn btn-danger">
-                  Prova ora
+                  Prova gratis
                 </Link>
               </div>
             </li>

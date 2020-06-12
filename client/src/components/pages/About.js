@@ -10,7 +10,7 @@ const About = ({ isAuthenticated }) => {
 
   return (
     <section className="landing">
-      <div className="light-overlay">
+      <div className="white-overlay">
         <div className="landing-inner">
           <h1 className="x-large">Lavora con noi, facciamo cagare</h1>
           <p className="lead">
