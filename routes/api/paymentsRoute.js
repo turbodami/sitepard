@@ -18,8 +18,7 @@ router.get('/customer/:id', async(req, res) => //Ritorna i dati di un utente con
             }
             else
             {
-                console.log(customer);
-                res.status(200).json({message: 'utente trovato'});
+                res.status(200).json(customer);
             }
         });
         
@@ -41,7 +40,7 @@ router.put('/customer/:id', async(req, res) =>  //Aggiorna i dati di un utente c
         }
         else
         {
-            res.status(200).json({message: "Utente aggiornato con successo."});
+            res.status(200).json(customer);
         }
     })
 });
@@ -108,17 +107,7 @@ router.post('/charge', (req,res) =>  //Roba di test non toccare dio merda
 
 router.post('/subscription', (req, res) =>
 {
-    let trial;
-    if(req.body.trial)
-    {
-        trial = moment().add(+30, 'days').unix();
-        console.log(trial);
-    }
-    else
-    {
-        trial = null;
-    }
-    
+   
     stripe.subscriptions.create(req.body, (err, subscription) => //Crea un nuovo abbonamento con il JSON nel body della richiesta
         {
             if(err)
@@ -133,6 +122,55 @@ router.post('/subscription', (req, res) =>
             }
         }
     )
+});
+
+router.get('/subscription/:id', async (req, res) =>
+{
+    stripe.subscriptions.retrieve(req.params.id , (err, subscription) => {
+          if(err)
+          {
+              console.log(err);
+              res.status(500).json({message: 'errore nella richiesta'});
+          }
+          else
+          {
+              res.status(200).json(subscription);
+          }
+        }
+      );
+});
+
+router.put('/subscription/:id', async (req, res) =>
+{
+    stripe.subscriptions.update(req.params.id, req.body, (err, subscription) =>
+     {
+         if(err)
+         {
+             console.log(err);
+             res.status(500).json({message: 'Errore nella richiesta'});
+         }
+         else
+         {
+             res.status(200).json(subscription);
+         }
+    })
+});
+
+router.delete('/subscription/:id', async(req, res) =>
+{
+    stripe.subscriptions.del(req.params.id, (err, confirmation) =>
+    {
+        if(err)
+        {
+            console.log(err);
+            res.status(500).json({message: 'Errore nella richiesta'});
+        }
+        else
+        {
+            res.status(200).json(confirmation);
+        }
+    }
+      );
 })
 
 
