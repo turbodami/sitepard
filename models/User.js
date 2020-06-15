@@ -14,10 +14,10 @@ const UserSchema = new mongoose.Schema({
     type: Date,
     default: Date.now,
   },
-  //stripeCustomerId: {
-  //type: String,
-  //unique: true
-  //}
+  stripeCustomerId:
+   {
+
+  }
 });
 
 module.exports = User = mongoose.model("user", UserSchema);

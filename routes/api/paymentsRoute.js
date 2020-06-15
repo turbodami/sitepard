@@ -1,10 +1,9 @@
 const express = require('express');
 const router = express.Router();
-const userDbController = require("../../controllers/userDbController");
-
 const stripe = require('stripe')('sk_test_k9rvKdpU76znJghy6Hjnrrgy00LxZnKWYy');
 const bodyParser = require('body-parser');
 const moment = require('moment');
+const User = require("../../models/User");
 
 router.get('/customer/:id', async(req, res) => //Ritorna i dati di un utente con l'id specificato
 {
@@ -66,7 +65,7 @@ router.post('/customer', async (req, res) =>  //Crea un nuovo utente con il JSON
 
     try 
     {
-        stripe.customers.create(req.body, async (err, costumer) =>
+        stripe.customers.create(req.body, async (err, customer) =>
             {
                 if(err)
                 {
@@ -74,23 +73,26 @@ router.post('/customer', async (req, res) =>  //Crea un nuovo utente con il JSON
                     res.status(500).json({message: 'errore nella richiesta'});
                 }
                 else
-                {                 
-                    const result = await userDbController.SetStripeCustomerId(costumer.id);
-
-                    if(result == 0)
+                {               
+                    const customerId = "" +customer.id; 
+                    const user = await User.findOneAndUpdate({email : customer.email}, {$set: {stripeCustomerId: {customerId}}}, (err, user) =>
                     {
-                        console.log("Utente non trovato");
-                        return res.status(500).json({message: 'Cliente non trovato nel db'});
-                    }
-                    else
-                    {
-                        return res.status(200).json({message: 'Cliente creato'});
-                    }
+                        if(err)
+                        {
+                            console.log(err);
+                            res.status(500).json({message: 'Utente non presente nel database'});
+                        }
+                        else
+                        {
+                            res.status(200).json({message: 'nuovo utente creato con successo'});
+                            
+                        }
+                    });
                 }
             }
         )
     } catch (err) {
-        console.log('Dioboy' + err);
+        console.log(err);
     }
     
 });
