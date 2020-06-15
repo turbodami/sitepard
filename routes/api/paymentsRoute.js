@@ -6,8 +6,31 @@ const stripe = require('stripe')('sk_test_k9rvKdpU76znJghy6Hjnrrgy00LxZnKWYy');
 const bodyParser = require('body-parser');
 const moment = require('moment');
 
+router.get('/customer/:id', async(req, res) =>
+{
+    try 
+    {   
+        stripe.customers.retrieve(req.params.id, (err, customer)=>
+        {
+            if(err)
+            {
+                res.status(500).json({message: 'utente non trovato'});
+            }
+            else
+            {
+                console.log(customer);
+                res.status(200).json({message: 'utente trovato'});
+            }
+        });
+        
+    } catch (err) 
+    {
+        console.log(err);
+        res.status(500).json({message: 'errore catch'});
+    }
+});
 
-router.post('/create-customer', async (req, res) =>
+router.post('/customer', async (req, res) =>
 {
 
     try 
@@ -46,13 +69,13 @@ router.post('/create-customer', async (req, res) =>
     
 });
 
-router.post('/charge', (req,res) => 
+router.post('/charge', (req,res) =>  //Roba di test non toccare dio merda
 {
     
     stripe.charges.create(
         {
             amount: req.body.amount,
-            currency: req.body.currency,
+            currency: req.body.currency,//Roba di test non toccare dio merda
             customer: req.body.customer,
         },
         (err, charge) =>
@@ -60,15 +83,15 @@ router.post('/charge', (req,res) =>
             if(err)
             {
                 console.log(err);
-                res.status(500).json({message: 'Pagamento fallito'});
+                res.status(500).json({message: 'Pagamento fallito'});//Roba di test non toccare dio merda
             }
             else
             {
-                res.status(200).json({message: 'Pagamento effettuato'});
+                res.status(200).json({message: 'Pagamento effettuato'});//Roba di test non toccare dio merda
             }
-        }
+        }//Roba di test non toccare dio merda
     );
-});
+});//Roba di test non toccare dio merda
 
 router.post('/subscription', (req, res) =>
 {
