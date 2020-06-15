@@ -31,48 +31,54 @@ const StepSixSite = ({ formData, onChange, nextStep, setAlert, register }) => {
         <i className="fas fa-user" />
         Conferma la tua email, effettua il login e finisci il tuo sito
       </p>
+      <div className="flex-center">
+        <form className="form left" onSubmit={(e) => onSubmit(e)}>
+          <div className="form-group">
+            <input
+              type="email"
+              placeholder="Inserisci email"
+              name="email"
+              value={formData.email}
+              onChange={(e) => onChange(e)}
+            />
+            <small className="form-text">
+              Dovrai confermare che è la tua vera email
+            </small>
+          </div>
 
-      <form className="form" onSubmit={(e) => onSubmit(e)}>
-        <div className="form-group">
-          <input
-            type="email"
-            placeholder="Inserisci email"
-            name="email"
-            value={formData.email}
-            onChange={(e) => onChange(e)}
-          />
-          <small className="form-text">
-            Dovrai confermare che è la tua vera email
-          </small>
-        </div>
+          <div className="form-group">
+            <input
+              type="password"
+              placeholder="Inserisci password"
+              name="password"
+              value={formData.password}
+              onChange={(e) => onChange(e)}
+            />
+            <small className="form-text">
+              Deve avere almeno 17 caratteri, di cui almeno 1 in sanscrito
+              vedico, 1 runico e 1 bestemmia
+            </small>
+          </div>
 
-        <div className="form-group">
-          <input
-            type="password"
-            placeholder="Inserisci password"
-            name="password"
-            value={formData.password}
-            onChange={(e) => onChange(e)}
-          />
-          <small className="form-text">
-            Deve avere almeno 17 caratteri, di cui almeno 1 in sanscrito vedico,
-            1 runico e 1 bestemmia
-          </small>
-        </div>
-
-        <div className="form-group">
-          <input
-            type="password"
-            placeholder="Ripeti password"
-            name="password2"
-            value={formData.password2}
-            onChange={(e) => onChange(e)}
-          />
-          <small className="form-text">Ripeti, non come Paganini</small>
-        </div>
-
-        <input type="submit" className="btn btn-primary" value="Registrati" />
-      </form>
+          <div className="form-group">
+            <input
+              type="password"
+              placeholder="Ripeti password"
+              name="password2"
+              value={formData.password2}
+              onChange={(e) => onChange(e)}
+            />
+            <small className="form-text">Ripeti, non come Paganini</small>
+          </div>
+          <div className="center">
+            <input
+              type="submit"
+              className="btn btn-primary"
+              value="Registrati"
+            />
+          </div>
+        </form>
+      </div>
     </Fragment>
   );
 };

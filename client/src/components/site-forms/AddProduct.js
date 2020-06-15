@@ -7,11 +7,12 @@ const AddProduct = ({ addProduct, history }) => {
   const [formData, setFormData] = useState({
     name: "",
     description: "",
+    category: "",
     price: "",
     photo: "",
   });
 
-  const { name, description, price, photo } = formData;
+  const { name, description, category, price, photo } = formData;
 
   const onChange = (e) =>
     setFormData({
@@ -21,20 +22,20 @@ const AddProduct = ({ addProduct, history }) => {
 
   return (
     <Fragment>
-      <h1 class="large text-primary">Aggiungi un prodotto</h1>
-      <p class="lead">
-        <i class="fas fa-code-branch"></i>
+      <h1 className="large text-primary">Aggiungi un prodotto</h1>
+      <p className="lead">
+        <i className="fas fa-code-branch"></i>
         Inserisci le informazioni per i tuoi clienti
       </p>
       <small>* = campi obbligatori</small>
       <form
-        class="form"
+        className="form"
         onSubmit={(e) => {
           e.preventDefault();
           addProduct(formData, history);
         }}
       >
-        <div class="form-group">
+        <div className="form-group">
           <input
             type="text"
             placeholder="* Nome prodotto"
@@ -45,7 +46,7 @@ const AddProduct = ({ addProduct, history }) => {
           />
         </div>
 
-        <div class="form-group">
+        <div className="form-group">
           <input
             type="text"
             placeholder="* Prezzo"
@@ -56,7 +57,17 @@ const AddProduct = ({ addProduct, history }) => {
           />
         </div>
 
-        <div class="form-group">
+        <div className="form-group">
+          <input
+            type="text"
+            placeholder="Category"
+            name="category"
+            value={category}
+            onChange={(e) => onChange(e)}
+            required
+          />
+        </div>
+        <div className="form-group">
           <textarea
             name="description"
             value={description}
@@ -67,7 +78,7 @@ const AddProduct = ({ addProduct, history }) => {
           ></textarea>
         </div>
 
-        <div class="form-group">
+        <div className="form-group">
           <input
             type="text"
             placeholder="Foto prodotto"
@@ -77,8 +88,8 @@ const AddProduct = ({ addProduct, history }) => {
           />
         </div>
 
-        <input type="submit" class="btn btn-primary my-1" />
-        <a class="btn btn-white my-1" href="dashboard.html">
+        <input type="submit" className="btn btn-primary my-1" />
+        <a className="btn btn-white my-1" href="dashboard.html">
           Go Back
         </a>
       </form>

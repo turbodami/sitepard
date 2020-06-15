@@ -141,11 +141,12 @@ router.put(
       return res.status(400).json({ errors: errors.array() });
     }
 
-    const { name, description, price, photo } = req.body;
+    const { name, description, category, price, photo } = req.body;
 
     const newProduct = {
       name,
       description,
+      category,
       price,
       photo,
     };

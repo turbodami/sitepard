@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import Spinner from "../layout/Spinner";
 
 import { connect } from "react-redux";
-import Categories from "../show/Categories";
+import Menu from "../show/Menu";
 
 const StepOneProduct = ({
   getCurrentSite,
@@ -36,14 +36,10 @@ const StepOneProduct = ({
     <Spinner />
   ) : (
     <Fragment>
-      <h1 className="large text-primary">
-        Inserisci le categorie per i tuoi prodotti
-      </h1>
+      <h1 className="large text-primary">Crea il tuo menù</h1>
       <p className="lead">
         <i className="fas fa-user" />
-        Potrai suddividere i tuoi prodotti in base alle categorie che inserisci
-        qui di seguito. Ad esempio utilizza le categorie del tuo menu come
-        "Primi piatti", "Secondi piatti", "Dessert".
+        Crea le categorie per i tuoi prodotti, poi aggiungili al posto giusto.
       </p>
 
       <form
@@ -72,7 +68,7 @@ const StepOneProduct = ({
 
       {site !== null ? (
         <Fragment>
-          <Categories category={site.categories} />
+          <Menu category={site.categories} product={site.product} />
         </Fragment>
       ) : (
         <Fragment>

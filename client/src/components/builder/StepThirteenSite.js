@@ -11,21 +11,22 @@ const StepThirteenSite = ({ formData, clientValidation, onChange }) => {
         Puoi scrivere quello che vuoi far sapere ai tuoi clienti, però ti
         consigliamo di soffermarti
       </p>
-
-      <form className="form">
-        <div className="form-group">
+      <div className="flex-center">
+        <form className="form">
           <div className="form-group">
-            <textarea
-              name="description"
-              value={formData.description}
-              onChange={(e) => onChange(e)}
-              cols="30"
-              rows="5"
-              placeholder="Per esempio: 'Solo asporto e consegna a domicilio durante il periodo COVID-19. Dal venerdì alla domenica, ordini telefonici dalle ore 16:00, ordini su Whatsapp a qualsiasi ora.'"
-            ></textarea>
+            <div className="form-group">
+              <textarea
+                name="description"
+                value={formData.description}
+                onChange={(e) => onChange(e)}
+                cols="30"
+                rows="5"
+                placeholder="Per esempio: 'Solo asporto e consegna a domicilio durante il periodo COVID-19. Dal venerdì alla domenica, ordini telefonici dalle ore 16:00, ordini su Whatsapp a qualsiasi ora.'"
+              ></textarea>
+            </div>
           </div>
-        </div>
-      </form>
+        </form>
+      </div>
       <input
         type="button"
         onClick={() => clientValidation(formData.description)}

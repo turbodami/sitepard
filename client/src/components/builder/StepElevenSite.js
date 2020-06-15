@@ -42,85 +42,86 @@ const StepElevenSite = ({ formData, setFormData, nextStep, setAlert }) => {
         <i className="fas fa-user" />
         Inserisci i tuoi orari di apertura
       </p>
-
-      <form className="form">
-        <div className="form-group">
-          <h4>Lunedì</h4>
+      <div className="flex-center">
+        <form className="form">
+          <div className="form-group left">
+            <h4>Lunedì</h4>
+            <input
+              type="text"
+              placeholder="Per esempio scrivi: 8:00-12:00 / 15:00-21:00"
+              name="monday"
+              value={formData.timeTable.monday}
+              onChange={(e) => handleChange(e)}
+            />
+          </div>
+          <div className="form-group left">
+            <h4>Martedì</h4>
+            <input
+              type="text"
+              placeholder="Per esempio scrivi: 8:00-12:00 / 15:00-21:00"
+              name="tuesday"
+              value={formData.timeTable.tuesday}
+              onChange={(e) => handleChange(e)}
+            />
+          </div>
+          <div className="form-group left">
+            <h4>Mercoledì</h4>
+            <input
+              type="text"
+              placeholder="Per esempio scrivi: 8:00-12:00 / 15:00-21:00"
+              name="wednesday"
+              value={formData.timeTable.wednesday}
+              onChange={(e) => handleChange(e)}
+            />
+          </div>
+          <div className="form-group left">
+            <h4>Giovedì</h4>
+            <input
+              type="text"
+              placeholder="Per esempio scrivi: 8:00-12:00 / 15:00-21:00"
+              name="thursday"
+              value={formData.timeTable.thursday}
+              onChange={(e) => handleChange(e)}
+            />
+          </div>
+          <div className="form-group left">
+            <h4>Venerdì</h4>
+            <input
+              type="text"
+              placeholder="Per esempio scrivi: 8:00-12:00 / 15:00-21:00"
+              name="friday"
+              value={formData.timeTable.friday}
+              onChange={(e) => handleChange(e)}
+            />
+          </div>
+          <div className="form-group left">
+            <h4>Sabato</h4>
+            <input
+              type="text"
+              placeholder="Per esempio scrivi: 8:00-12:00 / 15:00-21:00"
+              name="saturday"
+              value={formData.timeTable.saturday}
+              onChange={(e) => handleChange(e)}
+            />
+          </div>
+          <div className="form-group left">
+            <h4>Domenica</h4>
+            <input
+              type="text"
+              placeholder="Per esempio scrivi: 8:00-12:00 / 15:00-21:00"
+              name="sunday"
+              value={formData.timeTable.sunday}
+              onChange={(e) => handleChange(e)}
+            />
+          </div>
           <input
-            type="text"
-            placeholder="Per esempio scrivi: 8:00-12:00 / 15:00-21:00"
-            name="monday"
-            value={formData.timeTable.monday}
-            onChange={(e) => handleChange(e)}
+            type="button"
+            onClick={handleTimeTable}
+            className="btn btn-primary"
+            value="Avanti"
           />
-        </div>
-        <div className="form-group">
-          <h4>Martedì</h4>
-          <input
-            type="text"
-            placeholder="Per esempio scrivi: 8:00-12:00 / 15:00-21:00"
-            name="tuesday"
-            value={formData.timeTable.tuesday}
-            onChange={(e) => handleChange(e)}
-          />
-        </div>
-        <div className="form-group">
-          <h4>Mercoledì</h4>
-          <input
-            type="text"
-            placeholder="Per esempio scrivi: 8:00-12:00 / 15:00-21:00"
-            name="wednesday"
-            value={formData.timeTable.wednesday}
-            onChange={(e) => handleChange(e)}
-          />
-        </div>
-        <div className="form-group">
-          <h4>Giovedì</h4>
-          <input
-            type="text"
-            placeholder="Per esempio scrivi: 8:00-12:00 / 15:00-21:00"
-            name="thursday"
-            value={formData.timeTable.thursday}
-            onChange={(e) => handleChange(e)}
-          />
-        </div>
-        <div className="form-group">
-          <h4>Venerdì</h4>
-          <input
-            type="text"
-            placeholder="Per esempio scrivi: 8:00-12:00 / 15:00-21:00"
-            name="friday"
-            value={formData.timeTable.friday}
-            onChange={(e) => handleChange(e)}
-          />
-        </div>
-        <div className="form-group">
-          <h4>Sabato</h4>
-          <input
-            type="text"
-            placeholder="Per esempio scrivi: 8:00-12:00 / 15:00-21:00"
-            name="saturday"
-            value={formData.timeTable.saturday}
-            onChange={(e) => handleChange(e)}
-          />
-        </div>
-        <div className="form-group">
-          <h4>Domenica</h4>
-          <input
-            type="text"
-            placeholder="Per esempio scrivi: 8:00-12:00 / 15:00-21:00"
-            name="sunday"
-            value={formData.timeTable.sunday}
-            onChange={(e) => handleChange(e)}
-          />
-        </div>
-        <input
-          type="button"
-          onClick={handleTimeTable}
-          className="btn btn-primary"
-          value="Avanti"
-        />
-      </form>
+        </form>
+      </div>
     </Fragment>
   );
 };

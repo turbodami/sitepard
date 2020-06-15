@@ -6,6 +6,7 @@ import Spinner from "../layout/Spinner";
 import DashboardActions from "./DashboardActions";
 import Products from "../show/Products";
 import Categories from "../show/Categories";
+import Menu from "../show/Menu";
 import { getCurrentSite, deleteAccount, publishSite } from "../../actions/site";
 
 const Dashboard = ({
@@ -49,25 +50,12 @@ const Dashboard = ({
             <div className="profile-exp bg-white p-2">
               <h2 className="text-primary">I miei prodotti</h2>
               <div>
-                <Products product={site.products} />
+                <Menu category={site.categories} product={site.products} />
               </div>
               <div>
                 <button className="btn btn-danger center">
                   <i className="fas fa-iser-minus"></i>
                   Modifica i prodotti
-                </button>
-              </div>
-            </div>
-
-            <div className="profile-edu bg-white p-2">
-              <h2 className="text-primary">Le mie categorie</h2>
-              <div>
-                <Categories category={site.categories} />
-              </div>
-              <div>
-                <button className="btn btn-danger center">
-                  <i className="fas fa-iser-minus"></i>
-                  Modifica le categorie
                 </button>
               </div>
             </div>

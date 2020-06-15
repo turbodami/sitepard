@@ -615,3 +615,18 @@ button {
 .center {
   text-align: center;
 }
+
+/* Added by turbodami */
+
+.flex-center {
+  display: flex;
+  justify-content: center;
+}
+
+.center {
+  text-align: center;
+}
+
+.left {
+  text-align: start;
+}
