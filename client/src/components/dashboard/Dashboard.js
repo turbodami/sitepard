@@ -36,9 +36,6 @@ const Dashboard = ({
           {user && user.email}
         </p>
         <DashboardActions />
-        <button className="btn btn-danger" onClick={destroy}>
-          Porcodio
-        </button>
         <button className="btn btn-danger" onClick={() => deleteAccount()}>
           <i className="fas fa-iser-minus"></i>
           Elimina il mio account
@@ -51,12 +48,6 @@ const Dashboard = ({
               <h2 className="text-primary">I miei prodotti</h2>
               <div>
                 <Menu category={site.categories} product={site.products} />
-              </div>
-              <div>
-                <button className="btn btn-danger center">
-                  <i className="fas fa-iser-minus"></i>
-                  Modifica i prodotti
-                </button>
               </div>
             </div>
           </Fragment>

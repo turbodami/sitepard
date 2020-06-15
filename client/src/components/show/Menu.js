@@ -8,7 +8,7 @@ const Menu = ({ category, deleteCategory, product, deleteProduct }) => {
     <Fragment>
       <table className="table">
         <thead>
-          <tr key={cat.id}>
+          <tr key={cat._id}>
             <th className="hide-sm">{cat.name}</th>
             <th>
               <button
@@ -47,6 +47,7 @@ const Menu = ({ category, deleteCategory, product, deleteProduct }) => {
       </table>
     </Fragment>
   ));
+
   return <Fragment>{menu}</Fragment>;
 };
 
