@@ -45,6 +45,22 @@ router.put('/customer/:id', async(req, res) =>  //Aggiorna i dati di un utente c
     })
 });
 
+router.delete('/customer/:id', async (req, res) =>
+{
+    stripe.customers.del(req.params.id, (err, confirmation) =>
+     {
+        if(err)
+        {
+            console.log(err);
+            res.status(500).json({message: 'Errore nella richiesta'});
+        }
+        else
+        {
+            res.status(200).json(confirmation);
+        }
+    });
+});
+
 router.post('/customer', async (req, res) =>  //Crea un nuovo utente con il JSON nel body della richiesta
 {
 
@@ -55,12 +71,11 @@ router.post('/customer', async (req, res) =>  //Crea un nuovo utente con il JSON
                 if(err)
                 {
                     console.log(err);
+                    res.status(500).json({message: 'errore nella richiesta'});
                 }
                 else
-                {
-                    const newCostumer = costumer;
-                    
-                    const result = await userDbController.SetStripeCustomerId(newCostumer);
+                {                 
+                    const result = await userDbController.SetStripeCustomerId(costumer.id);
 
                     if(result == 0)
                     {
@@ -69,7 +84,6 @@ router.post('/customer', async (req, res) =>  //Crea un nuovo utente con il JSON
                     }
                     else
                     {
-                        console.log("ottimo");
                         return res.status(200).json({message: 'Cliente creato'});
                     }
                 }
