@@ -49,63 +49,6 @@ app.use("/api/webhook", require("./routes/api/webhookRoute"));
 
 app.use(express.static('./templates/pizzeria/public/index.html'));
 
-//Subdomain that lets the user display a site with nameSite.cactusdomaindev.xyz
-
-app.get('/s/:firstSubdomain/*', async (req, res) =>
-{
-  //const app = ReactDOMServer.renderToString(<App />);
-
-//dsjdfshjdfskjdsfkj
-
-
-  /* const url = String(req.params.firstSubdomain);
-  try 
-  {
-    const site = await Site.findOne({domain : url});
-    if(site)
-    {
-
-      const url = String(site.index);
-      console.log(url);
-      const arr = url.split(".com/");
-      console.log(arr[1]);
-
-      
-
-
-
-      const s3Params =
-      {
-          Bucket: 'cactus-space',
-          Key: arr[1]
-      };
-
-      s3.getObject({Key: arr[1], Bucket: 'cactus-space'}, (err, data) =>
-      {
-          if(!err)
-          {
-              res.writeHead(200, {'Content-Type': 'text/html'});
-              res.end(data.Body, 'utf-8');
-          }
-          else
-          {
-            console.log(err);
-          }
-      });
-
-    }
-    else
-    {
-      return res.status(404).json({message: 'Page not found'});
-    }
-
-  } 
-  catch (error) 
-  {
-    console.log(error)
-    res.status(500).json({message: "Server error"});
-  } */
-});
 
 app.get("/", (req, res) => res.send("api running"));
 
