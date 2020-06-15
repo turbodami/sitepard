@@ -6,7 +6,7 @@ const stripe = require('stripe')('sk_test_k9rvKdpU76znJghy6Hjnrrgy00LxZnKWYy');
 const bodyParser = require('body-parser');
 const moment = require('moment');
 
-router.get('/customer/:id', async(req, res) =>
+router.get('/customer/:id', async(req, res) => //Ritorna i dati di un utente con l'id specificato
 {
     try 
     {   
@@ -30,15 +30,28 @@ router.get('/customer/:id', async(req, res) =>
     }
 });
 
-router.post('/customer', async (req, res) =>
+router.put('/customer/:id', async(req, res) =>  //Aggiorna i dati di un utente con il JSON passato nel body della richiesta
+{
+    stripe.customers.update(req.params.id, req.body, (err, customer) =>
+    {
+        if(err)
+        {
+            console.log(err);
+            res.status(500).json({message: "Errore nell'inserimento dei dati."});
+        }
+        else
+        {
+            res.status(200).json({message: "Utente aggiornato con successo."});
+        }
+    })
+});
+
+router.post('/customer', async (req, res) =>  //Crea un nuovo utente con il JSON nel body della richiesta
 {
 
     try 
     {
-        stripe.customers.create(
-            {
-                email: req.body.email
-            }, async (err, costumer) =>
+        stripe.customers.create(req.body, async (err, costumer) =>
             {
                 if(err)
                 {
@@ -106,13 +119,7 @@ router.post('/subscription', (req, res) =>
         trial = null;
     }
     
-    stripe.subscriptions.create(
-        {
-            customer: req.body.customer,
-            items: [{price: req.body.price}],
-            trial_end : trial
-        },
-        (err, subscription) =>
+    stripe.subscriptions.create(req.body, (err, subscription) => //Crea un nuovo abbonamento con il JSON nel body della richiesta
         {
             if(err)
             {
