@@ -8,6 +8,8 @@ import Products from "../show/Products";
 import Categories from "../show/Categories";
 import Menu from "../show/Menu";
 import { getCurrentSite, deleteAccount, publishSite } from "../../actions/site";
+import "react-bulma-components/dist/react-bulma-components.min.css";
+import { Button } from "react-bulma-components";
 
 const Dashboard = ({
   getCurrentSite,
@@ -36,6 +38,9 @@ const Dashboard = ({
           {user && user.email}
         </p>
         <DashboardActions />
+        <Button color="danger" size="large">
+          Wowza!
+        </Button>
         <button className="btn btn-danger" onClick={() => deleteAccount()}>
           <i className="fas fa-iser-minus"></i>
           Elimina il mio account
