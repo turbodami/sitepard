@@ -2,11 +2,12 @@ import React, { Fragment } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { deleteProduct, deleteCategory } from "../../actions/site";
+import { Table } from "react-bulma-components";
 
 const Menu = ({ category, deleteCategory, product, deleteProduct }) => {
   const menu = category.map((cat) => (
     <Fragment>
-      <table className="table">
+      <Table>
         <thead>
           <tr key={cat._id}>
             <th className="hide-sm">{cat.name}</th>
@@ -44,7 +45,7 @@ const Menu = ({ category, deleteCategory, product, deleteProduct }) => {
             }
           })}
         </tbody>
-      </table>
+      </Table>
     </Fragment>
   ));
 

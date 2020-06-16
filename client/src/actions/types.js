@@ -13,5 +13,3 @@ export const SITE_ERROR = "SITE_ERROR";
 export const CLEAR_SITE = "CLEAR_SITE";
 export const ACCOUNT_DELETED = "ACCOUNT_DELETED";
 export const INITIAL_SUCCESS = "INITIAL_SUCCESS";
-
-export const PUBLISH_SITE = "PUBLISH_SITE";

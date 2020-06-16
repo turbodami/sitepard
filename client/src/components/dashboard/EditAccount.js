@@ -5,7 +5,7 @@ import { connect } from "react-redux";
 import { createSite, getCurrentSite } from "../../actions/site";
 import Alert from "../layout/Alert";
 
-const EditSite = ({
+const EditAccount = ({
   site: { site, loading },
   createSite,
   getCurrentSite,
@@ -201,7 +201,7 @@ const EditSite = ({
   );
 };
 
-EditSite.propTypes = {
+EditAccount.propTypes = {
   createSite: PropTypes.func.isRequired,
   getCurrentSite: PropTypes.func.isRequired,
   site: PropTypes.object.isRequired,
@@ -212,5 +212,5 @@ const mapStateToProps = (state) => ({
 });
 
 export default connect(mapStateToProps, { createSite, getCurrentSite })(
-  withRouter(EditSite)
+  withRouter(EditAccount)
 );

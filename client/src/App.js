@@ -1,10 +1,13 @@
 import React, { useEffect } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import "react-bulma-components/dist/react-bulma-components.min.css";
+import PrivateRoute from "./components/routing/PrivateRoute";
 
 import Login from "./components/layout/Login";
 import SiteBuilder from "./components/builder/SiteBuilder";
 import Routes from "./components/routing/Routes";
 import Alert from "./components/layout/Alert";
+import Dashboard from "./components/dashboard/Dashboard";
 
 //redux
 import { Provider } from "react-redux";
@@ -31,6 +34,10 @@ const App = () => {
         <Switch>
           <Route exact path="/login" component={Login} />
           <Route exact path="/sitebuilder" component={SiteBuilder} />
+          <PrivateRoute exact path="/dashboard" component={Dashboard} />
+          <PrivateRoute exact path="/editsite" component={Dashboard} />
+          <PrivateRoute exact path="/editaccount" component={Dashboard} />
+          <PrivateRoute exact path="/editproducts" component={Dashboard} />
           <Route component={Routes} />
         </Switch>
       </Router>

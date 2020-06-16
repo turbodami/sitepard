@@ -7,10 +7,6 @@ import Login from "../layout/Login";
 import Alert from "../layout/Alert";
 import About from "../pages/About";
 import Contact from "../pages/Contact";
-import Dashboard from "../dashboard/Dashboard";
-import PrivateRoute from "./PrivateRoute";
-import EditSite from "../site-forms/EditSite";
-import AddProduct from "../site-forms/AddProduct";
 
 const Routes = (props) => {
   return (
@@ -23,9 +19,6 @@ const Routes = (props) => {
           <Route exact path="/about" component={About} />
           <Route exact path="/login" component={Login} />
           <Route exact path="/contact" component={Contact} />
-          <PrivateRoute exact path="/dashboard" component={Dashboard} />
-          <PrivateRoute exact path="/edit-site" component={EditSite} />
-          <PrivateRoute exact path="/add-product" component={AddProduct} />
         </Switch>
       </section>
     </Fragment>
