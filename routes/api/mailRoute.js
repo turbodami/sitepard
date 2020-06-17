@@ -4,19 +4,31 @@ const nodemailer = require('nodemailer');
 
 const transporter = nodemailer.createTransport(
     {
-        host: "smtp.office365.com",
-        port: "587",
-        secure: true,
+        // host: "smtp.office365.com",
+        // port: "587",
+        // secure: (String(config.port)==="587"),
 
-        auth:
+        // auth:
+        // {
+        //     user : "admin@sitepard.com",
+        //     pass : "572AHGhD3Rck"
+        // },
+        // tls:
+        // {
+        //     ciphers:'SSLv3'
+        // }
+        
+        service: "outlook",
+        auth: 
         {
-            user : "admin@sitepard.com",
-            pass : "572AHGhD3Rck"
+            user: 'admin@sitepard.com',
+            pass: '572AHGhD3Rck'
         }
+        
     }
 )
 
-router.post('/verification:recipient', async(req, res) =>
+router.post('/verification/:recipient', async(req, res) =>
 {
     try 
     {
