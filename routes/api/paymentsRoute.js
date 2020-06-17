@@ -20,6 +20,8 @@ router.get('/customer/:id', async(req, res) => //Ritorna i dati di un utente con
                 res.status(200).json(customer);
             }
         });
+
+        
         
     } catch (err) 
     {

@@ -44,6 +44,7 @@ app.use("/api/site", require("./routes/api/siteDatabaseRoute"));
 app.use("/api/payment", require("./routes/api/paymentsRoute"));
 app.use("/api/webhook", require("./routes/api/webhookRoute"));
 app.use("/api/mail", require("./routes/api/mailRoute"));
+app.use("/api/maps", require("./routes/api/mapsRoute"));
 
 
 //Importo il template del sito
