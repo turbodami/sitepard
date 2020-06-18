@@ -1,4 +1,5 @@
 node_modules/
 public/
 storage/
-sitesImages/
+sitesImages/sendgrid.env
+sendgrid.env
