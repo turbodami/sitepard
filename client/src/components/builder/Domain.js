@@ -1,6 +1,6 @@
 import React, { Fragment } from "react";
 
-const StepDomain = ({ finalSubmit }) => {
+const Domain = ({ handleSelection }) => {
   return (
     <Fragment>
       <h1 className="large text-primary">
@@ -25,7 +25,7 @@ const StepDomain = ({ finalSubmit }) => {
           </div>
           <input
             type="button"
-            onClick={(e) => finalSubmit(e)}
+            onClick={(e) => handleSelection(e)}
             className="btn btn-primary"
             name="type"
             value="subdomain"
@@ -46,7 +46,7 @@ const StepDomain = ({ finalSubmit }) => {
           </div>
           <input
             type="button"
-            onClick={(e) => finalSubmit(e)}
+            onClick={(e) => handleSelection(e)}
             className="btn btn-primary"
             name="type"
             value="domain"
@@ -62,4 +62,4 @@ const StepDomain = ({ finalSubmit }) => {
   );
 };
 
-export default StepDomain;
+export default Domain;

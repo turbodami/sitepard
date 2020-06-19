@@ -2,7 +2,7 @@ import React, { Fragment } from "react";
 import { Link } from "react-router-dom";
 import image from "../../images/image.gif";
 
-const StepFinal = () => {
+const Success = () => {
   return (
     <Fragment>
       <div className="profile-top bg-primary p-2">
@@ -25,4 +25,4 @@ const StepFinal = () => {
   );
 };
 
-export default StepFinal;
+export default Success;

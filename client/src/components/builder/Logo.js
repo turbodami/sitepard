@@ -2,7 +2,7 @@ import React, { useState, Fragment } from "react";
 import { useSpring, animated } from "react-spring";
 import Nav from "./Nav";
 
-const StepSixSite = ({ nextStep, prevStep }) => {
+const Logo = ({ nextStep, prevStep }) => {
   const props = useSpring({
     opacity: 1,
     from: { opacity: 0 },
@@ -44,25 +44,28 @@ const StepSixSite = ({ nextStep, prevStep }) => {
         <section className="section">
           <div className="container">
             <Nav prevStep={prevStep} />
-            <div className="columns">
+            <div className="columns is-centered">
               <div className="column is-3"></div>
-              <div className="column is-6">
+              <div className="column is-6 has-text-centered">
                 <p className="title is-1">Hai un logo?</p>
                 <p className="subtitle is-3">
                   Se non ce l'hai scrivici su Whatsapp, possiamo fartene uno!
                 </p>
-                <input
-                  type="button"
-                  onClick={() => triggerLogoLoader(!showLogoLoader)}
-                  className="button is-primary"
-                  value="si"
-                />
-                <input
-                  type="button"
-                  onClick={nextStep}
-                  className="button is-primary"
-                  value="no"
-                />
+                <div className="buttons are-large is-centered has-text-centered">
+                  <button
+                    onClick={() => triggerLogoLoader(!showLogoLoader)}
+                    className="button is-primary"
+                  >
+                    Si
+                  </button>
+                  <button
+                    onClick={nextStep}
+                    className="button is-primary"
+                    value="no"
+                  >
+                    No
+                  </button>
+                </div>
                 <Fragment>{showLogoLoader ? logoLoader : null}</Fragment>
               </div>
               <div className="column is-3"></div>
@@ -74,4 +77,4 @@ const StepSixSite = ({ nextStep, prevStep }) => {
   );
 };
 
-export default StepSixSite;
+export default Logo;

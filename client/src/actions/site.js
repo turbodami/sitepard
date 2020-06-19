@@ -27,7 +27,7 @@ export const getCurrentSite = () => async (dispatch) => {
 };
 
 //create or update site
-export const createSite = (nextStep, formData, history, edit = false) => async (
+export const createSite = (formData, history, edit = false) => async (
   dispatch
 ) => {
   try {
@@ -50,11 +50,7 @@ export const createSite = (nextStep, formData, history, edit = false) => async (
       )
     );
 
-    nextStep();
-
-    if (edit) {
-      history.push("/dashboard");
-    }
+    history.push("/dashboard");
   } catch (err) {
     const errors = err.response.data.errors;
 

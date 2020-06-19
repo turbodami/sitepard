@@ -1,8 +1,8 @@
 import React, { Fragment } from "react";
-import { Link } from "react-router-dom";
 import { useSpring, animated } from "react-spring";
+import Nav from "./Nav";
 
-const StepOneSite = ({ handleSelection }) => {
+const Style = ({ handleSelection, prevStep }) => {
   const props = useSpring({
     opacity: 1,
     from: { opacity: 0 },
@@ -14,53 +14,37 @@ const StepOneSite = ({ handleSelection }) => {
       <Fragment>
         <section className="section">
           <div className="container">
-            <nav
-              className="navbar"
-              role="navigation"
-              aria-label="main navigation"
-            >
-              <div className="navbar-menu">
-                <div className="navbar-end">
-                  <div className="navbar-item">
-                    <div className="buttons">
-                      <Link to="/">
-                        <a className="delete is-large"></a>
-                      </Link>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </nav>
+            <Nav prevStep={prevStep} />
             <div className="columns is-centered">
               <div className="column is-3"></div>
               <div className="column is-6 has-text-centered">
-                <p className="title is-1">Che attività svolgi?</p>
+                <p className="title is-1">Che stile vuoi utilizzare?</p>
                 <p className="subtitle is-3">
-                  Clicca sulla categoria a cui ti associ di più
+                  Clicca sullo stile che ti piace di più
                 </p>
                 <input
                   type="button"
                   onClick={(e) => handleSelection(e)}
                   className="btn btn-primary"
-                  name="category"
-                  value="pizzeria"
+                  name="style"
+                  value="frocio"
                 />
                 <input
                   type="button"
                   onClick={(e) => handleSelection(e)}
                   className="btn btn-primary"
-                  name="category"
-                  value="ristorante"
+                  name="style"
+                  value="clown"
                 />
                 <input
                   type="button"
                   onClick={(e) => handleSelection(e)}
                   className="btn btn-primary"
-                  name="category"
-                  value="bar"
+                  name="style"
+                  value="alcohol"
                 />
               </div>
-              <div className="column is-3" />
+              <div className="column is-3"></div>
             </div>
           </div>
         </section>
@@ -69,4 +53,4 @@ const StepOneSite = ({ handleSelection }) => {
   );
 };
 
-export default StepOneSite;
+export default Style;

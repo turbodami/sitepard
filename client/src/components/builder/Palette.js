@@ -2,7 +2,7 @@ import React, { Fragment } from "react";
 import { useSpring, animated } from "react-spring";
 import Nav from "./Nav";
 
-const StepFourSite = ({ handleSelection, prevStep }) => {
+const Palette = ({ handleSelection, prevStep }) => {
   const props = useSpring({
     opacity: 1,
     from: { opacity: 0 },
@@ -18,30 +18,30 @@ const StepFourSite = ({ handleSelection, prevStep }) => {
             <div className="columns is-centered">
               <div className="column is-3"></div>
               <div className="column is-6 has-text-centered">
-                <p className="title is-1">Che stile vuoi utilizzare?</p>
+                <p className="title is-1">Che colori ti piacciono?</p>
                 <p className="subtitle is-3">
-                  Clicca sullo stile che ti piace di più
+                  Clicca sui colori da usare per il tuo sito
                 </p>
                 <input
                   type="button"
                   onClick={(e) => handleSelection(e)}
                   className="btn btn-primary"
-                  name="style"
-                  value="frocio"
+                  name="palette"
+                  value="giallo/merda"
                 />
                 <input
                   type="button"
                   onClick={(e) => handleSelection(e)}
                   className="btn btn-primary"
-                  name="style"
-                  value="clown"
+                  name="palette"
+                  value="verde/piscio"
                 />
                 <input
                   type="button"
                   onClick={(e) => handleSelection(e)}
                   className="btn btn-primary"
-                  name="style"
-                  value="alcohol"
+                  name="palette"
+                  value="bianco/sborra"
                 />
               </div>
               <div className="column is-3"></div>
@@ -53,4 +53,4 @@ const StepFourSite = ({ handleSelection, prevStep }) => {
   );
 };
 
-export default StepFourSite;
+export default Palette;

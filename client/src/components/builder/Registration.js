@@ -3,42 +3,18 @@ import React, { Fragment } from "react";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 import { setAlert } from "../../actions/alert";
-import { register } from "../../actions/auth";
+
 import PropTypes from "prop-types";
 import { useSpring, animated } from "react-spring";
 
 import Nav from "./Nav";
 
-const StepFiveSite = ({
-  formData,
-  onChange,
-  nextStep,
-  prevStep,
-  setAlert,
-  register,
-}) => {
-  const { email, password, password2 } = formData;
-
+const Registration = ({ formData, onChange, registration, prevStep }) => {
   const props = useSpring({
     opacity: 1,
     from: { opacity: 0 },
     config: { duration: 1000 },
   });
-
-  const onSubmit = async (e) => {
-    e.preventDefault();
-
-    if (email !== "" || password !== "") {
-      if (password !== password2) {
-        setAlert("Le password non corrispondono", "danger");
-      } else {
-        register({ email, password });
-        nextStep();
-      }
-    } else {
-      setAlert("Ci sono dei campi non validi", "danger");
-    }
-  };
 
   return (
     <animated.div style={props}>
@@ -53,7 +29,7 @@ const StepFiveSite = ({
                 <p className="subtitle is-3">
                   Conferma la tua email, effettua il login e finisci il tuo sito
                 </p>
-                <form onSubmit={(e) => onSubmit(e)}>
+                <form onSubmit={(e) => registration(e)}>
                   <div className="field">
                     <label className="label">Email</label>
                     <input
@@ -105,9 +81,9 @@ const StepFiveSite = ({
   );
 };
 
-StepFiveSite.propTypes = {
+Registration.propTypes = {
   setAlert: PropTypes.func.isRequired,
-  register: PropTypes.func.isRequired,
+
   isAuthenticated: PropTypes.bool,
 };
 
@@ -115,6 +91,4 @@ const mapStateToProps = (state) => ({
   isAuthenticated: state.auth.isAuthenticated,
 });
 
-export default connect(mapStateToProps, { setAlert, register })(
-  withRouter(StepFiveSite)
-);
+export default connect(mapStateToProps, { setAlert })(withRouter(Registration));

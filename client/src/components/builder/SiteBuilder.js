@@ -1,25 +1,23 @@
 import React, { useState, useEffect, Fragment } from "react";
 
-import StepOneSite from "./StepOneSite";
-import StepTwoSite from "./StepTwoSite";
-import StepThreeSite from "./StepThreeSite";
-import StepFourSite from "./StepFourSite";
-import StepFiveSite from "./StepFiveSite";
-import StepSixSite from "./StepSixSite";
-import StepSevenSite from "./StepSevenSite";
-import StepEightSite from "./StepEightSite";
-import StepNineSite from "./StepNineSite";
-import StepTenSite from "./StepTenSite";
-import StepElevenSite from "./StepElevenSite";
-import StepTwelveSite from "./StepTwelveSite";
-
-import StepOneProduct from "./StepOneProduct";
-import StepTwoProduct from "./StepTwoProduct";
-
-import StepDomain from "./StepDomain";
-import StepFinal from "./StepFinal";
+import Category from "./Category";
+import Name from "./Name";
+import Palette from "./Palette";
+import Style from "./Style";
+import Logo from "./Logo";
+import Cover from "./Cover";
+import Whatsapp from "./Whatsapp";
+import Tel from "./Tel";
+import TimeTable from "./TimeTable";
+import Address from "./Address";
+import Description from "./Description";
+import Products from "./Products";
+import Registration from "./Registration";
+import Domain from "./Domain";
+import Success from "./Success";
 
 import { createSite } from "../../actions/site";
+import { register } from "../../actions/auth";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { setAlert } from "../../actions/alert";
@@ -93,26 +91,21 @@ const SiteBuilder = ({ createSite, history, setAlert }) => {
     nextStep();
   };
 
-  const finalSubmit = (e) => {
-    e.persist();
+  const registration = async (e) => {
     e.preventDefault();
-    setFormData({
-      ...formData,
-      type: e.target.value,
-    });
-  };
+    const { email, password, password2 } = formData;
 
-  useEffect(() => {
-    if (formData.type === "domain" || formData.type === "subdomain") {
-      console.log(formData);
-
-      //save in db
-      createSite(nextStep, formData, history);
-
-      //nextStep();
-      //history.push("/productbuilder");
+    if (email !== "" || password !== "") {
+      if (password !== password2) {
+        setAlert("Le password non corrispondono", "danger");
+      } else {
+        register({ email, password });
+        createSite(formData, history);
+      }
+    } else {
+      setAlert("Ci sono dei campi non validi", "danger");
     }
-  }, [formData.type]);
+  };
 
   const props = {
     formData,
@@ -122,42 +115,40 @@ const SiteBuilder = ({ createSite, history, setAlert }) => {
     clientValidation,
     onChange,
     handleSelection,
-    finalSubmit,
+    registration,
   };
 
   switch (step) {
     case 1:
-      return <StepOneSite {...props} />;
+      return <Category {...props} />;
     case 2:
-      return <StepTwoSite {...props} />;
+      return <Name {...props} />;
     case 3:
-      return <StepThreeSite {...props} />;
+      return <Palette {...props} />;
     case 4:
-      return <StepFourSite {...props} />;
+      return <Style {...props} />;
     case 5:
-      return <StepFiveSite {...props} />;
+      return <Logo {...props} />;
     case 6:
-      return <StepSixSite {...props} />;
+      return <Cover {...props} />;
     case 7:
-      return <StepSevenSite {...props} />;
+      return <Whatsapp {...props} />;
     case 8:
-      return <StepEightSite {...props} />;
+      return <Tel {...props} />;
     case 9:
-      return <StepNineSite {...props} />;
+      return <TimeTable {...props} />;
     case 10:
-      return <StepTenSite {...props} />;
+      return <Address {...props} />;
     case 11:
-      return <StepElevenSite {...props} />;
+      return <Description {...props} />;
     case 12:
-      return <StepTwelveSite {...props} />;
+      return <Products {...props} />;
     case 13:
-      return <StepOneProduct {...props} />;
+      return <Domain {...props} />;
     case 14:
-      return <StepTwoProduct {...props} />;
+      return <Registration {...props} />;
     case 15:
-      return <StepDomain {...props} />;
-    case 16:
-      return <StepFinal {...props} />;
+      return <Success {...props} />;
     default:
       return <Fragment>Mi sa che ci sono problemi!</Fragment>;
   }
@@ -165,7 +156,8 @@ const SiteBuilder = ({ createSite, history, setAlert }) => {
 
 SiteBuilder.propTypes = {
   createSite: PropTypes.func.isRequired,
+  register: PropTypes.func.isRequired,
   setAlert: PropTypes.func.isRequired,
 };
 
-export default connect(null, { createSite, setAlert })(SiteBuilder);
+export default connect(null, { createSite, register, setAlert })(SiteBuilder);
