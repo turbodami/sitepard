@@ -1,25 +1,47 @@
-import React from "react";
+import React, { Fragment } from "react";
 import { Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
+import image from "../../images/image.gif";
+
+import { useSpring, animated } from "react-spring";
 
 const About = ({ isAuthenticated }) => {
+  const props = useSpring({
+    opacity: 1,
+    from: { opacity: 0 },
+    config: { duration: 1000 },
+  });
+
   if (isAuthenticated) {
     return <Redirect to="/dashboard" />;
   }
 
   return (
-    <section className="landing">
-      <div className="white-overlay">
-        <div className="landing-inner">
-          <h1 className="x-large">Lavora con noi, facciamo cagare</h1>
-          <p className="lead">
-            Siamo un team eterogeneo composto da specialisti della bestemmia,
-            bevitori cronici di borghetti e abusatori di negre
-          </p>
-        </div>
-      </div>
-    </section>
+    <animated.div style={props}>
+      <Fragment>
+        <section className="section is-medium">
+          <div className="container">
+            <div className="columns">
+              <div className="column is-1" />
+              <div className="column is-5">
+                <p className="title is-1">
+                  Siamo un gruppo di amici con la passione per l'alcol e
+                  l'interracial
+                </p>
+                <p className="subtitle is-3">
+                  Lavora con noi, non te ne pentirai!
+                </p>
+              </div>
+              <div className="column is-5">
+                <img className="image" src={image} alt="" />
+              </div>
+              <div className="column is-1" />
+            </div>
+          </div>
+        </section>
+      </Fragment>
+    </animated.div>
   );
 };
 

@@ -6,6 +6,8 @@ import Spinner from "../layout/Spinner";
 import { connect } from "react-redux";
 import Menu from "../show/Menu";
 
+import { useSpring, animated } from "react-spring";
+
 const StepOneProduct = ({
   getCurrentSite,
   history,
@@ -14,6 +16,12 @@ const StepOneProduct = ({
   auth: { user },
   site: { site, loading },
 }) => {
+  const props = useSpring({
+    opacity: 1,
+    from: { opacity: 0 },
+    config: { duration: 1000 },
+  });
+
   const defaultState = {
     name: "",
   };
@@ -35,54 +43,56 @@ const StepOneProduct = ({
   return loading && site === null ? (
     <Spinner />
   ) : (
-    <Fragment>
-      <h1 className="large text-primary">Crea il tuo menù</h1>
-      <p className="lead">
-        <i className="fas fa-user" />
-        Crea le categorie per i tuoi prodotti, poi aggiungili al posto giusto.
-      </p>
+    <animated.div style={props}>
+      <Fragment>
+        <h1 className="large text-primary">Crea il tuo menù</h1>
+        <p className="lead">
+          <i className="fas fa-user" />
+          Crea le categorie per i tuoi prodotti, poi aggiungili al posto giusto.
+        </p>
 
-      <form
-        className="form"
-        onSubmit={(e) => {
-          e.preventDefault();
-          addCategory(formData, history);
-          setFormData(defaultState);
-        }}
-      >
-        <div className="form-group">
-          <input
-            type="text"
-            placeholder="Category"
-            name="name"
-            value={formData.name}
-            onChange={(e) => onChange(e)}
-            required
-          />
-          <small className="form-text">
-            Questo nome sarà utilizzato per generare il sottodominio
-          </small>
-        </div>
-        <input type="submit" className="btn btn-primary" value="Aggiungi" />
-      </form>
+        <form
+          className="form"
+          onSubmit={(e) => {
+            e.preventDefault();
+            addCategory(formData, history);
+            setFormData(defaultState);
+          }}
+        >
+          <div className="form-group">
+            <input
+              type="text"
+              placeholder="Category"
+              name="name"
+              value={formData.name}
+              onChange={(e) => onChange(e)}
+              required
+            />
+            <small className="form-text">
+              Questo nome sarà utilizzato per generare il sottodominio
+            </small>
+          </div>
+          <input type="submit" className="btn btn-primary" value="Aggiungi" />
+        </form>
 
-      {site !== null ? (
-        <Fragment>
-          <Menu category={site.categories} product={site.product} />
-        </Fragment>
-      ) : (
-        <Fragment>
-          <h1>C'è qualche problema!</h1>
-        </Fragment>
-      )}
+        {site !== null ? (
+          <Fragment>
+            <Menu category={site.categories} product={site.product} />
+          </Fragment>
+        ) : (
+          <Fragment>
+            <h1>C'è qualche problema!</h1>
+          </Fragment>
+        )}
 
-      <input
-        type="button"
-        onClick={nextStep}
-        className="btn btn-primary"
-        value="Avanti"
-      />
-    </Fragment>
+        <input
+          type="button"
+          onClick={nextStep}
+          className="btn btn-primary"
+          value="Avanti"
+        />
+      </Fragment>
+    </animated.div>
   );
 };
 

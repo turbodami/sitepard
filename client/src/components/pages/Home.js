@@ -1,39 +1,54 @@
-import React from "react";
+import React, { Fragment } from "react";
 import { Link, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
+
+import { useSpring, animated } from "react-spring";
 import image from "../../images/image.gif";
 
 const Home = ({ isAuthenticated }) => {
+  const props = useSpring({
+    opacity: 1,
+    from: { opacity: 0 },
+    config: { duration: 1000 },
+  });
+
   if (isAuthenticated) {
     return <Redirect to="/dashboard" />;
   }
 
   return (
-    <section className="landing">
-      <div className="white-overlay">
-        <div className="landing-inner">
-          <div className="landing-content landing-text">
-            <h1 className="x-large">
-              Crea la presenza online della tua impresa
-            </h1>
-            <p className="lead">
-              Ricevi gli ordini via Whatsapp senza bisogno di gestionale, fatti
-              importunare continuamente dai tuoi clienti di merda fino a
-              raggiungere l'esaurimento nervoso e rasentare l'alcolismo cronico.
-            </p>
-            <div className="buttons">
-              <Link to="/sitebuilder" className="btn btn-primary">
-                Prova ora
-              </Link>
+    <animated.div style={props}>
+      <Fragment>
+        <section className="section is-medium">
+          <div className="container">
+            <div className="columns">
+              <div className="column is-1" />
+              <div className="column is-5">
+                <p className="title is-1">
+                  Genera il sito perfetto per la tua azienda in 5 minuti
+                </p>
+                <p className="subtitle is-3">
+                  Carica il tuo menù e ricevi gli ordini su Whatsapp!
+                </p>
+                <div className="buttons">
+                  <Link to="/sitebuilder" className="button is-primary">
+                    Prova ora
+                  </Link>
+                  <Link to="/" className="button is-info">
+                    Scrivici su Whatsapp
+                  </Link>
+                </div>
+              </div>
+              <div className="column is-5">
+                <img className="image" src={image} alt="" />
+              </div>
+              <div className="column is-1" />
             </div>
           </div>
-          <div className="landing-content landing-image">
-            <img src={image} />
-          </div>
-        </div>
-      </div>
-    </section>
+        </section>
+      </Fragment>
+    </animated.div>
   );
 };
 

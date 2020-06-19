@@ -1,98 +1,77 @@
-import React, { Fragment } from "react";
+import React, { useState, Fragment } from "react";
+import { useSpring, animated } from "react-spring";
+import Nav from "./Nav";
 
-import { connect } from "react-redux";
-import { withRouter } from "react-router-dom";
-import { setAlert } from "../../actions/alert";
-import { register } from "../../actions/auth";
-import PropTypes from "prop-types";
+const StepSixSite = ({ nextStep, prevStep }) => {
+  const props = useSpring({
+    opacity: 1,
+    from: { opacity: 0 },
+    config: { duration: 1000 },
+  });
 
-const StepSixSite = ({ formData, onChange, nextStep, setAlert, register }) => {
-  const { email, password, password2 } = formData;
+  const logoLoader = (
+    <animated.div style={props}>
+      <Fragment>
+        <div className="field">
+          <div className="file is-large is-boxed">
+            <label className="file-label">
+              <input className="file-input" type="file" name="resume" />
+              <span className="file-cta">
+                <span className="file-icon">
+                  <i className="fas fa-upload"></i>
+                </span>
+                <span className="file-label">Carica logo</span>
+              </span>
+            </label>
+          </div>
+        </div>
 
-  const onSubmit = async (e) => {
-    e.preventDefault();
+        <input
+          type="button"
+          onClick={nextStep}
+          className="btn btn-primary"
+          value="Avanti"
+        />
+      </Fragment>
+    </animated.div>
+  );
 
-    if (email !== "" || password !== "") {
-      if (password !== password2) {
-        setAlert("Le password non corrispondono", "danger");
-      } else {
-        register({ email, password });
-        nextStep();
-      }
-    } else {
-      setAlert("Ci sono dei campi non validi", "danger");
-    }
-  };
+  const [showLogoLoader, triggerLogoLoader] = useState(false);
 
   return (
-    <Fragment>
-      <h1 className="large text-primary">Registrati</h1>
-      <p className="lead">
-        <i className="fas fa-user" />
-        Conferma la tua email, effettua il login e finisci il tuo sito
-      </p>
-      <div className="flex-center">
-        <form className="form left" onSubmit={(e) => onSubmit(e)}>
-          <div className="form-group">
-            <input
-              type="email"
-              placeholder="Inserisci email"
-              name="email"
-              value={formData.email}
-              onChange={(e) => onChange(e)}
-            />
-            <small className="form-text">
-              Dovrai confermare che è la tua vera email
-            </small>
+    <animated.div style={props}>
+      <Fragment>
+        <section className="section">
+          <div className="container">
+            <Nav prevStep={prevStep} />
+            <div className="columns">
+              <div className="column is-3"></div>
+              <div className="column is-6">
+                <p className="title is-1">Hai un logo?</p>
+                <p className="subtitle is-3">
+                  Se non ce l'hai scrivici su Whatsapp, possiamo fartene uno!
+                </p>
+                <input
+                  type="button"
+                  onClick={() => triggerLogoLoader(!showLogoLoader)}
+                  className="button is-primary"
+                  value="si"
+                />
+                <input
+                  type="button"
+                  onClick={nextStep}
+                  className="button is-primary"
+                  value="no"
+                />
+                <Fragment>{showLogoLoader ? logoLoader : null}</Fragment>
+              </div>
+              <div className="column is-3"></div>
+            </div>
           </div>
-
-          <div className="form-group">
-            <input
-              type="password"
-              placeholder="Inserisci password"
-              name="password"
-              value={formData.password}
-              onChange={(e) => onChange(e)}
-            />
-            <small className="form-text">
-              Deve avere almeno 17 caratteri, di cui almeno 1 in sanscrito
-              vedico, 1 runico e 1 bestemmia
-            </small>
-          </div>
-
-          <div className="form-group">
-            <input
-              type="password"
-              placeholder="Ripeti password"
-              name="password2"
-              value={formData.password2}
-              onChange={(e) => onChange(e)}
-            />
-            <small className="form-text">Ripeti, non come Paganini</small>
-          </div>
-          <div className="center">
-            <input
-              type="submit"
-              className="btn btn-primary"
-              value="Registrati"
-            />
-          </div>
-        </form>
-      </div>
-    </Fragment>
+        </section>
+      </Fragment>
+    </animated.div>
   );
 };
 
-StepSixSite.propTypes = {
-  setAlert: PropTypes.func.isRequired,
-  register: PropTypes.func.isRequired,
-  isAuthenticated: PropTypes.bool,
-};
-
-const mapStateToProps = (state) => ({
-  isAuthenticated: state.auth.isAuthenticated,
-});
-
-export default connect(mapStateToProps, { setAlert, register })(
-  withRouter(StepSixSite)
-);
+export default StepSixSite;

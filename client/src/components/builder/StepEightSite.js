@@ -1,50 +1,45 @@
-import React, { useState, Fragment } from "react";
+import React, { Fragment } from "react";
+import { useSpring, animated } from "react-spring";
 
-const StepEightSite = ({ handleSelection, nextStep }) => {
-  const coverLoader = (
-    <Fragment>
-      <form className="form">
-        <div className="form-group">
-          <h1>IMAGELOADER</h1>
-          <small className="form-text">
-            Carica la tua immagine di copertina qui
-          </small>
-        </div>
-        <input
-          type="button"
-          onClick={nextStep}
-          className="btn btn-primary"
-          value="Avanti"
-        />
-      </form>
-    </Fragment>
-  );
-
-  const [showCoverLoader, triggerCoverLoader] = useState(false);
+const StepEightSite = ({ formData, clientValidation, onChange }) => {
+  const props = useSpring({
+    opacity: 1,
+    from: { opacity: 0 },
+    config: { duration: 1000 },
+  });
 
   return (
-    <Fragment>
-      <h1 className="large text-primary">
-        Vuoi usare un'immagine di copertina?
-      </h1>
-      <p className="lead">
-        <i className="fas fa-user" /> Se non hai foto della tua attività
-        contattaci su Whatsapp, Nico verrà a farle per te
-      </p>
-      <input
-        type="button"
-        onClick={() => triggerCoverLoader(!showCoverLoader)}
-        className="btn btn-primary"
-        value="si"
-      />
-      <input
-        type="button"
-        onClick={nextStep}
-        className="btn btn-primary"
-        value="no"
-      />
-      <Fragment>{showCoverLoader ? coverLoader : null}</Fragment>
-    </Fragment>
+    <animated.div style={props}>
+      <Fragment>
+        <h1 className="large text-primary">
+          Su che numero Whatsapp vuoi ricevere gli ordini?
+        </h1>
+        <p className="lead">
+          <i className="fas fa-user" />I tuoi clienti ti manderanno direttamente
+          li gli ordini
+        </p>
+        <div className="flex-center">
+          <form className="form">
+            <div className="form-group">
+              <input
+                type="text"
+                placeholder="Numero Whatsapp"
+                name="whatsappNumber"
+                value={formData.whatsappNumber}
+                onChange={(e) => onChange(e)}
+              />
+              <small className="form-text">Scrivi il numero qui</small>
+            </div>
+            <input
+              type="button"
+              onClick={() => clientValidation(formData.whatsappNumber)}
+              className="btn btn-primary"
+              value="Avanti"
+            />
+          </form>
+        </div>
+      </Fragment>
+    </animated.div>
   );
 };
 

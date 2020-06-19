@@ -1,6 +1,6 @@
 import React, { Fragment } from "react";
 
-const StepFourteenSite = ({ finalSubmit }) => {
+const StepDomain = ({ finalSubmit }) => {
   return (
     <Fragment>
       <h1 className="large text-primary">
@@ -62,4 +62,4 @@ const StepFourteenSite = ({ finalSubmit }) => {
   );
 };
 
-export default StepFourteenSite;
+export default StepDomain;

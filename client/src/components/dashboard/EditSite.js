@@ -75,11 +75,11 @@ const EditSite = ({
         <Columns.Column size={4}>
           <Content>
             <form onSubmit={(e) => onSubmit(e)}>
-              <div class="field">
-                <label class="label">Name</label>
-                <div class="control">
+              <div className="field">
+                <label className="label">Name</label>
+                <div className="control">
                   <input
-                    class="input"
+                    className="input"
                     type="text"
                     placeholder="Nome"
                     name="name"
@@ -89,11 +89,11 @@ const EditSite = ({
                 </div>
               </div>
 
-              <div class="field">
-                <label class="label">Tipo sito</label>
-                <div class="control">
+              <div className="field">
+                <label className="label">Tipo sito</label>
+                <div className="control">
                   <input
-                    class="input"
+                    className="input"
                     type="text"
                     placeholder="Type"
                     name="type"
@@ -103,10 +103,10 @@ const EditSite = ({
                 </div>
               </div>
 
-              <div class="field">
-                <label class="label">Tipo attività</label>
-                <div class="control">
-                  <div class="select">
+              <div className="field">
+                <label className="label">Tipo attività</label>
+                <div className="control">
+                  <div className="select">
                     <select>
                       <option>Pizzeria</option>
                       <option>Ristorante</option>
@@ -116,11 +116,11 @@ const EditSite = ({
                 </div>
               </div>
 
-              <div class="field">
-                <label class="label">Numero di telefono</label>
-                <div class="control">
+              <div className="field">
+                <label className="label">Numero di telefono</label>
+                <div className="control">
                   <input
-                    class="input"
+                    className="input"
                     type="text"
                     placeholder="Telefono"
                     name="tel"
@@ -130,11 +130,11 @@ const EditSite = ({
                 </div>
               </div>
 
-              <div class="field">
-                <label class="label">Numero di Whatsapp</label>
-                <div class="control">
+              <div className="field">
+                <label className="label">Numero di Whatsapp</label>
+                <div className="control">
                   <input
-                    class="input"
+                    className="input"
                     type="text"
                     placeholder="Whatsapp"
                     name="whatsappNumber"
@@ -144,11 +144,11 @@ const EditSite = ({
                 </div>
               </div>
 
-              <div class="field">
-                <label class="label">Indirizzo</label>
-                <div class="control">
+              <div className="field">
+                <label className="label">Indirizzo</label>
+                <div className="control">
                   <input
-                    class="input"
+                    className="input"
                     type="text"
                     placeholder="Indirizzo"
                     name="address"
@@ -158,11 +158,11 @@ const EditSite = ({
                 </div>
               </div>
 
-              <div class="field">
-                <label class="label">Descrizione</label>
-                <div class="control">
+              <div className="field">
+                <label className="label">Descrizione</label>
+                <div className="control">
                   <textarea
-                    class="textarea"
+                    className="textarea"
                     type="text"
                     placeholder="Descrizione"
                     name="description"

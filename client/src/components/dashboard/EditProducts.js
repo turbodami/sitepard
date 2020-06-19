@@ -5,6 +5,8 @@ import Spinner from "../layout/Spinner";
 import Menu from "../show/Menu";
 import { getCurrentSite } from "../../actions/site";
 import { Columns, Content } from "react-bulma-components";
+import AddProduct from "../site-forms/AddProduct";
+import AddCategory from "../site-forms/AddCategory";
 
 const EditProducts = ({
   getCurrentSite,
@@ -23,6 +25,8 @@ const EditProducts = ({
         <Fragment>
           <Columns>
             <Columns.Column size={8}>
+              <AddProduct />
+              <AddCategory />
               <Menu category={site.categories} product={site.products} />
             </Columns.Column>
             <Columns.Column size={4}>
