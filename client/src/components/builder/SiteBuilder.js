@@ -48,7 +48,7 @@ const defaultData = {
   type: "",
 };
 
-const SiteBuilder = ({ createSite, history, setAlert }) => {
+const SiteBuilder = ({ createSite, register, history, setAlert }) => {
   const [formData, setFormData] = useState(defaultData);
 
   const [step, setStep] = useState(1);
@@ -99,8 +99,15 @@ const SiteBuilder = ({ createSite, history, setAlert }) => {
       if (password !== password2) {
         setAlert("Le password non corrispondono", "danger");
       } else {
-        register({ email, password });
-        createSite(formData, history);
+        function successCallback(result) {
+          createSite(formData, history);
+        }
+        function failureCallback(error) {
+          console.log("error");
+        }
+        const promise = register({ email, password });
+        promise.then(successCallback, failureCallback);
+        //createSite(formData, history);
       }
     } else {
       setAlert("Ci sono dei campi non validi", "danger");

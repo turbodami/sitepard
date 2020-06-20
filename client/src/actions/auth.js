@@ -49,6 +49,7 @@ export const register = ({ email, password }) => async (dispatch) => {
       type: REGISTER_SUCCESS,
       payload: res.data,
     });
+    //callback();
 
     dispatch(loadUser());
   } catch (err) {

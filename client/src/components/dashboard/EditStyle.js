@@ -4,8 +4,9 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { createSite, getCurrentSite } from "../../actions/site";
 import Alert from "../layout/Alert";
+import Mobile from "../show/Mobile";
 
-const EditAccount = ({
+const EditInfo = ({
   site: { site, loading },
   createSite,
   getCurrentSite,
@@ -77,22 +78,78 @@ const EditAccount = ({
               </li>
               <li class="is-active">
                 <a href="#" aria-current="page">
-                  Modifica account
+                  Modifica stile
                 </a>
               </li>
             </ul>
           </nav>
-          <p className="title is-2">Gestisci account</p>
-          <p className="subtitle is-4">
-            Mandaci una mail per cambiare password. Vogliamo la password.
-          </p>
+          <p className="title is-2">Stile</p>
+          <form onSubmit={(e) => onSubmit(e)}>
+            <Alert />
+
+            <div className="form-group">
+              <input
+                type="number"
+                placeholder="Palette"
+                name="palette"
+                value={palette}
+                onChange={(e) => onChange(e)}
+              />
+              <small className="form-text">Inserisci i colori</small>
+            </div>
+            <div className="form-group">
+              <input
+                type="number"
+                placeholder="Stile"
+                name="style"
+                value={style}
+                onChange={(e) => onChange(e)}
+              />
+              <small className="form-text">Inserisci lo stile</small>
+            </div>
+
+            <div className="form-group">
+              <input
+                type="text"
+                placeholder="Logo"
+                name="logo"
+                value={logo}
+                onChange={(e) => onChange(e)}
+              />
+              <small className="form-text">
+                Inserisci qui il logo, se ne hai uno
+              </small>
+            </div>
+
+            <div className="form-group">
+              <input
+                type="text"
+                placeholder="image"
+                name="image"
+                value={image}
+                onChange={(e) => onChange(e)}
+              />
+              <small className="form-text">
+                Inserisci un'immagine di copertina per il sito
+              </small>
+            </div>
+            <input type="submit" className="btn btn-primary my-1" />
+            <Link className="btn btn-white my-1" to="/dashboard">
+              Go Back
+            </Link>
+          </form>
+        </div>
+
+        <div className="column is-4"></div>
+        <div className="column is-4">
+          <Mobile />
         </div>
       </div>
     </Fragment>
   );
 };
 
-EditAccount.propTypes = {
+EditInfo.propTypes = {
   createSite: PropTypes.func.isRequired,
   getCurrentSite: PropTypes.func.isRequired,
   site: PropTypes.object.isRequired,
@@ -103,5 +160,5 @@ const mapStateToProps = (state) => ({
 });
 
 export default connect(mapStateToProps, { createSite, getCurrentSite })(
-  withRouter(EditAccount)
+  withRouter(EditInfo)
 );

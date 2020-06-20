@@ -22,7 +22,7 @@ const Header = ({ auth: { isAuthenticated, loading }, logout }) => {
       {!loading && (
         <Fragment>
           <nav
-            className="navbar is-spaced is-white"
+            className="navbar is-spaced is-primary"
             role="navigation"
             aria-label="main navigation"
           >

@@ -1,14 +1,15 @@
 import React, { Fragment, useEffect } from "react";
 
-import { Section, Columns, Navbar, Menu } from "react-bulma-components";
 import { BrowserRouter as Router, Link, Switch, Route } from "react-router-dom";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { logout } from "../../actions/auth";
 
+import Nav from "./Nav";
 import Spinner from "../layout/Spinner";
 import PrivateRoute from "../routing/PrivateRoute";
-import EditSite from "./EditSite";
+import EditInfo from "./EditInfo";
+import EditStyle from "./EditStyle";
 import EditProducts from "./EditProducts";
 import EditAccount from "./EditAccount";
 import Main from "./Main";
@@ -29,38 +30,47 @@ const Dashboard = ({
     <Spinner />
   ) : (
     <Fragment>
-      <Section>
-        <Columns>
-          <Columns.Column size={2}>
-            <Navbar>
-              <Menu>
-                <Menu.List title="Impostazioni">
-                  <Menu.List.Item>
+      <Nav />
+      <div className="section">
+        <div className="columns">
+          <aside className="column is-2 aside">
+            <nav className="menu">
+              <p class="menu-label">Area personale</p>
+              <ul className="menu-list" title="Impostazioni">
+                <li>
+                  <a href="">
                     <Link to="/dashboard">Il mio sito</Link>
-                  </Menu.List.Item>
-                  <Menu.List.Item>
-                    <Link to="/editsite">Modifica sito</Link>
-                  </Menu.List.Item>
-                  <Menu.List.Item>
+                  </a>
+                </li>
+                <li>
+                  <a href="">
+                    <Link to="/editinfo">Modifica informazioni</Link>
+                  </a>
+                </li>
+                <li>
+                  <a href="">
+                    <Link to="/editstyle">Modifica stile</Link>
+                  </a>
+                </li>
+                <li>
+                  <a href="">
                     <Link to="/editproducts">Modifica prodotti</Link>
-                  </Menu.List.Item>
-                  <Menu.List.Item>
+                  </a>
+                </li>
+                <li>
+                  <a href="">
                     <Link to="/editaccount">Modifica account</Link>
-                  </Menu.List.Item>
-                  <Menu.List.Item>
-                    <Link to="/" onClick={logout}>
-                      Logout
-                    </Link>
-                  </Menu.List.Item>
-                </Menu.List>
-              </Menu>
-            </Navbar>
-          </Columns.Column>
+                  </a>
+                </li>
+              </ul>
+            </nav>
+          </aside>
 
-          <Columns.Column size={10}>
+          <main className="column is-10 main">
             <Switch>
               <PrivateRoute exact path="/dashboard" component={Main} />
-              <PrivateRoute exact path="/editsite" component={EditSite} />
+              <PrivateRoute exact path="/editinfo" component={EditInfo} />
+              <PrivateRoute exact path="/editstyle" component={EditStyle} />
               <PrivateRoute
                 exact
                 path="/editproducts"
@@ -68,9 +78,9 @@ const Dashboard = ({
               />
               <PrivateRoute exact path="/editaccount" component={EditAccount} />
             </Switch>
-          </Columns.Column>
-        </Columns>
-      </Section>
+          </main>
+        </div>
+      </div>
     </Fragment>
   );
 };
