@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const nodemailer = require('nodemailer');
-const sgMail = require('@sendgrid/mail');
+const jwt = require("jsonwebtoken");
 
 const transporter = nodemailer.createTransport(
     {
@@ -24,9 +24,8 @@ router.post('/verification/:recipient', async(req, res) =>
         {
             from: "admin@sitepard.com",
             to: req.params.recipient,
-            subject : "Prova",
-            text: "Bello questo testo",
-            html: "<b>Sciao belo </b>",
+            subject : "Verifica",
+            html: `<center> <b>Benvenuto in Sitepard!</b> <br/> Clicca <a href="http://localhost:5000/"> su questo link</a>  per verificare la tua e-mail   </center>`,
         },
         (err, info) =>
         {
@@ -37,7 +36,6 @@ router.post('/verification/:recipient', async(req, res) =>
             }
             else
             {
-                console.log(info);
                 res.status(200).json({message: "Messaggio inviato con successo."});
             }
         });
@@ -47,30 +45,6 @@ router.post('/verification/:recipient', async(req, res) =>
         console.log(error);
         res.status(500).json({message: "Errore invio mail"});
     }
-
-    // sgMail.setApiKey(process.env.SENDGRID_API_KEY);
-// 
-    // const msg = 
-    // {
-    //     to: 'test@example.com',
-    //     from: 'test@example.com',
-    //     subject: 'Sending with Twilio SendGrid is Fun',
-    //     text: 'and easy to do anywhere, even with Node.js',
-    //     html: '<strong>and easy to do anywhere, even with Node.js</strong>',
-    // };
-    // try 
-    // {
-    //     await sgMail.send(msg);
-    // } 
-    // catch (err) 
-    // {
-    //     console.log(err);
-
-    //     if(err.response)
-    //     {
-    //         console.error(err.response.body);
-    //     }
-    // }
 
 });
 
