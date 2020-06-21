@@ -28,7 +28,7 @@ router.post('/verification/:recipient', async(req, res) =>
             from: "admin@sitepard.com",
             to: req.params.recipient,
             subject : "Verifica",
-            html: `<center> <b>Benvenuto in Sitepard!</b> <br/> Clicca <a href="http://localhost:5000/"> su questo link</a>  per verificare la tua e-mail   </center>`,
+            html: `<center> <b>Benvenuto in Sitepard!</b> <br/> Clicca <a href="http://localhost:5000/api/mail/verification/${req.body.token}"> su questo link</a>  per verificare la tua e-mail   </center>`,
         },
         (err, info) =>
         {
@@ -51,7 +51,7 @@ router.post('/verification/:recipient', async(req, res) =>
 
 });
 
-router.put('/verification/:token', async(req, res) =>
+router.get('/verification/:token', async(req, res) =>
 {
     Token.findOne({token : req.params.token}, (err, token) =>
     {

@@ -117,7 +117,7 @@ router.post(
                 }
                 else if(response.statusCode === 200)
                 {
-                  res.status(200).json({message: "Registrazione avvenuta con successo"});
+                  res.status(200).json(token); //Ritorna il token per il primo login 
                 }
                 else
                 {
