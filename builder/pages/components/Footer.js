@@ -6,12 +6,12 @@ const Palette = styled.h1`
   color: ${({ theme }) => theme.colors.palette};
 `;
 
-const Footer = (site) => {
+const Footer = ({ name }) => {
   //console.log(site._doc);
   //console.log(site._doc.palette);
   return (
     <Fragment>
-      <Palette>dioanidoad</Palette>
+      <Palette>{name}</Palette>
     </Fragment>
   );
 };

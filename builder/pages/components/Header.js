@@ -6,12 +6,12 @@ const Title = styled.h1`
   color: ${({ theme }) => theme.colors.primary};
 `;
 
-const Header = (site) => {
+const Header = ({ category, name }) => {
   //console.log(site._doc);
   //console.log(site._doc.category);
   return (
     <Fragment>
-      <Title>diocna</Title>
+      <Title>{name}</Title>
     </Fragment>
   );
 };
