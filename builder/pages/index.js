@@ -11,7 +11,7 @@ const Home = ({ site }) => {
 
   return (
     <Fragment>
-      <h1>{...props}</h1>
+      <h1>{name}</h1>
       <Header {...props} />
       <Body {...props} />
       <Footer {...props} />
