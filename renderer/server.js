@@ -12,9 +12,8 @@ connectDB();
 
 const server = express();
 
-server.set('view engine', 'pug');
-server.set('views', path.join(__dirname, 'views');
-
+server.set("view engine", "pug");
+server.set("views", path.join(__dirname, "views"));
 
 //init middleware
 server.use(express.json({ extended: false }));
@@ -42,22 +41,20 @@ server.get("/s/:firstSubdomain/*", async (req, res) => {
   try {
     const site = await Site.findOne({ domain: url });
 
-    const {category, name} = site;
-    
-    if(site){
-      switch(category){
+    const { category, name } = site;
+
+    if (site) {
+      switch (category) {
         case "pizzeria":
-          return res.render('index', { name: name });
+          return res.render("index", { name: name });
       }
     } else {
       return res.status(404).json({ message: "Page not found" });
     }
-
   } catch (error) {
     console.log(error);
     res.status(500).json({ message: "Server error" });
   }
 });
-
 
 server.listen(PORT, () => console.log(`server ${PORT}`));
