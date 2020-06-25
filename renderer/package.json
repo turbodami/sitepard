@@ -1,0 +1,16 @@
+{
+  "name": "renderer",
+  "version": "1.0.0",
+  "description": "renderer",
+  "scripts": {},
+  "author": "turbodami",
+  "license": "MIT",
+  "dependencies": {
+    "aws-sdk": "^2.704.0",
+    "express": "^4.17.1",
+    "node": "^14.4.0",
+    "path": "^0.12.7",
+    "pug": "^3.0.0",
+    "wildcard-subdomains": "^1.1.0"
+  }
+}

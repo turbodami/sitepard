@@ -1,0 +1,4 @@
+{
+  "mongoURI": "mongodb+srv://node:9u4biljMQc4jjqbe@corso-eqjbf.azure.mongodb.net/test?retryWrites=true&w=majority",
+  "jwtSecret": "diobestia"
+}
