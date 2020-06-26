@@ -1,0 +1,17 @@
+doctype html
+html
+    include head
+    body
+        nav.navbar
+            .navbar-brand
+                a.navbar-item(href='/') #{name}
+            .navbar-menu
+                .navbar-end
+                    .navbar-item
+                        .buttons
+                            a.button.is-primary(href='') Menu
+                            a.button.is-primary(href='') Orari
+                            a.button.is-primary(href='') Dove siamo
+
+
+        block content
