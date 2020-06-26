@@ -12,8 +12,12 @@ connectDB();
 
 const server = express();
 
+//load view engine
 server.set("view engine", "pug");
 server.set("views", path.join(__dirname, "views"));
+
+//set public folder
+server.use(express.static(path.join(__dirname, "public")));
 
 //init middleware
 server.use(express.json({ extended: false }));
