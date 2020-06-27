@@ -2,32 +2,34 @@ doctype html
 html
     include head
     body
-        .columns   
-            .column.is-2
-            .column.is-8
-                nav.navbar
-                    .navbar-brand
-                        a.navbar-item(href='/') #{name}
-                    .navbar-menu
-                        .navbar-start
-                            a.navbar-item(href='') Menu
-                            a.navbar-item(href='') Orari
-                            a.navbar-item(href='') Dove siamo
-                        .navbar-end
-                            .navbar-item
-                            .buttons
-                                a.button.is-primary(href='') Ordina su Whatsapp
-                                a.button.is-info(href='') Chiama
-            .column.is-2
-        
-        .columns
-            .column.is-2
-            .column.is-4
-                p.title.is-1 Ordina online
-                p.subtitle.is-3 #{description}               
-            .column.is-4
-                img.image(src='#{image}')
-            .column.is-2
+        .section
+            .columns   
+                .column.is-2
+                .column.is-8
+                    nav.navbar
+                        .navbar-brand
+                            a.navbar-item(href='/') #{name}
+                        .navbar-menu
+                            .navbar-start
+                                a.navbar-item(href='') Menu
+                                a.navbar-item(href='') Orari
+                                a.navbar-item(href='') Dove siamo
+                            .navbar-end
+                                .navbar-item
+                                .buttons
+                                    a.button.is-primary(href='') Ordina su Whatsapp
+                                    a.button.is-info(href='') Chiama
+                .column.is-2
+        .section
+            .container
+                .columns.is-vcentered.is-desktop
+                    .column.is-2
+                    .column.is-4
+                        p.title.is-1 Ordina online
+                        p.subtitle.is-3 #{description}               
+                    .column.is-4
+                        img.image(src='#{image}')
+                    .column.is-2
 
 
         block content
