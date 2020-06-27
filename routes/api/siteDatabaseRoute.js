@@ -62,6 +62,8 @@ router.post(
       style,
       type,
       timeTable,
+      categories,
+      products,
     } = req.body;
 
     //build site object
@@ -80,6 +82,8 @@ router.post(
     if (style) siteFields.style = style;
     if (type) siteFields.type = type;
     if (timeTable) siteFields.timeTable = timeTable;
+    if (categories) siteFields.categories = categories;
+    if (products) siteFields.products = products;
 
     try {
       let site = await Site.findOne({ user: req.user.id });
