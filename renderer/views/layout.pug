@@ -2,16 +2,21 @@ doctype html
 html
     include head
     body
-        nav.navbar
-            .navbar-brand
-                a.navbar-item(href='/') #{name}
-            .navbar-menu
-                .navbar-end
-                    .navbar-item
-                        .buttons
-                            a.button.is-primary(href='') Menu
-                            a.button.is-primary(href='') Orari
-                            a.button.is-primary(href='') Dove siamo
+        .columns   
+            .column.is-2
+            .column.is-8
+                nav.navbar
+                    .navbar-brand
+                        a.navbar-item(href='/') #{name}
+                    .navbar-menu
+                        .navbar-end
+                            .navbar-item
+                            .buttons
+                                a.button.is-primary(href='') Menu
+                                a.button.is-primary(href='') Orari
+                                a.button.is-primary(href='') Dove siamo
+            .column.is-2
+        
         .columns
             .column.is-2
             .column.is-4
