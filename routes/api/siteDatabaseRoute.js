@@ -54,6 +54,7 @@ router.post(
       tel,
       address,
       whatsappNumber,
+      domain,
       description,
       image,
       logo,
@@ -69,6 +70,7 @@ router.post(
     if (category) siteFields.category = category;
     if (name) siteFields.name = name;
     if (tel) siteFields.tel = tel;
+    if (domain) siteFields.domain = domain;
     if (address) siteFields.address = address;
     if (whatsappNumber) siteFields.whatsappNumber = whatsappNumber;
     if (description) siteFields.description = description;

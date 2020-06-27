@@ -25,6 +25,7 @@ import { setAlert } from "../../actions/alert";
 const defaultData = {
   category: "",
   name: "",
+  domain: "",
   address: "",
   palette: "",
   style: "",
@@ -100,6 +101,11 @@ const SiteBuilder = ({ createSite, register, history, setAlert }) => {
         setAlert("Le password non corrispondono", "danger");
       } else {
         function successCallback(result) {
+          const { name } = formData;
+          const domain = name.replace(/ /g, "");
+          domain = `${name}.cactusdomaindev.xyz`;
+
+          formData.domain = domain;
           createSite(formData, history);
         }
         function failureCallback(error) {
