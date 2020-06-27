@@ -42,7 +42,7 @@ html
                                         th= category.name
                                 tbody
                                     each product in products
-                                        if product.category === category
+                                        if product.category === category.name
                                             tr
                                                 td= product.name
                                                 td= product.description
