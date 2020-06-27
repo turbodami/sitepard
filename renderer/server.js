@@ -64,7 +64,7 @@ server.get("/s/:firstSubdomain/*", async (req, res) => {
             description: description,
             logo: logo,
             image: image,
-            cateories: categories,
+            categories: categories,
             products: products,
           });
       }
