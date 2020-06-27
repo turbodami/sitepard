@@ -45,7 +45,7 @@ server.get("/s/:firstSubdomain/*", async (req, res) => {
   try {
     const site = await Site.findOne({ domain: url });
 
-    const { category, name } = site;
+    const { category, name, description, logo, image } = site;
 
     if (site) {
       switch (category) {
