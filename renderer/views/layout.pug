@@ -36,12 +36,12 @@ html
                     .column.is-4
                     .column.is-4
                         table.table
-                            each category in categories
+                            each category in #{categories}
                                 thead
                                     tr
                                         th= category.name
                                 tbody
-                                    each product in products
+                                    each product in #{products}
                                         if product.category === category
                                             tr
                                                 td= product.name
