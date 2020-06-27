@@ -35,6 +35,7 @@ html
                 .columns.is-vcentered.is-desktop
                     .column.is-4
                     .column.is-4
+                        p.title.is-1 Menù
                         table.table
                             each category in categories
                                 thead
@@ -49,6 +50,37 @@ html
                                                 td= product.price
 
                     .column.is-4
+        .section.hero.is-info.is-large
+            .hero-body
+                .container
+                    .columns.is-vcentered.is-desktop
+                        .column.is-2
+                        .column.is-4.has-text-centered
+                            p.title.is-1 Orari
+                                p.subtitle.is-3.has-text-weight-bold Lunedi 
+                                p.subtitle.is-3.has-text-weight-bold Martedi
+                                p.subtitle.is-3.has-text-weight-bold Mercoledi
+                                p.subtitle.is-3.has-text-weight-bold Giovedi
+                                p.subtitle.is-3.has-text-weight-bold Venerdi
+                                p.subtitle.is-3.has-text-weight-bold Sabato
+                                p.subtitle.is-3.has-text-weight-bold Domenica
+                        .column.is-4.has-text-centered
+                            p.title.is-1 Dove siamo
+                                p.subtitle.is-3.has-text-weight-bold= address
+                        .column.is-2
 
+
+<section class="hero is-info is-large">
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title">
+        Large title
+      </h1>
+      <h2 class="subtitle">
+        Large subtitle
+      </h2>
+    </div>
+  </div>
+</section>
 
         block content
