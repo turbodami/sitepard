@@ -50,7 +50,13 @@ server.get("/s/:firstSubdomain/*", async (req, res) => {
     if (site) {
       switch (category) {
         case "pizzeria":
-          return res.render("index", { name: name });
+          return res.render("index", {
+            name: name,
+            category: category,
+            description: description,
+            logo: logo,
+            image: image,
+          });
       }
     } else {
       return res.status(404).json({ message: "Page not found" });
