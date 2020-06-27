@@ -45,7 +45,15 @@ server.get("/s/:firstSubdomain/*", async (req, res) => {
   try {
     const site = await Site.findOne({ domain: url });
 
-    const { category, name, description, logo, image } = site;
+    const {
+      category,
+      name,
+      description,
+      logo,
+      image,
+      categories,
+      products,
+    } = site;
 
     if (site) {
       switch (category) {
@@ -56,6 +64,8 @@ server.get("/s/:firstSubdomain/*", async (req, res) => {
             description: description,
             logo: logo,
             image: image,
+            cateories: categories,
+            products: products,
           });
       }
     } else {

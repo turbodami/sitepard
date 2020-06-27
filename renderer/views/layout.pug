@@ -30,6 +30,25 @@ html
                     .column.is-4
                         img.image(src='#{image}')
                     .column.is-2
+        .section
+            .container
+                .columns.is-vcentered.is-desktop
+                    .column.is-4
+                    .column.is-4
+                        table.table
+                            each category in categories
+                                thead
+                                    tr
+                                        th= category.name
+                                tbody
+                                    each product in products
+                                        if product.category === category
+                                            tr
+                                                td= product.name
+                                                td= product.description
+                                                td= product.price
+
+                    .column.is-4
 
 
         block content
