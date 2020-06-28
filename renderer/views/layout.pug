@@ -8,7 +8,7 @@ html
                 .column.is-8
                     nav.navbar
                         .navbar-brand
-                            a.navbar-item(href='/') #{name}
+                            a.navbar-item(href=logo)
                         .navbar-menu
                             .navbar-start
                                 a.navbar-item(href='') Menu
@@ -28,7 +28,7 @@ html
                         p.title.is-1 Ordina online
                         p.subtitle.is-3 #{description}               
                     .column.is-4
-                        img.image(src='#{image}')
+                        img.image(src=image)
                     .column.is-2
         .section
             .container
@@ -53,17 +53,17 @@ html
         .section.hero.is-warning.is-medium
             .hero-body
                 .container
-                    .columns.is-vcentered.is-desktop
+                    .columns.is-desktop
                         .column.is-2
                         .column.is-4.has-text-centered
                             p.title.is-1 Orari
-                                p.subtitle.is-3 Lunedi 
-                                p.subtitle.is-3 Martedi
-                                p.subtitle.is-3 Mercoledi 
-                                p.subtitle.is-3 Giovedi
-                                p.subtitle.is-3 Venerdi 
-                                p.subtitle.is-3 Sabato 
-                                p.subtitle.is-3 Domenica 
+                                p.subtitle.is-3 Lunedi timetable.monday
+                                p.subtitle.is-3 Martedi timetable.tuesday
+                                p.subtitle.is-3 Mercoledi timetable.wednesday
+                                p.subtitle.is-3 Giovedi timetable.thursday
+                                p.subtitle.is-3 Venerdi timetable.friday
+                                p.subtitle.is-3 Sabato timetable.saturday
+                                p.subtitle.is-3 Domenica timetable.sunday
                         .column.is-4.has-text-centered
                             p.title.is-1 Dove siamo
                                 p.subtitle.is-3 address
@@ -74,7 +74,7 @@ html
                     .columns.is-vcentered.is-desktop
                         .column.is-5
                         .column.is-2.has-text-centered
-                            p Pizzeria merda culo cazzo frocio tette fregna
+                            p Prhhfhizzeria merda culo cazzo frocio tette fregna
                         .column.is-5
   
         block content

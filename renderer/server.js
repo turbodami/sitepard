@@ -54,6 +54,7 @@ server.get("/s/:firstSubdomain/*", async (req, res) => {
       categories,
       products,
       address,
+      timeTable,
     } = site;
 
     if (site) {
@@ -68,6 +69,7 @@ server.get("/s/:firstSubdomain/*", async (req, res) => {
             categories: categories,
             products: products,
             address: address,
+            timeTable: timeTable,
           });
       }
     } else {
