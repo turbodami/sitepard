@@ -3,10 +3,12 @@ const router = express.Router();
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const config = require("config");
+const request = require('request');
 
 const { check, validationResult } = require("express-validator");
 
 const User = require("../../models/User");
+const Token = require("../../models/Token");
 
 //@route    POST api/users
 //@desc     register user
@@ -62,13 +64,68 @@ router.post(
         },
       };
 
+      const userId = user.id;
+
+      
       jwt.sign(
         payload,
         config.get("jwtSecret"),
         { expiresIn: 3600 },
         (err, token) => {
-          if (err) throw err;
-          res.json({ token });
+          if (err)
+           throw err;
+          
+          const tokenDb = new Token(  //Create new token
+            {
+                userId,
+                token
+            }
+          );
+          
+          console.log("Token creato");
+
+          tokenDb.save((err) =>  //Save token in db
+          {
+            if(err)
+            {
+              console.log(err);
+              res.status(500).json({message: "Errore nel salvataggio del token"});
+            }
+            else
+            {
+              const options =   //Prepare data for mail request
+              {
+                url : 'http://localhost:5000/api/mail/verification/' + email,
+                method: 'POST',
+                headers: 
+                {
+                  'Content-Type': 'application/json'
+                },
+                json: 
+                {
+                  "token" : token
+                }
+              };
+
+              console.log("Mail preparata")
+              request(options, (err, response, body)=>  //Send request to mail route
+              {
+                if(err)
+                {
+                  console.log(error);
+                  res.status(400).json({message: `Errore nell'invio della mail.`});
+                }
+                else if(response.statusCode === 200)
+                {
+                  res.status(200).json(token); //Ritorna il token per il primo login 
+                }
+                else
+                {
+                  res.status(400).json({message: "Errore nell'invio della mail di verifica"});
+                }
+              })
+            }
+          });
         }
       );
     } catch (err) {

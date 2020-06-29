@@ -60,6 +60,11 @@ router.post(
           .json({ errors: [{ msg: "invalid credentials!" }] });
       }
 
+      if(!user.verified)
+      {
+        return res.status(400).json({errors: [{msg: "User not verified"}]});
+      }
+
       //return jsonwebtoken
       const payload = {
         user: {

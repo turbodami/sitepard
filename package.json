@@ -13,17 +13,27 @@
   "author": "turbodami&ramos",
   "license": "ISC",
   "dependencies": {
+    "@sendgrid/mail": "^7.2.0",
     "aws-sdk": "^2.687.0",
     "bcryptjs": "^2.4.3",
+    "body-parser": "^1.19.0",
     "config": "^3.3.1",
+    "crypto": "^1.0.1",
+    "datejs": "^1.0.0-rc3",
     "express": "^4.17.1",
     "express-fileupload": "^1.1.7-alpha.3",
     "express-validator": "^6.5.0",
     "jsonwebtoken": "^8.5.1",
+    "moment": "^2.26.0",
     "mongoose": "^5.9.15",
     "multer": "^1.4.2",
     "multer-s3": "^2.9.0",
+<<<<<<< HEAD
     "react-bulma-components": "^3.3.0",
+=======
+    "nodemailer": "^6.4.10",
+    "nodemailer-sendgrid-transport": "^0.2.0",
+>>>>>>> mail
     "request": "^2.88.2",
     "s-age": "1.1.2",
     "stripe": "^8.56.0",

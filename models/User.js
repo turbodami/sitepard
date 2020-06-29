@@ -14,6 +14,7 @@ const UserSchema = new mongoose.Schema({
     type: Date,
     default: Date.now,
   },
+<<<<<<< HEAD
   verified: 
   {
     type: Boolean,
@@ -23,6 +24,17 @@ const UserSchema = new mongoose.Schema({
   //type: String,
   //unique: true
   //}
+=======
+  verified:
+  {
+    type: Boolean,
+    default: false
+  },
+  stripeCustomerId:
+   {
+
+  }
+>>>>>>> mail
 });
 
 module.exports = User = mongoose.model("user", UserSchema);

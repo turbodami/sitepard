@@ -1,8 +1,16 @@
 const express = require("express");
 const connectDB = require("./config/db");
+<<<<<<< HEAD
 const subdomains = require("wildcard-subdomains");
 const aws = require("aws-sdk");
 const multerS3 = require("multer-s3");
+=======
+const subdomains = require('wildcard-subdomains');
+const aws = require('aws-sdk');
+const path = require('path');
+const fs = require('fs');
+
+>>>>>>> mail
 
 const app = express();
 
@@ -35,7 +43,10 @@ app.use("/api/auth", require("./routes/api/auth"));
 app.use("/api/siteSpaces", require("./routes/api/siteSpacesRoute"));
 app.use("/api/site", require("./routes/api/siteDatabaseRoute"));
 app.use("/api/payment", require("./routes/api/paymentsRoute"));
+app.use("/api/webhook", require("./routes/api/webhookRoute"));
+app.use("/api/mail", require("./routes/api/mailRoute"));
 
+<<<<<<< HEAD
 //Subdomain that lets the user display a site with nameSite.cactusdomaindev.xyz
 
 app.get("/s/:firstSubdomain/*", async (req, res) => {
@@ -70,6 +81,13 @@ app.get("/s/:firstSubdomain/*", async (req, res) => {
     res.status(500).json({ message: "Server error" });
   }
 });
+=======
+
+//Importo il template del sito
+
+app.use(express.static('./templates/pizzeria/public/index.html'));
+
+>>>>>>> mail
 
 app.get("/", (req, res) => res.send("api running"));
 
