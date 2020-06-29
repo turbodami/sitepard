@@ -71,8 +71,6 @@ const filter = (req, file, cb) =>
       };
 }
 
-//const imageUpload = multer({storage: fileStorage, fileFilter: filter}, ).single('file');
-
 const imageUpload = multer({
     storage: multerS3(
         {
@@ -86,7 +84,7 @@ const imageUpload = multer({
             }
         }
     )
-})
+});
 
 
 
@@ -118,6 +116,34 @@ router.post('/image/:id&:fileName', imageUpload.single('file'), async (req, res)
             res.status(500).json({message: 'Database error'});
         }
     } 
+});
+
+router.post('/imageTemp/:fileName', imageTempUpload.single('file'), async (req, res) =>
+{
+    
+    if(!req.file)
+    {
+        res.status(500).json({message: 'Bad request'});
+    }
+    else
+    {
+        res.status(200).json('Upload successfull.');
+    } 
+});
+
+const imageTempUpload = multer({
+    storage: multerS3(
+        {
+            s3: s3,
+            bucket: 'cactus-space',
+            acl: 'public-read',
+            contentType: multerS3.AUTO_CONTENT_TYPE,
+            key: (req, file, cb) =>
+            {
+                cb(null, 'tempImages/' + req.params.fileName)
+            }
+        }
+    )
 });
 
 
