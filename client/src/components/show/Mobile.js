@@ -21,7 +21,10 @@ const Mobile = () => {
         </div>
         <div className="inner-shadow"></div>
         <div className="screen">
-          <iframe src="https://www.google.com" title="your website"></iframe>
+          <iframe
+            src="http://pizzaporcodio.cactusdomaindev.xyz/"
+            title="your website"
+          ></iframe>
         </div>
       </div>
     </Fragment>
