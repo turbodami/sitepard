@@ -1,17 +1,5 @@
 const express = require("express");
 const connectDB = require("./config/db");
-<<<<<<< HEAD
-const subdomains = require("wildcard-subdomains");
-const aws = require("aws-sdk");
-const multerS3 = require("multer-s3");
-=======
-const subdomains = require('wildcard-subdomains');
-const aws = require('aws-sdk');
-const path = require('path');
-const fs = require('fs');
-
->>>>>>> mail
-
 const app = express();
 
 //connect db
