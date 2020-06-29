@@ -21,7 +21,7 @@ const Mobile = () => {
         </div>
         <div className="inner-shadow"></div>
         <div className="screen">
-          <h1>mmm</h1>
+          <iframe src="https://www.google.com" title="your website"></iframe>
         </div>
       </div>
     </Fragment>

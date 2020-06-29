@@ -22,15 +22,13 @@ const SiteSchema = new mongoose.Schema({
   whatsappNumber: {
     type: Number,
   },
-  domain:
-  {
-      type: String,
-      required: false
+  domain: {
+    type: String,
+    required: false,
   },
-  index:
-  {
-      type: String,
-      required: false
+  index: {
+    type: String,
+    required: false,
   },
   description: {
     type: String,
@@ -43,11 +41,9 @@ const SiteSchema = new mongoose.Schema({
   },
   palette: {
     type: String,
-    required: true,
   },
   style: {
     type: String,
-    required: true,
   },
 
   type: {
@@ -109,16 +105,14 @@ const SiteSchema = new mongoose.Schema({
 
   images: [
     {
-      name:
-      {
+      name: {
         type: String,
       },
-      link :
-      {
-        type: String
-      }
-    }
-  ]
+      link: {
+        type: String,
+      },
+    },
+  ],
 });
 
 module.exports = Site = mongoose.model("site", SiteSchema);

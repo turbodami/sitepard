@@ -9,8 +9,10 @@ html
                     nav.navbar
                         .navbar-brand
                             a.navbar-item(href='/')
-                                figure.image.is-2by1
+                                if(logo)
                                     img(src=logo)
+                                else
+                                    #{name}
                         .navbar-menu    
                             .navbar-start
                                 a.navbar-item(href='') Menu
@@ -60,16 +62,16 @@ html
                         .column.is-2
                         .column.is-4.has-text-centered
                             p.title.is-1 Orari
-                                p.subtitle.is-3 Lunedi timetable.monday
-                                p.subtitle.is-3 Martedi timetable.tuesday
-                                p.subtitle.is-3 Mercoledi timetable.wednesday
-                                p.subtitle.is-3 Giovedi timetable.thursday
-                                p.subtitle.is-3 Venerdi timetable.friday
-                                p.subtitle.is-3 Sabato timetable.saturday
-                                p.subtitle.is-3 Domenica timetable.sunday
+                                p.subtitle.is-3 Lunedi #{timetable.monday}
+                                p.subtitle.is-3 Martedi #{timetable.tuesday}
+                                p.subtitle.is-3 Mercoledi #{timetable.wednesday}
+                                p.subtitle.is-3 Giovedi #{timetable.thursday}
+                                p.subtitle.is-3 Venerdi #{timetable.friday}
+                                p.subtitle.is-3 Sabato #{timetable.saturday}
+                                p.subtitle.is-3 Domenica #{timetable.sunday}
                         .column.is-4.has-text-centered
                             p.title.is-1 Dove siamo
-                                p.subtitle.is-3 address
+                                p.subtitle.is-3 #{address}
                         .column.is-2
         .section.hero.is-info.is-small
             .hero-body

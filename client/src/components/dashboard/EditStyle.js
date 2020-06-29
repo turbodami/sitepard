@@ -71,12 +71,12 @@ const EditInfo = ({
     <Fragment>
       <div className="columns">
         <div className="column is-4">
-          <nav class="breadcrumb is-small" aria-label="breadcrumbs">
+          <nav className="breadcrumb is-small" aria-label="breadcrumbs">
             <ul>
-              <li class="is-active">
+              <li className="is-active">
                 <a href="#">Dashboard</a>
               </li>
-              <li class="is-active">
+              <li className="is-active">
                 <a href="#" aria-current="page">
                   Modifica stile
                 </a>

@@ -102,10 +102,8 @@ const SiteBuilder = ({ createSite, register, history, setAlert }) => {
       } else {
         function successCallback(result) {
           const { name } = formData;
-          const domain = name.replace(/ /g, "");
-          domain = `${name}.cactusdomaindev.xyz`;
 
-          formData.domain = domain;
+          formData.domain = name;
           createSite(formData, history);
         }
         function failureCallback(error) {
@@ -137,30 +135,26 @@ const SiteBuilder = ({ createSite, register, history, setAlert }) => {
     case 2:
       return <Name {...props} />;
     case 3:
-      return <Palette {...props} />;
-    case 4:
-      return <Style {...props} />;
-    case 5:
       return <Logo {...props} />;
-    case 6:
+    case 4:
       return <Cover {...props} />;
-    case 7:
+    case 5:
       return <Whatsapp {...props} />;
-    case 8:
+    case 6:
       return <Tel {...props} />;
-    case 9:
+    case 7:
       return <TimeTable {...props} />;
-    case 10:
+    case 8:
       return <Address {...props} />;
-    case 11:
+    case 9:
       return <Description {...props} />;
-    case 12:
+    case 10:
       return <Products {...props} />;
-    case 13:
+    case 11:
       return <Domain {...props} />;
-    case 14:
+    case 12:
       return <Registration {...props} />;
-    case 15:
+    case 13:
       return <Success {...props} />;
     default:
       return <Fragment>Mi sa che ci sono problemi!</Fragment>;

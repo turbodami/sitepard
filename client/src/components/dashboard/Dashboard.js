@@ -35,7 +35,7 @@ const Dashboard = ({
         <div className="columns">
           <aside className="column is-2 aside">
             <nav className="menu">
-              <p class="menu-label">Area personale</p>
+              <p className="menu-label">Area personale</p>
               <ul className="menu-list" title="Impostazioni">
                 <li>
                   <a href="">
@@ -45,11 +45,6 @@ const Dashboard = ({
                 <li>
                   <a href="">
                     <Link to="/editinfo">Modifica informazioni</Link>
-                  </a>
-                </li>
-                <li>
-                  <a href="">
-                    <Link to="/editstyle">Modifica stile</Link>
                   </a>
                 </li>
                 <li>

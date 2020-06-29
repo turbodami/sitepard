@@ -36,8 +36,6 @@ router.post(
     [
       check("category", "category is required").not().isEmpty(),
       check("name", "name is required").not().isEmpty(),
-      check("palette", "palette is required").not().isEmpty(),
-      check("style", "style is required").not().isEmpty(),
     ],
   ],
 
