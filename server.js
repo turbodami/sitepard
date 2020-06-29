@@ -8,14 +8,6 @@ connectDB();
 //init middleware
 app.use(express.json({ extended: false }));
 
-//Declarations and parameters to access spaces
-
-const s3 = new aws.S3({
-  endpoint: "fra1.digitaloceanspaces.com",
-  accessKeyId: "JGDTMFZUJ4ZRBU53WMCQ",
-  secretAccessKey: "OnG8gclYu6L5oWFmxP073maaWGj4s1As8Z75fiA4G9E",
-  bucket: "cactus-space",
-});
 
 //define subdomains
 app.use(
