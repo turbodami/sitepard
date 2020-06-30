@@ -118,18 +118,6 @@ router.post('/image/:id&:fileName', imageUpload.single('file'), async (req, res)
     } 
 });
 
-router.post('/imageTemp/:fileName', imageTempUpload.single('file'), async (req, res) =>
-{
-    
-    if(!req.file)
-    {
-        res.status(500).json({message: 'Bad request'});
-    }
-    else
-    {
-        res.status(200).json('Upload successfull.');
-    } 
-});
 
 const imageTempUpload = multer({
     storage: multerS3(
@@ -145,6 +133,20 @@ const imageTempUpload = multer({
         }
     )
 });
+
+router.post('/imageTemp/:fileName', imageTempUpload.single('file'), async (req, res) =>
+{
+    
+    if(!req.file)
+    {
+        res.status(500).json({message: 'Bad request'});
+    }
+    else
+    {
+        res.status(200).json('Upload successfull.');
+    } 
+});
+
 
 
 module.exports = router;

@@ -12,27 +12,42 @@ const Logo = ({ formData, nextStep, prevStep }) => {
 
   const [logo, setLogo] = useState({
     logo: null,
-    loaded: null
+    
   })
 
   const handleUpload = (e) => {
     setLogo({
-      logo: event.target.files[0],
+      logo: e.target.files[0],
       loaded: 0,
     })
+    
   }
 
-  const sendLogo = () => {
-    const {name} = formData;
+  const sendLogo = async () => {
+    
+    const businessName = formData.name;
 
-    const data = new FormData() 
-    data.append('file', logo.logo)
-  
-    const imageName = data.name;
+    
+    
+    const uploadedName = logo.logo.name;
+
+    const data = new FormData(); 
+    data.append('file', logo.logo);
+    
+    let imageName = businessName;
     imageName = imageName.replace(/\s/g, '').toLowerCase();
     
+    const extension = uploadedName.split('.').pop();
+    
+    function successCallback(result) {
+      nextStep();
+    }
+    function failureCallback(error) {
+      console.log("error");
+    }
 
-    const res = await axios.post(`/api/siteSpaces/image/${imageName}logo`)
+    const promise = await axios.post(`/api/siteSpaces/imageTemp/${imageName}logo.${extension}`);
+    promise.then(successCallback, failureCallback);
 
   }
 
@@ -43,10 +58,7 @@ const Logo = ({ formData, nextStep, prevStep }) => {
           <div className="file is-large is-boxed">
             <label className="file-label">
               <input className="file-input" type="file" name="file" onChange={handleUpload}/>
-              <span className="file-cta"> setLogo({
-      selectedFile: event.target.files[0],
-      loaded: 0,
-    })
+              <span className="file-cta"> 
                 <span className="file-icon">
                   <i className="fas fa-upload"></i>
                 </span>
@@ -59,7 +71,7 @@ const Logo = ({ formData, nextStep, prevStep }) => {
         <input
           type="button"
           onClick={() => {
-            handle();
+            sendLogo();
           }}
           className="btn btn-primary"
           value="Avanti"
