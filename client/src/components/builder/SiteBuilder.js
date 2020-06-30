@@ -99,10 +99,11 @@ const SiteBuilder = ({ createSite, register, history, setAlert }) => {
         setAlert("Le password non corrispondono", "danger");
       } else {
         function successCallback(result) {
-          const { name } = formData;
+          let { name } = formData;
           name = name.replace(/\s/g, '');
           name = name.toLowerCase();
           formData.domain = name;
+          console.log("lui è nato");
           createSite(formData, history);
         }
         function failureCallback(error) {

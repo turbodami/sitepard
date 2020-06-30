@@ -1,9 +1,11 @@
 import React, { useState, Fragment } from "react";
 import { useSpring, animated } from "react-spring";
 import Nav from "./Nav";
-import axios from "axios";
+import { uploadLogo } from "../../actions/site";
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
 
-const Logo = ({ formData, nextStep, prevStep }) => {
+const Logo = ({ formData, nextStep, prevStep, uploadLogo }) => {
   const props = useSpring({
     opacity: 1,
     from: { opacity: 0 },
@@ -11,34 +13,18 @@ const Logo = ({ formData, nextStep, prevStep }) => {
   });
 
   const [logo, setLogo] = useState({
-    logo: null,
-    
-  })
+    logo: null
+  });
 
   const handleUpload = (e) => {
+    
     setLogo({
-      logo: e.target.files[0],
-      loaded: 0,
-    })
+      logo: e.target.files[0]
+    });
     
   }
 
   const sendLogo = async () => {
-    
-    const businessName = formData.name;
-
-    
-    
-    const uploadedName = logo.logo.name;
-
-    const data = new FormData(); 
-    data.append('file', logo.logo);
-    
-    let imageName = businessName;
-    imageName = imageName.replace(/\s/g, '').toLowerCase();
-    
-    const extension = uploadedName.split('.').pop();
-    
     function successCallback(result) {
       nextStep();
     }
@@ -46,9 +32,8 @@ const Logo = ({ formData, nextStep, prevStep }) => {
       console.log("error");
     }
 
-    const promise = await axios.post(`/api/siteSpaces/imageTemp/${imageName}logo.${extension}`);
+    const promise = uploadLogo(formData, logo, nextStep);
     promise.then(successCallback, failureCallback);
-
   }
 
   const logoLoader = (
@@ -121,4 +106,8 @@ const Logo = ({ formData, nextStep, prevStep }) => {
   );
 };
 
-export default Logo;
+Logo.propTypes = {
+  uploadLogo: PropTypes.func.isRequired,
+};
+
+export default connect(null, { uploadLogo})(Logo);

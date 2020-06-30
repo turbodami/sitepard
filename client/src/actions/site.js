@@ -27,21 +27,30 @@ export const getCurrentSite = () => async (dispatch) => {
 };
 
 //load image
-export const uploadLogo = (data) => async (
+export const uploadLogo = (formData, logo, nextStep) => async (
   dispatch
 ) => {
+  const config = {
+    headers: {
+      "Content-Type": "multipart/form-data"
+    },
+  }; 
+
   try {
-    const config = {
-      headers: {
-        "Content-Type": "multipart/form-data"
-      },
-    }; 
+   
 
-    const imageName = data.name;
-    imageName = imageName.replace(/\s/g, '');
-    imageName = imageName.toLowerCase();
+    const businessName = formData.name;
+    const uploadedName = logo.logo.name;
 
-    const res = await axios.post(`/api/siteSpaces/image/${imageName}`)
+    const data = new FormData(); 
+    data.append('file', logo.logo);
+
+    let imageName = businessName;
+    imageName = imageName.replace(/\s/g, '').toLowerCase();
+    
+    const extension = uploadedName.split('.').pop();
+
+    const res = await axios.post(`/api/siteSpaces/imageTemp/${imageName}logo.${extension}`, data, config);
 
   } catch (err) {
     const errors = err.response.data.errors;
