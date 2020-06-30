@@ -1,13 +1,40 @@
 import React, { useState, Fragment } from "react";
 import { useSpring, animated } from "react-spring";
 import Nav from "./Nav";
+import axios from "axios";
 
-const Logo = ({ nextStep, prevStep }) => {
+const Logo = ({ formData, nextStep, prevStep }) => {
   const props = useSpring({
     opacity: 1,
     from: { opacity: 0 },
     config: { duration: 500 },
   });
+
+  const [logo, setLogo] = useState({
+    logo: null,
+    loaded: null
+  })
+
+  const handleUpload = (e) => {
+    setLogo({
+      logo: event.target.files[0],
+      loaded: 0,
+    })
+  }
+
+  const sendLogo = () => {
+    const {name} = formData;
+
+    const data = new FormData() 
+    data.append('file', logo.logo)
+  
+    const imageName = data.name;
+    imageName = imageName.replace(/\s/g, '').toLowerCase();
+    
+
+    const res = await axios.post(`/api/siteSpaces/image/${imageName}logo`)
+
+  }
 
   const logoLoader = (
     <animated.div style={props}>
@@ -15,8 +42,11 @@ const Logo = ({ nextStep, prevStep }) => {
         <div className="field">
           <div className="file is-large is-boxed">
             <label className="file-label">
-              <input className="file-input" type="file" name="resume" />
-              <span className="file-cta">
+              <input className="file-input" type="file" name="file" onChange={handleUpload}/>
+              <span className="file-cta"> setLogo({
+      selectedFile: event.target.files[0],
+      loaded: 0,
+    })
                 <span className="file-icon">
                   <i className="fas fa-upload"></i>
                 </span>
@@ -28,7 +58,9 @@ const Logo = ({ nextStep, prevStep }) => {
 
         <input
           type="button"
-          onClick={nextStep}
+          onClick={() => {
+            handle();
+          }}
           className="btn btn-primary"
           value="Avanti"
         />

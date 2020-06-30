@@ -17,12 +17,6 @@ app.use("/api/payment", require("./routes/api/paymentsRoute"));
 app.use("/api/webhook", require("./routes/api/webhookRoute"));
 app.use("/api/mail", require("./routes/api/mailRoute"));
 
-
-//Importo il template del sito
-
-app.use(express.static('./templates/pizzeria/public/index.html'));
-
-
 app.get("/", (req, res) => res.send("api running"));
 
 const PORT = process.env.PORT || 5000;

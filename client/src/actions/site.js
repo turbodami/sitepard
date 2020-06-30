@@ -26,6 +26,37 @@ export const getCurrentSite = () => async (dispatch) => {
   }
 };
 
+//load image
+export const uploadLogo = (data) => async (
+  dispatch
+) => {
+  try {
+    const config = {
+      headers: {
+        "Content-Type": "multipart/form-data"
+      },
+    }; 
+
+    const imageName = data.name;
+    imageName = imageName.replace(/\s/g, '');
+    imageName = imageName.toLowerCase();
+
+    const res = await axios.post(`/api/siteSpaces/image/${imageName}`)
+
+  } catch (err) {
+    const errors = err.response.data.errors;
+
+    if (errors) {
+      errors.forEach((error) => dispatch(setAlert(error.msg, "danger")));
+    }
+
+    dispatch({
+      type: SITE_ERROR,
+      payload: { msg: err.response.statusText, status: err.response.status },
+    });
+  }
+}
+
 //create or update site
 export const createSite = (formData, history, edit = false) => async (
   dispatch
