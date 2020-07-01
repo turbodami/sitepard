@@ -1,13 +1,40 @@
 import React, { useState, Fragment } from "react";
 import { useSpring, animated } from "react-spring";
 import Nav from "./Nav";
+import { uploadLogo } from "../../actions/site";
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
 
-const Logo = ({ nextStep, prevStep }) => {
+const Logo = ({ formData, nextStep, prevStep, uploadLogo }) => {
   const props = useSpring({
     opacity: 1,
     from: { opacity: 0 },
     config: { duration: 500 },
   });
+
+  const [logo, setLogo] = useState({
+    logo: null
+  });
+
+  const handleUpload = (e) => {
+    
+    setLogo({
+      logo: e.target.files[0]
+    });
+    
+  }
+
+  const sendLogo = async () => {
+    function successCallback(result) {
+      nextStep();
+    }
+    function failureCallback(error) {
+      console.log("error");
+    }
+
+    const promise = uploadLogo(formData, logo, nextStep);
+    promise.then(successCallback, failureCallback);
+  }
 
   const logoLoader = (
     <animated.div style={props}>
@@ -15,8 +42,8 @@ const Logo = ({ nextStep, prevStep }) => {
         <div className="field">
           <div className="file is-large is-boxed">
             <label className="file-label">
-              <input className="file-input" type="file" name="resume" />
-              <span className="file-cta">
+              <input className="file-input" type="file" name="file" onChange={handleUpload}/>
+              <span className="file-cta"> 
                 <span className="file-icon">
                   <i className="fas fa-upload"></i>
                 </span>
@@ -28,7 +55,9 @@ const Logo = ({ nextStep, prevStep }) => {
 
         <input
           type="button"
-          onClick={nextStep}
+          onClick={() => {
+            sendLogo();
+          }}
           className="btn btn-primary"
           value="Avanti"
         />
@@ -77,4 +106,8 @@ const Logo = ({ nextStep, prevStep }) => {
   );
 };
 
-export default Logo;
+Logo.propTypes = {
+  uploadLogo: PropTypes.func.isRequired,
+};
+
+export default connect(null, { uploadLogo})(Logo);

@@ -26,6 +26,46 @@ export const getCurrentSite = () => async (dispatch) => {
   }
 };
 
+//load image
+export const uploadLogo = (formData, logo, nextStep) => async (
+  dispatch
+) => {
+  const config = {
+    headers: {
+      "Content-Type": "multipart/form-data"
+    },
+  }; 
+
+  try {
+   
+
+    const businessName = formData.name;
+    const uploadedName = logo.logo.name;
+
+    const data = new FormData(); 
+    data.append('file', logo.logo);
+
+    let imageName = businessName;
+    imageName = imageName.replace(/\s/g, '').toLowerCase();
+    
+    const extension = uploadedName.split('.').pop();
+
+    const res = await axios.post(`/api/siteSpaces/imageTemp/${imageName}logo.${extension}`, data, config);
+
+  } catch (err) {
+    const errors = err.response.data.errors;
+
+    if (errors) {
+      errors.forEach((error) => dispatch(setAlert(error.msg, "danger")));
+    }
+
+    dispatch({
+      type: SITE_ERROR,
+      payload: { msg: err.response.statusText, status: err.response.status },
+    });
+  }
+}
+
 //create or update site
 export const createSite = (formData, history, edit = false) => async (
   dispatch
