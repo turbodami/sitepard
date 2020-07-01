@@ -23,6 +23,11 @@ const UserSchema = new mongoose.Schema({
   {
     type: String,
     expires: 4320
+  },
+  passwordResetToken:
+  {
+    type: String,
+    expires: 4320
   }
 });
 
