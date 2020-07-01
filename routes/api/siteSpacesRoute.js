@@ -118,10 +118,6 @@ router.post('/image/:id&:fileName', imageUpload.single('file'), async (req, res)
     } 
 });
 
-<<<<<<< HEAD
-=======
-
->>>>>>> 56724407066e505f6359f3c846249f1c2daa46f9
 const imageTempUpload = multer({
     storage: multerS3(
         {
@@ -149,10 +145,7 @@ router.post('/imageTemp/:fileName', imageTempUpload.single('file'), async (req, 
         res.status(200).json('Upload successfull.');
     } 
 });
-<<<<<<< HEAD
-=======
 
 
->>>>>>> 56724407066e505f6359f3c846249f1c2daa46f9
 
 module.exports = router;

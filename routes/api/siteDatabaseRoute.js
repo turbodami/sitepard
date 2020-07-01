@@ -68,7 +68,7 @@ router.post(
     const siteFields = {};
     siteFields.user = req.user.id;
     if (category) siteFields.category = category;
-    if (name) siteFields.name = name;
+    // if (name) siteFields.name = name;
     if (tel) siteFields.tel = tel;
     if (domain) siteFields.domain = domain;
     if (address) siteFields.address = address;
@@ -246,6 +246,36 @@ router.delete("/categories/:cat_id", auth, async (req, res) => {
   } catch (err) {
     console.error(err.message);
     res.status(500).send("server error!");
+  }
+});
+
+router.get("/domainExists/:domain", async (req,res) =>  //Route per controllare se il sito esiste gia
+{
+  console.log(req.params.domain);
+  try 
+  {
+    const site = await Site.findOne({domain: req.params.domain}, (err, site) =>
+    {
+      if(err)
+      {
+        console.log(err);
+        return res.status(500).json({message: `Errore nel database,\n ${err}` });
+      }
+      else if(!site)
+      {
+        return res.status(404).json({message: 'sito non trovato'});  //Se il sito non esiste ritorna 404
+      }
+      else
+      {
+        console.log('trovato');
+        return res.status(200).json({message: 'sito trovato'}); //Se esiste ritorna 200
+      }
+    });     
+  } 
+  catch (error) 
+  {
+    console.log(err);
+    return res.status(500).json({message: `Errore nel backend, get(/domainExists/:domain)\n ${err}`});
   }
 });
 
