@@ -8,7 +8,6 @@ const request = require('request');
 const { check, validationResult } = require("express-validator");
 
 const User = require("../../models/User");
-const Token = require("../../models/Token");
 
 //@route    POST api/users
 //@desc     register user
@@ -75,16 +74,12 @@ router.post(
           if (err)
            throw err;
           
-          const tokenDb = new Token(  //Create new token
-            {
-                userId,
-                token
-            }
-          );
+          user.registrationToken = token;
+          
           
           console.log("Token creato");
 
-          tokenDb.save((err) =>  //Save token in db
+          user.save((err) =>  //Save token in db
           {
             if(err)
             {

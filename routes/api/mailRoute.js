@@ -2,8 +2,6 @@ const express = require("express");
 const router = express.Router();
 const nodemailer = require('nodemailer');
 const jwt = require("jsonwebtoken");
-
-const Token = require("../../models/Token");
 const User = require("../../models/User");
 
 const transporter = nodemailer.createTransport(
@@ -53,31 +51,25 @@ router.post('/verification/:recipient', async(req, res) =>
 
 router.get('/verification/:token', async(req, res) =>
 {
-    Token.findOne({token : req.params.token}, (err, token) =>
+    User.findOne({registrationToken : req.params.token}, (err, user) =>
     {
         if(err)
         {
             console.log(err);
             return res.status(500).send({type: "db-error", msg: "Errore sul database token"});
         }
-        if(!token)
+        if(!user)
         {
             return res.status(400).send({type: 'not-verified', msg: "Token non valido, impossibile verificare utente."});
         }
         else
         {
-            User.findOne({_id: token.userId}, (err, user) =>
+            if(user.verified)
             {
-                if(err)
-                {
-                    console.log(err);
-                    return res.status(500).send({type: "db-error", msg: "Errore sul database utenti"});
-                }
-                if(user.verified)
-                {
-                    return res.status(400).send({type: "already-verified", msg: "Utente già verificato"});
-                }
-
+                return res.status(400).send({type: "already-verified", msg: "Utente già verificato"});
+            }
+            else
+            {
                 user.verified = true;
                 user.save((err) =>
                 {
@@ -86,9 +78,12 @@ router.get('/verification/:token', async(req, res) =>
                         console.log(err);
                         return res.status(500).send({type: "db-error", msg: "Errore nell'aggiornamento dell'utente"});
                     }
-                    res.status(200).send(`L'account ${user.email} verificato.`);
+                    else
+                    {
+                        res.status(200).send(`L'account ${user.email} verificato.`);
+                    }
                 })
-            })
+            }
         }
     })
 });
