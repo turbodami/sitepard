@@ -88,7 +88,7 @@ router.get('/verification/:token', async(req, res) =>
     })
 });
 
-router.post('/passwordReset/:recipient', async(req, res) =>
+router.post('/passwordForgot/:recipient', async(req, res) =>
 {
     try 
     {
