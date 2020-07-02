@@ -134,7 +134,7 @@ router.post(
   }
 );
 
-router.get('/passwordReset', auth, (req,res) =>
+router.get('/passwordReset', (req,res) =>
 {
 
   
