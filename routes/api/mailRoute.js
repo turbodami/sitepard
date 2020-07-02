@@ -80,7 +80,7 @@ router.get('/verification/:token', async(req, res) =>
                     }
                     else
                     {
-                        res.status(200).send(`L'account ${user.email} verificato.`).redirect('http://localhost:3000/activation');
+                        res.status(200).redirect('http://localhost:3000/activation');
                     }
                 })
             }
@@ -97,7 +97,7 @@ router.post('/passwordForgot/:recipient', async(req, res) =>
             from: "admin@sitepard.com",
             to: req.params.recipient,
             subject : "Reset",
-            html: `<center> <b>Benvenuto in Sitepard!</b> <br/> Clicca <a href="http://localhost:5000/api/mail/verification/${req.body.token}"> su questo link</a>  per cambiare la tua password.  </center>`,
+            html: `<center> <b>Caro ${req.params.recipient},</b>è stato richiesto il reset della password del tuo account. <br/> Clicca <a href="http://localhost:3000/passwordreset?token=${req.body.token}"> su questo link</a>  per cambiare la tua password.  </center>`,
         },
         (err, info) =>
         {
