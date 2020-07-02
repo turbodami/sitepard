@@ -2,9 +2,19 @@ const express = require("express");
 const router = express.Router();
 const auth = require("../../middleware/auth");
 const { check, validationResult } = require("express-validator");
+const aws = require('aws-sdk');
 
 const Site = require("../../models/Site");
 const User = require("../../models/User");
+
+const s3 = new aws.S3(
+  {
+      endpoint: 'fra1.digitaloceanspaces.com',
+      accessKeyId: 'JGDTMFZUJ4ZRBU53WMCQ',
+      secretAccessKey: 'OnG8gclYu6L5oWFmxP073maaWGj4s1As8Z75fiA4G9E',
+      bucket: 'cactus-space'
+  }
+);
 
 //@route    GET api/site/me
 //@desc     get current users site
@@ -101,6 +111,7 @@ router.post(
       site = new Site(siteFields);
 
       await site.save();
+
       res.json(site);
     } catch (err) {
       console.error(err.message);

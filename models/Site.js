@@ -111,6 +111,10 @@ const SiteSchema = new mongoose.Schema({
       link: {
         type: String,
       },
+      pathS3:
+      {
+        type: String
+      }
     },
   ],
 });

@@ -7,9 +7,12 @@ const request = require('request');
 const auth = require("../../middleware/auth");
 const crypto = require("crypto");
 
+
 const { check, validationResult } = require("express-validator");
 
 const User = require("../../models/User");
+
+
 
 //@route    POST api/users
 //@desc     register user

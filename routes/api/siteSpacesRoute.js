@@ -88,26 +88,27 @@ const imageUpload = multer({
 
 
 
-router.post('/image/:id&:fileName', imageUpload.single('file'), async (req, res) =>
+router.post('/image/:domain&:fileName', imageUpload.single('file'), async (req, res) =>
 {
     
     if(!req.file)
     {
         res.status(500).json({message: 'Bad request'});
     }
-    else
+    else if(req.body.upload)
     {
         try 
         {
-            const site = await Site.findByIdAndUpdate(req.params.id,{$set: {images: {name: req.params.fileName, link: 'https://cactus-space.fra1.digitaloceanspaces.com/users-sites/'+ req.params.id + '/images/' + req.params.fileName}}}, (err, site) =>
+            const site = await Site.findOneAndUpdate(req.params.domain,{$set: {images: {name: req.params.fileName, link: 'https://cactus-space.fra1.digitaloceanspaces.com/users-sites/'+ req.params.id + '/images/' + req.params.fileName}}}, (err, site) =>
             {
                 if(err)
                 {
                     console.log(err);
+                    return res.status(500).json({message: `Errore su mongodb`});
                 }
                 else
                 {
-                    res.status(200).json('Upload successfull.');
+                    return res.status(200).json('Upload successfull.');
                 }
         });
         } 
@@ -115,6 +116,11 @@ router.post('/image/:id&:fileName', imageUpload.single('file'), async (req, res)
         {
             res.status(500).json({message: 'Database error'});
         }
+        
+    }
+    else
+    {
+        return res.status(200).json({message: `Immagine caricata`});
     } 
 });
 
@@ -127,7 +133,7 @@ const imageTempUpload = multer({
             contentType: multerS3.AUTO_CONTENT_TYPE,
             key: (req, file, cb) =>
             {
-                cb(null, 'tempImages/' + req.params.fileName)
+                cb(null, 'user-sites/' + req.params.domain + '/images/' + req.params.fileName)
             }
         }
     )
