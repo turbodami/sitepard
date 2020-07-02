@@ -171,7 +171,7 @@ router.get('/passwordForgot', (req,res) =>
           {
             const options =   //Prepare data for mail request
             {
-              url : 'http://localhost:5000/api/mail/passwordReset/' + req.body.email,
+              url : 'http://localhost:5000/api/mail/passwordForgot/' + req.body.email,
               method: 'POST',
               headers: 
               {
@@ -207,6 +207,53 @@ router.get('/passwordForgot', (req,res) =>
     })
   });
 });
+
+router.put('/passwordReset', [auth, [check("password", "Prego inserire una password di almeno 6 caratteri.").isLength({min: 6, max:20})],], async(req, res) =>
+  {
+    User.findOne({email: req.body.email}, (err, user) =>
+    {
+      if(err)
+      {
+        console.log(err);
+        return res.status(500).json({message:`Errore nel db durante la ricerca dell'utente`});
+      }
+      if(!user)
+      {
+        return res.status(404).json({message:`Utente non trovato nel db`});
+      }
+
+      const salt = bcrypt.genSalt(10,(err, salt) => //Genera il sale (?)
+      {
+          if(err)
+          {
+              console.log(err);
+              return res.status(500).json({message: `Errore nella generazione del salt`});
+          }
+          const hash = bcrypt.hash(req.body.password, salt, (err, hash) => //Cripta la password
+          {
+              if(err)
+              {
+                  console.log(err);
+                  return res.status(500).json({message: `Errore nell'hashing`});
+              }
+              user.password = hash;
+
+              user.save((err) =>
+              {
+                  if(err)
+                  {
+                      console.log(err);
+                      return res.status(500).json({message: `Errore nel salvataggio della password nel db`});
+                  }
+                  else
+                  {
+                      return res.status(200).json({message: `Password salvata con successo`});
+                  }
+              });
+          });
+      });  
+    })
+  });
 
 
 module.exports = router;
