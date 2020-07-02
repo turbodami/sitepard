@@ -247,7 +247,32 @@ router.put('/passwordReset', [auth, [check("password", "Prego inserire una passw
                   }
                   else
                   {
-                      return res.status(200).json({message: `Password salvata con successo`});
+
+                    const options =   //Prepare data for mail request
+                    {
+                      url : 'http://localhost:5000/api/mail/passwordChanged/' + req.body.email,
+                      method: 'POST',
+                    };
+
+                    request(options, (err, response, body)=>  //Send request to mail route
+                    {
+                      if(err)
+                      {
+                        console.log(error);
+                        res.status(400).json({message: `Errore nell'invio della mail.`});
+                      }
+                      else if(response.statusCode === 200)
+                      {
+                        
+                        return res.status(200).json({message: `Password salvata con successo`});
+                        
+                      }
+                      else
+                      {
+                        res.status(200).json({message: `Password salvata con successo, ma errore di invio mail`});
+                      }
+                    });
+
                   }
               });
           });

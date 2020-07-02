@@ -170,6 +170,37 @@ router.get('/passwordReset/:token', async(req, res) =>  //Route che a partire da
     })
 });
 
+router.post('/passwordChanged/:recipient', async(req, res) =>
+{
+    try 
+    {
+        let test = await transporter.sendMail(
+        {
+            from: "admin@sitepard.com",
+            to: req.params.recipient,
+            subject : "Password modificata",
+            html: `<center> <b>Salve</b> <br/> La informiamo che la sua password è stata cambiata con successo. <br/> Nel caso in cui lei non l'avesse cambiata la invitiamo a contattare l'assistenza.</center>`,
+        },
+        (err, info) =>
+        {
+            if(err)
+            {
+                console.log(err);
+                res.status(500).json({message: "Errore nell'invio messaggio."});
+            }
+            else
+            {
+                res.status(200).json({message: "Messaggio inviato con successo."});
+            }
+        });
+    }
+    catch (error) 
+    {
+        console.log(error);
+        res.status(500).json({message: "Errore invio mail"});
+    }
+});
+
 
 
 module.exports = router;
