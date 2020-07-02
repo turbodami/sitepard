@@ -80,7 +80,7 @@ router.get('/verification/:token', async(req, res) =>
                     }
                     else
                     {
-                        res.status(200).send(`L'account ${user.email} verificato.`);
+                        res.status(200).send(`L'account ${user.email} verificato.`).redirect('http://localhost:3000/activation');
                     }
                 })
             }
