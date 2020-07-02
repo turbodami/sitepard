@@ -1,31 +1,69 @@
 import React, { useState, Fragment } from "react";
 import { useSpring, animated } from "react-spring";
 import Nav from "./Nav";
+import { uploadCover } from "../../actions/site";
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
 
-const Cover = ({ nextStep, prevStep }) => {
+const Cover = ({ formData, nextStep, prevStep, uploadCover }) => {
   const props = useSpring({
     opacity: 1,
     from: { opacity: 0 },
     config: { duration: 500 },
   });
 
+
+  const [cover, setCover] = useState({
+    cover: null
+  });
+
+  const handleUpload = (e) => {
+    
+    setCover({
+      cover: e.target.files[0]
+    });
+    
+  }
+
+  const sendCover = async () => {
+    function successCallback(result) {
+      nextStep();
+    }
+    function failureCallback(error) {
+      console.log("error");
+    }
+
+    const promise = uploadCover(formData, cover, nextStep);
+    promise.then(successCallback, failureCallback);
+  }
+
   const coverLoader = (
-    <Fragment>
-      <form className="form">
-        <div className="form-group">
-          <h1>IMAGELOADER</h1>
-          <small className="form-text">
-            Carica la tua immagine di copertina qui
-          </small>
+    <animated.div style={props}>
+      <Fragment>
+        <div className="field">
+          <div className="file is-large is-boxed">
+            <label className="file-label">
+              <input className="file-input" type="file" name="file" onChange={handleUpload}/>
+              <span className="file-cta"> 
+                <span className="file-icon">
+                  <i className="fas fa-upload"></i>
+                </span>
+                <span className="file-label">Carica immagine di copertina</span>
+              </span>
+            </label>
+          </div>
         </div>
+
         <input
           type="button"
-          onClick={nextStep}
+          onClick={() => {
+            sendCover();
+          }}
           className="btn btn-primary"
           value="Avanti"
         />
-      </form>
-    </Fragment>
+      </Fragment>
+    </animated.div>
   );
 
   const [showCoverLoader, triggerCoverLoader] = useState(false);
@@ -72,4 +110,8 @@ const Cover = ({ nextStep, prevStep }) => {
   );
 };
 
-export default Cover;
+Cover.propTypes = {
+  uploadCover: PropTypes.func.isRequired,
+};
+
+export default connect(null, { uploadCover})(Cover);
