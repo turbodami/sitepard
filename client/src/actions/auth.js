@@ -103,3 +103,35 @@ export const logout = () => (dispatch) => {
   dispatch({ type: CLEAR_SITE });
   dispatch({ type: LOGOUT });
 };
+
+
+//change password
+
+export const passwordReset = ({token, newpassword}) => async (dispatch) => {
+  const config = {
+    headers: {
+      "Content-Type": "application/json",
+    },
+  };
+  const body = JSON.stringify({
+    password: newpassword
+  });
+
+  try {
+    const res = await axios.post(`/api/mail/passwordReset/${token}`, body, config);
+
+    /* dispatch({
+      type: LOGIN_SUCCESS,
+      payload: res.data,
+    });  
+    
+    dispatch(loadUser()); */
+
+  } catch (err) {
+    const errors = err.response.data.errors;
+
+    if (errors) {
+      errors.forEach((error) => dispatch(setAlert(error.msg, "danger")));
+    }
+  }
+}
