@@ -118,7 +118,6 @@ router.post('/image/:id&:fileName', imageUpload.single('file'), async (req, res)
     } 
 });
 
-
 const imageTempUpload = multer({
     storage: multerS3(
         {

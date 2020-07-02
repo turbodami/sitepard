@@ -18,6 +18,16 @@ const UserSchema = new mongoose.Schema({
   {
     type: Boolean,
     default: false
+  },
+  registrationToken:
+  {
+    type: String,
+    expires: 4320
+  },
+  passwordResetToken:
+  {
+    type: String,
+    expires: 4320
   }
 });
 
