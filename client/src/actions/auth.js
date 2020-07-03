@@ -9,6 +9,7 @@ import {
   LOGIN_FAIL,
   LOGOUT,
   CLEAR_SITE,
+  PASSWORD_CHANGED
 } from "./types";
 import setAuthToken from "../utils/setAuthToken";
 
@@ -105,21 +106,28 @@ export const logout = () => (dispatch) => {
 };
 
 
-//change password
+//forgot password
 
-export const passwordReset = ({token, newpassword}) => async (dispatch) => {
+export const passwordReset = (token, password) => async (dispatch) => {
   const config = {
     headers: {
       "Content-Type": "application/json",
     },
   };
-  const body = JSON.stringify({
-    password: newpassword
-  });
+  const data = {
+    password: password
+  }
+  const body = JSON.stringify(data);
 
   try {
+    console.log(config);
+    console.log(body);
     const res = await axios.post(`/api/mail/passwordReset/${token}`, body, config);
+    console.log(res);
 
+    dispatch({
+      type: PASSWORD_CHANGED,
+    });
     /* dispatch({
       type: LOGIN_SUCCESS,
       payload: res.data,

@@ -120,7 +120,7 @@ router.post('/passwordForgot/:recipient', async(req, res) =>
 
 });
 
-router.get('/passwordReset/:token', async(req, res) =>  //Route che a partire dalla mail inviata dall'utente cambia la password dell'utente
+router.post('/passwordReset/:token', async(req, res) =>  //Route che a partire dalla mail inviata dall'utente cambia la password dell'utente
 {
     User.findOne({passwordResetToken : req.params.token}, (err, user) =>  //Cerca il token nella collezione degli utenti
     {
