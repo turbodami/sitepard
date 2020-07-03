@@ -101,7 +101,7 @@ const PasswordReset = ({passwordReset}) => {
 };
 
 PasswordReset.propTypes = {
-    passwordR: PropTypes.func.isRequired,
+    passwordReset: PropTypes.func.isRequired,
 };
   
 export default connect(null, { passwordReset })(PasswordReset);

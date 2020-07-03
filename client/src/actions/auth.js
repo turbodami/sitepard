@@ -118,7 +118,7 @@ export const passwordReset = ({token, newpassword}) => async (dispatch) => {
   });
 
   try {
-    const res = await axios.post(`/api/mail/passwordReset/${token}`, body, config);
+    const res = await axios.get(`/api/mail/passwordReset/${token}`, body, config);
 
     /* dispatch({
       type: LOGIN_SUCCESS,

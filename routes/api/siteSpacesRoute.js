@@ -99,7 +99,7 @@ router.post('/image/:domain&:fileName', imageUpload.single('file'), async (req, 
     {
         try 
         {
-            const site = await Site.findOneAndUpdate(req.params.domain,{$set: {images: {name: req.params.fileName, link: 'https://cactus-space.fra1.digitaloceanspaces.com/users-sites/'+ req.params.id + '/images/' + req.params.fileName}}}, (err, site) =>
+            const site = await Site.findOneAndUpdate(req.params.domain,{$set: {images: {name: req.params.fileName, link: 'https://cactus-space.fra1.digitaloceanspaces.com/users-sites/'+ req.params.id + '/images/' + req.params.fileName, pathS3:'user-sites/' + req.params.domain + '/images/' + req.params.fileName}}}, (err, site) =>
             {
                 if(err)
                 {

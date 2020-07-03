@@ -131,6 +131,7 @@ router.get('/passwordReset/:token', async(req, res) =>  //Route che a partire da
         }
         if(!user)
         {
+            console.log('non trovato');
             return res.status(400).send({type: 'not-verified', msg: "Token non valido, impossibile cambiare password."});
         }
         else
@@ -161,6 +162,7 @@ router.get('/passwordReset/:token', async(req, res) =>  //Route che a partire da
                         }
                         else
                         {
+                            console.log('nice');
                             return res.status(200).json({message: `Password salvata con successo`});
                         }
                     });
