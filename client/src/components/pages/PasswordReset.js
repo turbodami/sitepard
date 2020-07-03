@@ -22,6 +22,7 @@ const PasswordReset = ({passwordReset}) => {
   const [formData, setFormData] = useState(defaultData);
 
   const changePassword = e => {
+      e.preventDefault();
     const {password, password2} = formData;
 
     if(password===password2){
@@ -30,7 +31,7 @@ const PasswordReset = ({passwordReset}) => {
         const {password} = formData;
         if(token){
             passwordReset(token, password);
-        }else{
+        } else {
             console.log("dio ti azzanna");
         }
     }

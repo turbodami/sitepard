@@ -211,7 +211,7 @@ router.get('/passwordForgot', (req,res) =>
   });
 });
 
-router.put('/passwordReset', [auth, [check("password", "Prego inserire una password di almeno 6 caratteri.").isLength({min: 6, max:20})],], async(req, res) =>
+router.put('/modify-password', [auth, [check("password", "Prego inserire una password di almeno 6 caratteri.").isLength({min: 6, max:20})],], async(req, res) =>
   {
     User.findOne({email: req.body.email}, (err, user) =>
     {
@@ -275,7 +275,6 @@ router.put('/passwordReset', [auth, [check("password", "Prego inserire una passw
                         res.status(200).json({message: `Password salvata con successo, ma errore di invio mail`});
                       }
                     });
-
                   }
               });
           });

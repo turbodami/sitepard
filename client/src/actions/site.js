@@ -7,6 +7,7 @@ import {
   UPDATE_SITE,
   CLEAR_SITE,
   ACCOUNT_DELETED,
+  IMAGE_UPLOADED
 } from "./types";
 
 //get current users site
@@ -37,8 +38,6 @@ export const uploadLogo = (formData, logo, nextStep) => async (
   }; 
 
   try {
-   
-
     const businessName = formData.name;
     const uploadedName = logo.logo.name;
 
@@ -52,6 +51,9 @@ export const uploadLogo = (formData, logo, nextStep) => async (
 
     const res = await axios.post(`/api/siteSpaces/imageTemp/${imageName}logo.${extension}`, data, config);
 
+    dispatch({
+      type: IMAGE_UPLOADED,
+    });
   } catch (err) {
     const errors = err.response.data.errors;
 
@@ -92,6 +94,9 @@ export const uploadCover = (formData, cover, nextStep) => async (
 
     const res = await axios.post(`/api/siteSpaces/imageTemp/${imageName}cover.${extension}`, data, config);
 
+    dispatch({
+      type: IMAGE_UPLOADED,
+    });
   } catch (err) {
     const errors = err.response.data.errors;
 
