@@ -105,6 +105,36 @@ export const logout = () => (dispatch) => {
   dispatch({ type: LOGOUT });
 };
 
+//modify password
+export const modifyPassword = (email, password) => async (dispatch) => {
+  const config = {
+    headers: {
+      "Content-Type": "application/json"
+    }
+  }
+
+  const data = {
+    email: email,
+    password: password
+  }
+
+  const body = JSON.stringify(data);
+  
+  try {
+    const res = await axios.post('/api/users/modifyPassword', body, config);
+
+    dispatch({
+      type: PASSWORD_CHANGED
+    })
+
+  } catch (err) {
+    const errors = err.response.data.errors;
+
+    if (errors) {
+      errors.forEach((error) => dispatch(setAlert(error.msg, "danger")));
+    }
+  }
+}
 
 //forgot password
 

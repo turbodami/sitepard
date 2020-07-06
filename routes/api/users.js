@@ -137,6 +137,8 @@ router.post(
   }
 );
 
+//req forgotten password
+//body => email
 router.get('/passwordForgot', (req,res) =>
 {
 
@@ -211,7 +213,7 @@ router.get('/passwordForgot', (req,res) =>
   });
 });
 
-router.put('/modify-password', [auth, [check("password", "Prego inserire una password di almeno 6 caratteri.").isLength({min: 6, max:20})],], async(req, res) =>
+router.post('/modifyPassword', [auth, [check("password", "Prego inserire una password di almeno 6 caratteri.").isLength({min: 6, max:20})],], async(req, res) =>
   {
     User.findOne({email: req.body.email}, (err, user) =>
     {
