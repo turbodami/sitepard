@@ -78,7 +78,7 @@ router.post(
     const siteFields = {};
     siteFields.user = req.user.id;
     if (category) siteFields.category = category;
-    // if (name) siteFields.name = name;
+    if (name) siteFields.name = name;
     if (tel) siteFields.tel = tel;
     if (domain) siteFields.domain = domain;
     if (address) siteFields.address = address;
