@@ -54,7 +54,7 @@ const Dashboard = ({
                 </li>
                 <li>
                   <a href="">
-                    <Link to="/editaccount">Modifica account</Link>
+                    <Link to="/editaccount">Modifica password</Link>
                   </a>
                 </li>
               </ul>

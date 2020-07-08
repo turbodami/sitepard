@@ -33,6 +33,7 @@ const Header = ({ auth: { isAuthenticated, loading }, logout }) => {
                   width="112"
                   height="28"
                 />
+                
               </Link>
             </div>
 

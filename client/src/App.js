@@ -8,8 +8,10 @@ import SiteBuilder from "./components/builder/SiteBuilder";
 import Routes from "./components/routing/Routes";
 import Alert from "./components/layout/Alert";
 import Dashboard from "./components/dashboard/Dashboard";
+import Activation from "./components/pages/Activation";
+import PasswordReset from "./components/pages/PasswordReset";
+import PasswordForgot from "./components/pages/PasswordForgot";
 
-//redux
 import { Provider } from "react-redux";
 import store from "./store";
 import { loadUser } from "./actions/auth";
@@ -33,6 +35,9 @@ const App = () => {
         <Alert />
         <Switch>
           <Route exact path="/login" component={Login} />
+          <Route exact path="/activation" component={Activation} />
+          <Route exact path="/passwordreset" component={PasswordReset} />
+          <Route exact path="/passwordforgot" component={PasswordForgot} />
           <Route exact path="/sitebuilder" component={SiteBuilder} />
           <PrivateRoute exact path="/dashboard" component={Dashboard} />
           <PrivateRoute exact path="/editinfo" component={Dashboard} />

@@ -32,7 +32,23 @@ const PasswordForgot = ({ isAuthenticated, history, passwordForgot }) => {
       <Fragment>
         <section className="section">
           <div className="container">
-            
+            <nav
+                  className="navbar"
+                  role="navigation"
+                  aria-label="main navigation"
+                >
+                <div className="navbar-menu">
+                  <div className="navbar-end">
+                    <div className="navbar-item">
+                      <div className="buttons">
+                        <Link to="/">
+                          <a className="delete is-large"></a>
+                        </Link>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </nav>
             <div className="columns">
               <div className="column is-3"></div>
               <div className="column is-6">
