@@ -2,12 +2,12 @@ import React, { Fragment, useState } from "react";
 
 import { useSpring, animated } from "react-spring";
 
-import { modifyPassword } from "../../actions/auth";
+import { editPassword } from "../../actions/auth";
 
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 
-const EditAccount = ({modifyPassword, auth: { user }}) => {
+const EditAccount = ({editPassword, auth: { user }, history}) => {
 
   const props = useSpring({
     opacity: 1,
@@ -30,7 +30,7 @@ const EditAccount = ({modifyPassword, auth: { user }}) => {
         
         const {password} = formData;
         if(user){
-          modifyPassword(user.email, password);
+          editPassword(user.email, password, history);
         } else {
           console.log("danger guys")
         }
@@ -57,19 +57,19 @@ const EditAccount = ({modifyPassword, auth: { user }}) => {
               </li>
               <li className="is-active">
                 <a href="#" aria-current="page">
-                  Modifica account
+                  Modifica password
                 </a>
               </li>
             </ul>
           </nav>
-          <p className="title is-2">Gestisci account</p>
+          <p className="title is-2">Cambio password</p>
           <p className="subtitle is-4">
-            Mandaci una mail per cambiare password. Vogliamo la password.
+            Inserisci qui di seguito la nuova password, poi clicca su "Cambia password"
           </p>
           <form onSubmit={(e) => changePassword(e)}>
                   
                   <div className="field">
-                    <label className="label">Password</label>
+                    <label className="label">Nuova password</label>
                     <input
                       className="input"
                       type="password"
@@ -105,7 +105,7 @@ const EditAccount = ({modifyPassword, auth: { user }}) => {
 };
 
 EditAccount.propTypes = {
-  modifyPassword: PropTypes.func.isRequired,
+  editPassword: PropTypes.func.isRequired,
   auth: PropTypes.object.isRequired,
 };
 
@@ -113,4 +113,4 @@ const mapStateToProps = (state) => ({
   auth: state.auth,
 });
 
-export default connect(mapStateToProps, { modifyPassword })(EditAccount);
+export default connect(mapStateToProps, { editPassword })(EditAccount);

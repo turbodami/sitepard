@@ -106,7 +106,7 @@ export const logout = () => (dispatch) => {
 };
 
 //modify password
-export const modifyPassword = (email, password) => async (dispatch) => {
+export const editPassword = (email, password, history) => async (dispatch) => {
   const config = {
     headers: {
       "Content-Type": "application/json"
@@ -121,12 +121,14 @@ export const modifyPassword = (email, password) => async (dispatch) => {
   const body = JSON.stringify(data);
   
   try {
-    const res = await axios.post('/api/users/modifyPassword', body, config);
+    const res = await axios.post('/api/users/editpassword', body, config);
 
     dispatch({
       type: PASSWORD_CHANGED
     })
 
+    dispatch(setAlert("Password modificata correttamente", "success"));
+    history.push("/dashboard");
   } catch (err) {
     const errors = err.response.data.errors;
 
@@ -137,7 +139,33 @@ export const modifyPassword = (email, password) => async (dispatch) => {
 }
 
 //forgot password
+export const passwordForgot = (email, history) => async (dispatch) => {
+  const config = {
+    headers: {
+      "Content-Type": "application/json"
+    }
+  }
+  const data = {
+    email: email
+  }
+  const body = JSON.stringify(data);
+  
+  try {
+    const res = await axios.post('/api/users/passwordforgot', body, config);
+    
+    dispatch(setAlert(`Email per recupero password inviata correttamente a ${email}`, "success"));
+    
+    history.push("/dashboard");
+  } catch (err) {
+    const errors = err.response.data.errors;
 
+    if (errors) {
+      errors.forEach((error) => dispatch(setAlert(error.msg, "danger")));
+    }
+  }
+}
+
+//reset password
 export const passwordReset = (token, password) => async (dispatch) => {
   const config = {
     headers: {
@@ -155,6 +183,7 @@ export const passwordReset = (token, password) => async (dispatch) => {
     dispatch({
       type: PASSWORD_CHANGED,
     });
+
     /* dispatch({
       type: LOGIN_SUCCESS,
       payload: res.data,

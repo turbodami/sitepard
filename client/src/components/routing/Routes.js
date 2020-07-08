@@ -9,6 +9,7 @@ import About from "../pages/About";
 import Contact from "../pages/Contact";
 import Activation from "../pages/Activation";
 import PasswordReset from "../pages/PasswordReset";
+import PasswordForgot from "../pages/PasswordForgot";
 
 const Routes = (props) => {
   return (
@@ -21,7 +22,8 @@ const Routes = (props) => {
         <Route exact path="/login" component={Login} />
         <Route exact path="/contact" component={Contact} />
         <Route exact path="/activation" component={Activation} />
-        <Route exact path="/passwordReset" component={PasswordReset} />
+        <Route exact path="/passwordreset" component={PasswordReset} />
+        <Route exact path="/passwordforgot" component={PasswordForgot} />
       </Switch>
     </Fragment>
   );
