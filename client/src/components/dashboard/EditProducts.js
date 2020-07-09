@@ -55,10 +55,10 @@ const EditProducts = ({
               </nav>
               <p className="title is-2">Gestione prodotti</p>
               <AddCategory />
-              <Menu category={site.categories} product={site.products} />
+              <Menu categories={site.categories} products={site.products} />
             </div>
             <div className="column is-4">
-              <Mobile />
+              <Mobile url={site.url}/>
             </div>
           </div>
         </Fragment>
