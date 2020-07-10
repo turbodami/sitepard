@@ -2,85 +2,86 @@ doctype html
 html
     include head
     body
-        .container
-            .section
-                .columns   
-                    .column.is-2
-                    .column.is-8
-                        nav.navbar
-                            .navbar-brand
-                                a.navbar-item(href='/')
-                                    if(logo)
-                                        img(src=logo)
-                                    else
-                                        #{name}
-                            .navbar-menu    
-                                .navbar-start
-                                    a.navbar-item(href='') Menu
-                                    a.navbar-item(href='') Orari
-                                    a.navbar-item(href='') Dove siamo
-                                .navbar-end
-                                    .navbar-item
-                                    .buttons
-                                        a.button.is-primary(href='') Ordina su Whatsapp
-                                        a.button.is-info(href='') Chiama
-                    .column.is-2
-            .section
-                .container
-                    .columns.is-vcentered.is-desktop
+        .section
+            .container
+                .section
+                    .columns   
                         .column.is-2
-                        .column.is-4
-                            p.title.is-1 Ordina online
-                            p.subtitle.is-3 #{description}               
-                        .column.is-4
-                            figure.image.is-rounded
-                                img(src=image)
+                        .column.is-8
+                            nav.navbar
+                                .navbar-brand
+                                    a.navbar-item(href='/')
+                                        if(logo)
+                                            img(src=logo)
+                                        else
+                                            #{name}
+                                .navbar-menu    
+                                    .navbar-start
+                                        a.navbar-item(href='') Menu
+                                        a.navbar-item(href='') Orari
+                                        a.navbar-item(href='') Dove siamo
+                                    .navbar-end
+                                        .navbar-item
+                                        .buttons
+                                            a.button.is-primary(href='') Ordina su Whatsapp
+                                            a.button.is-info(href='') Chiama
                         .column.is-2
-            .section
-                .container
-                    .columns.is-vcentered.is-desktop
-                        .column.is-4
-                        .column.is-4
-                            p.title.is-1 Menù
-                            table.table
-                                each category in categories
-                                    thead
-                                        tr
-                                            th= category.name
-                                    tbody
-                                        each product in products
-                                            if product.category === category.name
-                                                tr
-                                                    td= product.name
-                                                    td= product.description
-                                                    td= product.price
-
-                        .column.is-4
-            .section.hero.is-warning.is-medium
-                .hero-body
-                    .container
-                        .columns.is-desktop
-                            .column.is-2
-                            .column.is-4.has-text-centered
-                                p.title.is-1 Orari
-                                    p.subtitle.is-3 Lunedi #{timeTable.monday}
-                                    p.subtitle.is-3 Martedi #{timeTable.tuesday}
-                                    p.subtitle.is-3 Mercoledi #{timeTable.wednesday}
-                                    p.subtitle.is-3 Giovedi #{timeTable.thursday}
-                                    p.subtitle.is-3 Venerdi #{timeTable.friday}
-                                    p.subtitle.is-3 Sabato #{timeTable.saturday}
-                                    p.subtitle.is-3 Domenica #{timeTable.sunday}
-                            .column.is-4.has-text-centered
-                                p.title.is-1 Dove siamo
-                                    p.subtitle.is-3 #{address}
-                            .column.is-2
-            .section.hero.is-info.is-small
-                .hero-body
+                .section
                     .container
                         .columns.is-vcentered.is-desktop
-                            .column.is-5
-                            .column.is-2.has-text-centered
-                                p Prhhfhizzeria merda culo cazzo frocio tette fregna
-                            .column.is-5
-    
-            block content
+                            .column.is-2
+                            .column.is-4
+                                p.title.is-1 Ordina online
+                                p.subtitle.is-3 #{description}               
+                            .column.is-4
+                                figure.image.is-rounded
+                                    img(src=image)
+                            .column.is-2
+                .section
+                    .container
+                        .columns.is-vcentered.is-desktop
+                            .column.is-4
+                            .column.is-4
+                                p.title.is-1 Menù
+                                table.table
+                                    each category in categories
+                                        thead
+                                            tr
+                                                th= category.name
+                                        tbody
+                                            each product in products
+                                                if product.category === category.name
+                                                    tr
+                                                        td= product.name
+                                                        td= product.description
+                                                        td= product.price
+
+                            .column.is-4
+                .section.hero.is-warning.is-medium
+                    .hero-body
+                        .container
+                            .columns.is-desktop
+                                .column.is-2
+                                .column.is-4.has-text-centered
+                                    p.title.is-1 Orari
+                                        p.subtitle.is-3 Lunedi #{timeTable.monday}
+                                        p.subtitle.is-3 Martedi #{timeTable.tuesday}
+                                        p.subtitle.is-3 Mercoledi #{timeTable.wednesday}
+                                        p.subtitle.is-3 Giovedi #{timeTable.thursday}
+                                        p.subtitle.is-3 Venerdi #{timeTable.friday}
+                                        p.subtitle.is-3 Sabato #{timeTable.saturday}
+                                        p.subtitle.is-3 Domenica #{timeTable.sunday}
+                                .column.is-4.has-text-centered
+                                    p.title.is-1 Dove siamo
+                                        p.subtitle.is-3 #{address}
+                                .column.is-2
+                .section.hero.is-info.is-small
+                    .hero-body
+                        .container
+                            .columns.is-vcentered.is-desktop
+                                .column.is-5
+                                .column.is-2.has-text-centered
+                                    p Prhhfhizzeria merda culo cazzo frocio tette fregna
+                                .column.is-5
+        
+                block content
