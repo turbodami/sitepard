@@ -1,0 +1,137 @@
+Date : 2020-07-09 19:37:22
+Directory : /home/turbodami/Code/deploi
+Total : 86 files,  26657 codes, 159 comments, 748 blanks, all 27564 lines
+
+Languages
++------------+------------+------------+------------+------------+------------+
+| language   | files      | code       | comment    | blank      | total      |
++------------+------------+------------+------------+------------+------------+
+| JSON       |          8 |     19,047 |          0 |          8 |     19,055 |
+| JavaScript |         72 |      5,012 |        159 |        732 |      5,903 |
+| CSS        |          2 |      2,509 |          0 |          2 |      2,511 |
+| Pug        |          3 |         89 |          0 |          5 |         94 |
+| Markdown   |          1 |          0 |          0 |          1 |          1 |
++------------+------------+------------+------------+------------+------------+
+
+Directories
++-----------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                                        | files      | code       | comment    | blank      | total      |
++-----------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                                           |         86 |     26,657 |        159 |        748 |     27,564 |
+| client                                                                      |         58 |     20,364 |         38 |        488 |     20,890 |
+| client/src                                                                  |         56 |      5,945 |         38 |        486 |      6,469 |
+| client/src/actions                                                          |          4 |        388 |         25 |         95 |        508 |
+| client/src/components                                                       |         42 |      5,369 |          8 |        355 |      5,732 |
+| client/src/components/builder                                               |         17 |      1,204 |          1 |        133 |      1,338 |
+| client/src/components/dashboard                                             |          7 |        728 |          0 |         87 |        815 |
+| client/src/components/layout                                                |          4 |        209 |          6 |         28 |        243 |
+| client/src/components/pages                                                 |          6 |        390 |          1 |         57 |        448 |
+| client/src/components/routing                                               |          2 |         48 |          0 |         11 |         59 |
+| client/src/components/show                                                  |          3 |        136 |          0 |         19 |        155 |
+| client/src/components/site-forms                                            |          2 |        145 |          0 |         19 |        164 |
+| client/src/reducers                                                         |          4 |        111 |          0 |         16 |        127 |
+| client/src/utils                                                            |          1 |          9 |          0 |          3 |         12 |
+| config                                                                      |          2 |         22 |          1 |          6 |         29 |
+| controllers                                                                 |          2 |        143 |         16 |         33 |        192 |
+| middleware                                                                  |          1 |         15 |          3 |          5 |         23 |
+| models                                                                      |          2 |        150 |          0 |          8 |        158 |
+| renderer                                                                    |         10 |      1,290 |         54 |         31 |      1,375 |
+| renderer/config                                                             |          2 |         22 |          1 |          6 |         29 |
+| renderer/models                                                             |          2 |        137 |          4 |          8 |        149 |
+| renderer/views                                                              |          3 |         89 |          0 |          5 |         94 |
+| routes                                                                      |          7 |      1,054 |         44 |        167 |      1,265 |
+| routes/api                                                                  |          7 |      1,054 |         44 |        167 |      1,265 |
++-----------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++-----------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| filename                                                                    | language   | code       | comment    | blank      | total      |
++-----------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| /home/turbodami/Code/deploi/README.md                                       | Markdown   |          0 |          0 |          1 |          1 |
+| /home/turbodami/Code/deploi/client/package-lock.json                        | JSON       |     14,369 |          0 |          1 |     14,370 |
+| /home/turbodami/Code/deploi/client/package.json                             | JSON       |         50 |          0 |          1 |         51 |
+| /home/turbodami/Code/deploi/client/src/App.css                              | CSS        |          0 |          0 |          1 |          1 |
+| /home/turbodami/Code/deploi/client/src/App.js                               | JavaScript |         46 |          1 |          8 |         55 |
+| /home/turbodami/Code/deploi/client/src/actions/alert.js                     | JavaScript |         10 |          0 |          4 |         14 |
+| /home/turbodami/Code/deploi/client/src/actions/auth.js                      | JavaScript |        150 |         14 |         37 |        201 |
+| /home/turbodami/Code/deploi/client/src/actions/site.js                      | JavaScript |        212 |         11 |         54 |        277 |
+| /home/turbodami/Code/deploi/client/src/actions/types.js                     | JavaScript |         16 |          0 |          0 |         16 |
+| /home/turbodami/Code/deploi/client/src/components/builder/Address.js        | JavaScript |         57 |          0 |          4 |         61 |
+| /home/turbodami/Code/deploi/client/src/components/builder/Category.js       | JavaScript |         69 |          0 |          4 |         73 |
+| /home/turbodami/Code/deploi/client/src/components/builder/Cover.js          | JavaScript |        103 |          0 |         15 |        118 |
+| /home/turbodami/Code/deploi/client/src/components/builder/Description.js    | JavaScript |         57 |          0 |          4 |         61 |
+| /home/turbodami/Code/deploi/client/src/components/builder/Domain.js         | JavaScript |         46 |          0 |          4 |         50 |
+| /home/turbodami/Code/deploi/client/src/components/builder/Logo.js           | JavaScript |        100 |          0 |         13 |        113 |
+| /home/turbodami/Code/deploi/client/src/components/builder/Name.js           | JavaScript |         54 |          0 |          4 |         58 |
+| /home/turbodami/Code/deploi/client/src/components/builder/Nav.js            | JavaScript |         29 |          0 |          4 |         33 |
+| /home/turbodami/Code/deploi/client/src/components/builder/Palette.js        | JavaScript |         53 |          0 |          4 |         57 |
+| /home/turbodami/Code/deploi/client/src/components/builder/Products.js       | JavaScript |         61 |          0 |         13 |         74 |
+| /home/turbodami/Code/deploi/client/src/components/builder/Registration.js   | JavaScript |         85 |          0 |         10 |         95 |
+| /home/turbodami/Code/deploi/client/src/components/builder/SiteBuilder.js    | JavaScript |        150 |          1 |         20 |        171 |
+| /home/turbodami/Code/deploi/client/src/components/builder/Style.js          | JavaScript |         53 |          0 |          4 |         57 |
+| /home/turbodami/Code/deploi/client/src/components/builder/Success.js        | JavaScript |         25 |          0 |          4 |         29 |
+| /home/turbodami/Code/deploi/client/src/components/builder/Tel.js            | JavaScript |         56 |          0 |          4 |         60 |
+| /home/turbodami/Code/deploi/client/src/components/builder/TimeTable.js      | JavaScript |        150 |          0 |         18 |        168 |
+| /home/turbodami/Code/deploi/client/src/components/builder/Whatsapp.js       | JavaScript |         56 |          0 |          4 |         60 |
+| /home/turbodami/Code/deploi/client/src/components/dashboard/Dashboard.js    | JavaScript |         91 |          0 |         10 |        101 |
+| /home/turbodami/Code/deploi/client/src/components/dashboard/EditAccount.js  | JavaScript |         99 |          0 |         17 |        116 |
+| /home/turbodami/Code/deploi/client/src/components/dashboard/EditInfo.js     | JavaScript |        194 |          0 |         17 |        211 |
+| /home/turbodami/Code/deploi/client/src/components/dashboard/EditProducts.js | JavaScript |         77 |          0 |         14 |         91 |
+| /home/turbodami/Code/deploi/client/src/components/dashboard/EditStyle.js    | JavaScript |        151 |          0 |         14 |        165 |
+| /home/turbodami/Code/deploi/client/src/components/dashboard/Main.js         | JavaScript |         71 |          0 |         10 |         81 |
+| /home/turbodami/Code/deploi/client/src/components/dashboard/Nav.js          | JavaScript |         45 |          0 |          5 |         50 |
+| /home/turbodami/Code/deploi/client/src/components/devices.min.css           | CSS        |      2,509 |          0 |          1 |      2,510 |
+| /home/turbodami/Code/deploi/client/src/components/layout/Alert.js           | JavaScript |         18 |          0 |          5 |         23 |
+| /home/turbodami/Code/deploi/client/src/components/layout/Header.js          | JavaScript |         68 |          5 |          9 |         82 |
+| /home/turbodami/Code/deploi/client/src/components/layout/Login.js           | JavaScript |        112 |          1 |         12 |        125 |
+| /home/turbodami/Code/deploi/client/src/components/layout/Spinner.js         | JavaScript |         11 |          0 |          2 |         13 |
+| /home/turbodami/Code/deploi/client/src/components/pages/About.js            | JavaScript |         49 |          0 |          8 |         57 |
+| /home/turbodami/Code/deploi/client/src/components/pages/Activation.js       | JavaScript |         46 |          0 |          7 |         53 |
+| /home/turbodami/Code/deploi/client/src/components/pages/Contact.js          | JavaScript |         58 |          0 |          8 |         66 |
+| /home/turbodami/Code/deploi/client/src/components/pages/Home.js             | JavaScript |         56 |          0 |          8 |         64 |
+| /home/turbodami/Code/deploi/client/src/components/pages/PasswordForgot.js   | JavaScript |         87 |          1 |         11 |         99 |
+| /home/turbodami/Code/deploi/client/src/components/pages/PasswordReset.js    | JavaScript |         94 |          0 |         15 |        109 |
+| /home/turbodami/Code/deploi/client/src/components/routing/PrivateRoute.js   | JavaScript |         27 |          0 |          5 |         32 |
+| /home/turbodami/Code/deploi/client/src/components/routing/Routes.js         | JavaScript |         21 |          0 |          6 |         27 |
+| /home/turbodami/Code/deploi/client/src/components/show/Categories.js        | JavaScript |         39 |          0 |          6 |         45 |
+| /home/turbodami/Code/deploi/client/src/components/show/Mobile.js            | JavaScript |         32 |          0 |          3 |         35 |
+| /home/turbodami/Code/deploi/client/src/components/show/ProductsList.js      | JavaScript |         65 |          0 |         10 |         75 |
+| /home/turbodami/Code/deploi/client/src/components/site-forms/AddCategory.js | JavaScript |         51 |          0 |          8 |         59 |
+| /home/turbodami/Code/deploi/client/src/components/site-forms/AddProduct.js  | JavaScript |         94 |          0 |         11 |        105 |
+| /home/turbodami/Code/deploi/client/src/index.js                             | JavaScript |          9 |          0 |          2 |         11 |
+| /home/turbodami/Code/deploi/client/src/reducers/alert.js                    | JavaScript |         13 |          0 |          3 |         16 |
+| /home/turbodami/Code/deploi/client/src/reducers/auth.js                     | JavaScript |         52 |          0 |          7 |         59 |
+| /home/turbodami/Code/deploi/client/src/reducers/index.js                    | JavaScript |          9 |          0 |          2 |         11 |
+| /home/turbodami/Code/deploi/client/src/reducers/site.js                     | JavaScript |         37 |          0 |          4 |         41 |
+| /home/turbodami/Code/deploi/client/src/setupTests.js                        | JavaScript |          1 |          4 |          1 |          6 |
+| /home/turbodami/Code/deploi/client/src/store.js                             | JavaScript |         12 |          0 |          5 |         17 |
+| /home/turbodami/Code/deploi/client/src/utils/setAuthToken.js                | JavaScript |          9 |          0 |          3 |         12 |
+| /home/turbodami/Code/deploi/config/db.js                                    | JavaScript |         18 |          1 |          5 |         24 |
+| /home/turbodami/Code/deploi/config/default.json                             | JSON       |          4 |          0 |          1 |          5 |
+| /home/turbodami/Code/deploi/controllers/spacesController.js                 | JavaScript |        120 |         16 |         31 |        167 |
+| /home/turbodami/Code/deploi/controllers/userDbController.js                 | JavaScript |         23 |          0 |          2 |         25 |
+| /home/turbodami/Code/deploi/middleware/auth.js                              | JavaScript |         15 |          3 |          5 |         23 |
+| /home/turbodami/Code/deploi/models/Site.js                                  | JavaScript |        118 |          0 |          5 |        123 |
+| /home/turbodami/Code/deploi/models/User.js                                  | JavaScript |         32 |          0 |          3 |         35 |
+| /home/turbodami/Code/deploi/package-lock.json                               | JSON       |      3,561 |          0 |          1 |      3,562 |
+| /home/turbodami/Code/deploi/package.json                                    | JSON       |         43 |          0 |          1 |         44 |
+| /home/turbodami/Code/deploi/renderer/config/db.js                           | JavaScript |         18 |          1 |          5 |         24 |
+| /home/turbodami/Code/deploi/renderer/config/default.json                    | JSON       |          4 |          0 |          1 |          5 |
+| /home/turbodami/Code/deploi/renderer/models/Site.js                         | JavaScript |        120 |          0 |          5 |        125 |
+| /home/turbodami/Code/deploi/renderer/models/User.js                         | JavaScript |         17 |          4 |          3 |         24 |
+| /home/turbodami/Code/deploi/renderer/package-lock.json                      | JSON       |        998 |          0 |          1 |        999 |
+| /home/turbodami/Code/deploi/renderer/package.json                           | JSON       |         18 |          0 |          1 |         19 |
+| /home/turbodami/Code/deploi/renderer/server.js                              | JavaScript |         26 |         49 |         10 |         85 |
+| /home/turbodami/Code/deploi/renderer/views/head.pug                         | Pug        |          4 |          0 |          1 |          5 |
+| /home/turbodami/Code/deploi/renderer/views/index.pug                        | Pug        |          2 |          0 |          2 |          4 |
+| /home/turbodami/Code/deploi/renderer/views/layout.pug                       | Pug        |         83 |          0 |          2 |         85 |
+| /home/turbodami/Code/deploi/routes/api/auth.js                              | JavaScript |         69 |          8 |         15 |         92 |
+| /home/turbodami/Code/deploi/routes/api/mailRoute.js                         | JavaScript |        195 |          0 |         14 |        209 |
+| /home/turbodami/Code/deploi/routes/api/paymentsRoute.js                     | JavaScript |        176 |          0 |         20 |        196 |
+| /home/turbodami/Code/deploi/routes/api/siteDatabaseRoute.js                 | JavaScript |        222 |         28 |         44 |        294 |
+| /home/turbodami/Code/deploi/routes/api/siteSpacesRoute.js                   | JavaScript |        129 |          0 |         28 |        157 |
+| /home/turbodami/Code/deploi/routes/api/users.js                             | JavaScript |        240 |          8 |         41 |        289 |
+| /home/turbodami/Code/deploi/routes/api/webhookRoute.js                      | JavaScript |         23 |          0 |          5 |         28 |
+| /home/turbodami/Code/deploi/server.js                                       | JavaScript |         15 |          3 |          7 |         25 |
+| Total                                                                       |            |     26,657 |        159 |        748 |     27,564 |
++-----------------------------------------------------------------------------+------------+------------+------------+------------+------------+

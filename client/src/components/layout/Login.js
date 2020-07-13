@@ -1,12 +1,19 @@
 import React, { useState, Fragment } from "react";
 import { Link, Redirect } from "react-router-dom";
+import { useSpring, animated } from "react-spring";
 
 //redux
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { login } from "../../actions/auth";
 
-const Login = ({ openLogin, handleLoginClose, login, isAuthenticated }) => {
+const Login = ({ login, isAuthenticated }) => {
+  const props = useSpring({
+    opacity: 1,
+    from: { opacity: 0 },
+    config: { duration: 500 },
+  });
+
   const defaultData = {
     email: "",
     password: "",
@@ -28,39 +35,80 @@ const Login = ({ openLogin, handleLoginClose, login, isAuthenticated }) => {
   }
 
   return (
-    <Fragment>
-      <h1 className="large text-primary">Login</h1>
-      <p className="lead">
-        <i className="fas fa-user" /> Entra nella tua area personale
-      </p>
-      <form className="form" onSubmit={(e) => onSubmit(e)}>
-        <div className="form-group">
-          <input
-            type="email"
-            placeholder="Indirizzo email"
-            name="email"
-            value={email}
-            onChange={(e) => onChange(e)}
-            required
-          />
-        </div>
-        <div className="form-group">
-          <input
-            type="password"
-            placeholder="Password"
-            name="password"
-            value={password}
-            onChange={(e) => onChange(e)}
-            minLength="6"
-          />
-        </div>
-        <input type="submit" className="btn btn-primary" value="Login" />
-      </form>
-      <p className="my-1">
-        Non hai ancora creato il tuo sito?{" "}
-        <Link to="/register">Crealo ora</Link>
-      </p>
-    </Fragment>
+    <animated.div style={props}>
+      <Fragment>
+        <section className="section">
+          <div className="container">
+            <nav
+                className="navbar"
+                role="navigation"
+                aria-label="main navigation"
+              >
+              <div className="navbar-menu">
+                <div className="navbar-end">
+                  <div className="navbar-item">
+                    <div className="buttons">
+                      <Link to="/">
+                        <a className="delete is-large"></a>
+                      </Link>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </nav>
+            <div className="columns">
+              <div className="column is-3"></div>
+              <div className="column is-6">
+                <p className="title is-1">Login</p>
+                <p className="subtitle is-3">
+                  Entra nella tua area personale
+                </p>
+                <form onSubmit={(e) => onSubmit(e)}>
+                  <div className="field">
+                    <label className="label">Email</label>
+                    <input
+                      className="input"
+                      type="email"
+                      placeholder="Email per l'accesso"
+                      name="email"
+                      value={email}
+                      onChange={(e) => onChange(e)}
+                    />
+                  </div>
+                  <div className="field">
+                    <label className="label">Password</label>
+                    <input
+                      className="input"
+                      type="password"
+                      placeholder="Password"
+                      name="password"
+                      value={password}
+                      onChange={(e) => onChange(e)}
+                    />
+                  </div>
+                  <div className="field">
+                    <input
+                      type="submit"
+                      className="button is-primary"
+                      value="Login"
+                    />
+                  </div>
+                </form>
+                <br />
+                <br />
+                <div className="is-small">
+                  Se non hai ancora creato il tuo sito clicca <Link to="/sitebuilder">QUI</Link>.
+                </div>
+                <div className="is-small">
+                  Hai dimenticato la tua password? Clicca <Link to="/passwordforgot">QUI</Link> per recuperarla.
+                </div>
+              </div>
+              <div className="column is-3"></div>
+            </div>
+          </div>
+        </section>
+      </Fragment>
+    </animated.div>
   );
 };
 

@@ -1,70 +1,50 @@
-import React, { useState, Fragment, useEffect } from "react";
-import { Link, withRouter } from "react-router-dom";
+import React, { Fragment, useState } from "react";
+
+import { useSpring, animated } from "react-spring";
+
+import { editPassword } from "../../actions/auth";
+
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { createSite, getCurrentSite } from "../../actions/site";
-import Alert from "../layout/Alert";
 
-const EditAccount = ({
-  site: { site, loading },
-  createSite,
-  getCurrentSite,
-  history,
-}) => {
-  const [siteData, setSiteData] = useState({
-    category: "",
-    name: "",
-    tel: "",
-    whatsappNumber: null,
-    palette: null,
-    style: null,
-    description: "",
-    image: "",
-    logo: "",
-    address: "",
-    type: "",
+const EditAccount = ({editPassword, auth: { user }, history}) => {
+
+  const props = useSpring({
+    opacity: 1,
+    from: { opacity: 0 },
+    config: { duration: 500 },
   });
 
-  useEffect(() => {
-    getCurrentSite();
-    setSiteData({
-      category: loading || !site.category ? "" : site.category,
-      name: loading || !site.name ? "" : site.name,
-      tel: loading || !site.tel ? "" : site.tel,
-      whatsappNumber:
-        loading || !site.whatsappNumber ? "" : site.whatsappNumber,
-      palette: loading || !site.palette ? "" : site.palette,
-      style: loading || !site.style ? "" : site.style,
-      description: loading || !site.description ? "" : site.description,
-      image: loading || !site.image ? "" : site.image,
-      logo: loading || !site.logo ? "" : site.logo,
-      address: loading || !site.address ? "" : site.address,
-      type: loading || !site.type ? "" : site.type,
-    });
-  }, [loading]);
+  const defaultData = {
+      password: '',
+      password2: ''
+  }
 
-  const {
-    category,
-    name,
-    tel,
-    whatsappNumber,
-    palette,
-    style,
-    description,
-    image,
-    logo,
-    address,
-    type,
-  } = siteData;
+  const [formData, setFormData] = useState(defaultData);
 
-  const onChange = (e) =>
-    setSiteData({ ...siteData, [e.target.name]: e.target.value });
+  const changePassword = e => {
+      e.preventDefault();
+    const {password, password2} = formData;
 
-  const onSubmit = (e) => {
-    e.preventDefault();
-    console.log(siteData);
-    createSite(siteData, history, true);
-  };
+    if(password===password2){
+        
+        const {password} = formData;
+        if(user){
+          editPassword(user.email, password, history);
+        } else {
+          console.log("danger guys")
+        }
+
+    }
+  }
+    const onChange = (e) => {
+        e.persist();
+    
+        setFormData({
+          ...formData,
+          [e.target.name]: e.target.value,
+        });
+      };  
 
   return (
     <Fragment>
@@ -77,15 +57,47 @@ const EditAccount = ({
               </li>
               <li className="is-active">
                 <a href="#" aria-current="page">
-                  Modifica account
+                  Modifica password
                 </a>
               </li>
             </ul>
           </nav>
-          <p className="title is-2">Gestisci account</p>
+          <p className="title is-2">Cambio password</p>
           <p className="subtitle is-4">
-            Mandaci una mail per cambiare password. Vogliamo la password.
+            Inserisci qui di seguito la nuova password, poi clicca su "Cambia password"
           </p>
+          <form onSubmit={(e) => changePassword(e)}>
+                  
+                  <div className="field">
+                    <label className="label">Nuova password</label>
+                    <input
+                      className="input"
+                      type="password"
+                      placeholder="Inserisci nuova password"
+                      name="password"
+                      value={formData.password}
+                      onChange={(e) => onChange(e)}
+                    />
+                  </div>
+                  <div className="field">
+                    <label className="label">Conferma password</label>
+                    <input
+                      className="input"
+                      type="password"
+                      placeholder="Ripeti password"
+                      name="password2"
+                      value={formData.password2}
+                      onChange={(e) => onChange(e)}
+                    />
+                  </div>
+                  <div className="field">
+                    <input
+                      type="submit"
+                      className="button is-primary"
+                      value="Cambia password"
+                    />
+                  </div>
+                </form>
         </div>
       </div>
     </Fragment>
@@ -93,15 +105,12 @@ const EditAccount = ({
 };
 
 EditAccount.propTypes = {
-  createSite: PropTypes.func.isRequired,
-  getCurrentSite: PropTypes.func.isRequired,
-  site: PropTypes.object.isRequired,
+  editPassword: PropTypes.func.isRequired,
+  auth: PropTypes.object.isRequired,
 };
 
 const mapStateToProps = (state) => ({
-  site: state.site,
+  auth: state.auth,
 });
 
-export default connect(mapStateToProps, { createSite, getCurrentSite })(
-  withRouter(EditAccount)
-);
+export default connect(mapStateToProps, { editPassword })(EditAccount);

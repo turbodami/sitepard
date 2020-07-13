@@ -40,8 +40,8 @@ const Main = ({ getCurrentSite, auth: { user }, site: { site, loading } }) => {
           </p>
 
           <p>Il link del tuo sito è: </p>
-          <Link to="www.pornhub.com">
-            <h2 className="subtitle is-4">www.ladrodepomi.com</h2>
+          <Link to={`http://${site.domain}.sitepard.com`}> 
+            <h2 className="subtitle is-4">http://{site.domain}.sitepard.com</h2>
           </Link>
           <br />
           <p>

@@ -3,9 +3,8 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import Spinner from "../layout/Spinner";
 import Mobile from "../show/Mobile";
-import Menu from "../show/Menu";
+import ProductsList from "../show/ProductsList";
 import { getCurrentSite } from "../../actions/site";
-import AddProduct from "../site-forms/AddProduct";
 import AddCategory from "../site-forms/AddCategory";
 
 const EditProducts = ({
@@ -17,19 +16,9 @@ const EditProducts = ({
     getCurrentSite();
   }, [getCurrentSite]);
 
-  const modal = (
-    <Fragment>
-      <div className="modal">
-        <div className="modal-background"></div>
-        <div className="modal-content">
-          <AddProduct />
-        </div>
-        <button className="modal-close is-large" aria-label="close"></button>
-      </div>
-    </Fragment>
-  );
+  const [modCatIsActive, toggleModCat] = useState(false);
 
-  const [modalActive, toggleModal] = useState(false);
+  
 
   return loading && site === null ? (
     <Spinner />
@@ -37,7 +26,17 @@ const EditProducts = ({
     <Fragment>
       {site !== null ? (
         <Fragment>
-          <Fragment>{modalActive ? modal : null}</Fragment>
+          <div className={ modCatIsActive? `modal is-active` : `modal`}>
+            <div className="modal-background" onClick={() => toggleModCat(!modCatIsActive)}></div>
+            <div className="modal-content">
+              <div className="box">
+                <AddCategory />
+              </div>
+            </div>
+            <button className="modal-close is-large" aria-label="close" onClick={() => toggleModCat(!modCatIsActive)}></button>
+          </div>
+
+          
 
           <div className="columns">
             <div className="column is-8">
@@ -54,11 +53,15 @@ const EditProducts = ({
                 </ul>
               </nav>
               <p className="title is-2">Gestione prodotti</p>
-              <AddCategory />
-              <Menu category={site.categories} product={site.products} />
+              
+              <button className="button is-primary" onClick={() => toggleModCat(!modCatIsActive)}>Aggiungi categoria</button>
+              <div className="box">
+                <p className="title is-3 has-text-centered">Il mio menù</p>
+                <ProductsList categories={site.categories} products={site.products} />
+              </div>
             </div>
             <div className="column is-4">
-              <Mobile />
+              <Mobile url={site.url}/>
             </div>
           </div>
         </Fragment>
