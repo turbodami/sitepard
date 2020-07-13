@@ -1,7 +1,6 @@
 const mongoose = require("mongoose");
-const config = require("config");
-const db = config.get("mongoURI");
-
+const config = require("../nodemon.json");
+const db = process.env.MONGO_DEV_URI;
 const connectDB = async () => {
   try {
     await mongoose.connect(db, {
