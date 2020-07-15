@@ -1,8 +1,7 @@
 const mongoose = require("mongoose");
-const config = require("../nodemon.json");
+require('dotenv').config();
 const db = process.env.MONGO_DEV_URI;
 const connectDB = async () => {
-  console.log(db);
   try {
     await mongoose.connect(db, {
       useNewUrlParser: true,
