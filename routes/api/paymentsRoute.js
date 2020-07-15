@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+require('dotenv').config();
 const stripe = require('stripe')(process.env.STRIPE_TEST_KEY);
 const bodyParser = require('body-parser');
 const moment = require('moment');

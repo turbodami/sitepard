@@ -6,3 +6,4 @@ sitesImages/
 sitesImages/sendgrid.env
 sendgrid.env
 nodemon.json
+.env
