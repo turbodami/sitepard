@@ -5,3 +5,5 @@ sitesImages/
 .next/
 sitesImages/sendgrid.env
 sendgrid.env
+.env
+nodemon.json
