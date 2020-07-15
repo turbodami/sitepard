@@ -13,7 +13,11 @@ html
                                         img(src=logo)
                                     else
                                         #{name}
-                            .navbar-menu.is-active    
+                                a.navbar-burger(role='button', aria-label='menu', aria-expanded='false')
+                                    span(aria-hidden='true')
+                                    span(aria-hidden='true')
+                                    span(aria-hidden='true')
+                            .navbar-menu    
                                 .navbar-start
                                     a.navbar-item(href='') Menu
                                     a.navbar-item(href='') Orari
@@ -35,7 +39,7 @@ html
         .section
             .container
                 .columns.is-centered.is-vcentered.is-desktop
-                    .column.is-one-third
+                    .column.is-one-third.has-text-centered
                         p.title.is-1 Menù
                         table.table
                             each category in categories
