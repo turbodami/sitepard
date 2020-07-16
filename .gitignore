@@ -5,9 +5,5 @@ sitesImages/
 .next/
 sitesImages/sendgrid.env
 sendgrid.env
-<<<<<<< HEAD
-.env
-=======
 .env
 nodemon.json
->>>>>>> fdf08cede28e74d8cb1f94d764a6c5b4fe7524af
