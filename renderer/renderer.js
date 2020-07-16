@@ -55,6 +55,8 @@ server.get("/s/:firstSubdomain/*", async (req, res) => {
       products,
       address,
       timeTable,
+      whatsapp,
+      tel
     } = site;
 
     if (site) {
@@ -70,6 +72,8 @@ server.get("/s/:firstSubdomain/*", async (req, res) => {
             products: products,
             address: address,
             timeTable: timeTable,
+            whatsapp: whatsapp,
+            tel: tel
           });
       }
     } else {
