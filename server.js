@@ -3,6 +3,8 @@ const connectDB = require("./config/db");
 const path = require('path');
 const app = express();
 
+require('dotenv').config();
+
 //connect db
 connectDB();
 
