@@ -1,5 +1,6 @@
 const express = require("express");
 const connectDB = require("./config/db");
+const path = require('path');
 const app = express();
 
 //connect db
@@ -17,7 +18,17 @@ app.use("/api/payment", require("./routes/api/paymentsRoute"));
 app.use("/api/webhook", require("./routes/api/webhookRoute"));
 app.use("/api/mail", require("./routes/api/mailRoute"));
 
-app.get("/", (req, res) => res.send("api running"));
+// Serve staitc assets in production
+if(process.env.NODE_ENV === 'production')
+{
+    //Set static folder
+    app.use(express.static('client/build'));
+
+    app.get('*', (req,res) =>
+    {
+        res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
+    });
+}
 
 const PORT = process.env.PORT || 5000;
 
