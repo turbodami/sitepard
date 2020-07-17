@@ -124,20 +124,20 @@ router.post('/image/:domain&:fileName', imageUpload.single('file'), async (req, 
     } 
 });
 
-const imageTempUpload = multer({
-    storage: multerS3(
-        {
-            s3: s3,
-            bucket: 'cactus-space',
-            acl: 'public-read',
-            contentType: multerS3.AUTO_CONTENT_TYPE,
-            key: (req, file, cb) =>
-            {
-                cb(null, 'users-sites/' + req.params.domain + '/images/' + req.params.fileName)
-            }
-        }
-    )
-});
+// const imageTempUpload = multer({
+//     storage: multerS3(
+//         {
+//             s3: s3,
+//             bucket: 'cactus-space',
+//             acl: 'public-read',
+//             contentType: multerS3.AUTO_CONTENT_TYPE,
+//             key: (req, file, cb) =>
+//             {
+//                 cb(null, 'users-sites/' + req.params.domain + '/images/' + req.params.fileName)
+//             }
+//         }
+//     )
+// });
 
 // router.post('/imageTemp/:fileName', imageTempUpload.single('file'), async (req, res) =>
 // {
