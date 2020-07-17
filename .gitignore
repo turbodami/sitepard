@@ -8,3 +8,4 @@ sitesImages/sendgrid.env
 sendgrid.env
 .env
 nodemon.json
+ecosystem.config.js
