@@ -133,24 +133,24 @@ const imageTempUpload = multer({
             contentType: multerS3.AUTO_CONTENT_TYPE,
             key: (req, file, cb) =>
             {
-                cb(null, 'user-sites/' + req.params.domain + '/images/' + req.params.fileName)
+                cb(null, 'users-sites/' + req.params.domain + '/images/' + req.params.fileName)
             }
         }
     )
 });
 
-router.post('/imageTemp/:fileName', imageTempUpload.single('file'), async (req, res) =>
-{
+// router.post('/imageTemp/:fileName', imageTempUpload.single('file'), async (req, res) =>
+// {
     
-    if(!req.file)
-    {
-        res.status(500).json({message: 'Bad request'});
-    }
-    else
-    {
-        res.status(200).json('Upload successfull.');
-    } 
-});
+//     if(!req.file)
+//     {
+//         res.status(500).json({message: 'Bad request'});
+//     }
+//     else
+//     {
+//         res.status(200).json('Upload successfull.');
+//     } 
+// });
 
 
 
