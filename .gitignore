@@ -8,4 +8,7 @@ sitesImages/sendgrid.env
 sendgrid.env
 .env
 nodemon.json
+<<<<<<< HEAD
 
+=======
+>>>>>>> 4f16e2665e056eaf528d7812fae4bf646f83c2f4

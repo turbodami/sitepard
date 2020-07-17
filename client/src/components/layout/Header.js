@@ -5,12 +5,6 @@ import PropTypes from "prop-types";
 import { logout } from "../../actions/auth";
 
 const Header = ({ auth: { isAuthenticated, loading }, logout }) => {
-  //changing header
-  const authLinks = (
-    <Link onClick={logout} to="/" className="btn btn-primary">
-      Logout
-    </Link>
-  );
 
   //redirect if logged in
   //if (isAuthenticated) {
