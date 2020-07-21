@@ -1,6 +1,8 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useEffect } from "react";
 import "../devices.min.css";
 
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
 import { getCurrentSite } from "../../actions/site";
 
 const Mobile = ({getCurrentSite,
