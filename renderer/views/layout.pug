@@ -9,7 +9,7 @@ html
                         img(src=logo)
                     else
                         #{name}
-                div.navbar-burger.burger(role='button', aria-label='menu', aria-expanded='false', onclick="document.querySelector('.navbar-menu').classList.toggle('is-active');")
+                div.navbar-burger.burger(role='button', aria-label='menu', aria-expanded='false', onclick="document.querySelector('.navbar-menu').classList.toggle('is-active'); document.querySelector('.navbar-burger').classList.toggle('is-active');")
                     span(aria-hidden='true')
                     span(aria-hidden='true')
                     span(aria-hidden='true')
