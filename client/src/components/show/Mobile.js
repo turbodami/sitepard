@@ -1,7 +1,15 @@
 import React, { Fragment } from "react";
 import "../devices.min.css";
 
-const Mobile = () => {
+import { getCurrentSite } from "../../actions/site";
+
+const Mobile = ({getCurrentSite,
+  
+  site: { site },}) => {
+    useEffect(() => {
+      getCurrentSite();
+    }, [getCurrentSite]);
+
   return (
     <Fragment>
       <div className="marvel-device iphone-x">
@@ -22,8 +30,10 @@ const Mobile = () => {
         <div className="inner-shadow"></div>
         <div className="screen">
           <iframe
-            src="http://pizzaporcodio.cactusdomaindev.xyz/"
+            src={"http://" + site.domain + ".sitepard.com"}
             title="your website"
+            height="100%"
+            width="100%"
           ></iframe>
         </div>
       </div>
@@ -31,4 +41,15 @@ const Mobile = () => {
   );
 };
 
-export default Mobile;
+Mobile.propTypes = {
+  getCurrentSite: PropTypes.func.isRequired,
+  site: PropTypes.object.isRequired,
+};
+
+const mapStateToProps = (state) => ({
+  site: state.site,
+});
+
+export default connect(mapStateToProps, {
+  getCurrentSite,
+})(Mobile);
