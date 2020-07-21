@@ -9,11 +9,11 @@ html
                         img(src=logo)
                     else
                         #{name}
-                a.navbar-burger(role='button', aria-label='menu', aria-expanded='false', data-target='menu')
+                div.navbar-burger.burger(role='button', aria-label='menu', aria-expanded='false', onclick="document.querySelector('.navbar-menu').classList.toggle('is-active');")
                     span(aria-hidden='true')
                     span(aria-hidden='true')
                     span(aria-hidden='true')
-            .navbar-menu(id='menu')   
+            .navbar-menu  
                 .navbar-start
                     a.navbar-item(href='#menu') Menu
                     a.navbar-item(href='#timetable') Orari
