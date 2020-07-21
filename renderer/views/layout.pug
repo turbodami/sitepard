@@ -18,7 +18,7 @@ html
                     a.navbar-item(href='#menu') Menu
                     a.navbar-item(href='#timetable') Orari
                     a.navbar-item(href='#address') Dove siamo
-                .navbar-end
+                .navbar-end.is-hidden-touch
                     .navbar-item
                     .buttons
                         a.button.is-primary(href='https://wa.me/39#{whatsapp}') Ordina su Whatsapp
@@ -32,7 +32,7 @@ html
                     .column.is-one-third
                         figure.image.is-rounded
                             img(src=image)
-        .section.is-medium(name='menu')
+        .section.is-medium(id='menu')
             .container
                 .columns.is-centered
                     .column.is-one-third.has-text-centered
@@ -54,7 +54,7 @@ html
                 .container
                     .columns.is-centered
                         .column.is-one-third.has-text-centered(name='timetable')
-                            p.title.is-1 Orari
+                            p.title.is-1(id='timetable') Orari
                                 p.subtitle.is-3 Lunedi #{timeTable.monday}
                                 p.subtitle.is-3 Martedi #{timeTable.tuesday}
                                 p.subtitle.is-3 Mercoledi #{timeTable.wednesday}
@@ -63,7 +63,7 @@ html
                                 p.subtitle.is-3 Sabato #{timeTable.saturday}
                                 p.subtitle.is-3 Domenica #{timeTable.sunday}
                         .column.is-one-third.has-text-centered(name='address')
-                            p.title.is-1 Dove siamo
+                            p.title.is-1(id='address') Dove siamo
                                 p.subtitle.is-3 #{address}
         .section.hero.is-info.is-small
             .hero-body
