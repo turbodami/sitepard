@@ -26,7 +26,7 @@ router.post('/verification/:recipient', async(req, res) =>
             from: "admin@sitepard.com",
             to: req.params.recipient,
             subject : "Verifica",
-            html: `<center> <b>Benvenuto in Sitepard!</b> <br/> Clicca <a href="http://localhost:5000/api/mail/verification/${req.body.token}"> su questo link</a>  per verificare la tua e-mail   </center>`,
+            html: `<center> <b>Benvenuto in Sitepard!</b> <br/> Clicca <a href="http://${process.env.BACKEND_ROUTE}/api/mail/verification/${req.body.token}"> su questo link</a>  per verificare la tua e-mail   </center>`,
         },
         (err, info) =>
         {
@@ -81,7 +81,7 @@ router.get('/verification/:token', async(req, res) =>
                     }
                     else
                     {
-                        res.status(200).redirect('http://localhost:3000/activation');
+                        res.status(200).redirect(`http://${process.env.FRONTEND_ROUTE}/activation`);
                     }
                 })
             }
@@ -98,7 +98,7 @@ router.post('/passwordForgot/:recipient', async(req, res) =>
             from: "admin@sitepard.com",
             to: req.params.recipient,
             subject : "Reset",
-            html: `<center> <b>Caro ${req.params.recipient},</b>è stato richiesto il reset della password del tuo account. <br/> Clicca <a href="http://localhost:3000/passwordreset?token=${req.body.token}"> su questo link</a>  per cambiare la tua password.  </center>`,
+            html: `<center> <b>Caro ${req.params.recipient},</b>è stato richiesto il reset della password del tuo account. <br/> Clicca <a href="http://${process.env.FRONTEND_ROUTE}/passwordreset?token=${req.body.token}"> su questo link</a>  per cambiare la tua password.  </center>`,
         },
         (err, info) =>
         {
