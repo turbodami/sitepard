@@ -6,7 +6,7 @@ html
             .navbar-brand
                 a.navbar-item(href='/')
                     if(logo)
-                        img(src=logo)
+                        img.is-rounded-desktop(src=logo)
                     else
                         #{name}
                 div.navbar-burger.burger(role='button', aria-label='menu', aria-expanded='false', onclick="document.querySelector('.navbar-menu').classList.toggle('is-active'); document.querySelector('.navbar-burger').classList.toggle('is-active');")
@@ -55,7 +55,7 @@ html
                     .columns.is-centered
                         .column.is-one-third.has-text-centered(name='timetable')
                             p.title.is-size-1-desktop.is-size-2-mobile(id='timetable') Orari
-                                p.subtitle.is-size-3-desktop.is-size-4-mobile Lunedi #{timeTable.monday}
+                                p.subtitle.is-size-3-desktop.is-size-4-mobile #{timeTable.monday}
                                 p.subtitle.is-size-3-desktop.is-size-4-mobile Martedi #{timeTable.tuesday}
                                 p.subtitle.is-size-3-desktop.is-size-4-mobile Mercoledi #{timeTable.wednesday}
                                 p.subtitle.is-size-3-desktop.is-size-4-mobile Giovedi #{timeTable.thursday}
