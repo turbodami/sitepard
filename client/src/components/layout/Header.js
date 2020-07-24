@@ -1,10 +1,7 @@
 import React, { Fragment } from "react";
 import { Link } from "react-router-dom";
-import { connect } from "react-redux";
-import PropTypes from "prop-types";
-import { logout } from "../../actions/auth";
 
-const Header = ({ auth: { isAuthenticated, loading }, logout }) => {
+const Header = () => {
 
   //redirect if logged in
   //if (isAuthenticated) {
@@ -13,10 +10,10 @@ const Header = ({ auth: { isAuthenticated, loading }, logout }) => {
 
   return (
     <Fragment>
-      {!loading && (
+      
         <Fragment>
           <nav
-            className="navbar is-spaced is-primary"
+            className="navbar is-spaced is-white"
             role="navigation"
             aria-label="main navigation"
           >
@@ -46,10 +43,10 @@ const Header = ({ auth: { isAuthenticated, loading }, logout }) => {
               <div className="navbar-end">
                 <div className="navbar-item">
                   <div className="buttons">
-                    <Link to="/login" className="button is-primary">
+                    <Link to="/login" className="button is-warning">
                       Login
                     </Link>
-                    <Link to="/sitebuilder" className="button">
+                    <Link to="/sitebuilder" className="button is-danger">
                       Prova gratis
                     </Link>
                   </div>
@@ -58,18 +55,9 @@ const Header = ({ auth: { isAuthenticated, loading }, logout }) => {
             </div>
           </nav>
         </Fragment>
-      )}
+      
     </Fragment>
   );
 };
 
-Header.propTypes = {
-  logout: PropTypes.func.isRequired,
-  auth: PropTypes.object.isRequired,
-};
-
-const mapStateToProps = (state) => ({
-  auth: state.auth,
-});
-
-export default connect(mapStateToProps, { logout })(Header);
+export default Header;

@@ -4,7 +4,8 @@ import { connect } from "react-redux";
 import PropTypes from "prop-types";
 
 import { useSpring, animated } from "react-spring";
-import image from "../../images/image.gif";
+import image from "../../images/4.gif";
+import image2 from "../../images/2.gif";
 
 const Home = ({ isAuthenticated }) => {
   const props = useSpring({
@@ -32,10 +33,10 @@ const Home = ({ isAuthenticated }) => {
                   Carica il tuo menù e ricevi gli ordini su Whatsapp!
                 </p>
                 <div className="buttons">
-                  <Link to="/sitebuilder" className="button is-primary">
+                  <Link to="/sitebuilder" className="button is-info">
                     Prova ora
                   </Link>
-                  <Link to="/" className="button is-info">
+                  <Link to="/" className="button is-primary">
                     Scrivici su Whatsapp
                   </Link>
                 </div>
@@ -44,6 +45,49 @@ const Home = ({ isAuthenticated }) => {
                 <img className="image" src={image} alt="" />
               </div>
               <div className="column is-1" />
+            </div>
+          </div>
+        </section>
+        <section className="hero is-medium is-primary is-bold">
+          <div className="hero-body">
+            <div className="container">
+              <div className="columns is-centered">
+                <div className="column is-one-third">
+                  <h1 className="title">
+                    Sitepard è il modo più facile esistente per creare il sito perfetto per la tua pizzeria!
+                  </h1>
+                  <h2 className="subtitle">
+                    Non ti serve nessuna conoscenza, rispondi soltanto alle domande che ti vengono poste e inserisci i tuoi prodotti.
+                  </h2>
+                </div>
+                <div className="column is-one-third">
+                  <img className="image" src={image2} alt="" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section className="hero is-medium is-white is-bold">
+          <div className="hero-body">
+            <div className="container">
+              <h1 className="title">
+                Primary bold title
+              </h1>
+              <h2 className="subtitle">
+                Primary bold subtitle
+              </h2>
+            </div>
+          </div>
+        </section>
+        <section className="hero is-medium is-danger is-bold">
+          <div className="hero-body">
+            <div className="container">
+              <h1 className="title">
+                Primary bold title
+              </h1>
+              <h2 className="subtitle">
+                Primary bold subtitle
+              </h2>
             </div>
           </div>
         </section>

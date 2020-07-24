@@ -2,6 +2,7 @@ import React, { Fragment } from "react";
 import { Route, Switch } from "react-router-dom";
 
 import Header from "../layout/Header";
+import Footer from "../layout/Footer";
 import Home from "../pages/Home";
 import Login from "../layout/Login";
 
@@ -19,6 +20,8 @@ const Routes = (props) => {
         <Route exact path="/login" component={Login} />
         <Route exact path="/contact" component={Contact} />
       </Switch>
+
+      <Footer />
     </Fragment>
   );
 };
