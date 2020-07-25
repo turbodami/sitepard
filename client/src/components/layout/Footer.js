@@ -21,8 +21,8 @@ const Footer = () => {
                             <nav class=" is-spaced is-primary" role="navigation" aria-label="main navigation">
                                 <div class="navbar-menu">
                                     <div class="navbar-start">
-                                        <a class="navbar-item" href="/sitebuilder">Termini e Condizioni</a>
-                                        <a class="navbar-item" href="/about">Privacy Policy</a>
+                                        <a class="navbar-item" href="/terms">Termini e Condizioni</a>
+                                        <a class="navbar-item" href="/privacy">Privacy Policy</a>
                                         <a class="navbar-item" href="/contact">Contattaci</a>
                                     </div>
                                 </div>

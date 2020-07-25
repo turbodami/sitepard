@@ -22,7 +22,7 @@ const About = ({ isAuthenticated }) => {
   return (
     <animated.div style={props}>
       <Fragment>
-        <section className="section is-small">
+        <section className="section is-medium">
           <div className="container">
             <div className="columns has-text-centered is-centered">
               
