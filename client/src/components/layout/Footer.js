@@ -9,19 +9,29 @@ const Footer = () => {
 
   return (
     <Fragment>
-      
         <Fragment>
-            <footer class="footer">
-                <div class="content has-text-centered">
-                    <p>
-                    <strong>Bulma</strong> by <a href="https://jgthms.com">Jeremy Thomas</a>. The source code is licensed
-                    <a href="http://opensource.org/licenses/mit-license.php">MIT</a>. The website content
-                    is licensed <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY NC SA 4.0</a>.
-                    </p>
+            <section className="hero is-medium is-primary is-bold">
+                <div className="hero-body">
+                    <div className="container">
+                        <div className="columns is-vcentered is-centered mb-2">
+                            <i class="fas fa-laptop-code"></i>
+                            <h1 class="title is-1">Sitepard</h1>
+                        </div>
+                        <div className="columns is-vcentered is-centered">
+                            <nav class=" is-spaced is-primary" role="navigation" aria-label="main navigation">
+                                <div class="navbar-menu">
+                                    <div class="navbar-start">
+                                        <a class="navbar-item" href="/sitebuilder">Termini e Condizioni</a>
+                                        <a class="navbar-item" href="/about">Privacy Policy</a>
+                                        <a class="navbar-item" href="/contact">Contattaci</a>
+                                    </div>
+                                </div>
+                            </nav>
+                        </div>
+                    </div>
                 </div>
-            </footer>
+            </section>
         </Fragment>
-      
     </Fragment>
   );
 };

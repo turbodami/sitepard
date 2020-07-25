@@ -6,6 +6,11 @@ import AddProduct from "../site-forms/AddProduct";
 
 const ProductsList = ({ categories, deleteCategory, products, deleteProduct }) => {
   const [modProdIsActive, toggleModProd] = useState(false);
+
+  const delCat = (id) => {
+    const cat = document.getElementById(id).getAttribute('key');
+    deleteCategory(cat);
+  }
   
   const list = categories.map((cat) => (
     <Fragment>
@@ -21,12 +26,12 @@ const ProductsList = ({ categories, deleteCategory, products, deleteProduct }) =
       <div className="container">
         <table className="table">
           <thead>
-            <tr key={cat._id}>
+            <tr key={cat._id} id={cat._id}>
               <th>{cat.name}</th>
               <th>
                 <div className="buttons">
                   <button className="button is-danger"
-                    onClick={() => deleteCategory(cat._id)}
+                    onClick={() => delCat(cat._id)}
                   >
                     Elimina
                   </button>

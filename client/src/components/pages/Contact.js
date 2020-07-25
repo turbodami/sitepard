@@ -29,17 +29,12 @@ const About = ({ isAuthenticated }) => {
                   Contattaci quando vuoi per qualsiasi motivo
                 </p>
                 <p className="subtitle is-3">
-                  Proponici le feature che più ti piacerebbero, saremo lieti di
-                  accondiscendere alle tue intelligenti richieste. In cambio
-                  abuseremo di tua moglie.
+                  Scrivici su Whatsapp se hai problemi ad utilizzare il nostro sito, o se hai domande da farci. Risponderemo appena possibile di persona. Soprattutto i consigli sono ben accetti!
                 </p>
                 <div className="buttons">
-                  <Link to="/" className="button is-primary">
+                  <a href="https://wa.me/393515350988" className="button is-primary">
                     Scrivici su Whatsapp
-                  </Link>
-                  <Link to="/" className="button is-info">
-                    Mandaci una mail
-                  </Link>
+                  </a>
                 </div>
               </div>
               <div className="column is-5">
