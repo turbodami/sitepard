@@ -21,6 +21,7 @@ export default function (state = initialState, action) {
 
   switch (type) {
     case USER_LOADED:
+      console.log("Sono dentro userloaded");
       return {
         ...state,
         isAuthenticated: true,
