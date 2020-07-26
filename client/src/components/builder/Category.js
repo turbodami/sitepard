@@ -41,23 +41,10 @@ const Category = ({ handleSelection }) => {
                 <input
                   type="button"
                   onClick={(e) => handleSelection(e)}
-                  className="btn btn-primary"
+                  className="button is-primary"
                   name="category"
                   value="pizzeria"
-                />
-                <input
-                  type="button"
-                  onClick={(e) => handleSelection(e)}
-                  className="btn btn-primary"
-                  name="category"
-                  value="ristorante"
-                />
-                <input
-                  type="button"
-                  onClick={(e) => handleSelection(e)}
-                  className="btn btn-primary"
-                  name="category"
-                  value="bar"
+                  placehol
                 />
               </div>
               <div className="column is-3" />
