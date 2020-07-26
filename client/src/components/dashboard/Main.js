@@ -10,7 +10,10 @@ import Mobile from "../show/Mobile";
 import { getCurrentSite } from "../../actions/site";
 
 const Main = ({ getCurrentSite, auth: { user }, site: { site, loading } }) => {
-  
+  useEffect(() => {
+    getCurrentSite();
+  }, [getCurrentSite]);
+
   return loading && site === null ? (
     <Spinner />
   ) : (
