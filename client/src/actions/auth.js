@@ -1,5 +1,7 @@
 import axios from "axios";
 import { setAlert } from "./alert";
+import { getCurrentSite } from "./site";
+
 import {
   REGISTER_SUCCESS,
   REGISTER_FAIL,
@@ -15,18 +17,21 @@ import setAuthToken from "../utils/setAuthToken";
 
 //load user
 export const loadUser = () => async (dispatch) => {
-  console.log("dio lucertolo loaduser");
+  console.log("sono entrato in loaduser");
   if (localStorage.token) {
     setAuthToken(localStorage.token);
   }
 
   try {
     const res = await axios.get("/api/auth");
-
+    console.log("sto per dare user loaded");
     dispatch({
       type: USER_LOADED,
       payload: res.data,
     });
+    console.log("dovrei aver dato user loaded");
+    dispatch(getCurrentSite());
+    
   } catch (err) {
     dispatch({
       type: AUTH_ERROR,
@@ -79,14 +84,14 @@ export const login = (email, password) => async (dispatch) => {
 
   try {
     const res = await axios.post("/api/auth", body, config);
-
+    console.log(res);
     dispatch({
       type: LOGIN_SUCCESS,
       payload: res.data,
     });
-    console.log("dio scarabeo prima loaduser");
+    console.log("sono in login sto per dare loaduser");
     dispatch(loadUser());
-    console.log("dio bruco dopo loaduser");
+    console.log("sono tornato in login");
   } catch (err) {
     const errors = err.response.data.errors;
 
