@@ -15,6 +15,7 @@ import setAuthToken from "../utils/setAuthToken";
 
 //load user
 export const loadUser = () => async (dispatch) => {
+  console.log("dio lucertolo loaduser");
   if (localStorage.token) {
     setAuthToken(localStorage.token);
   }
@@ -83,8 +84,9 @@ export const login = (email, password) => async (dispatch) => {
       type: LOGIN_SUCCESS,
       payload: res.data,
     });
-
+    console.log("dio scarabeo prima loaduser");
     dispatch(loadUser());
+    console.log("dio bruco dopo loaduser");
   } catch (err) {
     const errors = err.response.data.errors;
 
