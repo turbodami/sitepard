@@ -9,3 +9,4 @@ sendgrid.env
 .env
 nodemon.json
 ecosystem.config.js
+renderer/.env
