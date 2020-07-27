@@ -1,4 +1,4 @@
-  import {
+import {
   REGISTER_SUCCESS,
   REGISTER_FAIL,
   USER_LOADED,
@@ -21,11 +21,10 @@ export default function (state = initialState, action) {
 
   switch (type) {
     case USER_LOADED:
-      console.log("Sono dentro userloaded");
       return {
         ...state,
         isAuthenticated: true,
-        loading: true,
+        loading: false,
         user: payload,
       };
 
@@ -36,7 +35,7 @@ export default function (state = initialState, action) {
         ...state,
         ...payload,
         isAuthenticated: true,
-        loading: true,
+        loading: false,
       };
 
     case REGISTER_FAIL:
@@ -48,8 +47,8 @@ export default function (state = initialState, action) {
       return {
         ...state,
         token: null,
-        isAuthenticated: null,
-        loading: true,
+        isAuthenticated: false,
+        loading: false,
         user: null,
       };
 
