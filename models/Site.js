@@ -22,6 +22,10 @@ const SiteSchema = new mongoose.Schema({
   whatsappNumber: {
     type: Number,
   },
+  piva:
+  {
+    type: String
+  },
   domain: {
     type: String,
     required: false,
@@ -32,7 +36,7 @@ const SiteSchema = new mongoose.Schema({
   },
   verified: {
     type: Boolean,
-    default: false
+    default: true
   },
   description: {
     type: String,
