@@ -41,21 +41,25 @@ html
                             each category in categories
                                 thead
                                     tr
-                                        th= category.name
+                                        th 
+                                            p.title.is-size-2 category.name
                                 tbody
                                     each product in products
                                         if product.category === category.name
                                             tr
-                                                td= product.name
-                                                td= product.description
-                                                td= product.price
+                                                td
+                                                    p.subtitle.is-size-4 product.name
+                                                td
+                                                    p.subtitle.is-size-4 product.description
+                                                td
+                                                    p.subtitle.is-size-4 product.price
         .section.hero.is-warning.is-medium
             .hero-body
                 .container
                     .columns.is-centered
                         .column.is-one-third.has-text-centered(name='timetable')
                             p.title.is-size-1-desktop.is-size-2-mobile(id='timetable') Orari
-                                p.subtitle.is-size-3-desktop.is-size-4-mobile #{timeTable.monday}
+                                p.subtitle.is-size-3-desktop.is-size-4-mobile Lunedì #{timeTable.monday}
                                 p.subtitle.is-size-3-desktop.is-size-4-mobile Martedi #{timeTable.tuesday}
                                 p.subtitle.is-size-3-desktop.is-size-4-mobile Mercoledi #{timeTable.wednesday}
                                 p.subtitle.is-size-3-desktop.is-size-4-mobile Giovedi #{timeTable.thursday}
@@ -70,5 +74,5 @@ html
                 .container
                     .columns.is-centered
                         .column.is-one-fifth.has-text-centered
-                            p Prhhfhizzeria merda culo cazzo frocio tette fregna
+                            p © 2020 Pizzeria Planet di Dal Dosso Federica P.IVA: 0000000000 Tutti i diritti riservati
         block content
