@@ -131,7 +131,7 @@ router.post(
         }
       );
     } catch (err) {
-      console.error(err.message);
+      console.log(err);
       res.status(500).send("server error!");
     }
   }
