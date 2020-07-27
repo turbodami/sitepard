@@ -30,6 +30,10 @@ const SiteSchema = new mongoose.Schema({
     type: String,
     required: false,
   },
+  verified: {
+    type: Boolean,
+    default: false
+  },
   description: {
     type: String,
   },
@@ -48,6 +52,11 @@ const SiteSchema = new mongoose.Schema({
 
   type: {
     type: String,
+  },
+  createdAt:
+  {
+    type: Date,
+    default: Date.now,
   },
   timeTable: [
     {
@@ -118,5 +127,6 @@ const SiteSchema = new mongoose.Schema({
     },
   ],
 });
+
 
 module.exports = Site = mongoose.model("site", SiteSchema);
