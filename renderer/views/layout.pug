@@ -47,10 +47,10 @@ html
                                 br
                                 each product in products
                                     if product.category === category.name
-                                        p.is-size-4.has-text-weight-bold #{product.name} #{product.price}
+                                        p.is-size-4.has-text-weight-bold #{product.name} 
+                                            p.is-size-4.has-text-weight-bold.has-text-right #{product.price}
                                         p.subtitle.is-size-5 #{product.description}
-                                        .column.is-1
-                                            p porco dio
+                                        
                     
                     
         .section.hero.is-warning.is-medium
