@@ -62,31 +62,15 @@ const SiteSchema = new mongoose.Schema({
     type: Date,
     default: Date.now,
   },
-  timeTable: [
-    {
-      monday: {
-        type: String,
-      },
-      tuesday: {
-        type: String,
-      },
-      wednesday: {
-        type: String,
-      },
-      thursday: {
-        type: String,
-      },
-      friday: {
-        type: String,
-      },
-      saturday: {
-        type: String,
-      },
-      sunday: {
-        type: String,
-      },
-    },
-  ],
+  timeTable: {
+    monday: String,
+    tuesday: String,
+    wednesday: String,
+    thursday: String,
+    friday: String,
+    saturday: String,
+    sunday: String
+  },
   products: [
     {
       name: {
