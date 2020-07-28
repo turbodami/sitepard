@@ -60,6 +60,8 @@ server.get("/s/:firstSubdomain/*", async (req, res) => {
       tel
     } = site;
 
+    const {monday, tuesday, wednesday, thursday, friday, saturday, sunday} = timeTable;
+
     if (site) {
       switch (category) {
         case "pizzeria":
@@ -73,9 +75,15 @@ server.get("/s/:firstSubdomain/*", async (req, res) => {
             categories: categories,
             products: products,
             address: address,
-            timeTable: timeTable,
             whatsappNumber: whatsappNumber,
-            tel: tel
+            tel: tel,
+            monday: monday,
+            tuesday: tuesday,
+            wednesday: wednesday,
+            thursday: thursday,
+            friday: friday,
+            saturday: saturday,
+            sunday: sunday
           });
       }
     } else {
