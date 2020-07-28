@@ -35,13 +35,13 @@ html
         .section.is-medium(id='menu')
             .container
                 .columns.is-centered
-                    .column.is-two-third.has-text-centered
+                    .column.is-three-fifths.has-text-centered
                         p.title.is-size-1-desktop.is-size-2-mobile MENU'
             .container
                 .columns.is-centered
-                    .column.is-two-third.has-text-left
+                    .column.is-three-fifths.has-text-left
                         each category in categories
-                            p.title.is-size-3.is-uppercase #{category.name}
+                            p.is-size-3.is-uppercase #{category.name}
                             br
                             each product in products
                                 if product.category === category.name
