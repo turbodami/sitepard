@@ -61,11 +61,12 @@ server.get("/s/:firstSubdomain/*", async (req, res) => {
     } = site;
 
     const {monday, tuesday, wednesday, thursday, friday, saturday, sunday} = timeTable;
+    console.log(monday);
 
     if (site) {
       switch (category) {
         case "pizzeria":
-          
+          console.log(tuesday);
           return res.render("index", {
             name: name,
             category: category,
