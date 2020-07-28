@@ -4,9 +4,9 @@ html
     body
         nav.navbar.is-spaced.is-large
             .navbar-brand
-                a.navbar-item(href='/')
+                a(href='/')
                     if(logo)
-                        img(src=logo width="112" height="28")
+                        img(src=logo width="200" height="28")
                     else
                         #{name}
                 div.navbar-burger.burger(role='button', aria-label='menu', aria-expanded='false', onclick="document.querySelector('.navbar-menu').classList.toggle('is-active'); document.querySelector('.navbar-burger').classList.toggle('is-active');")
