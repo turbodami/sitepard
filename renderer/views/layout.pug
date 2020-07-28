@@ -43,7 +43,7 @@ html
                     .column.is-half.has-text-left
                         each category in categories
                             .box
-                                p.is-size-3.is-uppercase #{category.name}
+                                p.is-size-3.is-uppercase.has-text-centered #{category.name}
                                 br
                                 each product in products
                                     if product.category === category.name
