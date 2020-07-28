@@ -6,8 +6,7 @@ html
             .navbar-brand
                 a.navbar-item(href='/')
                     if(logo)
-                        figure.image.is-square
-                            img(src=logo)
+                        img(src=logo width="112" height="28")
                     else
                         #{name}
                 div.navbar-burger.burger(role='button', aria-label='menu', aria-expanded='false', onclick="document.querySelector('.navbar-menu').classList.toggle('is-active'); document.querySelector('.navbar-burger').classList.toggle('is-active');")
