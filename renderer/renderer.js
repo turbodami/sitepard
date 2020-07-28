@@ -64,7 +64,7 @@ server.get("/s/:firstSubdomain/*", async (req, res) => {
     if (site) {
       switch (category) {
         case "pizzeria":
-          console.log(tuesday);
+          
           return res.render("index", {
             name: name,
             category: category,
