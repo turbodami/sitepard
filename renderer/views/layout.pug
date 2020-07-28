@@ -40,7 +40,7 @@ html
                         br
             .container
                 .columns.is-centered
-                    .column.is-three-fifths.has-text-left
+                    .column.is-half.has-text-left
                         each category in categories
                             .box
                                 p.is-size-3.is-uppercase #{category.name}
@@ -49,11 +49,15 @@ html
                                     if product.category === category.name
                                         p.is-size-4.has-text-weight-bold #{product.name} #{product.price}
                                         p.subtitle.is-size-5 #{product.description}
+                                        .column.is-1
+                                            p porco dio
+                    
+                    
         .section.hero.is-warning.is-medium
             .hero-body
                 .container
                     .columns.is-centered
-                        .column.is-half.has-text-centered(name='timetable')
+                        .column.is-one-third.has-text-centered(name='timetable')
                             p.title.is-size-1-desktop.is-size-2-mobile(id='timetable') Orari
                                 p.subtitle.is-size-3-desktop.is-size-4-mobile Lunedì #{timeTable.monday}
                                 p.subtitle.is-size-3-desktop.is-size-4-mobile Martedi #{timeTable.tuesday}
