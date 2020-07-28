@@ -59,9 +59,7 @@ server.get("/s/:firstSubdomain/*", async (req, res) => {
       whatsappNumber,
       tel
     } = site;
-
-    const {monday, tuesday, wednesday, thursday, friday, saturday, sunday} = timeTable;
-    console.log(monday);
+    console.log(timeTable);
 
     if (site) {
       switch (category) {
@@ -78,13 +76,13 @@ server.get("/s/:firstSubdomain/*", async (req, res) => {
             address: address,
             whatsappNumber: whatsappNumber,
             tel: tel,
-            monday: monday,
-            tuesday: tuesday,
-            wednesday: wednesday,
-            thursday: thursday,
-            friday: friday,
-            saturday: saturday,
-            sunday: sunday
+            monday: timeTable.monday,
+            tuesday: timeTable.tuesday,
+            wednesday: timeTable.wednesday,
+            thursday: timeTable.thursday,
+            friday: timeTable.friday,
+            saturday: timeTable.saturday,
+            sunday: timeTable.sunday
           });
       }
     } else {
