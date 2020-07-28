@@ -35,14 +35,15 @@ html
         .section.is-medium(id='menu')
             .container
                 .columns.is-centered
-                    .column.is-two-third.has-text-centered
+                    .column.is-two-third.has-text-left
                         p.title.is-size-1-desktop.is-size-2-mobile Menù
                         each category in categories
-                            p.title.is-size-2 #{category.name}
+                            p.title.is-size-3 #{category.name}
                             
                             each product in products
                                 if product.category === category.name
-                                    p.subtitle.is-size-4 #{product.name} #{product.description} #{product.price}
+                                    p.subtitle.is-size-4.is-uppercase.has-text-weight-bold #{product.name} #{product.price}
+                                    p.subtitle.is-size-4 #{product.description}
         .section.hero.is-warning.is-medium
             .hero-body
                 .container
