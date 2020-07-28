@@ -26,13 +26,13 @@ html
         .section.is-medium
             .container
                 .columns.is-centered
-                    .column.is-one-third.has-text-centered-mobile
+                    .column.is-half.has-text-centered-mobile
                         p.title.is-size-1-desktop.is-size-3-mobile Ordina online
                         p.subtitle.is-size-3-desktop.is-size-5-mobile #{description}               
-                    .column.is-one-third
+                    .column.is-half
                         figure.image.is-square
                             img.is-rounded(src=image)
-        .section.is-medium(id='menu')
+        .section.is-medium.has-background-danger(id='menu')
             .container
                 .columns.is-centered
                     .column.is-half.has-text-centered
@@ -50,7 +50,7 @@ html
                                         p.is-size-4.has-text-weight-bold #{product.name} #{product.price}€
                                         p.subtitle.is-size-5 #{product.description}
                     
-        .section.hero.is-warning.is-medium
+        .section.hero.is-white.is-small
             .hero-body
                 .container
                     .columns.is-centered
@@ -66,7 +66,7 @@ html
                         .column.is-one-third.has-text-centered(name='address')
                             p.title.is-size-1-desktop.is-size-2-mobile(id='address') Dove siamo
                                 p.subtitle.is-size-3-desktop.is-size-4-mobile #{address}
-        .section.hero.is-info.is-small
+        .section.hero.is-danger.is-small
             .hero-body
                 .container
                     .columns.is-centered
