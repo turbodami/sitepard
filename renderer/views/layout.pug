@@ -47,11 +47,8 @@ html
                                 br
                                 each product in products
                                     if product.category === category.name
-                                        p.is-size-4.has-text-weight-bold #{product.name} 
-                                            p.is-size-4.has-text-weight-bold.has-text-right #{product.price}
+                                        p.is-size-4.has-text-weight-bold #{product.name} #{product.price}
                                         p.subtitle.is-size-5 #{product.description}
-                                        
-                    
                     
         .section.hero.is-warning.is-medium
             .hero-body
