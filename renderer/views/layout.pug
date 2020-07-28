@@ -39,20 +39,13 @@ html
                         p.title.is-size-1-desktop.is-size-2-mobile Menù
                         table.table
                             each category in categories
-                                thead
-                                    tr
-                                        th 
-                                            p.title.is-size-2 category.name
-                                tbody
-                                    each product in products
-                                        if product.category === category.name
-                                            tr
-                                                td
-                                                    p.subtitle.is-size-4 product.name
-                                                td
-                                                    p.subtitle.is-size-4 product.description
-                                                td
-                                                    p.subtitle.is-size-4 product.price
+                                p.title.is-size-2 category.name
+                                
+                                each product in products
+                                    if product.category === category.name
+                                        p.subtitle.is-size-4 #{product.name} #{product.description} #{product.price}
+                                        p.subtitle.is-size-4 product.description
+                                        p.subtitle.is-size-4 product.price
         .section.hero.is-warning.is-medium
             .hero-body
                 .container
