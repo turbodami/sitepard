@@ -33,14 +33,9 @@ export default function (state = initialState, action) {
       return {
         ...state,
         site: null,
-        loading: false,
+        loading: true,
       };
-    case LOGOUT:
-      return {
-        ...state,
-        site: null,
-        loading: true
-      }
+      
     default:
       return state;
   }
