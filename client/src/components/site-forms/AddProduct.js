@@ -5,7 +5,7 @@ import { addProduct } from "../../actions/site";
 import { useSpring, animated } from "react-spring";
 
 const AddProduct = ({ addProduct, history, props }) => {
-  const props = useSpring({
+  const style = useSpring({
     opacity: 1,
     from: { opacity: 0 },
     config: { duration: 500 },
@@ -27,7 +27,7 @@ const AddProduct = ({ addProduct, history, props }) => {
     });
 
   return (
-    <animated.div style={props}>
+    <animated.div style={style}>
       <Fragment>
         <section className="section">
           <div className="container">
