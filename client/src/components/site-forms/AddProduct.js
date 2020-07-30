@@ -15,7 +15,8 @@ const AddProduct = ({ addProduct, history, props }) => {
   const [formData, setFormData] = useState(defaultData);
   const { cat, modProdIsActive, toggleModProd} = props;
   const { name, description, price } = formData;
-
+  console.log(cat);
+  
   const defaultData = {
     name: "",
     description: "",
