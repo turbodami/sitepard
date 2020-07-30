@@ -4,8 +4,9 @@ import { connect } from "react-redux";
 import { addProduct } from "../../actions/site";
 import { useSpring, animated } from "react-spring";
 
-const AddProduct = ({ addProduct, history, props }) => {
-  const style = useSpring({
+const AddProduct = ({ addProduct, history, cat }) => {
+  
+  const props = useSpring({
     opacity: 1,
     from: { opacity: 0 },
     config: { duration: 500 },
@@ -14,7 +15,7 @@ const AddProduct = ({ addProduct, history, props }) => {
   const [formData, setFormData] = useState({
     name: "",
     description: "",
-    category: props.cat,
+    category: cat,
     price: ""
   });
 
@@ -27,7 +28,7 @@ const AddProduct = ({ addProduct, history, props }) => {
     });
 
   return (
-    <animated.div style={style}>
+    <animated.div style={props}>
       <Fragment>
         <section className="section">
           <div className="container">
@@ -41,6 +42,7 @@ const AddProduct = ({ addProduct, history, props }) => {
                 </p>
                 <form onSubmit={(e) => {
                   e.preventDefault();
+                  console.log(formData);
                   addProduct(formData, history);
                 }}>
                   <div className="field">
