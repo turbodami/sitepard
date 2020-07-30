@@ -12,6 +12,10 @@ const AddProduct = ({ addProduct, history, props }) => {
     config: { duration: 500 },
   });
 
+  const { cat, modProdIsActive, toggleModProd} = props;
+  
+  console.log(cat);
+
   const defaultData = {
     name: "",
     description: "",
@@ -20,9 +24,7 @@ const AddProduct = ({ addProduct, history, props }) => {
   }
 
   const [formData, setFormData] = useState(defaultData);
-  const { cat, modProdIsActive, toggleModProd} = props;
   
-  console.log(cat);
 
   
 
