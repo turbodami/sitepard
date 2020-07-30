@@ -247,7 +247,7 @@ router.delete("/categories/:cat_id", auth, async (req, res) => {
     //get remove index
     const removeIndex = site.categories
       .map((item) => item.id)
-      .indexOf(req.params.prod_id);
+      .indexOf(req.params.cat_id);
 
     site.categories.splice(removeIndex, 1);
 

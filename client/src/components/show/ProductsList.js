@@ -7,11 +7,6 @@ import AddProduct from "../site-forms/AddProduct";
 const ProductsList = ({ categories, deleteCategory, products, deleteProduct }) => {
   const [modProdIsActive, toggleModProd] = useState(false);
 
-  const delCat = (id) => {
-    const cat = document.getElementById(id).getAttribute('key');
-    deleteCategory(cat);
-  }
-  
   const list = categories.map((cat) => (
     <Fragment>
       <div className={ modProdIsActive? `modal is-active` : `modal`}>
@@ -19,19 +14,19 @@ const ProductsList = ({ categories, deleteCategory, products, deleteProduct }) =
             <div className="modal-content">
               <div className="box">
                 <AddProduct cat={cat}/>
-              </div>
+              </div>  
             </div>
             <button className="modal-close is-large" aria-label="close" onClick={() => toggleModProd(!modProdIsActive)}></button>
       </div>
       <div className="container">
         <table className="table">
           <thead>
-            <tr key={cat._id} id={cat._id}>
+            <tr key={cat._id}>
               <th>{cat.name}</th>
               <th>
                 <div className="buttons">
                   <button className="button is-danger"
-                    onClick={() => delCat(cat._id)}
+                    onClick={() => deleteCategory(cat._id)}
                   >
                     Elimina
                   </button>
