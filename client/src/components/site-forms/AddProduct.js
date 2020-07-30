@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import { addProduct } from "../../actions/site";
 import { useSpring, animated } from "react-spring";
 
-const AddProduct = ({ addProduct, history }) => {
+const AddProduct = ({ addProduct, history, cat }) => {
   const props = useSpring({
     opacity: 1,
     from: { opacity: 0 },
@@ -14,11 +14,11 @@ const AddProduct = ({ addProduct, history }) => {
   const [formData, setFormData] = useState({
     name: "",
     description: "",
-    category: "",
+    category: cat,
     price: ""
   });
 
-  const { name, description, category, price } = formData;
+  const { name, description, price } = formData;
 
   const onChange = (e) =>
     setFormData({
