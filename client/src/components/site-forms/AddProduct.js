@@ -4,9 +4,9 @@ import { connect } from "react-redux";
 import { addProduct } from "../../actions/site";
 import { useSpring, animated } from "react-spring";
 
-const AddProduct = ({ addProduct, history, cat, modProdIsActive, toggleModProd }) => {
+const AddProduct = ({ addProduct, history, cat, props }) => {
   
-  const props = useSpring({
+  const style = useSpring({
     opacity: 1,
     from: { opacity: 0 },
     config: { duration: 500 },
@@ -19,7 +19,7 @@ const AddProduct = ({ addProduct, history, cat, modProdIsActive, toggleModProd }
     price: ""
   }
   const [formData, setFormData] = useState(defaultData);
-
+  const { modProdIsActive, toggleModProd} = props;
   const { name, description, price } = formData;
 
   const onChange = (e) =>
@@ -29,7 +29,7 @@ const AddProduct = ({ addProduct, history, cat, modProdIsActive, toggleModProd }
     });
 
   return (
-    <animated.div style={props}>
+    <animated.div style={style}>
       <Fragment>
         <section className="section">
           <div className="container">
