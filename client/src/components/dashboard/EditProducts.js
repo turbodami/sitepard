@@ -18,7 +18,7 @@ const EditProducts = ({
 
   const [modCatIsActive, toggleModCat] = useState(false);
 
-  
+  const props = {modCatIsActive, toggleModCat};
 
   return loading && site === null ? (
     <Spinner />
@@ -30,7 +30,7 @@ const EditProducts = ({
             <div className="modal-background" onClick={() => toggleModCat(!modCatIsActive)}></div>
             <div className="modal-content">
               <div className="box">
-                <AddCategory />
+                <AddCategory {...props}/>
               </div>
             </div>
             <button className="modal-close is-large" aria-label="close" onClick={() => toggleModCat(!modCatIsActive)}></button>

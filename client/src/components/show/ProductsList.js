@@ -13,7 +13,7 @@ const ProductsList = ({ categories, deleteCategory, products, deleteProduct }) =
             <div className="modal-background" onClick={() => toggleModProd(!modProdIsActive)}></div>
             <div className="modal-content">
               <div className="box">
-                <AddProduct cat={cat}/>
+                <AddProduct cat={cat} />
               </div>  
             </div>
             <button className="modal-close is-large" aria-label="close" onClick={() => toggleModProd(!modProdIsActive)}></button>

@@ -5,7 +5,7 @@ import { addCategory } from "../../actions/site";
 import { useSpring, animated } from "react-spring";
 import { Link } from "react-router-dom";
 
-const AddCategory = ({ addCategory, history }) => {
+const AddCategory = ({ addCategory, history, toggleModCat, modCatIsActive }) => {
   const props = useSpring({
     opacity: 1,
     from: { opacity: 0 },
@@ -34,7 +34,7 @@ const AddCategory = ({ addCategory, history }) => {
             
             <div className="columns is-centered">
               
-              <div className="column is-6">
+              <div className="column">
                 <p className="title is-1">Aggiungi una categoria</p>
                 <p className="subtitle is-3">
                   (Per esempio: Pizze bianche)
@@ -43,9 +43,10 @@ const AddCategory = ({ addCategory, history }) => {
                   e.preventDefault();
                   addCategory(formData, history);
                   setFormData(defaultData);
+                  toggleModCat(!modCatIsActive);
                 }}>
                   <div className="field">
-                    <label className="label">Email</label>
+                    <label className="label">Categoria</label>
                     <input
                       className="input"
                       type="text"
