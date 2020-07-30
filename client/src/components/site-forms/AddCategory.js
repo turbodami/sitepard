@@ -2,9 +2,16 @@ import React, { Fragment, useState } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { addCategory } from "../../actions/site";
+import { useSpring, animated } from "react-spring";
 import { Link } from "react-router-dom";
 
 const AddCategory = ({ addCategory, history }) => {
+  const props = useSpring({
+    opacity: 1,
+    from: { opacity: 0 },
+    config: { duration: 500 },
+  });
+
   const defaultData = {
     name: "",
   };
