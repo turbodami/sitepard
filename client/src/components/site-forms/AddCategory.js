@@ -19,35 +19,52 @@ const AddCategory = ({ addCategory, history }) => {
     });
 
   return (
-    <Fragment>
-      <h1 className="large text-primary">Aggiungi una categoria</h1>
-      <p className="lead">
-        <i className="fas fa-code-branch"></i>
-        Altre puttanate
-      </p>
-      <small>* = campi obbligatori</small>
-      <form
-        onSubmit={(e) => {
-          e.preventDefault();
-          addCategory(formData, history);
-          setFormData(defaultData);
-        }}
-      >
-        <div className="form-group">
-          <input
-            type="text"
-            placeholder="* Nome categoria"
-            name="name"
-            value={name}
-            onChange={(e) => onChange(e)}
-            required
-          />
-        </div>
-
-        <input type="submit" className="btn btn-primary my-1" />
-        <Link to="/dashboard">Go Back</Link>
-      </form>
-    </Fragment>
+    
+      <animated.div style={props}>
+      <Fragment>
+        <section className="section">
+          <div className="container">
+            
+            <div className="columns is-centered">
+              
+              <div className="column is-6">
+                <p className="title is-1">Aggiungi una categoria</p>
+                <p className="subtitle is-3">
+                  (Per esempio: Pizze bianche)
+                </p>
+                <form onSubmit={(e) => {
+                  e.preventDefault();
+                  addCategory(formData, history);
+                  setFormData(defaultData);
+                }}>
+                  <div className="field">
+                    <label className="label">Email</label>
+                    <input
+                      className="input"
+                      type="text"
+                      placeholder="Nome categoria"
+                      name="name"
+                      value={name}
+                      onChange={(e) => onChange(e)}
+                      required
+                    />
+                  </div>
+                  <div className="field">
+                    <input
+                      type="submit"
+                      className="button is-primary"
+                      value="Aggiungi"
+                    />
+                  </div>
+                </form>
+              </div>
+              
+            </div>
+          </div>
+        </section>
+      </Fragment>
+      </animated.div>
+    
   );
 };
 
