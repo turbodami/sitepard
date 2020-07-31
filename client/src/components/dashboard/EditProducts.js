@@ -18,6 +18,8 @@ const EditProducts = ({
     getCurrentSite();
   }, [getCurrentSite]);
 
+  const { categories, products } = site;
+  
   const [modCatIsActive, toggleModCat] = useState(false);
   const [modProdIsActive, toggleModProd] = useState(false);
 
