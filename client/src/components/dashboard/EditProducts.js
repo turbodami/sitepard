@@ -3,7 +3,6 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import Spinner from "../layout/Spinner";
 import Mobile from "../show/Mobile";
-import ProductsList from "../show/ProductsList";
 import { deleteProduct, deleteCategory } from "../../actions/site";
 import { getCurrentSite } from "../../actions/site";
 import AddCategory from "../site-forms/AddCategory";
@@ -19,12 +18,11 @@ const EditProducts = ({
   }, [getCurrentSite]);
 
   const { categories, products } = site;
-  
+
   const [modCatIsActive, toggleModCat] = useState(false);
   const [modProdIsActive, toggleModProd] = useState(false);
 
   const catProps = {modCatIsActive, toggleModCat};
-  
 
   const list = categories.map((cat) => {
     
