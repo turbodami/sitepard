@@ -30,7 +30,7 @@ const EditProducts = ({
 
     return (
     <Fragment>
-      <div className={ modProdIsActive? `modal is-active` : `modal`}>
+      <div className={ modProdIsActive? `modal is-active` : `modal`} key={cat._id}>
             <div className="modal-background" onClick={() => toggleModProd(!modProdIsActive)}></div>
             <div className="modal-content">
               <div className="box">

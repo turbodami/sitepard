@@ -13,7 +13,8 @@ const AddProduct = ({ addProduct, history, props }) => {
   });
 
   const { cat, modProdIsActive, toggleModProd} = props;
-
+  console.log(cat.name);
+  
   const defaultData = {
     name: "",
     description: "",
