@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import { addProduct } from "../../actions/site";
 import { useSpring, animated } from "react-spring";
 
-const ModalProd = ({cat}) => {
+const ModalProd = ({addProduct, history, cat}) => {
     const style = useSpring({
         opacity: 1,
         from: { opacity: 0 },
