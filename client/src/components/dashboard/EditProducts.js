@@ -6,7 +6,7 @@ import Mobile from "../show/Mobile";
 import { deleteProduct, deleteCategory } from "../../actions/site";
 import { getCurrentSite } from "../../actions/site";
 import AddCategory from "../site-forms/AddCategory";
-import AddProduct from "../site-forms/AddProduct";
+import ModalProd from "./ModalProd";
 
 const EditProducts = ({
   getCurrentSite,

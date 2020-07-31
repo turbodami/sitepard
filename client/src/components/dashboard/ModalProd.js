@@ -48,7 +48,7 @@ const ModalProd = ({cat}) => {
                                                 console.log(formData);
                                                 addProduct(formData, history);
                                                 setFormData(defaultData);
-                                                toggleModProd(!modProdIsActive);
+                                                document.getElementById(cat._id).remove();
                                                 }}>
                                                 <div className="field">
                                                     <label className="label">Nome</label>
