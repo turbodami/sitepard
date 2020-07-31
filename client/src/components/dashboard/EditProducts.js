@@ -20,25 +20,13 @@ const EditProducts = ({
   const { categories, products } = site;
 
   const [modCatIsActive, toggleModCat] = useState(false);
-  const [modProdIsActive, toggleModProd] = useState(false);
 
   const catProps = {modCatIsActive, toggleModCat};
 
   const list = categories.map((cat) => {
-    
-    const prodProps = { cat, modProdIsActive, toggleModProd};
 
     return (
     <Fragment>
-      <div className={ modProdIsActive? `modal is-active` : `modal`} key={cat._id}>
-            <div className="modal-background" onClick={() => toggleModProd(!modProdIsActive)}></div>
-            <div className="modal-content">
-              <div className="box">
-                <AddProduct props={prodProps}/>
-              </div>  
-            </div>
-            <button className="modal-close is-large" aria-label="close" onClick={() => toggleModProd(!modProdIsActive)}></button>
-      </div>
       <div className="container">
         <table className="table">
           <thead>
@@ -52,7 +40,7 @@ const EditProducts = ({
                     Elimina
                   </button>
                 
-                  <button className="button is-primary" onClick={() => toggleModProd(!modProdIsActive)}>Aggiungi pizza</button>
+                  <button className="button is-primary" onClick={() => <ModalProd id={cat._id} props={cat} />}>Aggiungi pizza</button>
                 </div>
               </th>
               
