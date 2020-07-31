@@ -51,7 +51,7 @@ const AddProduct = ({ addProduct, history, props }) => {
                 </p>
                 <form onSubmit={(e) => {
                   e.preventDefault();
-                  console.log(formData);
+                  
                   addProduct(formData, history);
                   setFormData(defaultData);
                   toggleModProd(!modProdIsActive);
