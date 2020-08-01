@@ -100,14 +100,14 @@ const EditProducts = ({
             <button className="modal-close is-large" aria-label="close" onClick={() => toggleModCat(!addCatModalIsActive)}></button>
           </div>
 
-          <div className={ modProdIsActive? `modal is-active` : `modal`}>
-            <div className="modal-background" onClick={() => toggleModProd(!modProdIsActive)}></div>
+          <div className={ addProdModalIsActive? `modal is-active` : `modal`}>
+            <div className="modal-background" onClick={() => toggleModProd(!addProdModalIsActive)}></div>
             <div className="modal-content">
               <div className="box">
                 <AddProduct {...prodProps}/>
               </div>
             </div>
-            <button className="modal-close is-large" aria-label="close" onClick={() => toggleModProd(!modProdIsActive)}></button>
+            <button className="modal-close is-large" aria-label="close" onClick={() => toggleModProd(!addProdModalIsActive)}></button>
           </div>
 
           
@@ -128,7 +128,7 @@ const EditProducts = ({
               </nav>
               <p className="title is-2">Gestione prodotti</p>
               
-              <button className="button is-primary" onClick={() => toggleModCat(!modCatIsActive)}>Aggiungi categoria</button>
+              <button className="button is-primary" onClick={() => toggleModCat(!addCatModalIsActive)}>Aggiungi categoria</button>
               <div className="box">
                 <p className="title is-3 has-text-centered">Il mio menù</p>
                 {list}
