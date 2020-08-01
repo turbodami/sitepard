@@ -6,14 +6,12 @@ import { connect } from "react-redux";
 import { getCurrentSite } from "../../actions/site";
 
 const Mobile = ({getCurrentSite, site: { site },}) => {
-  const [a, setA] = useState(1);
-
   useEffect(() => {
     getCurrentSite();
   }, [getCurrentSite]);
 
   useEffect(() => {
-      setA({...a});
+    forceUpdate();
   }, [site]);
   
   return (
