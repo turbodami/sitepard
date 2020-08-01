@@ -10,8 +10,12 @@ const Mobile = ({getCurrentSite, site: { site },}) => {
     getCurrentSite();
   }, [getCurrentSite]);
 
+  const [random, setRandom] = useState({random: 0});
+
   useEffect(() => {
-    forceUpdate();
+    setRandom({
+      random: random+1
+    });
   }, [site]);
   
   return (
@@ -36,6 +40,7 @@ const Mobile = ({getCurrentSite, site: { site },}) => {
           <iframe
             src={"http://" + site.domain + ".cactusdomaindev.xyz"}
             title="your website"
+            key={random}
             height="100%"
             width="100%"
           ></iframe>
