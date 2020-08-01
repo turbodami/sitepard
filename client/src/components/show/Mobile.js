@@ -5,13 +5,15 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { getCurrentSite } from "../../actions/site";
 
-const Mobile = ({getCurrentSite,
-  
-  site: { site },}) => {
-    useEffect(() => {
-      getCurrentSite();
-    }, [getCurrentSite]);
+const Mobile = ({getCurrentSite, site: { site },}) => {
+  useEffect(() => {
+    getCurrentSite();
+  }, [getCurrentSite]);
 
+  useEffect(() => {
+      console.log("diocane");
+  }, [site]);
+  
   return (
     <Fragment>
       <div className="marvel-device iphone-x">
@@ -32,7 +34,7 @@ const Mobile = ({getCurrentSite,
         <div className="inner-shadow"></div>
         <div className="screen">
           <iframe
-            src={"http://" + site.domain + ".sitepard.com"}
+            src={"http://" + site.domain + ".cactusdomaindev.xyz"}
             title="your website"
             height="100%"
             width="100%"
