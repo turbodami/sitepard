@@ -11,9 +11,6 @@ const AddProduct = ({ addProduct, history, addProdModalIsActive, toggleModProd, 
     from: { opacity: 0 },
     config: { duration: 500 },
   });
-
-  
-  console.log(currentCat);
   
   const defaultData = {
     name: "",
@@ -22,10 +19,9 @@ const AddProduct = ({ addProduct, history, addProdModalIsActive, toggleModProd, 
     price: ""
   }
 
-  console.log(defaultData);
-  
   const [formData, setFormData] = useState(defaultData);
   
+  console.log(formData);
   const { name, description, price } = formData;
 
   const onChange = (e) =>
