@@ -10,6 +10,8 @@ import ModalProd from "./ModalProd";
 
 const EditProducts = ({
   getCurrentSite,
+  deleteCategory,
+  deleteProduct,
   auth: { user },
   site: { site, loading },
 }) => {
@@ -42,7 +44,7 @@ const EditProducts = ({
                 
                   <button className="button is-primary" onClick={() => {
                     console.log("sono il bottone");
-                    
+
                     return (
                       <ModalProd id={cat._id} props={cat} />
                     )
