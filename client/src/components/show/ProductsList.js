@@ -2,7 +2,7 @@ import React, { Fragment, useState } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { deleteProduct, deleteCategory } from "../../actions/site";
-import AddProduct from "../site-forms/AddProduct";
+import AddProduct from "../forms/AddProduct";
 
 const ProductsList = ({ categories, deleteCategory, products, deleteProduct }) => {
   const [modProdIsActive, toggleModProd] = useState(false);
