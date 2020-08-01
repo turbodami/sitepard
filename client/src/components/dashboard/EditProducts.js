@@ -84,10 +84,6 @@ const EditProducts = ({
     </Fragment>
   )});
 
-  const 
-  const prodProps = {
-
-  }
   return loading && site === null ? (
     <Spinner />
   ) : (
