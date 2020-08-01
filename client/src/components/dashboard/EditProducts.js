@@ -40,7 +40,13 @@ const EditProducts = ({
                     Elimina
                   </button>
                 
-                  <button className="button is-primary" onClick={() => <ModalProd id={cat._id} props={cat} />}>Aggiungi pizza</button>
+                  <button className="button is-primary" onClick={() => {
+                    console.log("sono il bottone");
+                    
+                    return (
+                      <ModalProd id={cat._id} props={cat} />
+                    )
+                  }}>Aggiungi pizza</button>
                 </div>
               </th>
               
