@@ -22,6 +22,8 @@ const AddProduct = ({ addProduct, history, addProdModalIsActive, toggleModProd, 
     price: ""
   }
 
+  console.log(defaultData);
+  
   const [formData, setFormData] = useState(defaultData);
   
   const { name, description, price } = formData;
