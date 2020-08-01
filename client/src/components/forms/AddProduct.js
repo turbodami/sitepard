@@ -20,8 +20,7 @@ const AddProduct = ({ addProduct, history, addProdModalIsActive, toggleModProd, 
   }
 
   const [formData, setFormData] = useState(defaultData);
-  console.log(defaultData);
-  console.log(formData);
+
   const { name, description, price } = formData;
 
   const onChange = (e) =>
@@ -29,6 +28,13 @@ const AddProduct = ({ addProduct, history, addProdModalIsActive, toggleModProd, 
       ...formData,
       [e.target.name]: e.target.value,
     });
+
+  useEffect(() => {
+    setFormData({
+      ...formData,
+      category: currentCat
+    });
+  }, [currentCat]);
 
   return (
     <animated.div style={style}>
