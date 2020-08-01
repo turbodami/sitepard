@@ -5,8 +5,8 @@ import Spinner from "../layout/Spinner";
 import Mobile from "../show/Mobile";
 import { deleteProduct, deleteCategory } from "../../actions/site";
 import { getCurrentSite } from "../../actions/site";
-import AddCategory from "../site-forms/AddCategory";
-import AddProduct from "./AddProduct";
+import AddCategory from "../forms/AddCategory";
+import AddProduct from "../forms/AddProduct";
 
 const EditProducts = ({
   getCurrentSite,
