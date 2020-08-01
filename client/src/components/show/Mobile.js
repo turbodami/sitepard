@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect } from "react";
+import React, { Fragment, useState, useEffect } from "react";
 import "../devices.min.css";
 
 import PropTypes from "prop-types";
@@ -6,12 +6,14 @@ import { connect } from "react-redux";
 import { getCurrentSite } from "../../actions/site";
 
 const Mobile = ({getCurrentSite, site: { site },}) => {
+  const [a, setA] = useState(1);
+
   useEffect(() => {
     getCurrentSite();
   }, [getCurrentSite]);
 
   useEffect(() => {
-      console.log("diocane");
+      setA({...a});
   }, [site]);
   
   return (
