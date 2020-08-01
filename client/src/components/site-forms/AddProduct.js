@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import { addProduct } from "../../actions/site";
 import { useSpring, animated } from "react-spring";
 
-const AddProduct = ({ addProduct, history, props }) => {
+const AddProduct = ({ addProduct, history, addProdModalIsActive, toggleModProd, currentCat }) => {
   
   const style = useSpring({
     opacity: 1,
@@ -12,21 +12,18 @@ const AddProduct = ({ addProduct, history, props }) => {
     config: { duration: 500 },
   });
 
-  const { cat, modProdIsActive, toggleModProd} = props;
-  console.log(cat.name);
+  
+  console.log(currentCat);
   
   const defaultData = {
     name: "",
     description: "",
-    category: cat.name,
+    category: currentCat,
     price: ""
   }
 
   const [formData, setFormData] = useState(defaultData);
   
-
-  
-
   const { name, description, price } = formData;
 
   const onChange = (e) =>
@@ -53,7 +50,7 @@ const AddProduct = ({ addProduct, history, props }) => {
                   console.log(formData);
                   addProduct(formData, history);
                   setFormData(defaultData);
-                  toggleModProd(!modProdIsActive);
+                  toggleModProd(!addProdModalIsActive);
                 }}>
                   <div className="field">
                     <label className="label">Nome</label>

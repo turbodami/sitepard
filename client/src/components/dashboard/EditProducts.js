@@ -6,7 +6,7 @@ import Mobile from "../show/Mobile";
 import { deleteProduct, deleteCategory } from "../../actions/site";
 import { getCurrentSite } from "../../actions/site";
 import AddCategory from "../site-forms/AddCategory";
-import ModalProd from "./ModalProd";
+import AddProduct from "./AddProduct";
 
 const EditProducts = ({
   getCurrentSite,
@@ -21,9 +21,20 @@ const EditProducts = ({
 
   const { categories, products } = site;
 
-  const [modCatIsActive, toggleModCat] = useState(false);
+  const [currentCat, setCat] = useState(''); 
 
-  const catProps = {modCatIsActive, toggleModCat};
+  const [addCatModalIsActive, toggleModCat] = useState(false);
+
+  const catProps = {addCatModalIsActive, toggleModCat};
+
+  const [addProdModalIsActive, toggleModProd] = useState(false);
+
+  const prodProps = {addProdModalIsActive, toggleModProd, currentCat};
+
+  const triggerAddProduct = (e) => {
+    setCat(e.target.getAttribute('cat'));
+    toggleModProd(!addProdModalIsActive);
+  }
 
   const list = categories.map((cat) => {
 
@@ -42,13 +53,7 @@ const EditProducts = ({
                     Elimina
                   </button>
                 
-                  <button className="button is-primary" onClick={() => {
-                    console.log("sono il bottone");
-
-                    return (
-                      <ModalProd id={cat._id} props={cat} />
-                    )
-                  }}>Aggiungi pizza</button>
+                  <button className="button is-primary" cat={cat.name} onClick={(e) => triggerAddProduct(e)}>Aggiungi pizza</button>
                 </div>
               </th>
               
@@ -79,20 +84,34 @@ const EditProducts = ({
     </Fragment>
   )});
 
+  const 
+  const prodProps = {
+
+  }
   return loading && site === null ? (
     <Spinner />
   ) : (
     <Fragment>
       {site !== null ? (
         <Fragment>
-          <div className={ modCatIsActive? `modal is-active` : `modal`}>
-            <div className="modal-background" onClick={() => toggleModCat(!modCatIsActive)}></div>
+          <div className={ addCatModalIsActive? `modal is-active` : `modal`}>
+            <div className="modal-background" onClick={() => toggleModCat(!addCatModalIsActive)}></div>
             <div className="modal-content">
               <div className="box">
                 <AddCategory {...catProps}/>
               </div>
             </div>
-            <button className="modal-close is-large" aria-label="close" onClick={() => toggleModCat(!modCatIsActive)}></button>
+            <button className="modal-close is-large" aria-label="close" onClick={() => toggleModCat(!addCatModalIsActive)}></button>
+          </div>
+
+          <div className={ modProdIsActive? `modal is-active` : `modal`}>
+            <div className="modal-background" onClick={() => toggleModProd(!modProdIsActive)}></div>
+            <div className="modal-content">
+              <div className="box">
+                <AddProduct {...prodProps}/>
+              </div>
+            </div>
+            <button className="modal-close is-large" aria-label="close" onClick={() => toggleModProd(!modProdIsActive)}></button>
           </div>
 
           

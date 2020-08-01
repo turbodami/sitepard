@@ -3,9 +3,8 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { addCategory } from "../../actions/site";
 import { useSpring, animated } from "react-spring";
-import { Link } from "react-router-dom";
 
-const AddCategory = ({ addCategory, history, toggleModCat, modCatIsActive }) => {
+const AddCategory = ({ addCategory, history, toggleModCat, addCatModalIsActive }) => {
   const props = useSpring({
     opacity: 1,
     from: { opacity: 0 },
@@ -43,7 +42,7 @@ const AddCategory = ({ addCategory, history, toggleModCat, modCatIsActive }) => 
                   e.preventDefault();
                   addCategory(formData, history);
                   setFormData(defaultData);
-                  toggleModCat(!modCatIsActive);
+                  toggleModCat(!addCatModalIsActive);
                 }}>
                   <div className="field">
                     <label className="label">Categoria</label>
