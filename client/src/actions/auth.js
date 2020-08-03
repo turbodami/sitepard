@@ -17,19 +17,19 @@ import setAuthToken from "../utils/setAuthToken";
 
 //load user
 export const loadUser = () => async (dispatch) => {
-  console.log("sono entrato in loaduser");
+  
   if (localStorage.token) {
     setAuthToken(localStorage.token);
   }
 
   try {
     const res = await axios.get("/api/auth");
-    console.log("sto per dare user loaded");
+    
     dispatch({
       type: USER_LOADED,
       payload: res.data,
     });
-    console.log("dovrei aver dato user loaded");
+    
     dispatch(getCurrentSite());
     
   } catch (err) {
