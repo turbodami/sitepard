@@ -25,14 +25,14 @@ const Domain = ({ handleSelection, prevStep }) => {
                 <input
                   type="button"
                   onClick={(e) => handleSelection(e)}
-                  className="btn btn-primary"
+                  className="button is-info"
                   name="type"
                   value="subdomain"
                 />
                 <input
                   type="button"
                   onClick={(e) => handleSelection(e)}
-                  className="btn btn-primary"
+                  className="button is-info"
                   name="type"
                   value="domain"
                 />

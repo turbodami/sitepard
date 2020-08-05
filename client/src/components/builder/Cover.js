@@ -96,12 +96,13 @@ const Cover = ({ formData, nextStep, prevStep, uploadCover }) => {
                     No
                   </button>
                 </div>
+                <Fragment>{showCoverLoader ? coverLoader : null}</Fragment>
               </div>
               <div className="column is-3"></div>
             </div>
           </div>
         </section>
-        <Fragment>{showCoverLoader ? coverLoader : null}</Fragment>
+        
       </Fragment>
     </animated.div>
   );
