@@ -43,12 +43,12 @@ html
                     .column.is-half.has-text-left
                         each category in categories
                             .box
-                                p.is-size-3.is-uppercase.has-text-centered #{category.name}
+                                p.is-size-3-desktop.is-size-4-mobile.is-uppercase.has-text-centered #{category.name}
                                 br
                                 each product in products
                                     if product.category === category.name
-                                        p.is-size-4.has-text-weight-bold #{product.name} #{product.price}€
-                                        p.subtitle.is-size-5 #{product.description}
+                                        p.is-size-4-desktop.is-size-5-mobile.has-text-weight-bold.has-text-centered-mobile #{product.name} #{product.price}€
+                                        p.subtitle.is-size-5-desktop.is-size-6-mobile.has-text-centered-mobile #{product.description}
                     
         .section.hero.is-white.is-small
             .hero-body
