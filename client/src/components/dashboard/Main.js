@@ -44,12 +44,6 @@ const Main = ({ getCurrentSite, auth: { user }, site: { site, loading } }) => {
             <h2 className="subtitle is-4">http://{site.domain}.sitepard.com</h2>
           </Link>
           <br />
-          <p>
-            Copialo e incollalo dove vuoi, oppure condividi su Facebook e
-            Instagram cliccando sui pulsanti qui sotto!
-          </p>
-          <button className="button is-primary is-rounded">Facebook</button>
-          <button className="button is-danger is-rounded">Instagram</button>
           <br />
           <br />
           <br />

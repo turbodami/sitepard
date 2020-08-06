@@ -129,8 +129,8 @@ const EditProducts = ({
               <p className="title is-2">Gestione prodotti</p>
               
               <button className="button is-primary" onClick={() => toggleModCat(!addCatModalIsActive)}>Aggiungi categoria</button>
-              <div className="box">
-                <p className="title is-3 has-text-centered">Il mio menù</p>
+              <div className="section">
+                <p className="title is-3 has-text-left">Il mio menù</p>
                 {list}
               </div>
             </div>
