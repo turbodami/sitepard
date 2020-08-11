@@ -41,14 +41,11 @@ const Cover = ({ formData, nextStep, prevStep, uploadCover }) => {
     <animated.div style={props}>
       <Fragment>
         <div className="field">
-          <div className="file is-large is-boxed">
+          <div className="file is-boxed is-centered">
             <label className="file-label">
               <input className="file-input" type="file" name="file" onChange={handleUpload}/>
               <span className="file-cta"> 
-                <span className="file-icon">
-                  <i className="fas fa-upload"></i>
-                </span>
-                <span className="file-label">Carica immagine di copertina</span>
+                <span className="file-label">Carica copertina</span>
               </span>
             </label>
           </div>
@@ -59,7 +56,7 @@ const Cover = ({ formData, nextStep, prevStep, uploadCover }) => {
           onClick={() => {
             sendCover();
           }}
-          className="btn btn-primary"
+          className="button is-info"
           value="Avanti"
         />
       </Fragment>
@@ -99,12 +96,13 @@ const Cover = ({ formData, nextStep, prevStep, uploadCover }) => {
                     No
                   </button>
                 </div>
+                <Fragment>{showCoverLoader ? coverLoader : null}</Fragment>
               </div>
               <div className="column is-3"></div>
             </div>
           </div>
         </section>
-        <Fragment>{showCoverLoader ? coverLoader : null}</Fragment>
+        
       </Fragment>
     </animated.div>
   );

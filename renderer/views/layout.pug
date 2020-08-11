@@ -32,7 +32,7 @@ html
                     .column.is-on-third.is-vcentered
                         figure.image.is-square
                             img.is-rounded(src=image)
-        .section.is-medium.has-background-danger(id='menu')
+        .section.is-medium.has-background-light(id='menu')
             .container
                 .columns.is-centered
                     .column.is-half.has-text-centered
@@ -43,12 +43,12 @@ html
                     .column.is-half.has-text-left
                         each category in categories
                             .box
-                                p.is-size-3.is-uppercase.has-text-centered #{category.name}
+                                p.is-size-3-desktop.is-size-4-mobile.is-uppercase.has-text-centered #{category.name}
                                 br
                                 each product in products
                                     if product.category === category.name
-                                        p.is-size-4.has-text-weight-bold #{product.name} #{product.price}€
-                                        p.subtitle.is-size-5 #{product.description}
+                                        p.is-size-4-desktop.is-size-5-mobile.has-text-weight-bold.has-text-centered-mobile #{product.name} #{product.price}€
+                                        p.subtitle.is-size-5-desktop.is-size-6-mobile.has-text-centered-mobile #{product.description}
                     
         .section.hero.is-white.is-small
             .hero-body
@@ -56,13 +56,13 @@ html
                     .columns.is-centered
                         .column.is-one-third.has-text-centered(name='timetable')
                             p.title.is-size-1-desktop.is-size-2-mobile(id='timetable') Orari
-                                p.subtitle.is-size-3-desktop.is-size-4-mobile Lunedì #{monday}
-                                p.subtitle.is-size-3-desktop.is-size-4-mobile Martedi #{tuesday}
-                                p.subtitle.is-size-3-desktop.is-size-4-mobile Mercoledi #{wednesday}
-                                p.subtitle.is-size-3-desktop.is-size-4-mobile Giovedi #{thursday}
-                                p.subtitle.is-size-3-desktop.is-size-4-mobile Venerdi #{friday}
-                                p.subtitle.is-size-3-desktop.is-size-4-mobile Sabato #{saturday}
-                                p.subtitle.is-size-3-desktop.is-size-4-mobile Domenica #{sunday}
+                                p.subtitle.is-size-3-desktop.is-size-4-mobile Lunedì #{timeTable[0].monday}
+                                p.subtitle.is-size-3-desktop.is-size-4-mobile Martedi #{timeTable[0].tuesday}
+                                p.subtitle.is-size-3-desktop.is-size-4-mobile Mercoledi #{timeTable[0].wednesday}
+                                p.subtitle.is-size-3-desktop.is-size-4-mobile Giovedi #{timeTable[0].thursday}
+                                p.subtitle.is-size-3-desktop.is-size-4-mobile Venerdi #{timeTable[0].friday}
+                                p.subtitle.is-size-3-desktop.is-size-4-mobile Sabato #{timeTable[0].saturday}
+                                p.subtitle.is-size-3-desktop.is-size-4-mobile Domenica #{timeTable[0].sunday}
                         .column.is-one-third.has-text-centered(name='address')
                             p.title.is-size-1-desktop.is-size-2-mobile(id='address') Dove siamo
                                 p.subtitle.is-size-3-desktop.is-size-4-mobile #{address}
