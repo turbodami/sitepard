@@ -76,13 +76,7 @@ server.get("/s/:firstSubdomain/*", async (req, res) => {
             address: address,
             whatsappNumber: whatsappNumber,
             tel: tel,
-            monday: timeTable.monday,
-            tuesday: timeTable.tuesday,
-            wednesday: timeTable.wednesday,
-            thursday: timeTable.thursday,
-            friday: timeTable.friday,
-            saturday: timeTable.saturday,
-            sunday: timeTable.sunday
+            timeTable: timeTable
           });
       }
     } else {
