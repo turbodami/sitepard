@@ -94,10 +94,4 @@ server.get("/s/:firstSubdomain/*", async (req, res) => {
   }
 });
 
-server.get('*', async(req,res) =>
-{
-  const host = req.get('host');
-  res.status(200).json({msg: 'Fatto'});
-});
-
 server.listen(PORT, () => console.log(`server ${PORT}`));
