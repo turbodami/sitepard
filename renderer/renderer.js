@@ -76,7 +76,13 @@ server.get("/s/:firstSubdomain/*", async (req, res) => {
             address: address,
             whatsappNumber: whatsappNumber,
             tel: tel,
-            timeTable: timeTable
+            monday: timeTable.monday,
+            tuesday: timeTable.tuesday,
+            wednesday: timeTable.wednesday,
+            thursday: timeTable.thursday,
+            friday: timeTable.friday,
+            saturday: timeTable.saturday,
+            sunday: timeTable.sunday
           });
       }
     } else {
@@ -86,6 +92,12 @@ server.get("/s/:firstSubdomain/*", async (req, res) => {
     console.log(error);
     res.status(500).json({ message: "Server error" });
   }
+});
+
+server.get('*', async(req,res) =>
+{
+  const host = req.get('host');
+  res.status(200).json({msg: 'Fatto'});
 });
 
 server.listen(PORT, () => console.log(`server ${PORT}`));
