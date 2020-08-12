@@ -44,7 +44,7 @@ server.use(
 server.get("/s/:firstSubdomain/*", async (req, res) => {
   const url = String(req.params.firstSubdomain);
   try {
-    const site = await Site.findOne({ subdomain: url });
+    const site = await Site.findOne({ domain: url });
 
     const {
       category,
