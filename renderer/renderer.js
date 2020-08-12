@@ -44,7 +44,7 @@ server.use(
 server.get("/s/:firstSubdomain/*", async (req, res) => {
   const url = String(req.params.firstSubdomain);
   try {
-    const site = await Site.findOne({ domain: url });
+    const site = await Site.findOne({ subdomain: url });
 
     const {
       category,
@@ -90,7 +90,52 @@ server.get("/s/:firstSubdomain/*", async (req, res) => {
 
 server.get('*', async(req,res) =>
 {
-  res.status(200).json({msg: `${req.get('host')}`});
+  //res.status(200).json({msg: `${req.get('host')}`});
+
+  const url = String(req.get.host);
+  try {
+    const site = await Site.findOne({ domain: url });
+
+    const {
+      category,
+      name,
+      description,
+      logo,
+      image,
+      categories,
+      products,
+      address,
+      timeTable,
+      whatsappNumber,
+      tel
+    } = site;
+    console.log(timeTable);
+
+    if (site) {
+      switch (category) {
+        case "pizzeria":
+          
+          return res.render("index", {
+            name: name,
+            category: category,
+            description: description,
+            logo: logo,
+            image: image,
+            categories: categories,
+            products: products,
+            address: address,
+            whatsappNumber: whatsappNumber,
+            tel: tel,
+            timeTable: timeTable
+          });
+      }
+    } else {
+      return res.status(404).json({ message: "Page not found" });
+    }
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ message: "Server error" });
+  }
 });
 
 server.listen(PORT, () => console.log(`server ${PORT}`));
