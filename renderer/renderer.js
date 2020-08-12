@@ -90,7 +90,7 @@ server.get("/s/:firstSubdomain/*", async (req, res) => {
 
 server.get('*', async(req,res) =>
 {
-  res.status(200).json({msg: `Successo`});
+  res.status(200).json({msg: `${req.get('host')}`});
 });
 
 server.listen(PORT, () => console.log(`server ${PORT}`));
