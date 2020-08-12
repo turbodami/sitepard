@@ -101,20 +101,6 @@ const EditInfo = ({
             </div>
 
             <div className="field">
-              <label className="label">Tipo sito</label>
-              <div className="control">
-                <input
-                  className="input"
-                  type="text"
-                  placeholder="Type"
-                  name="type"
-                  value={type}
-                  onChange={(e) => onChange(e)}
-                />
-              </div>
-            </div>
-
-            <div className="field">
               <label className="label">Numero di telefono</label>
               <div className="control">
                 <input
