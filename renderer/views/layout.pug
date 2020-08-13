@@ -28,7 +28,10 @@ html
                 .columns.is-centered
                     .column.is-half.has-text-centered-mobile
                         p.title.is-size-1-desktop.is-size-3-mobile Ordina online
-                        p.subtitle.is-size-3-desktop.is-size-5-mobile #{description}               
+                        p.subtitle.is-size-3-desktop.is-size-5-mobile #{description} 
+                        .buttons
+                            a.button.is-primary(href=`https://wa.me/39${whatsappNumber}`) Ordina su Whatsapp
+                            a.button.is-info(href=`tel:${tel}`) Chiama              
                     .column.is-on-third.is-vcentered
                         figure.image.is-square
                             img.is-rounded(src=image)
@@ -71,5 +74,5 @@ html
                 .container
                     .columns.is-centered
                         .column.is-one-fifth.has-text-centered
-                            p © 2020 Pizzeria Planet di Dal Dosso Federica P.IVA: 0000000000 Tutti i diritti riservati
+                            p © 2020 #{name} P.IVA: #{piva} Tutti i diritti riservati
         block content

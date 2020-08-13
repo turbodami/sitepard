@@ -21,10 +21,6 @@ const Mobile = ({getCurrentSite, site: { site },}) => {
   return (
     <Fragment>
       <div className="marvel-device iphone-x">
-        <div className="notch">
-          <div className="camera"></div>
-          <div className="speaker"></div>
-        </div>
         <div className="top-bar"></div>
         <div className="sleep"></div>
         <div className="bottom-bar"></div>
@@ -38,7 +34,7 @@ const Mobile = ({getCurrentSite, site: { site },}) => {
         <div className="inner-shadow"></div>
         <div className="screen">
           <iframe
-            src={"http://" + site.domain + ".cactusdomaindev.xyz"}
+            src={"http://" + site.domain + ".sitepard.com"}
             title="your website"
             key={random}
             height="100%"

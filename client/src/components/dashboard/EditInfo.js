@@ -18,6 +18,7 @@ const EditInfo = ({
     name: "",
     tel: "",
     whatsappNumber: null,
+    piva: "",
     palette: null,
     style: null,
     description: "",
@@ -38,6 +39,7 @@ const EditInfo = ({
       palette: loading || !site.palette ? "" : site.palette,
       style: loading || !site.style ? "" : site.style,
       description: loading || !site.description ? "" : site.description,
+      piva: loading || !site.piva ? "" : site.piva,
       image: loading || !site.image ? "" : site.image,
       logo: loading || !site.logo ? "" : site.logo,
       address: loading || !site.address ? "" : site.address,
@@ -50,6 +52,7 @@ const EditInfo = ({
     name,
     tel,
     whatsappNumber,
+    piva,
     palette,
     style,
     description,
@@ -86,33 +89,6 @@ const EditInfo = ({
           </nav>
           <p className="title is-2">Informazioni</p>
           <form onSubmit={(e) => onSubmit(e)}>
-            <div className="field">
-              <label className="label">Name</label>
-              <div className="control">
-                <input
-                  className="input"
-                  type="text"
-                  placeholder="Nome"
-                  name="name"
-                  value={name}
-                  onChange={(e) => onChange(e)}
-                />
-              </div>
-            </div>
-
-            <div className="field">
-              <label className="label">Tipo sito</label>
-              <div className="control">
-                <input
-                  className="input"
-                  type="text"
-                  placeholder="Type"
-                  name="type"
-                  value={type}
-                  onChange={(e) => onChange(e)}
-                />
-              </div>
-            </div>
 
             <div className="field">
               <label className="label">Numero di telefono</label>
@@ -151,6 +127,20 @@ const EditInfo = ({
                   placeholder="Indirizzo"
                   name="address"
                   value={address}
+                  onChange={(e) => onChange(e)}
+                />
+              </div>
+            </div>
+
+            <div className="field">
+              <label className="label">Partita IVA</label>
+              <div className="control">
+                <input
+                  className="input"
+                  type="text"
+                  placeholder="Partita IVA"
+                  name="piva"
+                  value={piva}
                   onChange={(e) => onChange(e)}
                 />
               </div>

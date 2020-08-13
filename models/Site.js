@@ -14,13 +14,13 @@ const SiteSchema = new mongoose.Schema({
     required: true,
   },
   tel: {
-    type: Number,
+    type: String,
   },
   address: {
     type: String,
   },
   whatsappNumber: {
-    type: Number,
+    type: String,
   },
   piva:
   {

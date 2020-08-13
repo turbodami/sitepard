@@ -40,9 +40,9 @@ const Main = ({ getCurrentSite, auth: { user }, site: { site, loading } }) => {
           </p>
 
           <p>Il link del tuo sito è: </p>
-          <Link to={`http://${site.domain}.sitepard.com`}> 
-            <h2 className="subtitle is-4">http://{site.domain}.sitepard.com</h2>
-          </Link>
+          <a href={site.domain ? `http://${site.domain}` : `http://${site.subdomain}.sitepard.com`}> 
+            <h2 className="subtitle is-4">{site.domain ? `http://${site.domain}` : `http://${site.subdomain}.sitepard.com`}</h2>
+          </a>
           <br />
           <br />
           <br />

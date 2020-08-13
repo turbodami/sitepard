@@ -71,7 +71,7 @@ const EditProducts = ({
                     <td>{prod.name}</td>
                     <td>{prod.description}</td>
                     
-                    <td>{prod.price}</td>
+                    <td>€ {prod.price}</td>
                     
                     
                   </tr>
