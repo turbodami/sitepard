@@ -93,6 +93,7 @@ server.get('*', async(req,res) =>
   //res.status(200).json({msg: `${req.get('host')}`});
 
   const url = String(req.get.host);
+  console.log(url);
   try {
     const site = await Site.findOne({ domain: url });
 
