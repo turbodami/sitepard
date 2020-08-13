@@ -2,78 +2,77 @@ doctype html
 html
     include head
     body
-        .section
+        nav.navbar.is-spaced.is-large
+            .navbar-brand
+                a(href='/')
+                    if(logo)
+                        img(src=logo width="200" height="28")
+                    else
+                        #{name}
+                div.navbar-burger.burger(role='button', aria-label='menu', aria-expanded='false', onclick="document.querySelector('.navbar-menu').classList.toggle('is-active'); document.querySelector('.navbar-burger').classList.toggle('is-active');")
+                    span(aria-hidden='true')
+                    span(aria-hidden='true')
+                    span(aria-hidden='true')
+            .navbar-menu  
+                .navbar-start
+                    a.navbar-item(href='#menu') Menu
+                    a.navbar-item(href='#timetable') Orari
+                    a.navbar-item(href='#address') Dove siamo
+                .navbar-end.is-hidden-touch
+                    .navbar-item
+                    .buttons
+                        a.button.is-primary(href=`https://wa.me/39${whatsappNumber}`) Ordina su Whatsapp
+                        a.button.is-info(href=`tel:${tel}`) Chiama
+        .section.is-medium
             .container
-                .columns.is-mobile.is-centered   
-                    .column.is-two-thirds
-                        nav.navbar
-                            .navbar-brand
-                                a.navbar-item(href='/')
-                                    if(logo)
-                                        img(src=logo)
-                                    else
-                                        #{name}
-                                a.navbar-burger(role='button', aria-label='menu', aria-expanded='false')
-                                    span(aria-hidden='true')
-                                    span(aria-hidden='true')
-                                    span(aria-hidden='true')
-                            .navbar-menu    
-                                .navbar-start
-                                    a.navbar-item(href='') Menu
-                                    a.navbar-item(href='') Orari
-                                    a.navbar-item(href='') Dove siamo
-                                .navbar-end
-                                    .navbar-item
-                                    .buttons
-                                        a.button.is-primary(href='') Ordina su Whatsapp
-                                        a.button.is-info(href='') Chiama
-        .section
+                .columns.is-centered
+                    .column.is-half.has-text-centered-mobile
+                        p.title.is-size-1-desktop.is-size-3-mobile Ordina online
+                        p.subtitle.is-size-3-desktop.is-size-5-mobile #{description} 
+                        .buttons
+                            a.button.is-primary(href=`https://wa.me/39${whatsappNumber}`) Ordina su Whatsapp
+                            a.button.is-info(href=`tel:${tel}`) Chiama              
+                    .column.is-on-third.is-vcentered
+                        figure.image.is-square
+                            img.is-rounded(src=image)
+        .section.is-medium.has-background-light(id='menu')
             .container
-                .columns.is-mobile.is-centered.is-vcentered.is-desktop
-                    .column.is-one-third
-                        p.title.is-1 Ordina online
-                        p.subtitle.is-3 #{description}               
-                    .column.is-one-third
-                        figure.image.is-rounded
-                            img(src=image)
-        .section
+                .columns.is-centered
+                    .column.is-half.has-text-centered
+                        p.title.is-size-1-desktop.is-size-2-mobile MENU'
+                        br
             .container
-                .columns.is-mobile.is-centered.is-vcentered.is-desktop
-                    .column.is-one-third.has-text-centered
-                        p.title.is-1 Menù
-                        table.table
-                            each category in categories
-                                thead
-                                    tr
-                                        th= category.name
-                                tbody
-                                    each product in products
-                                        if product.category === category.name
-                                            tr
-                                                td= product.name
-                                                td= product.description
-                                                td= product.price
-        .section.hero.is-warning.is-medium
+                .columns.is-centered
+                    .column.is-half.has-text-left
+                        each category in categories
+                            .box
+                                p.is-size-3-desktop.is-size-4-mobile.is-uppercase.has-text-centered #{category.name}
+                                br
+                                each product in products
+                                    if product.category === category.name
+                                        p.is-size-4-desktop.is-size-5-mobile.has-text-weight-bold.has-text-centered-mobile #{product.name} #{product.price}€
+                                        p.subtitle.is-size-5-desktop.is-size-6-mobile.has-text-centered-mobile #{product.description}
+                    
+        .section.hero.is-white.is-small
             .hero-body
                 .container
-                    .columns.is-mobile.is-centered.is-desktop
-                        .column.is-one-third.has-text-centered
-                            p.title.is-1 Orari
-                                p.subtitle.is-3 Lunedi #{timeTable.monday}
-                                p.subtitle.is-3 Martedi #{timeTable.tuesday}
-                                p.subtitle.is-3 Mercoledi #{timeTable.wednesday}
-                                p.subtitle.is-3 Giovedi #{timeTable.thursday}
-                                p.subtitle.is-3 Venerdi #{timeTable.friday}
-                                p.subtitle.is-3 Sabato #{timeTable.saturday}
-                                p.subtitle.is-3 Domenica #{timeTable.sunday}
-                        .column.is-one-third.has-text-centered
-                            p.title.is-1 Dove siamo
-                                p.subtitle.is-3 #{address}
-        .section.hero.is-info.is-small
+                    .columns.is-centered
+                        .column.is-one-third.has-text-centered(name='timetable')
+                            p.title.is-size-1-desktop.is-size-2-mobile(id='timetable') Orari
+                                p.subtitle.is-size-3-desktop.is-size-4-mobile Lunedì #{timeTable.monday}
+                                p.subtitle.is-size-3-desktop.is-size-4-mobile Martedi #{timeTable.tuesday}
+                                p.subtitle.is-size-3-desktop.is-size-4-mobile Mercoledi #{timeTable.wednesday}
+                                p.subtitle.is-size-3-desktop.is-size-4-mobile Giovedi #{timeTable.thursday}
+                                p.subtitle.is-size-3-desktop.is-size-4-mobile Venerdi #{timeTable.friday}
+                                p.subtitle.is-size-3-desktop.is-size-4-mobile Sabato #{timeTable.saturday}
+                                p.subtitle.is-size-3-desktop.is-size-4-mobile Domenica #{timeTable.sunday}
+                        .column.is-one-third.has-text-centered(name='address')
+                            p.title.is-size-1-desktop.is-size-2-mobile(id='address') Dove siamo
+                                p.subtitle.is-size-3-desktop.is-size-4-mobile #{address}
+        .section.hero.is-danger.is-small
             .hero-body
                 .container
-                    .columns.is-mobile.is-centered.is-vcentered.is-desktop
+                    .columns.is-centered
                         .column.is-one-fifth.has-text-centered
-                            p Prhhfhizzeria merda culo cazzo frocio tette fregna
-
+                            p © 2020 #{name} P.IVA: #{piva} Tutti i diritti riservati
         block content

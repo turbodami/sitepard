@@ -1,4 +1,4 @@
-  import {
+import {
   REGISTER_SUCCESS,
   REGISTER_FAIL,
   USER_LOADED,

@@ -29,7 +29,7 @@ const Address = ({ formData, clientValidation, prevStep, onChange }) => {
                     <input
                       className="input"
                       type="text"
-                      placeholder="Via Hermann Goering, 17 Littoria (RO)"
+                      placeholder="Via Roma, 1 Tombasozana (VR)"
                       name="address"
                       value={formData.address}
                       onChange={(e) => onChange(e)}

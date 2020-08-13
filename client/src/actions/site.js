@@ -152,6 +152,7 @@ export const createSite = (formData, history, edit = false) => async (
 
 //add product
 export const addProduct = (formData, history) => async (dispatch) => {
+  
   try {
     const config = {
       headers: {

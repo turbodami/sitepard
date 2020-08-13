@@ -2,19 +2,22 @@ import React, { Fragment, useState } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { deleteProduct, deleteCategory } from "../../actions/site";
-import AddProduct from "../site-forms/AddProduct";
+import AddProduct from "../forms/AddProduct";
 
 const ProductsList = ({ categories, deleteCategory, products, deleteProduct }) => {
   const [modProdIsActive, toggleModProd] = useState(false);
-  
-  const list = categories.map((cat) => (
+
+  const list = categories.map((cat) => {
+    const props = { cat, modProdIsActive, toggleModProd}
+
+    return (
     <Fragment>
       <div className={ modProdIsActive? `modal is-active` : `modal`}>
             <div className="modal-background" onClick={() => toggleModProd(!modProdIsActive)}></div>
             <div className="modal-content">
               <div className="box">
-                <AddProduct cat={cat}/>
-              </div>
+                <AddProduct props={props}/>
+              </div>  
             </div>
             <button className="modal-close is-large" aria-label="close" onClick={() => toggleModProd(!modProdIsActive)}></button>
       </div>
@@ -60,7 +63,7 @@ const ProductsList = ({ categories, deleteCategory, products, deleteProduct }) =
         </table>
       </div>
     </Fragment>
-  ));
+  )});
 
   return <Fragment>{list}</Fragment>;
 };

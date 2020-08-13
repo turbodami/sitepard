@@ -3,6 +3,7 @@ import {
   SITE_ERROR,
   CLEAR_SITE,
   UPDATE_SITE,
+  LOGOUT
 } from "../actions/types";
 
 const initialState = {
@@ -32,8 +33,9 @@ export default function (state = initialState, action) {
       return {
         ...state,
         site: null,
-        loading: false,
+        loading: true,
       };
+      
     default:
       return state;
   }

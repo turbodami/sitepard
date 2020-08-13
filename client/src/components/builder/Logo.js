@@ -40,13 +40,10 @@ const Logo = ({ formData, nextStep, prevStep, uploadLogo }) => {
     <animated.div style={props}>
       <Fragment>
         <div className="field">
-          <div className="file is-large is-boxed">
+          <div className="file is-boxed is-centered">
             <label className="file-label">
               <input className="file-input" type="file" name="file" onChange={handleUpload}/>
               <span className="file-cta"> 
-                <span className="file-icon">
-                  <i className="fas fa-upload"></i>
-                </span>
                 <span className="file-label">Carica logo</span>
               </span>
             </label>
@@ -58,7 +55,7 @@ const Logo = ({ formData, nextStep, prevStep, uploadLogo }) => {
           onClick={() => {
             sendLogo();
           }}
-          className="btn btn-primary"
+          className="button is-info"
           value="Avanti"
         />
       </Fragment>

@@ -1,14 +1,26 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useState, useEffect } from "react";
 import "../devices.min.css";
 
-const Mobile = () => {
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
+import { getCurrentSite } from "../../actions/site";
+
+const Mobile = ({getCurrentSite, site: { site },}) => {
+  useEffect(() => {
+    getCurrentSite();
+  }, [getCurrentSite]);
+
+  const [random, setRandom] = useState({random: 0});
+
+  useEffect(() => {
+    setRandom({
+      random: random+1
+    });
+  }, [site]);
+  
   return (
     <Fragment>
       <div className="marvel-device iphone-x">
-        <div className="notch">
-          <div className="camera"></div>
-          <div className="speaker"></div>
-        </div>
         <div className="top-bar"></div>
         <div className="sleep"></div>
         <div className="bottom-bar"></div>
@@ -22,8 +34,11 @@ const Mobile = () => {
         <div className="inner-shadow"></div>
         <div className="screen">
           <iframe
-            src="http://pizzaporcodio.cactusdomaindev.xyz/"
+            src={"http://" + site.domain + ".sitepard.com"}
             title="your website"
+            key={random}
+            height="100%"
+            width="100%"
           ></iframe>
         </div>
       </div>
@@ -31,4 +46,15 @@ const Mobile = () => {
   );
 };
 
-export default Mobile;
+Mobile.propTypes = {
+  getCurrentSite: PropTypes.func.isRequired,
+  site: PropTypes.object.isRequired,
+};
+
+const mapStateToProps = (state) => ({
+  site: state.site,
+});
+
+export default connect(mapStateToProps, {
+  getCurrentSite,
+})(Mobile);

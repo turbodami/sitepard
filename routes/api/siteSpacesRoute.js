@@ -21,15 +21,15 @@ const s3 = new aws.S3(
     }
 );
 
-router.post('/site/:_id', async(req, res) =>
-{
+// router.post('/site/:_id', async(req, res) =>
+// {
 
-  console.log(req.params.domain);
-  console.log(req.body.path);
+//   console.log(req.params.domain);
+//   console.log(req.body.path);
 
-  await spacesController.uploadSite(req.body.path, req.params._id);
+//   await spacesController.uploadSite(req.body.path, req.params._id);
 
-});
+// });
 
 router.delete('/:destination', async(req, res) =>{
 
@@ -80,7 +80,7 @@ const imageUpload = multer({
             contentType: multerS3.AUTO_CONTENT_TYPE,
             key: (req, file, cb) =>
             {
-                cb(null, 'users-sites/' + req.params.id + '/images/' + req.params.fileName)
+                cb(null, 'users-sites/' + req.params.domain + '/images/' + req.params.fileName)
             }
         }
     )
@@ -95,62 +95,65 @@ router.post('/image/:domain&:fileName', imageUpload.single('file'), async (req, 
     {
         res.status(500).json({message: 'Bad request'});
     }
-    else if(req.body.upload)
+    else 
     {
         try 
         {
-            const site = await Site.findOneAndUpdate(req.params.domain,{$set: {images: {name: req.params.fileName, link: 'https://cactus-space.fra1.digitaloceanspaces.com/users-sites/'+ req.params.id + '/images/' + req.params.fileName, pathS3:'user-sites/' + req.params.domain + '/images/' + req.params.fileName}}}, (err, site) =>
+            console.log('go');
+            const site = await Site.findOneAndUpdate({domain: req.params.domain},{$set: {images: {name: req.params.fileName, link: 'https://cactus-space.fra1.digitaloceanspaces.com/users-sites/'+ req.params.domain + '/images/' + req.params.fileName, pathS3:'user-sites/' + req.params.domain + '/images/' + req.params.fileName}}}, (err, site) =>
             {
-                if(err)
+                if(err || !site)
                 {
                     console.log(err);
                     return res.status(500).json({message: `Errore su mongodb`});
                 }
                 else
                 {
+                    console.log(site);
                     return res.status(200).json('Upload successfull.');
                 }
         });
         } 
         catch (error) 
         {
+            console.log('errore database');
             res.status(500).json({message: 'Database error'});
         }
         
     }
-    else
-    {
-        return res.status(200).json({message: `Immagine caricata`});
-    } 
+    // else
+    // {
+    //     return res.status(200).json({message: `Immagine caricata`});
+    // } 
 });
 
-const imageTempUpload = multer({
-    storage: multerS3(
-        {
-            s3: s3,
-            bucket: 'cactus-space',
-            acl: 'public-read',
-            contentType: multerS3.AUTO_CONTENT_TYPE,
-            key: (req, file, cb) =>
-            {
-                cb(null, 'user-sites/' + req.params.domain + '/images/' + req.params.fileName)
-            }
-        }
-    )
-});
+// const imageTempUpload = multer({
+//     storage: multerS3(
+//         {
+//             s3: s3,
+//             bucket: 'cactus-space',
+//             acl: 'public-read',
+//             contentType: multerS3.AUTO_CONTENT_TYPE,
+//             key: (req, file, cb) =>
+//             {
+//                 cb(null, 'users-sites/' + req.params.domain + '/images/' + req.params.fileName)
+//             }
+//         }
+//     )
+// });
 
-router.post('/imageTemp/:fileName', imageTempUpload.single('file'), async (req, res) =>
-{
+// router.post('/imageTemp/:fileName', imageTempUpload.single('file'), async (req, res) =>
+// {
     
-    if(!req.file)
-    {
-        res.status(500).json({message: 'Bad request'});
-    }
-    else
-    {
-        res.status(200).json('Upload successfull.');
-    } 
-});
+//     if(!req.file)
+//     {
+//         res.status(500).json({message: 'Bad request'});
+//     }
+//     else
+//     {
+//         res.status(200).json('Upload successfull.');
+//     } 
+// });
 
 
 
