@@ -64,6 +64,7 @@ router.post(
       whatsappNumber,
       domain,
       description,
+      piva,
       image,
       logo,
       palette,
@@ -83,6 +84,7 @@ router.post(
     if (domain) siteFields.domain = domain;
     if (address) siteFields.address = address;
     if (whatsappNumber) siteFields.whatsappNumber = whatsappNumber;
+    if (piva) siteFields.piva = piva;
     if (description) siteFields.description = description;
     if (image) siteFields.image = image;
     if (logo) siteFields.logo = logo;

@@ -21,10 +21,6 @@ const Mobile = ({getCurrentSite, site: { site },}) => {
   return (
     <Fragment>
       <div className="marvel-device iphone-x">
-        <div className="notch">
-          <div className="camera"></div>
-          <div className="speaker"></div>
-        </div>
         <div className="top-bar"></div>
         <div className="sleep"></div>
         <div className="bottom-bar"></div>

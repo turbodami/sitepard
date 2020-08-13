@@ -14,23 +14,29 @@ const SiteSchema = new mongoose.Schema({
     required: true,
   },
   tel: {
-    type: Number,
+    type: String,
   },
   address: {
     type: String,
   },
   whatsappNumber: {
-    type: Number,
+    type: String,
   },
-  domain:
+  piva:
   {
-      type: String,
-      required: false
+    type: String
   },
-  index:
-  {
-      type: String,
-      required: false
+  domain: {
+    type: String,
+    required: false,
+  },
+  index: {
+    type: String,
+    required: false,
+  },
+  verified: {
+    type: Boolean,
+    default: true
   },
   description: {
     type: String,
@@ -43,41 +49,28 @@ const SiteSchema = new mongoose.Schema({
   },
   palette: {
     type: String,
-    required: true,
   },
   style: {
     type: String,
-    required: true,
   },
 
   type: {
     type: String,
   },
-  timeTable: [
-    {
-      monday: {
-        type: String,
-      },
-      tuesday: {
-        type: String,
-      },
-      wednesday: {
-        type: String,
-      },
-      thursday: {
-        type: String,
-      },
-      friday: {
-        type: String,
-      },
-      saturday: {
-        type: String,
-      },
-      sunday: {
-        type: String,
-      },
-    },
-  ],
+  createdAt:
+  {
+    type: Date,
+    default: Date.now,
+  },
+  timeTable: {
+    monday: String,
+    tuesday: String,
+    wednesday: String,
+    thursday: String,
+    friday: String,
+    saturday: String,
+    sunday: String
+  },
   products: [
     {
       name: {
@@ -109,16 +102,19 @@ const SiteSchema = new mongoose.Schema({
 
   images: [
     {
-      name:
-      {
+      name: {
         type: String,
       },
-      link :
+      link: {
+        type: String,
+      },
+      pathS3:
       {
         type: String
       }
-    }
-  ]
+    },
+  ],
 });
+
 
 module.exports = Site = mongoose.model("site", SiteSchema);
