@@ -9,7 +9,7 @@ const Mobile = ({getCurrentSite, site: { site },}) => {
   useEffect(() => {
     console.log("dio cane ci sono");
     getCurrentSite();
-  }, [getCurrentSite, site]);
+  }, [getCurrentSite]);
 
   
   return (
