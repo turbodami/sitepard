@@ -93,7 +93,8 @@ server.get("/s/:firstSubdomain/*", async (req, res) => {
 server.get('*', async(req,res) =>
 {
   //res.status(200).json({msg: `${req.get('host')}`});
-  const url = String(req.get('host'));
+  const host = String(req.get('host'));
+  const url = host.substring(host.indexOf(".")+1);
   console.log(url);
   try {
     const site = await Site.findOne({ domain: url });
