@@ -16,7 +16,7 @@ const Mobile = ({getCurrentSite, site: { site },}) => {
 
   useEffect(() => {
     console.log("dio cane ci sono2");
-    iframe.contentWindow.location.reload(true);
+    document.getElementById('preview').contentDocument.location.reload(true);
   }, [categories, products]);
 
   return (
@@ -35,6 +35,7 @@ const Mobile = ({getCurrentSite, site: { site },}) => {
         <div className="inner-shadow"></div>
         <div className="screen">
           <iframe
+            id="preview"
             src={"http://" + site.subdomain + ".cactusdomaindev.xyz"}
             title="your website"
             height="100%"
