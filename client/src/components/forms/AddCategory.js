@@ -1,4 +1,5 @@
 import React, { Fragment, useState } from "react";
+import { withRouter } from "react-router-dom";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { addCategory } from "../../actions/site";
@@ -43,6 +44,7 @@ const AddCategory = ({ addCategory, history, toggleModCat, addCatModalIsActive }
                   addCategory(formData, history);
                   setFormData(defaultData);
                   toggleModCat(!addCatModalIsActive);
+                  history.push()
                 }}>
                   <div className="field">
                     <label className="label">Categoria</label>
@@ -79,4 +81,6 @@ AddCategory.propTypes = {
   addCategory: PropTypes.func.isRequired,
 };
 
-export default connect(null, { addCategory })(AddCategory);
+export default connect(null, { addCategory })(
+  withRouter(AddCategory)
+);
