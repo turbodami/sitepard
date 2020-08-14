@@ -40,7 +40,7 @@ const EditProducts = ({
 
     return (
     <Fragment>
-      <div className="container" key={cat._id}>
+      <div className="box" key={cat._id}>
         <nav className="level">
             <div className="level-left">
               <div className="level-item">
@@ -61,6 +61,8 @@ const EditProducts = ({
               </div>
             </div>
           </nav>
+
+          <div class="divider"></div>
 
         {products.map(function(prod) {
           if(prod.category === cat.name) {
