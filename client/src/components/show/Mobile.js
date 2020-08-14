@@ -27,7 +27,7 @@ const Mobile = ({getCurrentSite, site: { site },}) => {
         <div className="inner-shadow"></div>
         <div className="screen">
           <iframe
-            src={"http://" + site.subdomain + ".sitepard.com"}
+            src={"http://" + site.subdomain + ".cactusdomaindev.xyz"}
             title="your website"
             height="100%"
             width="100%"
