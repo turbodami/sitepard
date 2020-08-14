@@ -16,7 +16,7 @@ const Mobile = ({getCurrentSite, site: { site },}) => {
 
   useEffect(() => {
     console.log("dio cane ci sono2");
-    getCurrentSite();
+    
   }, [categories]);
 
   return (
