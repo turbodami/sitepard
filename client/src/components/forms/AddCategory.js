@@ -44,7 +44,7 @@ const AddCategory = ({ addCategory, history, toggleModCat, addCatModalIsActive }
                   addCategory(formData, history);
                   setFormData(defaultData);
                   toggleModCat(!addCatModalIsActive);
-                  history.push()
+                  history.push('/editproducts');
                 }}>
                   <div className="field">
                     <label className="label">Categoria</label>
