@@ -4,9 +4,9 @@ const ocean = require('digitalocean');
 const digitalocean = require("digitalocean");
 const client = digitalocean.client(process.env.OCEAN_TOKEN);
 
-router.post('/create-domain', async(req,res) =>
+router.post('/create-domain', async(req,res) => //Aggiunta di un dominio con relativo CNAME www req.body contiene {"name": "dominio", "ip_address": "ip_droplet"}
 {
-    client.domains.create(req.body, (err, domainResult) =>
+    client.domains.create(req.body, (err, domainResult) => //Aggiunta del dominio su digital ocean
     {
         if(err)
         {
@@ -16,7 +16,7 @@ router.post('/create-domain', async(req,res) =>
         else
         {
             console.log(domainResult);
-            const attributes = 
+            const attributes =  //Attributi per la definizione del CNAME
             {
                 type: "CNAME",
                 name: "www",
@@ -29,7 +29,7 @@ router.post('/create-domain', async(req,res) =>
                 tag: null
             }
 
-            client.domains.createRecord(req.body.name, attributes, (recordErr, recordResult) =>
+            client.domains.createRecord(req.body.name, attributes, (recordErr, recordResult) => //Aggiunta del CNAME al dominio appena inserito, permettendo di accedervi con www.dominio.com
             {
                 if(err)
                 {
