@@ -49,7 +49,7 @@ const EditAccount = ({editPassword, auth: { user }, history}) => {
   return (
     <Fragment>
       <div className="columns">
-        <div className="column is-4">
+        <div className="column is-6">
           <nav className="breadcrumb is-small" aria-label="breadcrumbs">
             <ul>
               <li className="is-active">

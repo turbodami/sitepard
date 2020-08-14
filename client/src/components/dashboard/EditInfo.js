@@ -74,7 +74,7 @@ const EditInfo = ({
   return (
     <Fragment>
       <div className="columns">
-        <div className="column is-4">
+        <div className="column is-6">
           <nav className="breadcrumb is-small" aria-label="breadcrumbs">
             <ul>
               <li className="is-active">
@@ -176,8 +176,8 @@ const EditInfo = ({
             </div>
           </form>
         </div>
-        <div className="column is-4"></div>
-        <div className="column is-4">
+        
+        <div className="column is-6 has-text-centered">
           <Mobile />
         </div>
       </div>

@@ -117,7 +117,7 @@ const EditProducts = ({
           
 
           <div className="columns">
-            <div className="column is-8">
+            <div className="column is-6">
               <nav className="breadcrumb is-small" aria-label="breadcrumbs">
                 <ul>
                   <li className="is-active">
@@ -138,7 +138,7 @@ const EditProducts = ({
               {list}
               
             </div>
-            <div className="column is-4">
+            <div className="column is-6 has-text-centered">
               <Mobile url={site.url}/>
             </div>
           </div>

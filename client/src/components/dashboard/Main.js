@@ -19,7 +19,7 @@ const Main = ({ getCurrentSite, auth: { user }, site: { site, loading } }) => {
   ) : (
     <Fragment>
       <div className="columns">
-        <div className="column is-4">
+        <div className="column is-6">
           <nav className="breadcrumb is-small" aria-label="breadcrumbs">
             <ul>
               <li className="is-active">
@@ -49,8 +49,8 @@ const Main = ({ getCurrentSite, auth: { user }, site: { site, loading } }) => {
           <br />
           <br />
         </div>
-        <div className="column is-4"></div>
-        <div className="column is-4">
+        
+        <div className="column is-6 has-text-centered">
           <Mobile />
         </div>
       </div>
