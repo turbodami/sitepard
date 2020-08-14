@@ -29,7 +29,6 @@ const Mobile = ({getCurrentSite, site: { site },}) => {
           <iframe
             src={"http://" + site.subdomain + ".sitepard.com"}
             title="your website"
-            key={random}
             height="100%"
             width="100%"
           ></iframe>

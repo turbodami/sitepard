@@ -19,13 +19,8 @@ const EditProducts = ({
     getCurrentSite();
   }, [getCurrentSite]);
 
-
-  const [random, setRandom] = useState({random: 0});
-
   useEffect(() => {
-    setRandom({
-      random: random+1
-    });
+    document.getElementById('preview').src = document.getElementById('preview').src ;
   }, [site]);
 
   const { categories, products } = site;
@@ -148,7 +143,7 @@ const EditProducts = ({
               
             </div>
             <div className="column is-6 has-text-centered">
-              <Mobile url={site.url}/>
+              <Mobile id="preview"/>
             </div>
           </div>
         </Fragment>
