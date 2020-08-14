@@ -44,18 +44,26 @@ const EditProducts = ({
         <table className="table">
           <thead>
             <tr key={cat._id}>
-              <th>{cat.name}</th>
-              <th>
-                <div className="buttons">
-                  <button className="button is-danger"
-                    onClick={() => deleteCategory(cat._id)}
-                  >
-                    Elimina
-                  </button>
-                
-                  <button className="button is-primary" cat={cat.name} onClick={(e) => triggerAddProduct(e)}>Aggiungi pizza</button>
+              <nav className="level">
+                <div className="level-left">
+                  <div className="level-item">
+                    <p className="title is-4">{cat.name}</p>
+                  </div>
                 </div>
-              </th>
+                <div className="level-right">
+                  <div className="level-item">
+                    <div className="buttons">
+                      <button className="button is-danger"
+                        onClick={() => deleteCategory(cat._id)}
+                      >
+                        Elimina
+                      </button>
+                    
+                      <button className="button is-primary" cat={cat.name} onClick={(e) => triggerAddProduct(e)}>Aggiungi pizza</button>
+                    </div>
+                  </div>
+                </div>
+              </nav>
               
             </tr>
           </thead>
@@ -126,13 +134,13 @@ const EditProducts = ({
                   </li>
                 </ul>
               </nav>
-              <p className="title is-2">Gestione prodotti</p>
-              
-              <button className="button is-primary" onClick={() => toggleModCat(!addCatModalIsActive)}>Aggiungi categoria</button>
-              <div className="section">
-                <p className="title is-3 has-text-left">Il mio menù</p>
-                {list}
+              <p className="title is-2">Il mio menù</p>
+              <div className="buttons">
+                <button className="button is-primary" onClick={() => toggleModCat(!addCatModalIsActive)}>Aggiungi categoria</button>
               </div>
+              
+              {list}
+              
             </div>
             <div className="column is-4">
               <Mobile url={site.url}/>
