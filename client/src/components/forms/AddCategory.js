@@ -80,4 +80,4 @@ AddCategory.propTypes = {
   addCategory: PropTypes.func.isRequired,
 };
 
-export default connect(null, { addCategory })(AddCategory;
+export default connect(null, { addCategory })(AddCategory);
