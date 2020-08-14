@@ -44,12 +44,12 @@ const Dashboard = ({
                 </li>
                 <li>
                   <a href="">
-                    <Link to="/editinfo">Modifica informazioni</Link>
+                    <Link to="/editproducts">Il mio menù</Link>
                   </a>
                 </li>
                 <li>
                   <a href="">
-                    <Link to="/editproducts">Modifica prodotti</Link>
+                    <Link to="/editinfo">Il mio account</Link>
                   </a>
                 </li>
                 <li>
