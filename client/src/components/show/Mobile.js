@@ -10,18 +10,18 @@ const Mobile = ({getCurrentSite, site: { site },}) => {
   const { categories, products } = site;
 
   useEffect(() => {
-    console.log("dio cane ci sono");
+    
     getCurrentSite();
   }, [getCurrentSite]);
 
-  useEffect(() => {
+  /* useEffect(() => {
     console.log("dio cane ci sono2");
     if(document.getElementById('preview')){
       console.log(document.getElementById('preview'));
       console.log(document.getElementById('preview').contentWindow);
       document.getElementById('preview').contentWindow.location.reload(true);
     }  
-  }, [categories, products]);
+  }, [categories, products]); */
 
   return (
     <Fragment>
