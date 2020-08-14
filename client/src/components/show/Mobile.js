@@ -40,7 +40,7 @@ const Mobile = ({getCurrentSite, site: { site },}) => {
         <div className="screen">
           <iframe
             id="preview"
-            src={"http://" + site.subdomain + ".cactusdomaindev.xyz"}
+            src={"http://" + site.subdomain + ".sitepard.xyz"}
             title="your website"
             height="100%"
             width="100%"
