@@ -82,12 +82,12 @@ const EditInfo = ({
               </li>
               <li className="is-active">
                 <a href="#" aria-current="page">
-                  Modifica informazioni
+                  Il mio account
                 </a>
               </li>
             </ul>
           </nav>
-          <p className="title is-2">Informazioni</p>
+          <p className="title is-2">Il mio account</p>
           <form onSubmit={(e) => onSubmit(e)}>
 
             <div className="field">

@@ -32,7 +32,7 @@ const Main = ({ getCurrentSite, auth: { user }, site: { site, loading } }) => {
               </li>
             </ul>
           </nav>
-          <p className="title is-2">Area personale</p>
+          <p className="title is-2">Il mio sito</p>
           <p className="subtitle is-4">
             Puoi vedere il tuo sito nell'anteprima qui a destra. Per aggiungere
             prodotti o modificare il tuo sito clicca sulla voce corrispondente

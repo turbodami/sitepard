@@ -125,7 +125,7 @@ const EditProducts = ({
                   </li>
                   <li className="is-active">
                     <a href="#" aria-current="page">
-                      Modifica prodotti
+                      Il mio menù
                     </a>
                   </li>
                 </ul>

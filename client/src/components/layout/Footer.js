@@ -10,7 +10,7 @@ const Footer = () => {
   return (
     <Fragment>
         <Fragment>
-            <section className="hero is-medium is-primary is-bold">
+            <section className="hero is-medium is-info is-bold">
                 <div className="hero-body">
                     <div className="container">
                         <div className="columns is-vcentered is-centered mb-2">

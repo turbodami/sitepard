@@ -49,7 +49,7 @@ const Home = ({ isAuthenticated }) => {
             </div>
           </div>
         </section>
-        <section className="hero is-medium is-bold is-primary">
+        <section className="hero is-medium is-bold is-info">
           <div className="hero-body">
             <div className="container">
               <div className="columns is-vcentered">
