@@ -16,8 +16,8 @@ const Mobile = ({getCurrentSite, site: { site },}) => {
 
   useEffect(() => {
     console.log("dio cane ci sono2");
-    
-  }, [categories]);
+    iframe.contentWindow.location.reload(true);
+  }, [categories, products]);
 
   return (
     <Fragment>
