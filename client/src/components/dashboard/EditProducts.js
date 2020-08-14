@@ -19,10 +19,6 @@ const EditProducts = ({
     getCurrentSite();
   }, [getCurrentSite]);
 
-  useEffect(() => {
-    document.getElementById('preview').src = document.getElementById('preview').src ;
-  }, [site]);
-
   const { categories, products } = site;
 
   const [currentCat, setCat] = useState(''); 
@@ -143,7 +139,7 @@ const EditProducts = ({
               
             </div>
             <div className="column is-6 has-text-centered">
-              <Mobile id="preview"/>
+              <Mobile />
             </div>
           </div>
         </Fragment>

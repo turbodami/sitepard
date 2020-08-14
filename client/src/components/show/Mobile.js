@@ -8,7 +8,7 @@ import { getCurrentSite } from "../../actions/site";
 const Mobile = ({getCurrentSite, site: { site },}) => {
   useEffect(() => {
     getCurrentSite();
-  }, [getCurrentSite]);
+  }, [getCurrentSite, site]);
 
   
   return (
