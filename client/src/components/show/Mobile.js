@@ -6,12 +6,19 @@ import { connect } from "react-redux";
 import { getCurrentSite } from "../../actions/site";
 
 const Mobile = ({getCurrentSite, site: { site },}) => {
+
+  const { categories, products } = site;
+
   useEffect(() => {
     console.log("dio cane ci sono");
     getCurrentSite();
   }, [getCurrentSite]);
 
-  
+  useEffect(() => {
+    console.log("dio cane ci sono2");
+    getCurrentSite();
+  }, [categories]);
+
   return (
     <Fragment>
       <div className="marvel-device iphone-x">
