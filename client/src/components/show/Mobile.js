@@ -10,13 +10,6 @@ const Mobile = ({getCurrentSite, site: { site },}) => {
     getCurrentSite();
   }, [getCurrentSite]);
 
-  const [random, setRandom] = useState({random: 0});
-
-  useEffect(() => {
-    setRandom({
-      random: random+1
-    });
-  }, [site]);
   
   return (
     <Fragment>

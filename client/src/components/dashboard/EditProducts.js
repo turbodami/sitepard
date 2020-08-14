@@ -19,6 +19,15 @@ const EditProducts = ({
     getCurrentSite();
   }, [getCurrentSite]);
 
+
+  const [random, setRandom] = useState({random: 0});
+
+  useEffect(() => {
+    setRandom({
+      random: random+1
+    });
+  }, [site]);
+
   const { categories, products } = site;
 
   const [currentCat, setCat] = useState(''); 
