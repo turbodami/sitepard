@@ -7,6 +7,7 @@ import { getCurrentSite } from "../../actions/site";
 
 const Mobile = ({getCurrentSite, site: { site },}) => {
   useEffect(() => {
+    console.log("dio cane ci sono");
     getCurrentSite();
   }, [getCurrentSite, site]);
 
