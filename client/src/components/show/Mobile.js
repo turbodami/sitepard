@@ -17,6 +17,8 @@ const Mobile = ({getCurrentSite, site: { site },}) => {
   useEffect(() => {
     console.log("dio cane ci sono2");
     if(document.getElementById('preview')){
+      console.log(document.getElementById('preview'));
+      console.log(document.getElementById('preview').contentDocument);
       document.getElementById('preview').contentDocument.location.reload(true);
     }  
   }, [categories, products]);
