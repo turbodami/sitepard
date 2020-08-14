@@ -54,6 +54,7 @@ const AddProduct = ({ addProduct, history, addProdModalIsActive, toggleModProd, 
                   addProduct(formData, history);
                   setFormData(defaultData);
                   toggleModProd(!addProdModalIsActive);
+                  window.location.reload();
                 }}>
                   <div className="field">
                     <label className="label">Nome</label>
