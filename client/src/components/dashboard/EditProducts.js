@@ -51,7 +51,10 @@ const EditProducts = ({
               <div className="level-item">
                 <div className="buttons">
                   <button className="button is-danger"
-                    onClick={() => deleteCategory(cat._id)}
+                    onClick={() => {
+                      deleteCategory(cat._id);
+                      window.location.reload();
+                    }}
                   >
                     Elimina
                   </button>
@@ -69,7 +72,10 @@ const EditProducts = ({
             return (
               <div className="columns" key={prod._id}>
                 <div className="column is-1">
-                  <button className="delete is-small" aria-label="close" onClick={() => deleteProduct(prod._id)}></button>
+                  <button className="delete is-small" aria-label="close" onClick={() => {
+                      deleteProduct(prod._id);
+                      window.location.reload();
+                    }}></button>
                 </div>
                 <div className="column is-3">
                   <p className="title is-6">{prod.name}</p>
