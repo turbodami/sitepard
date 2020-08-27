@@ -26,6 +26,10 @@ const SiteSchema = new mongoose.Schema({
   {
     type: String
   },
+  subdomain: {
+    type: String,
+    required: false
+  },
   domain: {
     type: String,
     required: false,
