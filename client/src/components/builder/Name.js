@@ -2,12 +2,27 @@ import React, { Fragment } from "react";
 import Nav from "./Nav";
 import { useSpring, animated } from "react-spring";
 
-const Name = ({ formData, clientValidation, onChange, prevStep }) => {
+const Name = ({ formData, clientValidation, onChange, nextStep, prevStep }) => {
   const props = useSpring({
     opacity: 1,
     from: { opacity: 0 },
     config: { duration: 500 },
   });
+
+  const nameValidation = (name) => {
+    
+      if(name !== ""){
+        const buildSubdomain = name;
+        buildSubdomain = buildSubdomain.replace(/\s/g, '');
+        buildSubdomain = buildSubdomain.toLowerCase();
+        formData.subdomain = buildSubdomain;
+        
+        nextStep();
+      }
+    } else {
+      setAlert("Compila tutti i campi obbligatori!", "danger");
+    }
+  };
 
   return (
     <animated.div style={props}>
@@ -39,7 +54,7 @@ const Name = ({ formData, clientValidation, onChange, prevStep }) => {
                   <button
                     type="button"
                     className="button is-primary"
-                    onClick={() => clientValidation(formData.name)}
+                    onClick={() => nameValidation(formData.name)}
                   >
                     Avanti
                   </button>

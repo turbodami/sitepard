@@ -28,7 +28,7 @@ export const getCurrentSite = () => async (dispatch) => {
 };
 
 //load image
-export const uploadLogo = (formData, logo, nextStep) => async (
+export const uploadLogo = (formData, logo) => async (
   dispatch
 ) => {
   const config = {
@@ -40,6 +40,7 @@ export const uploadLogo = (formData, logo, nextStep) => async (
   try {
     const businessName = formData.name;
     const uploadedName = logo.logo.name;
+    const { subdomain } = formData; 
 
     const data = new FormData(); 
     data.append('file', logo.logo);
@@ -49,7 +50,7 @@ export const uploadLogo = (formData, logo, nextStep) => async (
     
     const extension = uploadedName.split('.').pop();
 
-    const res = await axios.post(`/api/siteSpaces/imageTemp/${imageName}logo.${extension}`, data, config);
+    const res = await axios.post(`/api/siteSpaces/image/${subdomain}${imageName}logo.${extension}`, data, config);
 
     dispatch({
       type: IMAGE_UPLOADED,
@@ -83,6 +84,7 @@ export const uploadCover = (formData, cover, nextStep) => async (
 
     const businessName = formData.name;
     const uploadedName = cover.cover.name;
+    const { subdomain } = formData;
 
     const data = new FormData(); 
     data.append('file', cover.cover);
@@ -92,7 +94,7 @@ export const uploadCover = (formData, cover, nextStep) => async (
     
     const extension = uploadedName.split('.').pop();
 
-    const res = await axios.post(`/api/siteSpaces/imageTemp/${imageName}cover.${extension}`, data, config);
+    const res = await axios.post(`/api/siteSpaces/image/${subdomain}${imageName}cover.${extension}`, data, config);
 
     dispatch({
       type: IMAGE_UPLOADED,
