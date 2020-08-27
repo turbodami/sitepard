@@ -7,7 +7,7 @@ const SiteSchema = new mongoose.Schema({
   },
   category: {
     type: String,
-    required: true,
+    required: false,
   },
   name: {
     type: String,
@@ -25,6 +25,10 @@ const SiteSchema = new mongoose.Schema({
   piva:
   {
     type: String
+  },
+  subdomain: {
+    type: String,
+    required: true
   },
   domain: {
     type: String,

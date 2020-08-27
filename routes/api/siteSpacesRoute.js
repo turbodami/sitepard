@@ -80,7 +80,7 @@ const imageUpload = multer({
             contentType: multerS3.AUTO_CONTENT_TYPE,
             key: (req, file, cb) =>
             {
-                cb(null, 'users-sites/' + req.params.domain + '/images/' + req.params.fileName)
+                cb(null, 'users-sites/' + req.params.subdomain + '/images/' + req.params.fileName)
             }
         }
     )
@@ -88,7 +88,7 @@ const imageUpload = multer({
 
 
 
-router.post('/image/:domain&:fileName', imageUpload.single('file'), async (req, res) =>
+router.post('/image/:subdomain&:fileName', imageUpload.single('file'), async (req, res) =>
 {
     
     if(!req.file)
@@ -100,7 +100,7 @@ router.post('/image/:domain&:fileName', imageUpload.single('file'), async (req, 
         try 
         {
             console.log('go');
-            const site = await Site.findOneAndUpdate({domain: req.params.domain},{$set: {images: {name: req.params.fileName, link: 'https://cactus-space.fra1.digitaloceanspaces.com/users-sites/'+ req.params.domain + '/images/' + req.params.fileName, pathS3:'user-sites/' + req.params.domain + '/images/' + req.params.fileName}}}, (err, site) =>
+            const site = await Site.findOneAndUpdate({subdomain: req.params.subdomain},{$set: {images: {name: req.params.fileName, link: 'https://cactus-space.fra1.digitaloceanspaces.com/users-sites/'+ req.params.subdomain + '/images/' + req.params.fileName, pathS3:'user-sites/' + req.params.subdomain + '/images/' + req.params.fileName}}}, (err, site) =>
             {
                 if(err || !site)
                 {
