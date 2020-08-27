@@ -7,7 +7,7 @@ const SiteSchema = new mongoose.Schema({
   },
   category: {
     type: String,
-    required: true,
+    required: false,
   },
   name: {
     type: String,
@@ -28,7 +28,7 @@ const SiteSchema = new mongoose.Schema({
   },
   subdomain: {
     type: String,
-    required: false
+    required: true
   },
   domain: {
     type: String,
