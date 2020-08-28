@@ -10,7 +10,7 @@ const Name = ({ formData, clientValidation, onChange, nextStep, prevStep }) => {
   });
 
   const nameValidation = (name) => {
-    
+
       if(name !== ""){
         const buildSubdomain = name;
         buildSubdomain = buildSubdomain.replace(/\s/g, '');
@@ -18,10 +18,9 @@ const Name = ({ formData, clientValidation, onChange, nextStep, prevStep }) => {
         formData.subdomain = buildSubdomain;
         
         nextStep();
+      } else {
+        setAlert("Compila tutti i campi obbligatori!", "danger");
       }
-    } else {
-      setAlert("Compila tutti i campi obbligatori!", "danger");
-    }
   };
 
   return (
