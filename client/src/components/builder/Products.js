@@ -2,6 +2,7 @@ import React, { Fragment, useEffect, useState } from "react";
 import { getCurrentSite, addCategory } from "../../actions/site";
 import PropTypes from "prop-types";
 import Spinner from "../layout/Spinner";
+import EditProducts from "../dashboard/EditProducts";
 
 import { connect } from "react-redux";
 
@@ -44,6 +45,7 @@ const Products = ({
   ) : (
     <animated.div style={props}>
       <Fragment>
+        <EditProducts />
         <input
           type="button"
           onClick={nextStep}
