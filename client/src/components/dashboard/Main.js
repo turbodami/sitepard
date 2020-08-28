@@ -34,9 +34,9 @@ const Main = ({ getCurrentSite, auth: { user }, site: { site, loading } }) => {
           </nav>
           <p className="title is-2">Il mio sito</p>
           <p className="subtitle is-4">
-            Puoi vedere il tuo sito nell'anteprima qui a destra. Per aggiungere
-            prodotti o modificare il tuo sito clicca sulla voce corrispondente
-            nel menu qui a sinistra.
+            Puoi vedere il tuo sito nell'anteprima qui a destra. 
+            <br />
+            Per prima cosa aggiungi il tuo menù cliccando su "Il mio menù" qui a sinistra!
           </p>
 
           <p>Il link del tuo sito è: </p>
