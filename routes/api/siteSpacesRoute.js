@@ -86,8 +86,15 @@ const imageUpload = multer({
     )
 });
 
+router.post('/image/:subdomain&:fileName', imageUpload.single('file'), async (req, res) => {
+    if(!req.file) {
+        return res.status(500).json({message: 'Bad request'});
+    } else {
+        return res.status(200).send(link);
+    }
+});
 
-
+/* 
 router.post('/image/:subdomain&:fileName', imageUpload.single('file'), async (req, res) =>
 {
     
@@ -139,7 +146,7 @@ router.post('/image/:subdomain&:fileName', imageUpload.single('file'), async (re
 //             }
 //         }
 //     )
-// });
+// }); */
 
 // router.post('/imageTemp/:fileName', imageTempUpload.single('file'), async (req, res) =>
 // {
