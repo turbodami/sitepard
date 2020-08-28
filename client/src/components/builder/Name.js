@@ -1,8 +1,9 @@
 import React, { Fragment } from "react";
 import Nav from "./Nav";
 import { useSpring, animated } from "react-spring";
+import { setAlert } from "../../actions/alert";
 
-const Name = ({ formData, clientValidation, onChange, nextStep, prevStep }) => {
+const Name = ({ formData, setAlert, onChange, nextStep, prevStep }) => {
   const props = useSpring({
     opacity: 1,
     from: { opacity: 0 },
