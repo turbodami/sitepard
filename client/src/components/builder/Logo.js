@@ -26,7 +26,6 @@ const Logo = ({ formData, nextStep, prevStep, uploadLogo }) => {
 
   const sendLogo = async () => {
     function successCallback(result) {
-      
       nextStep();
     }
     function failureCallback(error) {

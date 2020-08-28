@@ -74,7 +74,7 @@ export const uploadLogo = (formData, logo) => async (
 }
 
 //load cover
-export const uploadCover = (formData, cover, nextStep) => async (
+export const uploadCover = (formData, cover) => async (
   dispatch
 ) => {
   const config = {
@@ -84,11 +84,10 @@ export const uploadCover = (formData, cover, nextStep) => async (
   }; 
 
   try {
-   
 
     const businessName = formData.name;
     const uploadedName = cover.cover.name;
-    const { subdomain } = formData;
+    const { subdomain } = formData; 
 
     const data = new FormData(); 
     data.append('file', cover.cover);
@@ -98,8 +97,12 @@ export const uploadCover = (formData, cover, nextStep) => async (
     
     const extension = uploadedName.split('.').pop();
 
-    const res = await axios.post(`/api/siteSpaces/image/${subdomain}${imageName}cover.${extension}`, data, config);
-
+    const res = await axios.post(`/api/siteSpaces/image/${subdomain}&${imageName}cover.${extension}`, data, config)
+      .then((response) => {
+        formData.cover = response.data;
+        console.log(formData);
+      });
+    
     dispatch({
       type: IMAGE_UPLOADED,
     });
