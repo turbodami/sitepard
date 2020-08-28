@@ -53,6 +53,7 @@ export const uploadLogo = (formData, logo) => async (
     const res = await axios.post(`/api/siteSpaces/image/${subdomain}&${imageName}logo.${extension}`, data, config)
       .then((response) => {
         formData.logo = response.data.link;
+        console.log(formData);
       });
     
     dispatch({

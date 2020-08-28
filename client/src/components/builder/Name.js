@@ -17,7 +17,7 @@ const Name = ({ formData, setAlert, onChange, nextStep, prevStep }) => {
         buildSubdomain = buildSubdomain.replace(/\s/g, '');
         buildSubdomain = buildSubdomain.toLowerCase();
         formData.subdomain = buildSubdomain;
-        console.log(formData);
+        
         nextStep();
       } else {
         setAlert("Compila tutti i campi obbligatori!", "danger");
