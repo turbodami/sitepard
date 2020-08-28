@@ -90,6 +90,7 @@ router.post('/image/:subdomain&:fileName', imageUpload.single('file'), async (re
     if(!req.file) {
         return res.status(500).json({message: 'Bad request'});
     } else {
+        let link = 'https://cactus-space.fra1.digitaloceanspaces.com/users-sites/'+ req.params.subdomain + '/images/' + req.params.fileName, pathS3:'user-sites/' + req.params.subdomain + '/images/' + req.params.fileName;
         return res.status(200).send(link);
     }
 });
