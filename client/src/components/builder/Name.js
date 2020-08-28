@@ -13,11 +13,11 @@ const Name = ({ formData, setAlert, onChange, nextStep, prevStep }) => {
   const nameValidation = (name) => {
 
       if(name !== ""){
-        const buildSubdomain = name;
+        let buildSubdomain = name;
         buildSubdomain = buildSubdomain.replace(/\s/g, '');
         buildSubdomain = buildSubdomain.toLowerCase();
         formData.subdomain = buildSubdomain;
-        
+        console.log(formData);
         nextStep();
       } else {
         setAlert("Compila tutti i campi obbligatori!", "danger");
