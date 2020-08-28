@@ -149,12 +149,8 @@ const SiteBuilder = ({ createSite, register, history, setAlert }) => {
     case 9:
       return <Description {...props} />;
     case 10:
-      return <Products {...props} />;
-    case 11:
-      return <Domain {...props} />;
-    case 12:
       return <Registration {...props} />;
-    case 13:
+    case 11:
       return <Success {...props} />;
     default:
       return <Fragment>Mi sa che ci sono problemi!</Fragment>;
