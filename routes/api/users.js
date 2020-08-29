@@ -95,7 +95,7 @@ router.post(
             {
               const options =   //Prepare data for mail request
               {
-                url : 'http://localhost:5000/api/mail/verification/' + email,
+                url : 'http://localhost:5000/api/mail/send-verification/' + email,
                 method: 'POST',
                 headers: 
                 {
