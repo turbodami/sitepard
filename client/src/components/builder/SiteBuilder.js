@@ -32,7 +32,7 @@ const defaultData = {
   password: "",
   password2: "",
   logo: "",
-  image: "",
+  cover: "",
   whatsappNumber: "",
   tel: "",
   timeTable: {
