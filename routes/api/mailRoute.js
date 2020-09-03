@@ -17,7 +17,7 @@ const transporter = nodemailer.createTransport(
     }
 )
 
-router.post('/verification/:recipient', async(req, res) =>
+router.post('/send-verification/:recipient', async(req, res) => //Invia una mail di verifica
 {
     try 
     {
@@ -49,7 +49,7 @@ router.post('/verification/:recipient', async(req, res) =>
 
 });
 
-router.get('/verification/:token', async(req, res) =>
+router.get('/verification/:token', async(req, res) => //Verifica dell'utente attraverso la mail inviata dalla route send-verification
 {
     User.findOne({registrationToken : req.params.token}, (err, user) =>
     {
@@ -89,7 +89,7 @@ router.get('/verification/:token', async(req, res) =>
     })
 });
 
-router.post('/passwordForgot/:recipient', async(req, res) =>
+router.post('/passwordForgot/:recipient', async(req, res) => //Invia una mail per il reset della password
 {
     try 
     {
@@ -173,7 +173,7 @@ router.post('/passwordReset/:token', async(req, res) =>  //Route che a partire d
     })
 });
 
-router.post('/passwordChanged/:recipient', async(req, res) =>
+router.post('/passwordChanged/:recipient', async(req, res) => //Invia una mail che avvisa l'utente che la password è stata modificata
 {
     try 
     {
