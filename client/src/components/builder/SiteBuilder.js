@@ -102,7 +102,7 @@ const SiteBuilder = ({ createSite, register, history, setAlert }) => {
           let { name } = formData;
           name = name.replace(/\s/g, '');
           name = name.toLowerCase();
-          formData.domain = name;
+          formData.subdomain = name;
           console.log("lui è nato");
           createSite(formData, history);
         }
