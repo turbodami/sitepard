@@ -24,6 +24,7 @@ const defaultData = {
   category: "",
   name: "",
   domain: "",
+  subdomain: "",
   address: "",
   palette: "",
   style: "",

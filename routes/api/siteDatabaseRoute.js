@@ -63,6 +63,7 @@ router.post(
       address,
       whatsappNumber,
       domain,
+      subdomain,
       description,
       piva,
       image,
@@ -82,6 +83,7 @@ router.post(
     if (name) siteFields.name = name;
     if (tel) siteFields.tel = tel;
     if (domain) siteFields.domain = domain;
+    if (subdomain) siteFields.subdomain = subdomain;
     if (address) siteFields.address = address;
     if (whatsappNumber) siteFields.whatsappNumber = whatsappNumber;
     if (piva) siteFields.piva = piva;
