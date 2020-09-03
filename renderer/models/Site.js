@@ -45,7 +45,7 @@ const SiteSchema = new mongoose.Schema({
   description: {
     type: String,
   },
-  image: {
+  cover: {
     type: String,
   },
   logo: {

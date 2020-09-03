@@ -66,7 +66,7 @@ router.post(
       subdomain,
       description,
       piva,
-      image,
+      cover,
       logo,
       palette,
       style,
@@ -88,7 +88,7 @@ router.post(
     if (whatsappNumber) siteFields.whatsappNumber = whatsappNumber;
     if (piva) siteFields.piva = piva;
     if (description) siteFields.description = description;
-    if (image) siteFields.image = image;
+    if (cover) siteFields.cover = cover;
     if (logo) siteFields.logo = logo;
     if (palette) siteFields.palette = palette;
     if (style) siteFields.style = style;
