@@ -8,6 +8,7 @@ import Whatsapp from "./Whatsapp";
 import Tel from "./Tel";
 import TimeTable from "./TimeTable";
 import Address from "./Address";
+import Piva from "./Piva";
 import Description from "./Description";
 import Products from "./Products";
 import Registration from "./Registration";
@@ -46,6 +47,7 @@ const defaultData = {
   },
   description: "",
   type: "",
+  piva: ""
 };
 
 const SiteBuilder = ({ createSite, register, history, setAlert }) => {
@@ -85,7 +87,7 @@ const SiteBuilder = ({ createSite, register, history, setAlert }) => {
 
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value,
+      [e.target.name]: e.target.value.toLowerCase(),
     });
 
     nextStep();
@@ -148,10 +150,12 @@ const SiteBuilder = ({ createSite, register, history, setAlert }) => {
     case 8:
       return <Address {...props} />;
     case 9:
-      return <Description {...props} />;
+      return <Piva {...props} />
     case 10:
-      return <Registration {...props} />;
+      return <Description {...props} />;
     case 11:
+      return <Registration {...props} />;
+    case 12:
       return <Success {...props} />;
     default:
       return <Fragment>Mi sa che ci sono problemi!</Fragment>;

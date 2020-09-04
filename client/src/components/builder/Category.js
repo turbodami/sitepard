@@ -43,8 +43,8 @@ const Category = ({ handleSelection }) => {
                   onClick={(e) => handleSelection(e)}
                   className="button is-primary"
                   name="category"
-                  value="pizzeria"
-                  placehol
+                  value="Pizzeria"
+                  placeholder=""
                 />
               </div>
               <div className="column is-3" />
