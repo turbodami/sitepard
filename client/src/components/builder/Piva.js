@@ -19,10 +19,10 @@ const Piva = ({ formData, clientValidation, prevStep, onChange }) => {
               <div className="column is-3"></div>
               <div className="column is-6 has-text-centered">
                 <p className="title is-1">
-                  Qual'è l'indirizzo della tua attività?
+                  Qual'è la tua partita IVA?
                 </p>
                 <p className="subtitle is-3">
-                  Inserisci l'indirizzo completo della tua attività
+                  Verrà mostrata nelle informazioni del tuo sito
                 </p>
                 <div className="field">
                   <div className="control">
