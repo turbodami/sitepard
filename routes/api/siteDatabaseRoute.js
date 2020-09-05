@@ -264,12 +264,12 @@ router.delete("/categories/:cat_id", auth, async (req, res) => {
   }
 });
 
-router.get("/domainExists/:domain", async (req,res) =>  //Route per controllare se il sito esiste gia
+router.get("/domainExists/:subdomain", async (req,res) =>  //Route per controllare se il sito esiste gia
 {
-  console.log(req.params.domain);
+  console.log(req.params.subdomain);
   try 
   {
-    const site = await Site.findOne({domain: req.params.domain}, (err, site) =>
+    const site = await Site.findOne({subdomain: req.params.subdomain}, (err, site) =>
     {
       if(err)
       {
@@ -290,7 +290,7 @@ router.get("/domainExists/:domain", async (req,res) =>  //Route per controllare 
   catch (error) 
   {
     console.log(err);
-    return res.status(500).json({message: `Errore nel backend, get(/domainExists/:domain)\n ${err}`});
+    return res.status(500).json({message: `Errore nel backend, get(/domainExists/:subdomain)\n ${err}`});
   }
 });
 
