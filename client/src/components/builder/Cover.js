@@ -78,8 +78,7 @@ const Cover = ({ formData, nextStep, prevStep, uploadCover }) => {
                   Vuoi usare un'immagine di copertina?
                 </p>
                 <p className="subtitle is-3">
-                  Se non hai foto della tua attività contattaci su Whatsapp,
-                  Nico verrà a farle per te
+                  Sarà l'immagine che i tuoi clienti vedranno per prima
                 </p>
                 <div className="buttons are-large is-centered has-text-centered">
                   <button
