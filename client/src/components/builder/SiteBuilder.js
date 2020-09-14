@@ -101,19 +101,27 @@ const SiteBuilder = ({ createSite, register, history, setAlert }) => {
       if (password !== password2) {
         setAlert("Le password non corrispondono", "danger");
       } else {
-        function successCallback(result) {
+        function successRegister(result) {
           let { name } = formData;
           name = name.replace(/\s/g, '');
           name = name.toLowerCase();
           formData.subdomain = name;
-          console.log("lui è nato");
-          createSite(formData, history);
+
+          function successCreateSite(result) {
+            nextStep();
+          }
+          function failureCreateSite(error) {
+            console.log("error creating site")
+          }
+          const promiseCreateSite = createSite(formData, history);
+          promiseCreateSite.then(successCreateSite, failureCreateSite);
         }
-        function failureCallback(error) {
-          console.log("error");
+        function failureRegister(error) {
+          console.log("error registering user");
         }
-        const promise = register({ email, password });
-        promise.then(successCallback, failureCallback);
+
+        const promiseRegister = register({ email, password });
+        promiseRegister.then(successRegister, failureRegister);
         //createSite(formData, history);
       }
     } else {
