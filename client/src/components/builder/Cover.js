@@ -23,30 +23,6 @@ const Cover = ({ formData, nextStep, prevStep, uploadImage }) => {
     promise.then(success, failure);
   }
 
-  /* const [cover, setCover] = useState({
-    cover: null
-  });
-
-  const handleUpload = (e) => {
-    
-    setCover({
-      cover: e.target.files[0]
-    });
-    
-  } 
-
-  const sendCover = async () => {
-    function successCallback(result) {
-      nextStep();
-    }
-    function failureCallback(error) {
-      console.log("error");
-    }
-
-    const promise = uploadCover(formData, cover, nextStep);
-    promise.then(successCallback, failureCallback);
-  } */
-
   const coverLoader = (
     <animated.div style={props}>
       <Fragment>
@@ -174,7 +150,7 @@ const Cover = ({ formData, nextStep, prevStep, uploadImage }) => {
 };
 
 Cover.propTypes = {
-  uploadCover: PropTypes.func.isRequired,
+  uploadImage: PropTypes.func.isRequired,
 };
 
-export default connect(null, { uploadCover})(Cover);
+export default connect(null, { uploadImage})(Cover);
