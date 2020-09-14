@@ -21,7 +21,7 @@ const Logo = ({ formData, nextStep, prevStep, uploadLogo }) => {
     setLogo({
       logo: e.target.files[0]
     });
-    console.log(e.target.file[0])
+    console.log(e.target.files[0])
   }
 
   const sendLogo = async () => {
