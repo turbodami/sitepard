@@ -33,7 +33,7 @@ const defaultData = {
   password: "",
   password2: "",
   logo: "",
-  images: []
+  images: [],
   cover: "",
   whatsappNumber: "",
   tel: "",
