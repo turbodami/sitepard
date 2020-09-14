@@ -42,8 +42,8 @@ const Header = () => {
                     <Link to="/login" className="button is-warning">
                       Login
                     </Link>
-                    <Link to="/sitebuilder" className="button is-danger">
-                      Prova gratis
+                    <Link to="/sitebuilder" className="button is-info">
+                      Registrati
                     </Link>
                   </div>
                 </div>
