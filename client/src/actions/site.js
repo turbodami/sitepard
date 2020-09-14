@@ -105,8 +105,6 @@ export const uploadImage = (formData, image, name) => async (
             "name": name,
             "link": response.data
         });
-        formData.images.name = name;
-        formData.images.link = response.data;
         
         console.log(formData);
       });
