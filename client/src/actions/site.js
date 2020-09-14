@@ -27,7 +27,7 @@ export const getCurrentSite = () => async (dispatch) => {
   }
 };
 
-//load image
+//upload image
 export const uploadLogo = (formData, logo) => async (
   dispatch
 ) => {
@@ -95,7 +95,7 @@ export const uploadImage = (formData, image, name) => async (
     console.log(image.name);
 
     const data = new FormData(); 
-    data.append('file', image.name);
+    data.append('file', image);
 
     console.log(data);
 
