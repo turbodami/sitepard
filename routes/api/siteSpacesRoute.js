@@ -87,6 +87,7 @@ const imageUpload = multer({
 });
 
 router.post('/image/:subdomain&:fileName', imageUpload.single('file'), async (req, res) => {
+    console.log("sono entrato nel post");
     if(!req.file) {
         console.log("non c'è il file");
         return res.status(500).json({message: 'Errrore nel caricamento del file'});
