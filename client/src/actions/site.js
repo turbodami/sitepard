@@ -73,8 +73,8 @@ export const uploadLogo = (formData, logo) => async (
   }
 }
 
-//load cover
-export const uploadCover = (formData, cover) => async (
+//upload image
+export const uploadImage = (formData, image, name) => async (
   dispatch
 ) => {
   const config = {
@@ -86,20 +86,28 @@ export const uploadCover = (formData, cover) => async (
   try {
 
     const businessName = formData.name;
-    const uploadedName = cover.cover.name;
+    const uploadedName = image.name.name;
     const { subdomain } = formData; 
 
     const data = new FormData(); 
-    data.append('file', cover.cover);
+    data.append('file', image.name);
 
-    let imageName = businessName;
-    imageName = imageName.replace(/\s/g, '').toLowerCase();
+    let formattedBusinessName = businessName;
+    formattedBusinessName = formattedBusinessName.replace(/\s/g, '').toLowerCase();
     
+    let imageName = `${formattedBusinessName}${name}.${extension}`;
+
     const extension = uploadedName.split('.').pop();
 
-    const res = await axios.post(`/api/siteSpaces/image/${subdomain}&${imageName}cover.${extension}`, data, config)
+    const res = await axios.post(`/api/siteSpaces/image/${subdomain}&${imageName}`, data, config)
       .then((response) => {
-        formData.cover = response.data;
+        formData.images.push({
+            "name": name,
+            "link": response.data
+        });
+        formData.images.name = name;
+        formData.images.link = response.data;
+        
         console.log(formData);
       });
     

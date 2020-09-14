@@ -1,19 +1,29 @@
 import React, { useState, Fragment } from "react";
 import { useSpring, animated } from "react-spring";
 import Nav from "./Nav";
-import { uploadCover } from "../../actions/site";
+import { uploadImage } from "../../actions/site";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 
-const Cover = ({ formData, nextStep, prevStep, uploadCover }) => {
+const Cover = ({ formData, nextStep, prevStep, uploadImage }) => {
   const props = useSpring({
     opacity: 1,
     from: { opacity: 0 },
     config: { duration: 500 },
   });
 
+  const handleImage = async (e) => {
+    function success(result) {
+      console.log("immagine caricata");
+    }
+    function failure(error) {
+      console.log("non ce la faccio zio :(");
+    }
+    const promise = uploadImage(formData, e.target.files[0], e.target.getAttribute('name'));
+    promise.then(success, failure);
+  }
 
-  const [cover, setCover] = useState({
+  /* const [cover, setCover] = useState({
     cover: null
   });
 
@@ -23,7 +33,7 @@ const Cover = ({ formData, nextStep, prevStep, uploadCover }) => {
       cover: e.target.files[0]
     });
     
-  }
+  } 
 
   const sendCover = async () => {
     function successCallback(result) {
@@ -35,15 +45,71 @@ const Cover = ({ formData, nextStep, prevStep, uploadCover }) => {
 
     const promise = uploadCover(formData, cover, nextStep);
     promise.then(successCallback, failureCallback);
-  }
+  } */
 
   const coverLoader = (
     <animated.div style={props}>
       <Fragment>
+          
         <div className="field">
           <div className="file is-boxed is-centered">
             <label className="file-label">
-              <input className="file-input" type="file" name="file" onChange={handleUpload}/>
+              <input className="file-input" type="file" name="dish1" onChange={handleImage}/>
+              <span className="file-cta"> 
+                <span className="file-label">Carica copertina</span>
+              </span>
+            </label>
+          </div>
+        </div>
+
+        <div className="field">
+          <div className="file is-boxed is-centered">
+            <label className="file-label">
+              <input className="file-input" type="file" name="dish2" onChange={handleImage}/>
+              <span className="file-cta"> 
+                <span className="file-label">Carica copertina</span>
+              </span>
+            </label>
+          </div>
+        </div>
+
+        <div className="field">
+          <div className="file is-boxed is-centered">
+            <label className="file-label">
+              <input className="file-input" type="file" name="dish3" onChange={handleImage}/>
+              <span className="file-cta"> 
+                <span className="file-label">Carica copertina</span>
+              </span>
+            </label>
+          </div>
+        </div>
+
+        <div className="field">
+          <div className="file is-boxed is-centered">
+            <label className="file-label">
+              <input className="file-input" type="file" name="dish4" onChange={handleImage}/>
+              <span className="file-cta"> 
+                <span className="file-label">Carica copertina</span>
+              </span>
+            </label>
+          </div>
+        </div>
+
+        <div className="field">
+          <div className="file is-boxed is-centered">
+            <label className="file-label">
+              <input className="file-input" type="file" name="dish5" onChange={handleImage}/>
+              <span className="file-cta"> 
+                <span className="file-label">Carica copertina</span>
+              </span>
+            </label>
+          </div>
+        </div>
+
+        <div className="field">
+          <div className="file is-boxed is-centered">
+            <label className="file-label">
+              <input className="file-input" type="file" name="env" onChange={handleImage}/>
               <span className="file-cta"> 
                 <span className="file-label">Carica copertina</span>
               </span>
@@ -54,7 +120,7 @@ const Cover = ({ formData, nextStep, prevStep, uploadCover }) => {
         <input
           type="button"
           onClick={() => {
-            sendCover();
+            nextStep();
           }}
           className="button is-info"
           value="Avanti"

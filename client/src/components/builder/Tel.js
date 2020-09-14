@@ -29,7 +29,7 @@ const Tel = ({ formData, clientValidation, prevStep, onChange }) => {
                     <input
                       className="input"
                       type="text"
-                      placeholder="Numero Whatsapp"
+                      placeholder="Numero di telefono"
                       name="tel"
                       value={formData.tel}
                       onChange={(e) => onChange(e)}

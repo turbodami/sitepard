@@ -13,14 +13,12 @@ html
                     span(aria-hidden='true')
                     span(aria-hidden='true')
                     span(aria-hidden='true')
-            .navbar-menu  
-                .navbar-start
+            .navbar-menu   
+                .navbar-end
                     a.navbar-item(href='#menu') Menu
                     a.navbar-item(href='#timetable') Orari
                     a.navbar-item(href='#address') Dove siamo
-                .navbar-end.is-hidden-touch
-                    .navbar-item
-                    .buttons
+                    .buttons.is-hidden-touch
                         if(whatsappNumber)
                             a.button.is-primary(href=`https://wa.me/39${whatsappNumber}`) Ordina su Whatsapp
                         a.button.is-info(href=`tel:${tel}`) Chiama
