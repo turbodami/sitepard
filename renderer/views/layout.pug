@@ -9,7 +9,7 @@ html
                         img(src=logo width="200" height="28")
                     else
                         #{name}
-                div.navbar-burger.burger(role='button', aria-label='menu', aria-expanded='false', onclick="document.querySelector('.navbar-menu').classList.toggle('is-active'); document.querySelector('.navbar-burger').classList.toggle('is-active');")
+                .navbar-burger.burger(role='button', aria-label='menu', aria-expanded='false', onclick="document.querySelector('.navbar-menu').classList.toggle('is-active'); document.querySelector('.navbar-burger').classList.toggle('is-active');")
                     span(aria-hidden='true')
                     span(aria-hidden='true')
                     span(aria-hidden='true')
@@ -22,6 +22,14 @@ html
                         if(whatsappNumber)
                             a.button.is-primary(href=`https://wa.me/39${whatsappNumber}`) Ordina su Whatsapp
                         a.button.is-info(href=`tel:${tel}`) Chiama
+        .section.hero.is-medium.has-carousel
+            div(id="carousel" class="hero-carousel")
+                .item-1
+                    img(src=logo)
+                .item-2
+                    img(src=logo)
+                .item-3
+                    img(src=logo)
         .section.is-medium
             .container
                 .columns.is-centered
@@ -75,4 +83,9 @@ html
                     .columns.is-centered
                         .column.is-one-fifth.has-text-centered
                             p © 2020 #{name} P.IVA: #{piva} Tutti i diritti riservati
+        script.
+            bulmaCarousel.attach('#carousel', {
+				slidesToScroll: 1,
+				slidesToShow: 4
+			});
         block content

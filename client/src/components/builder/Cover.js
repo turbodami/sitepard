@@ -19,7 +19,7 @@ const Cover = ({ formData, nextStep, prevStep, uploadImage }) => {
     function failure(error) {
       console.log("non ce la faccio zio :(");
     }
-    console.log(e.target.files[0]);
+    
     const promise = uploadImage(formData, e.target.files[0], e.target.getAttribute('name'));
     promise.then(success, failure);
   }
