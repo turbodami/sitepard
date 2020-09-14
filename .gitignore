@@ -1,7 +1,6 @@
 client/build
 node_modules/
 storage/
-public/
 sitesImages/
 .next/
 sitesImages/sendgrid.env
