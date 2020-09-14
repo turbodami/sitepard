@@ -132,12 +132,11 @@ export const createSite = (formData, history, edit = false) => async (
     };
 
     const res = await axios.post("/api/site", formData, config);
-    
-    //avoid to get site in order to get success page instead of dashboard loaded
-    /* dispatch({
+
+    dispatch({
       type: GET_SITE,
       payload: res.data,
-    }); */
+    });
 
     dispatch(
       setAlert(

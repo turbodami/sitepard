@@ -57,9 +57,8 @@ export const register = ({ email, password }) => async (dispatch) => {
       payload: res.data,
     });
     //callback();
-    
-    //avoid to load user and dashboard to get the success page
-    //dispatch(loadUser());
+
+    dispatch(loadUser());
   } catch (err) {
     const errors = err.response.data.errors;
 

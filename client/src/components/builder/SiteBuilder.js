@@ -101,27 +101,19 @@ const SiteBuilder = ({ createSite, register, history, setAlert }) => {
       if (password !== password2) {
         setAlert("Le password non corrispondono", "danger");
       } else {
-        function successRegister(result) {
+        function successCallback(result) {
           let { name } = formData;
           name = name.replace(/\s/g, '');
           name = name.toLowerCase();
           formData.subdomain = name;
-
-          function successCreateSite(result) {
-            nextStep();
-          }
-          function failureCreateSite(error) {
-            console.log("error creating site")
-          }
-          const promiseCreateSite = createSite(formData, history);
-          promiseCreateSite.then(successCreateSite, failureCreateSite);
+          console.log("lui è nato");
+          createSite(formData, history);
         }
-        function failureRegister(error) {
-          console.log("error registering user");
+        function failureCallback(error) {
+          console.log("error");
         }
-
-        const promiseRegister = register({ email, password });
-        promiseRegister.then(successRegister, failureRegister);
+        const promise = register({ email, password });
+        promise.then(successCallback, failureCallback);
         //createSite(formData, history);
       }
     } else {
@@ -150,21 +142,17 @@ const SiteBuilder = ({ createSite, register, history, setAlert }) => {
     case 4:
       return <Cover {...props} />;
     case 5:
-      return <Whatsapp {...props} />;
-    case 6:
       return <Tel {...props} />;
-    case 7:
+    case 6:
       return <TimeTable {...props} />;
-    case 8:
+    case 7:
       return <Address {...props} />;
-    case 9:
+    case 8:
       return <Piva {...props} />
-    case 10:
+    case 9:
       return <Description {...props} />;
-    case 11:
+    case 10:
       return <Registration {...props} />;
-    case 12:
-      return <Success {...props} />;
     default:
       return <Fragment>Mi sa che ci sono problemi!</Fragment>;
   }

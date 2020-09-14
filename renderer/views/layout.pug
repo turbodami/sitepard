@@ -21,7 +21,8 @@ html
                 .navbar-end.is-hidden-touch
                     .navbar-item
                     .buttons
-                        a.button.is-primary(href=`https://wa.me/39${whatsappNumber}`) Ordina su Whatsapp
+                        if(whatsappNumber)
+                            a.button.is-primary(href=`https://wa.me/39${whatsappNumber}`) Ordina su Whatsapp
                         a.button.is-info(href=`tel:${tel}`) Chiama
         .section.is-medium
             .container
@@ -30,7 +31,8 @@ html
                         p.title.is-size-1-desktop.is-size-3-mobile #{name}
                         p.subtitle.is-size-3-desktop.is-size-5-mobile #{description} 
                         .buttons.is-centered
-                            a.button.is-primary(href=`https://wa.me/39${whatsappNumber}`) Ordina su Whatsapp
+                            if(whatsappNumber)
+                                a.button.is-primary(href=`https://wa.me/39${whatsappNumber}`) Ordina su Whatsapp
                             a.button.is-info(href=`tel:${tel}`) Chiama              
                     .column.is-on-third.is-vcentered
                         figure.image.is-square
