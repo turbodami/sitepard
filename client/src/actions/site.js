@@ -86,7 +86,7 @@ export const uploadImage = (formData, image, name) => async (
   try {
 
     const businessName = formData.name;
-    const uploadedName = image.name.name;
+    const uploadedName = image.name;
     const { subdomain } = formData; 
 
     console.log(businessName);
@@ -104,11 +104,11 @@ export const uploadImage = (formData, image, name) => async (
     
     console.log(formattedBusinessName);
 
-    let imageName = `${formattedBusinessName}${name}.${extension}`;
-    console.log(imageName);
-
     const extension = uploadedName.split('.').pop();
     console.log(extension);
+
+    let imageName = `${formattedBusinessName}${name}.${extension}`;
+    console.log(imageName);
 
     const res = await axios.post(`/api/siteSpaces/image/${subdomain}&${imageName}`, data, config)
       .then((response) => {
