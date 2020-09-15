@@ -25,11 +25,9 @@ html
         .section.hero.is-medium.has-carousel
             div(id="carousel" class="hero-carousel")
                 .item-1
-                    img(src=cover)
+                    img(src=images[0].link)
                 .item-2
-                    img(src=cover)
-                .item-3
-                    img(src=cover)
+                    img(src=images[1].link)
         .section.is-medium
             .container
                 .columns.is-centered
@@ -42,7 +40,7 @@ html
                             a.button.is-info(href=`tel:${tel}`) Chiama              
                     .column.is-on-third.is-vcentered
                         figure.image.is-square
-                            img.is-rounded(src=cover)
+                            img.is-rounded(src=images[2].link)
         .section.is-medium.has-background-light(id='menu')
             .container
                 .columns.is-centered
@@ -84,5 +82,5 @@ html
                         .column.is-one-fifth.has-text-centered
                             p © 2020 #{name} P.IVA: #{piva} Tutti i diritti riservati
         script.
-            bulmaCarousel.attach('#carousel', {slidesToScroll: 1, slidesToShow: 1, navigation: false, navigationKeys: false, autoplay: true, infinite: true, pauseOnHover: false});
+            bulmaCarousel.attach('#carousel', {slidesToScroll: 1, slidesToShow: 1, effect: fade, navigation: false, navigationKeys: false, autoplay: true, infinite: true, pauseOnHover: false});
         block content
