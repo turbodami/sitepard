@@ -22,15 +22,14 @@ html
                         if(whatsappNumber)
                             a.button.is-primary(href=`https://wa.me/39${whatsappNumber}`) Ordina su Whatsapp
                         a.button.is-info(href=`tel:${tel}`) Chiama
-        .section.hero.is-large.has-carousel
+        .section.hero.is-medium.has-carousel
             div(id="carousel" class="hero-carousel")
                 .item-1
                     img(src=images[0].link)
                 .item-2
                     img(src=images[1].link)
             .hero-body.has-text-centered
-                h1(class='title') #{name}
-                h3(class='subtitle') Pizzeria
+                h1(class='title is-1') #{name}
         .section.is-medium
             .container
                 .columns.is-centered.is-vcentered
@@ -40,7 +39,7 @@ html
                     .column.is-one-third.is-vcentered
                         figure.image.is-square
                             img.is-rounded(src=images[2].link)
-        .section.is-medium.has-background-warning(id='menu')
+        .section.is-medium.has-background-black(id='menu')
             .container
                 .columns.is-centered
                     .column.is-half.has-text-centered
@@ -50,13 +49,13 @@ html
                 .columns.is-centered
                     .column.is-half.has-text-left
                         each category in categories
-                            .box
+                            .box.has-background-warning-light
                                 p.is-size-3-desktop.is-size-4-mobile.is-uppercase.has-text-centered #{category.name}
                                 br
                                 each product in products
                                     if product.category === category.name
-                                        p.is-size-4-desktop.is-size-5-mobile.has-text-weight-bold.has-text-centered-mobile #{product.name} #{product.price}€
-                                        p.subtitle.is-size-5-desktop.is-size-6-mobile.has-text-centered-mobile #{product.description}
+                                        p.is-size-4-desktop.is-size-5-mobile.has-text-weight-bold.has-text-centered.is-italic #{product.name} #{product.price}€
+                                        p.subtitle.is-size-5-desktop.is-size-6-mobile.has-text-centered.is-italic #{product.description}
                     
         .section.hero.is-white.is-small
             .hero-body
