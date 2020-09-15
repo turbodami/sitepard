@@ -22,7 +22,7 @@ html
                         if(whatsappNumber)
                             a.button.is-primary(href=`https://wa.me/39${whatsappNumber}`) Ordina su Whatsapp
                         a.button.is-info(href=`tel:${tel}`) Chiama
-        .section.hero.is-medium.has-carousel
+        .section.hero.is-large.has-carousel
             div(id="carousel" class="hero-carousel")
                 .item-1
                     img(src=images[0].link)
@@ -33,19 +33,15 @@ html
                 .columns.is-centered
                     .column.is-half.has-text-centered-mobile
                         p.title.is-size-1-desktop.is-size-3-mobile #{name}
-                        p.subtitle.is-size-3-desktop.is-size-5-mobile #{description} 
-                        .buttons.is-centered
-                            if(whatsappNumber)
-                                a.button.is-primary(href=`https://wa.me/39${whatsappNumber}`) Ordina su Whatsapp
-                            a.button.is-info(href=`tel:${tel}`) Chiama              
+                        p.subtitle.is-size-3-desktop.is-size-5-mobile #{description}              
                     .column.is-on-third.is-vcentered
                         figure.image.is-square
                             img.is-rounded(src=images[2].link)
-        .section.is-medium.has-background-light(id='menu')
+        .section.is-medium.has-background-black(id='menu')
             .container
                 .columns.is-centered
                     .column.is-half.has-text-centered
-                        p.title.is-size-1-desktop.is-size-2-mobile MENU
+                        p.title.is-size-1-desktop.is-size-2-mobile.has-text-warning-dark MENU
                         br
             .container
                 .columns.is-centered
@@ -75,11 +71,11 @@ html
                         .column.is-one-third.has-text-centered(name='address')
                             p.title.is-size-1-desktop.is-size-2-mobile(id='address') Dove siamo
                                 p.subtitle.is-size-3-desktop.is-size-4-mobile #{address}
-        .section.hero.is-danger.is-small
+        .section.hero.is-black.is-small
             .hero-body
                 .container
                     .columns.is-centered
-                        .column.is-one-fifth.has-text-centered
+                        .column.is-one-fifth.has-text-centered.has-text-white
                             p © 2020 #{name} P.IVA: #{piva} Tutti i diritti riservati
         script.
             bulmaCarousel.attach('#carousel', {slidesToScroll: 1, slidesToShow: 1, navigation: false, navigationKeys: false, autoplay: true, infinite: true, pauseOnHover: false});
