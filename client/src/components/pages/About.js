@@ -25,76 +25,81 @@ const About = ({ isAuthenticated }) => {
         <section className="section is-medium">
           <div className="container">
             <div className="columns has-text-centered is-centered">
-              
               <div className="column has-text-centered is-10">
                 <p className="title is-1">
                    Chi siamo?
                 </p>
                 <p className="subtitle is-3">
-                Siamo un gruppo di giovani programmatori veronesi, stiamo sviluppando questo strumento per facilitare la vita alle migliaia di pizzerie Venete che hanno bisogno di una presenza online. 
+                Siamo un gruppo di giovani programmatori veronesi, stiamo sviluppando questo strumento per facilitare la vita alle migliaia di pizzerie che hanno bisogno di una presenza online. 
                 </p>
               </div>
             </div>  
+          </div>
+          <div className="container">
+            <div className="columns has-text-centered is-centered">
+              <div className="column has-text-centered is-10">
+                <p className="title is-1">Il team</p>
+              </div>
+            </div>
+          </div>
+          <div className="container">
             <div className="columns is-centered">
               <div className="column is-3">
-                <div class="card">
-                  <div class="card-image">
-                    <figure class="image is-4by3">
-                      <img src={damiano} alt="Damiano Presa" />
-                    </figure>
+                <div className="card">
+                  <div className="card-image">
+                    
                   </div>
-                  <div class="card-content">
-                    <div class="media">
+                  <div className="card-content">
+                    <div className="media">
                       
-                      <div class="media-content">
-                        <p class="title is-4">Damiano Presa</p>
-                        <p class="subtitle is-6">Sviluppatore full-stack</p>
+                      <div className="media-content">
+                        <p className="title is-4">Damiano Presa</p>
+                        <p className="subtitle is-6">Sviluppatore full-stack</p>
                       </div>
                     </div>
-
-                    <div class="content">
+                    <div className="content">
                       Cresciuto a pizza e codice, inventa di notte e costruisce di giorno. 
+                      <br />
+                      <br />
+                      <br />
                     </div>
                   </div>
                 </div>
               </div>
               <div className="column is-3">
-                <div class="card">
-                  <div class="card-image">
-                    <figure class="image is-4by3">
-                      <img src={nicola} alt="Nicola Ramoso" />
-                    </figure>
+                <div className="card">
+                  <div className="card-image">
+                    
                   </div>
-                  <div class="card-content">
-                    <div class="media">
-                      <div class="media-content">
-                        <p class="title is-4">Nicola Ramoso</p>
-                        <p class="subtitle is-6">Sviluppatore backend</p>
+                  <div className="card-content">
+                    <div className="media">
+                      <div className="media-content">
+                        <p className="title is-4">Nicola Ramoso</p>
+                        <p className="subtitle is-6">Sviluppatore backend</p>
                       </div>
                     </div>
                       Leggasi Damiano Presa, con qualche kg in più e una spiccata predilezione per i server.
-                    <div class="content">
-                      
+                      <br />
+                      <br />
+                    <div className="content">
                     </div>
                   </div>
                 </div>
               </div>
               <div className="column is-3">
-                <div class="card">
-                  <div class="card-image">
-                    <figure class="image is-4by3">
-                      <img src={niccolo} alt="Niccolò Ramponi" />
-                    </figure>
+                <div className="card">
+                  <div className="card-image">
+                    
                   </div>
-                  <div class="card-content">
-                    <div class="media">
-                      <div class="media-content">
-                        <p class="title is-4">Niccolò Ramponi</p>
-                        <p class="subtitle is-6">Marketing guru</p>
+                  <div className="card-content">
+                    <div className="media">
+                      <div className="media-content">
+                        <p className="title is-4">Niccolò Ramponi</p>
+                        <p className="subtitle is-6">Marketing guru</p>
                       </div>
                     </div>
 
-                    <div class="content">
+                    <div className="content">
                       Già fondatore di <a href="https://www.lascienzainpalestra.it">La Scienza in Palestra</a> e <a href="https://www.fisioscience.it">FisioScience</a>, è appassionato di startup e digital marketing.
                     </div>
                   </div>

@@ -22,16 +22,16 @@ const About = ({ isAuthenticated }) => {
       <Fragment>
         <section className="section is-medium">
           <div className="container">
-            <div className="columns">
+            <div className="columns is-vcentered">
               <div className="column is-1" />
-              <div className="column is-5">
+              <div className="column is-5 has-text-centered">
                 <p className="title is-1">
                   Contattaci quando vuoi per qualsiasi motivo
                 </p>
                 <p className="subtitle is-3">
-                  Scrivici su Whatsapp se hai problemi ad utilizzare il nostro sito, o se hai domande da farci. Risponderemo appena possibile di persona. Soprattutto i consigli sono ben accetti!
+                  Scrivici su Whatsapp se hai problemi ad utilizzare il nostro sito, o se hai domande da farci. Risponderemo appena possibile di persona. Anche i consigli sono ben accetti!
                 </p>
-                <div className="buttons">
+                <div className="buttons is-centered">
                   <a href="https://wa.me/393515350988" className="button is-primary">
                     Scrivici su Whatsapp
                   </a>
