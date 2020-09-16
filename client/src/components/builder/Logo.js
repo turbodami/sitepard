@@ -21,7 +21,7 @@ const Logo = ({ formData, nextStep, prevStep, uploadLogo }) => {
       console.log("immagine non caricata");
     }
 
-    const promise = uploadLogo(formData, logo, nextStep);
+    const promise = uploadLogo(formData, e.target.files[0]);
     promise.then(success, failure);
   }
 
