@@ -24,10 +24,9 @@ html
                         a.button.is-info(href=`tel:${tel}`) Chiama
         .section.hero.is-medium.has-carousel
             div(id="carousel" class="hero-carousel")
-                .item-1
-                    img(src=images[0].link)
-                .item-2
-                    img(src=images[1].link)
+                each image in images
+                    .item
+                        img(src=image.link)
             .hero-body.has-text-centered
                 h1(class='title is-size-1-desktop is-size-3-mobile has-text-white') #{name}
         .section.is-medium
