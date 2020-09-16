@@ -118,10 +118,10 @@ const Cover = ({ formData, nextStep, prevStep, uploadImage }) => {
               <div className="column is-3"></div>
               <div className="column is-6 has-text-centered">
                 <p className="title is-1">
-                  Vuoi usare un'immagine di copertina?
+                  Vuoi usare alcune immagini di copertina?
                 </p>
                 <p className="subtitle is-3">
-                  Sarà l'immagine che i tuoi clienti vedranno per prima
+                  Verranno visualizzate sul tuo sito
                 </p>
                 <div className="buttons are-large is-centered has-text-centered">
                   <button

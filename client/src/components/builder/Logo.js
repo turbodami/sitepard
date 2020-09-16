@@ -12,27 +12,17 @@ const Logo = ({ formData, nextStep, prevStep, uploadLogo }) => {
     config: { duration: 500 },
   });
 
-  const [logo, setLogo] = useState({
-    logo: null
-  });
+  const handleImage = (e) => {
 
-  const handleUpload = (e) => {
-    
-    setLogo({
-      logo: e.target.files[0]
-    });
-  }
-
-  const sendLogo = async () => {
-    function successCallback(result) {
-      nextStep();
+    function success(result) {
+      console.log("immagine caricata");
     }
-    function failureCallback(error) {
-      console.log("error");
+    function failure(error) {
+      console.log("immagine non caricata");
     }
 
     const promise = uploadLogo(formData, logo, nextStep);
-    promise.then(successCallback, failureCallback);
+    promise.then(success, failure);
   }
 
   const logoLoader = (
@@ -41,7 +31,7 @@ const Logo = ({ formData, nextStep, prevStep, uploadLogo }) => {
         <div className="field">
           <div className="file is-boxed is-centered">
             <label className="file-label">
-              <input className="file-input" type="file" name="file" onChange={handleUpload}/>
+              <input className="file-input" type="file" name="file" onChange={handleImage}/>
               <span className="file-cta"> 
                 <span className="file-label">Carica logo</span>
               </span>
@@ -52,7 +42,7 @@ const Logo = ({ formData, nextStep, prevStep, uploadLogo }) => {
         <input
           type="button"
           onClick={() => {
-            sendLogo();
+            nextStep();
           }}
           className="button is-info"
           value="Avanti"
