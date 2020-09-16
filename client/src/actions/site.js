@@ -39,11 +39,11 @@ export const uploadLogo = (formData, logo) => async (
 
   try {
     const businessName = formData.name;
-    const uploadedName = logo.logo.name;
+    const uploadedName = logo.name;
     const { subdomain } = formData; 
 
     const data = new FormData(); 
-    data.append('file', logo.logo);
+    data.append('file', logo);
 
     let imageName = businessName;
     imageName = imageName.replace(/\s/g, '').toLowerCase();
