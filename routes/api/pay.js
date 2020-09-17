@@ -4,7 +4,7 @@ require('dotenv').config();
 const cors = require("cors");
 
 const stripe= require("stripe")("pk_test_5kEss9zsrNnzTEmgT1DMA0Mx00StBPnE3c");
-const uuid = require("uuid/v4");
+const { v4: uuid_v4 } = require('uuid')
 
 //middleware
 router.use(express.json());
@@ -19,7 +19,7 @@ router.post('/payment', (req, res) => {
     const { product, token } = req.body;
     console.log("PRODUCT ", product);
     console.log("PRICE ", product.price);
-    const idempontencyKey = uuid();
+    const idempontencyKey = uuid_v4();
 
     return stripe.customers.create({
         email: token.email,
