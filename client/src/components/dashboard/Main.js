@@ -6,6 +6,7 @@ import { connect } from "react-redux";
 
 import Spinner from "../layout/Spinner";
 import Mobile from "../show/Mobile";
+import Stripe from "../forms/Stripe";
 
 import { getCurrentSite } from "../../actions/site";
 
@@ -40,11 +41,12 @@ const Main = ({ getCurrentSite, auth: { user }, site: { site, loading } }) => {
           </p>
 
           <p>Il link del tuo sito è: </p>
-          <a href={site.domain ? `http://${site.domain}` : `http://${site.subdomain}.sitepard.com`}> 
-            <h2 className="subtitle is-4">{site.domain ? `http://${site.domain}` : `http://${site.subdomain}.sitepard.com`}</h2>
+          <a href={site.domain ? `http://${site.domain}` : `https://${site.subdomain}.sitepard.com`}> 
+            <h2 className="subtitle is-4">{site.domain ? `https://${site.domain}` : `https://${site.subdomain}.sitepard.com`}</h2>
           </a>
           <br />
           <br />
+          <Stripe />
           <br />
           <br />
           <br />
