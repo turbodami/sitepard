@@ -32,7 +32,7 @@ const Stripe = () => {
     return (
         <Fragment>
             <StripeCheckout 
-                stripeKey={process.env.REACT_APP_KEY}
+                stripeKey="pk_test_5kEss9zsrNnzTEmgT1DMA0Mx00StBPnE3c"
                 token={makePayment}
                 name="Paga ora"
                 amount={product.price * 100}
