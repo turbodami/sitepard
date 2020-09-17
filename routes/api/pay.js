@@ -3,7 +3,7 @@ const router = express.Router();
 require('dotenv').config();
 const cors = require("cors");
 
-const stripe= require("stripe")(process.env.STRIPE_SECRET_KEY);
+const stripe= require("stripe")("sk_test_k9rvKdpU76znJghy6Hjnrrgy00LxZnKWYy");
 const { v4: uuid_v4 } = require('uuid')
 
 //middleware
