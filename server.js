@@ -21,6 +21,9 @@ app.use("/api/webhook", require("./routes/api/webhookRoute"));
 app.use("/api/mail", require("./routes/api/mailRoute"));
 app.use("/api/domains", require("./routes/api/domainsRoute"));
 
+//momentanea
+app.use("/api/pay", require("./routes/api/pay"));
+
 // Serve staitc assets in production
 if(process.env.NODE_ENV === 'production')
 {
