@@ -1,9 +1,9 @@
 const cors = require("cors");
-const express = require("express");
+const express = require('express');
+const app = express.Router();
+
 //const stripe= require("stripe")("");
 const uuid = require("uuid/v4");
-
-const app = express();
 
 //middleware
 app.use(express.json());
