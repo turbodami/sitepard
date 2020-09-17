@@ -1,6 +1,6 @@
 import React, { Fragment, useState } from "react";
 import StripeCheckout from "react-stripe-checkout";
-import Axios from "axios";
+import axios from "axios";
 
 const Stripe = () => {
     const [product, setProduct] = useState({
