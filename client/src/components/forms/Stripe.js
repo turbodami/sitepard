@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { Fragment, useState } from "react";
 import StripeCheckout from "react-stripe-checkout";
 
 const Stripe = () => {
