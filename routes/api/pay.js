@@ -1,5 +1,5 @@
 const express = require('express');
-const app = express.Router();
+const router = express.Router();
 require('dotenv').config();
 const cors = require("cors");
 
@@ -7,10 +7,12 @@ const cors = require("cors");
 const uuid = require("uuid/v4");
 
 //middleware
-app.use(express.json());
-app.use(cors());
+router.use(express.json());
+router.use(cors());
 
 //routes
-app.get('/', (req, res) => {
+router.get('/', (req, res) => {
     res.send("It works");
 })
+
+module.exports = router;
