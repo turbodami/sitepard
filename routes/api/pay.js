@@ -35,7 +35,7 @@ router.post('/payment', async (req, res) => {
             description: `purchase of ${product.name}`
         }, {idempontencyKey});
     })
-    .then(async function(charge) {
+    .then(async function() {
         console.log("sono dentro");
         const user = await User.findOneAndUpdate({email : req.body.email}, {$set: {temporaryPayment: true}}, (err, user) => {
             if(err) {
