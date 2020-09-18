@@ -35,6 +35,16 @@ router.post('/payment', async (req, res) => {
             description: `purchase of ${product.name}`
         }, {idempontencyKey});
     })
+    .then(async function(charge) {
+        const user = await User.findOneAndUpdate({email : req.body.email}, {$set: {temporaryPayment: true}}, (err, user) => {
+            if(err) {
+                console.log(err);
+                res.status(500).json({message: 'pagamento non effettuato'});
+            } else {
+                res.status(200).json({message: 'pagamento effettuato'});
+            }
+        });
+    })
     .then(result => res.status(200).json(result))
     .catch(err => console.log(err));
 })
