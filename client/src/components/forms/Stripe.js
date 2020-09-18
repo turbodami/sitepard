@@ -23,8 +23,6 @@ const Stripe = () => {
         return axios.post('/api/pay/payment', body, config)
             .then(response => {
 
-                createSite(siteData, history, true);
-
                 console.log("RESPONSE ", response);
                 const { status } = response;
                 console.log("STATUS ", status);
