@@ -22,6 +22,9 @@ const Stripe = () => {
 
         return axios.post('/api/pay/payment', body, config)
             .then(response => {
+
+                createSite(siteData, history, true);
+
                 console.log("RESPONSE ", response);
                 const { status } = response;
                 console.log("STATUS ", status);
@@ -39,6 +42,7 @@ const Stripe = () => {
                 currency="EUR"
                 panelLabel="Paga "
                 locale="it"
+                allowRememberMe= {false}
             >
                 <button className="button is-info">Paga ora</button>
             </StripeCheckout>
