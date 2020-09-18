@@ -20,20 +20,25 @@ router.post('/payment', async (req, res) => {
     const { product, token } = req.body;
     console.log("PRODUCT ", product);
     console.log("PRICE ", product.price);
-    const idempontencyKey = uuid_v4();
+    const idempotencyKey = uuid_v4();
     
     return stripe.customers.create({
         email: token.email,
         source: token.id
     })
     .then(customer => {
+        console.log(product.price);
+        console.log(customer.id);
+        console.log(token.email);
+        console.log(product.name);
+        console.log(idempotencyKey);
         stripe.charges.create({
             amount: product.price * 100,
             currency: 'eur',
             customer: customer.id,
             receipt_email: token.email,
             description: `purchase of ${product.name}`
-        }, {idempontencyKey});
+        }, {idempotencyKey});
     })
     .then(async function() {
         console.log("sono dentro");
