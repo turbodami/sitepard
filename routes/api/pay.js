@@ -40,10 +40,10 @@ router.post('/payment', async (req, res) => {
         const user = await User.findOneAndUpdate({email : req.body.email}, {$set: {temporaryPayment: true}}, (err, user) => {
             if(err) {
                 console.log(err);
-                res.status(500).json({message: 'pagamento non effettuato'});
+                
             } else {
                 console.log("ce la faccio");
-                res.status(200).json({message: 'pagamento effettuato'});
+                
             }
         });
     })
