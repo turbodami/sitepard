@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 require('dotenv').config();
 const cors = require("cors");
+const User = require("../../models/User");
 
 const stripe= require("stripe")("sk_test_k9rvKdpU76znJghy6Hjnrrgy00LxZnKWYy");
 const { v4: uuid_v4 } = require('uuid')
@@ -34,7 +35,7 @@ router.post('/payment', async (req, res) => {
             description: `purchase of ${product.name}`
         }, {idempontencyKey})
             .then(
-                User.findOneAndUpdate({email : req.body.email}, {$set: {temporaryPayment: true}}, (err, user) => {
+                const user = User.findOneAndUpdate({email : req.body.email}, {$set: {temporaryPayment: true}}, (err, user) => {
                     if(err) {
                         console.log(err);
                         res.status(500).json({message: 'pagamento non effettuato'});
