@@ -21,7 +21,7 @@ router.post('/payment', async (req, res) => {
     console.log("PRODUCT ", product);
     console.log("PRICE ", product.price);
     const idempontencyKey = uuid_v4();
-
+    
     return stripe.customers.create({
         email: token.email,
         source: token.id
@@ -33,17 +33,18 @@ router.post('/payment', async (req, res) => {
             customer: customer.id,
             receipt_email: token.email,
             description: `purchase of ${product.name}`
-        }, {idempontencyKey})
-            .then(
-                const user = await User.findOneAndUpdate({email : req.body.email}, {$set: {temporaryPayment: true}}, (err, user) => {
-                    if(err) {
-                        console.log(err);
-                        res.status(500).json({message: 'pagamento non effettuato'});
-                    } else {
-                        res.status(200).json({message: 'pagamento effettuato'});
-                    }
-                });
-            );
+        })
+        .then(charge => {
+            idempontencyKey;
+            const user = await User.findOneAndUpdate({email : req.body.email}, {$set: {temporaryPayment: true}}, (err, user) => {
+                if(err) {
+                    console.log(err);
+                    res.status(500).json({message: 'pagamento non effettuato'});
+                } else {
+                    res.status(200).json({message: 'pagamento effettuato'});
+                }
+            });
+        });
     })
     .then(result => res.status(200).json(result))
     .catch(err => console.log(err));
