@@ -10,48 +10,44 @@ const Header = () => {
 
   return (
     <Fragment>
-      
-        <Fragment>
-          <nav
-            className="navbar is-spaced is-white"
-            role="navigation"
-            aria-label="main navigation"
-          >
-            <div className="navbar-brand">
-              <Link className="navbar-item" to="/">
-                <h1 className="title is-1">Sitepard</h1>
-                
-              </Link>
-            </div>
+      <nav
+        className="navbar is-spaced is-white"
+        role="navigation"
+        aria-label="main navigation"
+      >
+        <div className="navbar-brand">
+          <Link className="navbar-item" to="/">
+            <h1 className="title is-1">Sitepard</h1>
+            
+          </Link>
+        </div>
 
-            <div className="navbar-menu">
-              <div className="navbar-start">
-                <Link className="navbar-item" to="/sitebuilder">
-                  Crea sito
+        <div className="navbar-menu">
+          <div className="navbar-start">
+            <Link className="navbar-item" to="/sitebuilder">
+              Crea sito
+            </Link>
+            <Link className="navbar-item" to="/about">
+              Chi siamo
+            </Link>
+            <Link className="navbar-item" to="/contact">
+              Contattaci
+            </Link>
+          </div>
+          <div className="navbar-end">
+            <div className="navbar-item">
+              <div className="buttons">
+                <Link to="/login" className="button is-warning">
+                  Login
                 </Link>
-                <Link className="navbar-item" to="/about">
-                  Chi siamo
+                <Link to="/sitebuilder" className="button is-info">
+                  Registrati
                 </Link>
-                <Link className="navbar-item" to="/contact">
-                  Contattaci
-                </Link>
-              </div>
-              <div className="navbar-end">
-                <div className="navbar-item">
-                  <div className="buttons">
-                    <Link to="/login" className="button is-warning">
-                      Login
-                    </Link>
-                    <Link to="/sitebuilder" className="button is-info">
-                      Registrati
-                    </Link>
-                  </div>
-                </div>
               </div>
             </div>
-          </nav>
-        </Fragment>
-      
+          </div>
+        </div>
+      </nav>
     </Fragment>
   );
 };

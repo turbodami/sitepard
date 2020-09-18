@@ -15,6 +15,14 @@ const Main = ({ getCurrentSite, auth: { user }, site: { site, loading } }) => {
     getCurrentSite();
   }, [getCurrentSite]);
 
+  const stripe = (
+    <div className="box has-background-primary">
+      <p className="subtitle is-4">Paga entro 48 ore per attivare il servizio. Sono 20,00€ per 30 giorni.</p>
+      <p className="subtitle is-5">Tranquillo! Non ci sarà alcun rinnovo automatico, ti contatteremo personalmente tra 30 giorni per capire insieme se il servizio è stato di tuo gradimento.</p>
+      <Stripe />
+    </div>
+  );
+
   return loading && site === null ? (
     <Spinner />
   ) : (
@@ -46,13 +54,7 @@ const Main = ({ getCurrentSite, auth: { user }, site: { site, loading } }) => {
           </a>
           <br />
           <br />
-          {user.temporaryPayment === false ? 
-            <div className="box has-background-primary">
-              <p className="subtitle is-4">Paga entro 48 ore per attivare il servizio. Sono 20,00€ per 30 giorni.</p>
-              <p className="subtitle is-5">Tranquillo! Non ci sarà alcun rinnovo automatico, ti contatteremo personalmente tra 30 giorni per capire insieme se il servizio è stato di tuo gradimento.</p>
-              <Stripe />
-            </div>
-          }
+          {user.temporaryPayment === false && {stripe}}
           <br />
           <br />
           <br />
