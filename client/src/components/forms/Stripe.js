@@ -36,7 +36,9 @@ const Stripe = () => {
                 token={makePayment}
                 name="Paga ora"
                 amount={product.price * 100}
-            />
+            >
+                <button className="button is-info">Paga ora</button>
+            </StripeCheckout>
         </Fragment>
     );
 }

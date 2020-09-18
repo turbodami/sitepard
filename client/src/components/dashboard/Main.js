@@ -46,6 +46,7 @@ const Main = ({ getCurrentSite, auth: { user }, site: { site, loading } }) => {
           </a>
           <br />
           <br />
+          <p className="subtitle is-4">Paga entro 48 ore per attivare il servizio. Tranquillo! Non ci sarà alcun rinnovo automatico, ti contatteremo personalmente tra 30 giorni per capire insieme se il servizio è stato di tuo gradimento.</p>
           <Stripe />
           <br />
           <br />
