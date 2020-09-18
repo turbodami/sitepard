@@ -74,6 +74,7 @@ router.post(
       timeTable,
       categories,
       products,
+      temporaryPayment
     } = req.body;
 
     //build site object
@@ -96,6 +97,7 @@ router.post(
     if (timeTable) siteFields.timeTable = timeTable;
     if (categories) siteFields.categories = categories;
     if (products) siteFields.products = products;
+    if (temporaryPayment) siteFields.temporaryPayment = temporaryPayment;
 
     try {
       let site = await Site.findOne({ user: req.user.id });

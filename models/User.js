@@ -28,6 +28,10 @@ const UserSchema = new mongoose.Schema({
   {
     type: String,
     expires: 4320
+  },
+  temporaryPayment: {
+    type: Boolean,
+    default: false
   }
 });
 
