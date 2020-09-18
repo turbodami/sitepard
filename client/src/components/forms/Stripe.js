@@ -36,7 +36,9 @@ const Stripe = () => {
                 token={makePayment}
                 name="Paga ora"
                 amount={product.price * 100}
-                data-locale="auto"
+                currency="EUR"
+                panelLabel="Paga "
+                locale="it"
             >
                 <button className="button is-info">Paga ora</button>
             </StripeCheckout>
