@@ -36,7 +36,7 @@ router.post('/payment', async (req, res) => {
         }, {idempontencyKey})
     })
     .then(async function(charge) {
-        const user = await User.findOneAndUpdate({email : req.body.email}, {$set: {temporaryPayment: true}}, (err, user) => {
+        User.findOneAndUpdate({email : req.body.email}, {$set: {temporaryPayment: true}}, (err, user) => {
             if(err) {
                 console.log(err);
                 res.status(500).json({message: 'pagamento non effettuato'});
