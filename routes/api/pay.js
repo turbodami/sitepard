@@ -47,8 +47,9 @@ router.post('/payment', async (req, res) => {
                 console.log(err);
                 
             } else {
-                console.log("ce la faccio");
+                console.log(user);
                 
+
             }
         });
     })
