@@ -45,7 +45,7 @@ const Stripe = ({ getCurrentSite, site: { site }, auth: { user }}) => {
     return (
         <Fragment>
             <div className="box has-background-primary">
-                <p className="subtitle is-4">Paga entro 48 ore per attivare il servizio. Sono 20,00€ per 30 giorni.</p>
+                <p className="subtitle is-4">Paga entro 48 ore per provare il servizio. Sono 20,00€ per la prova di 30 giorni.</p>
                 <p className="subtitle is-5">Tranquillo! Non ci sarà alcun rinnovo automatico, ti contatteremo personalmente tra 30 giorni per capire insieme se il servizio è stato di tuo gradimento.</p>
                 <StripeCheckout 
                     stripeKey="pk_live_kPkXGLa58tJoubhum0xXoGod00ICNvqE5w"
