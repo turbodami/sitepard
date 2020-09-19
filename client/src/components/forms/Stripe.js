@@ -13,7 +13,7 @@ const Stripe = (props) => {
 
     console.log(email);
     
-    const makePayment = (token, email) => {
+    const makePayment = token => {
         console.log(email);
 
         const config = {
