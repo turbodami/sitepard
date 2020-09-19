@@ -15,10 +15,6 @@ const Main = ({ getCurrentSite, auth: { user }, site: { site, loading } }) => {
     getCurrentSite();
   }, [getCurrentSite]);
 
-  useEffect(() => {
-    forceUpdate();
-  }, [user.temporaryPayment]);
-
   const { email } = user;
   console.log(email);
   return loading && site === null ? (

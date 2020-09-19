@@ -34,6 +34,7 @@ const Stripe = (props) => {
                 console.log("RESPONSE ", response);
                 const { status } = response;
                 console.log("STATUS ", status);
+                window.location.reload();
             })
             .catch(error => console.log(error));
     }
