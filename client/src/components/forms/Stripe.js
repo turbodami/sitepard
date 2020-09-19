@@ -41,7 +41,7 @@ const Stripe = ({email}) => {
                 <p className="subtitle is-5">Tranquillo! Non ci sarà alcun rinnovo automatico, ti contatteremo personalmente tra 30 giorni per capire insieme se il servizio è stato di tuo gradimento.</p>
                 <StripeCheckout 
                     stripeKey="pk_test_5kEss9zsrNnzTEmgT1DMA0Mx00StBPnE3c"
-                    token={(email) => makePayment(email);}
+                    token={(email) => makePayment(email)}
                     name="Paga ora"
                     amount={product.price * 100}
                     currency="EUR"
