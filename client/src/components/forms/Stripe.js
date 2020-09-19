@@ -1,6 +1,9 @@
-import React, { Fragment, useState } from "react";
+import React, { Fragment, useState, useEffect } from "react";
 import StripeCheckout from "react-stripe-checkout";
 import axios from "axios";
+
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
 import { getCurrentSite } from "../../actions/site";
 
 const Stripe = ({ getCurrentSite, site: { site }, auth: { user }}) => {
