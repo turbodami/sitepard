@@ -73,12 +73,14 @@ const Stripe = ({ getCurrentSite, site: { site }, auth: { user }}) => {
 Stripe.propTypes = {
     getCurrentSite: PropTypes.func.isRequired,
     site: PropTypes.object.isRequired,
-  };
+    auth: PropTypes.object.isRequired
+};
   
-  const mapStateToProps = (state) => ({
+const mapStateToProps = (state) => ({
     site: state.site,
-  });
-  
-  export default connect(mapStateToProps, {
+    auth: state.auth
+});
+
+export default connect(mapStateToProps, {
     getCurrentSite,
-  })(Stripe);
+})(Stripe);
