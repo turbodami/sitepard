@@ -14,8 +14,6 @@ const Main = ({ getCurrentSite, auth: { user }, site: { site, loading } }) => {
   useEffect(() => {
     getCurrentSite();
   }, [getCurrentSite]);
-
-  const { email } = user;
   
   return loading && site === null ? (
     <Spinner />
@@ -48,7 +46,7 @@ const Main = ({ getCurrentSite, auth: { user }, site: { site, loading } }) => {
           </a>
           <br />
           <br />
-          {user.temporaryPayment === false && (<Stripe email={email}/>)}
+          {user.temporaryPayment === false && (<Stripe />)}
           {user.temporaryPayment && (<p className="subtitle is-4 has-text-primary">Il pagamento è andato a buon fine, il periodo di prova scadrà fra 30 giorni.</p>)}
           <br />
           <br />
