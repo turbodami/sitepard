@@ -2,13 +2,17 @@ import React, { Fragment, useState } from "react";
 import StripeCheckout from "react-stripe-checkout";
 import axios from "axios";
 
-const Stripe = ({email}) => {
+const Stripe = (props) => {
     const [product, setProduct] = useState({
         name: "prova",
         price: 20,
         productBy: "sitepard"
     });
 
+    const { email } = props;
+
+    console.log(email);
+    
     const makePayment = (token, email) => {
         console.log(email);
 
@@ -41,7 +45,7 @@ const Stripe = ({email}) => {
                 <p className="subtitle is-5">Tranquillo! Non ci sarà alcun rinnovo automatico, ti contatteremo personalmente tra 30 giorni per capire insieme se il servizio è stato di tuo gradimento.</p>
                 <StripeCheckout 
                     stripeKey="pk_test_5kEss9zsrNnzTEmgT1DMA0Mx00StBPnE3c"
-                    token={(email) => makePayment(email)}
+                    token={makePayment}
                     name="Paga ora"
                     amount={product.price * 100}
                     currency="EUR"
