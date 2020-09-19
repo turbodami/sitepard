@@ -65,7 +65,7 @@ const EditProducts = ({
             </div>
           </nav>
 
-          <div class="divider"></div>
+          <div className="divider"></div>
 
         {products.map(function(prod) {
           if(prod.category === cat.name) {

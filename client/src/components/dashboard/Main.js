@@ -49,7 +49,7 @@ const Main = ({ getCurrentSite, auth: { user }, site: { site, loading } }) => {
           <br />
           <br />
           {user.temporaryPayment === false && (<Stripe email={email}/>)}
-          {user.temporaryPayment && (<p className="subtitle is-4 is-primary">Il pagamento è andato a buon fine, il periodo di prova scadrà fra 30 giorni.</p>)}
+          {user.temporaryPayment && (<p className="subtitle is-4 has-text-primary">Il pagamento è andato a buon fine, il periodo di prova scadrà fra 30 giorni.</p>)}
           <br />
           <br />
           <br />

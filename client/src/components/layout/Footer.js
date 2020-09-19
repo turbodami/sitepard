@@ -14,16 +14,16 @@ const Footer = () => {
                 <div className="hero-body">
                     <div className="container">
                         <div className="columns is-vcentered is-centered mb-2">
-                            <i class="fas fa-laptop-code"></i>
-                            <h1 class="title is-1">Sitepard</h1>
+                            <i className="fas fa-laptop-code"></i>
+                            <h1 className="title is-1">Sitepard</h1>
                         </div>
                         <div className="columns is-vcentered is-centered">
-                            <nav class=" is-spaced is-primary" role="navigation" aria-label="main navigation">
-                                <div class="navbar-menu">
-                                    <div class="navbar-start">
-                                        <a class="navbar-item" href="/terms">Termini e Condizioni</a>
-                                        <a class="navbar-item" href="/privacy">Privacy Policy</a>
-                                        <a class="navbar-item" href="/contact">Contattaci</a>
+                            <nav className=" is-spaced is-primary" role="navigation" aria-label="main navigation">
+                                <div className="navbar-menu">
+                                    <div className="navbar-start">
+                                        <a className="navbar-item" href="/terms">Termini e Condizioni</a>
+                                        <a className="navbar-item" href="/privacy">Privacy Policy</a>
+                                        <a className="navbar-item" href="/contact">Contattaci</a>
                                     </div>
                                 </div>
                             </nav>
