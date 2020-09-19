@@ -32,7 +32,7 @@ const PasswordReset = ({passwordReset}) => {
         if(token){
             passwordReset(token, password);
         } else {
-            ("dio ti azzanna");
+            console.log("non bene");
         }
     }
     }
