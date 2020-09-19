@@ -2,27 +2,30 @@ import React, { Fragment, useState } from "react";
 import StripeCheckout from "react-stripe-checkout";
 import axios from "axios";
 
-const Stripe = () => {
+const Stripe = ({email}) => {
     const [product, setProduct] = useState({
         name: "prova",
         price: 20,
         productBy: "sitepard"
     });
 
-    const makePayment = token => {
-        const body = {
-            token,
-            product
-        };
+    const makePayment = (token, email) => {
+        
         const config = {
             headers: {
               "Content-Type": "application/json",
             },
-          };
+        };
+
+        const data = {
+            email,
+            token,
+            product
+        }
+        const body = JSON.stringify(data);
 
         return axios.post('/api/pay/payment', body, config)
             .then(response => {
-
                 console.log("RESPONSE ", response);
                 const { status } = response;
                 console.log("STATUS ", status);

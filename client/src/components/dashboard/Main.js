@@ -15,6 +15,8 @@ const Main = ({ getCurrentSite, auth: { user }, site: { site, loading } }) => {
     getCurrentSite();
   }, [getCurrentSite]);
 
+  const { email } = user;
+
   return loading && site === null ? (
     <Spinner />
   ) : (
@@ -46,7 +48,7 @@ const Main = ({ getCurrentSite, auth: { user }, site: { site, loading } }) => {
           </a>
           <br />
           <br />
-          {user.temporaryPayment === false && (<Stripe />)}
+          {user.temporaryPayment === false && (<Stripe user={user}/>)}
           <br />
           <br />
           <br />
