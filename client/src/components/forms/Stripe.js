@@ -1,15 +1,21 @@
 import React, { Fragment, useState } from "react";
 import StripeCheckout from "react-stripe-checkout";
 import axios from "axios";
+import { getCurrentSite } from "../../actions/site";
 
-const Stripe = (props) => {
+const Stripe = ({ getCurrentSite, site: { site }, auth: { user }}) => {
+
+    const { email } = user; 
+
+    useEffect(() => {
+        getCurrentSite();
+      }, [getCurrentSite]);
+
     const [product, setProduct] = useState({
         name: "prova",
         price: 20,
         productBy: "sitepard"
     });
-
-    const { email } = props;
 
     console.log(email);
     
@@ -61,4 +67,15 @@ const Stripe = (props) => {
     );
 }
 
-export default Stripe;
+Stripe.propTypes = {
+    getCurrentSite: PropTypes.func.isRequired,
+    site: PropTypes.object.isRequired,
+  };
+  
+  const mapStateToProps = (state) => ({
+    site: state.site,
+  });
+  
+  export default connect(mapStateToProps, {
+    getCurrentSite,
+  })(Stripe);
