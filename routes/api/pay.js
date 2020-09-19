@@ -4,7 +4,7 @@ require('dotenv').config();
 const cors = require("cors");
 const User = require("../../models/User");
 
-const stripe= require("stripe")("sk_test_k9rvKdpU76znJghy6Hjnrrgy00LxZnKWYy");
+const stripe= require("stripe")("sk_live_Rwt6aABHpaiE6gR8wD8O5OUn00Dmiz6Hqc");
 const { v4: uuid_v4 } = require('uuid')
 
 //middleware
