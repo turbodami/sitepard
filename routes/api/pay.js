@@ -42,7 +42,7 @@ router.post('/payment', async (req, res) => {
     })
     .then(async function() {
         console.log("sono dentro");
-        console.log(req);
+        console.log(req.body.email);
         const user = await User.findOneAndUpdate({email : req.body.email}, {$set: {temporaryPayment: true}}, (err, user) => {
             if(err) {
                 console.log(err);
