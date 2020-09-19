@@ -16,7 +16,7 @@ const Main = ({ getCurrentSite, auth: { user }, site: { site, loading } }) => {
   }, [getCurrentSite]);
 
   const { email } = user;
-  console.log(email);
+  
   return loading && site === null ? (
     <Spinner />
   ) : (
