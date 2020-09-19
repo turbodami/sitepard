@@ -15,7 +15,7 @@ const Mobile = ({getCurrentSite, site: { site },}) => {
   }, [getCurrentSite]);
 
   /* useEffect(() => {
-    console.log("dio cane ci sono2");
+    ("dio cane ci sono2");
     if(document.getElementById('preview')){
       console.log(document.getElementById('preview'));
       console.log(document.getElementById('preview').contentWindow);

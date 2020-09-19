@@ -20,10 +20,10 @@ const Stripe = ({ getCurrentSite, site: { site }, auth: { user }}) => {
         productBy: "sitepard"
     });
 
-    console.log(email);
+    (email);
     
     const makePayment = token => {
-        console.log(email);
+        (email);
 
         const config = {
             headers: {
@@ -40,9 +40,9 @@ const Stripe = ({ getCurrentSite, site: { site }, auth: { user }}) => {
 
         return axios.post('/api/pay/payment', body, config)
             .then(response => {
-                console.log("RESPONSE ", response);
+                ("RESPONSE ", response);
                 const { status } = response;
-                console.log("STATUS ", status);
+                ("STATUS ", status);
                 window.location.reload();
             })
             .catch(error => console.log(error));

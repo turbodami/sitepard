@@ -60,7 +60,7 @@ server.get("/s/:firstSubdomain/*", async (req, res) => {
       whatsappNumber,
       tel
     } = site;
-    console.log(timeTable);
+    (timeTable);
 
     if (site) {
       switch (category) {
@@ -111,7 +111,7 @@ server.get('*', async(req,res) =>
       whatsappNumber,
       tel
     } = site;
-    console.log(timeTable);
+    (timeTable);
 
     if (site) {
       switch (category) {
