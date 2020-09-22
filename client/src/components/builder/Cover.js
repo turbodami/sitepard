@@ -31,9 +31,42 @@ const Cover = ({ formData, nextStep, prevStep, uploadImage }) => {
         <div className="field">
           <div className="file is-boxed is-centered">
             <label className="file-label">
+              <input className="file-input" type="file" name="cover" onChange={handleImage}/>
+              <span className="file-cta"> 
+                <span className="file-label">Carica un'immagine rotonda (una pizza)</span>
+              </span>
+            </label>
+          </div>
+        </div>
+
+        <div className="field">
+          <div className="file is-boxed is-centered">
+            <label className="file-label">
+              <input className="file-input" type="file" name="env1" onChange={handleImage}/>
+              <span className="file-cta"> 
+                <span className="file-label">Carica una foto dell'interno della tua pizzeria</span>
+              </span>
+            </label>
+          </div>
+        </div>
+
+        <div className="field">
+          <div className="file is-boxed is-centered">
+            <label className="file-label">
+              <input className="file-input" type="file" name="env2" onChange={handleImage}/>
+              <span className="file-cta"> 
+                <span className="file-label">Carica una foto dell'esterno della tua pizzeria</span>
+              </span>
+            </label>
+          </div>
+        </div>
+
+        <div className="field">
+          <div className="file is-boxed is-centered">
+            <label className="file-label">
               <input className="file-input" type="file" name="dish1" onChange={handleImage}/>
               <span className="file-cta"> 
-                <span className="file-label">Carica copertina</span>
+                <span className="file-label">Carica la foto di una pizza</span>
               </span>
             </label>
           </div>
@@ -44,7 +77,7 @@ const Cover = ({ formData, nextStep, prevStep, uploadImage }) => {
             <label className="file-label">
               <input className="file-input" type="file" name="dish2" onChange={handleImage}/>
               <span className="file-cta"> 
-                <span className="file-label">Carica copertina</span>
+                <span className="file-label">Carica la foto di un'altra pizza</span>
               </span>
             </label>
           </div>
@@ -55,40 +88,7 @@ const Cover = ({ formData, nextStep, prevStep, uploadImage }) => {
             <label className="file-label">
               <input className="file-input" type="file" name="dish3" onChange={handleImage}/>
               <span className="file-cta"> 
-                <span className="file-label">Carica copertina</span>
-              </span>
-            </label>
-          </div>
-        </div>
-
-        <div className="field">
-          <div className="file is-boxed is-centered">
-            <label className="file-label">
-              <input className="file-input" type="file" name="dish4" onChange={handleImage}/>
-              <span className="file-cta"> 
-                <span className="file-label">Carica copertina</span>
-              </span>
-            </label>
-          </div>
-        </div>
-
-        <div className="field">
-          <div className="file is-boxed is-centered">
-            <label className="file-label">
-              <input className="file-input" type="file" name="dish5" onChange={handleImage}/>
-              <span className="file-cta"> 
-                <span className="file-label">Carica copertina</span>
-              </span>
-            </label>
-          </div>
-        </div>
-
-        <div className="field">
-          <div className="file is-boxed is-centered">
-            <label className="file-label">
-              <input className="file-input" type="file" name="env" onChange={handleImage}/>
-              <span className="file-cta"> 
-                <span className="file-label">Carica copertina</span>
+                <span className="file-label">Carica la foto della terza pizza</span>
               </span>
             </label>
           </div>
