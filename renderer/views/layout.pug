@@ -23,10 +23,11 @@ html
                             a.button.is-primary(href=`https://wa.me/39${whatsappNumber}`) Ordina su Whatsapp
                         a.button.is-info(href=`tel:${tel}`) Chiama
         .section.hero.is-medium.has-carousel
-            div(id="carousel" class="hero-carousel")
+            div(id="carousel" class="hero-carousel has-text-centered")
                 each image in images
-                    .item
-                        img(src=image.link)
+                    if(image.name !== "cover")
+                        .item
+                            img(src=image.link)
             .hero-body.has-text-centered
                 h1(class='title is-size-1-desktop is-size-3-mobile has-text-white') #{name}
         .section.is-medium
@@ -36,8 +37,10 @@ html
                         p.subtitle.is-size-3-desktop.is-size-5-mobile.is-italic #{description}  
                     .column.is-1            
                     .column.is-one-third.is-vcentered
-                        figure.image.is-square
-                            img.is-rounded(src=images[2].link)
+                        each image in images
+                            if(image.name === "cover")
+                                figure.image.is-square
+                                    img.is-rounded(src=images[2].link)
         .section.is-medium.has-background-black(id='menu')
             .container
                 .columns.is-centered
