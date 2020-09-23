@@ -22,8 +22,8 @@ html
                         if(whatsappNumber)
                             a.button.is-primary(href=`https://wa.me/39${whatsappNumber}`) Ordina su Whatsapp
                         a.button.is-info(href=`tel:${tel}`) Chiama
-        .section.hero.is-medium.has-carousel
-            div(id="carousel" class="hero-carousel has-text-centered")
+        .section.hero.is-medium.has-carousel.is-vcentered
+            div(id="carousel" class="hero-carousel   has-text-centered")
                 each image in images
                     if(image.name !== "cover")
                         .item
@@ -35,7 +35,7 @@ html
                 .columns.is-centered.is-vcentered
                     .column.is-one-third.has-text-centered
                         p.subtitle.is-size-3-desktop.is-size-5-mobile.is-italic #{description} 
-                        .buttons.is-hidden-desktop
+                        .buttons.is-hidden-desktop.is-centered
                             if(whatsappNumber)
                                 a.button.is-primary(href=`https://wa.me/39${whatsappNumber}`) Ordina su Whatsapp
                             a.button.is-info(href=`tel:${tel}`) Chiama
