@@ -1,1 +1,1 @@
-A website builder based on MERN stack and pug.
+A website builder based on MERN stack and Jade.
